@@ -33,8 +33,10 @@ namespace FluffyDisdog.UI
             var deckLength = 30; //변경필요
             for (int i = 0; i < deckLength; i++)
             {
-                deck.Push((ToolType)Random.Range(0,1));
+                deck.Push((ToolType)Random.Range(0,2));
             }
+
+            return;
         }
 
         private void DrawDeck()

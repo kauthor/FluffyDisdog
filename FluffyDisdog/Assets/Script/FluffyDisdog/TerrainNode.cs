@@ -9,20 +9,17 @@ namespace FluffyDisdog
         Raw=0,
         Digged=1,
     }
-    public class TerrainNode:MonoBehaviour,IPointerClickHandler
+    public class TerrainNode:MonoBehaviour
     {
         [SerializeField] private bool isObstacle=false;
         private Tuple<int, int> coord;
         public Tuple<int, int> Coord => coord;
         private Action<Tuple<int, int>> onClicked;
-        private SpriteRenderer _renderer;
+        [SerializeField]private SpriteRenderer _renderer;
 
         private NodeState currentState;
 
-        private void Awake()
-        {
-            _renderer = GetComponent<SpriteRenderer>();
-        }
+        
 
         public void InitNode(int row, int col, Action<Tuple<int, int>> cb)
         {
@@ -30,8 +27,8 @@ namespace FluffyDisdog
             onClicked = cb;
             currentState = NodeState.Raw;
         }
-        
-        public void OnPointerClick(PointerEventData eventData)
+
+        private void OnMouseDown()
         {
             onClicked?.Invoke(coord);
         }
@@ -42,6 +39,9 @@ namespace FluffyDisdog
             {
                 return;
             }
+
+            if (currentState == NodeState.Digged)
+                return;
 
             currentState = NodeState.Digged;
             _renderer.sprite = null;

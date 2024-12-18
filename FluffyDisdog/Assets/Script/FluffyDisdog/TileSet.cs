@@ -62,7 +62,8 @@ namespace FluffyDisdog
                         if (dig >= 0.5f)
                         {
                             var leftNode = nodes[left + row * coord.Item2];
-                            leftNode.ChangeState();
+                            if(leftNode.ValidNode())
+                               leftNode.ChangeState();
                         }
                     }
                     
@@ -73,7 +74,8 @@ namespace FluffyDisdog
                         if (dig >= 0.5f)
                         {
                             var rightNode = nodes[right + row * coord.Item2];
-                            rightNode.ChangeState();
+                            if(rightNode.ValidNode())
+                                rightNode.ChangeState();
                         }
                     }
 

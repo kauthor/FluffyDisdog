@@ -36,7 +36,7 @@ namespace FluffyDisdog.Manager
             }
         }
 
-        public UIViewBehaviour ChangeView(UIType type)
+        public UIViewBehaviour ChangeView(UIType type, UIViewParam param=null)
         {
             if (currentView)
             {
@@ -44,8 +44,11 @@ namespace FluffyDisdog.Manager
                 currentView.CallEnd();
             }
 
-            if(uiDic.TryGetValue(type, out currentView))
+            if (uiDic.TryGetValue(type, out currentView))
+            {
                 currentView.gameObject.SetActive(true);
+                currentView.Init(param);
+            }
 
             return currentView;
         }
