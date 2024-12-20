@@ -3235,6 +3235,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1486912189}
     m_Modifications:
+    - target: {fileID: 1163734872266875002, guid: 1a14e3dc276d1864b85ac40e4b766be6,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a0333b298b79990409986075cc10f101,
+        type: 3}
+    - target: {fileID: 7617179696660166481, guid: 1a14e3dc276d1864b85ac40e4b766be6,
+        type: 3}
+      propertyPath: blockType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7617179696660166481, guid: 1a14e3dc276d1864b85ac40e4b766be6,
+        type: 3}
+      propertyPath: obstacleType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7617179696660166486, guid: 1a14e3dc276d1864b85ac40e4b766be6,
         type: 3}
       propertyPath: m_Name
@@ -4793,8 +4809,8 @@ Transform:
   - {fileID: 516799308}
   - {fileID: 1105159722}
   - {fileID: 1653721826}
-  - {fileID: 1319543770}
   - {fileID: 2122374089}
+  - {fileID: 1319543770}
   - {fileID: 249603907}
   - {fileID: 1754624153}
   - {fileID: 2126296580}
@@ -4920,7 +4936,7 @@ PrefabInstance:
     - target: {fileID: 7617179696660166487, guid: 1a14e3dc276d1864b85ac40e4b766be6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 70
+      value: 71
       objectReference: {fileID: 0}
     - target: {fileID: 7617179696660166487, guid: 1a14e3dc276d1864b85ac40e4b766be6,
         type: 3}
@@ -5587,6 +5603,27 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1486912189}
     m_Modifications:
+    - target: {fileID: 1163734872266875002, guid: 1a14e3dc276d1864b85ac40e4b766be6,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 622646a3f1393c0459217a6f7377fc2f,
+        type: 3}
+    - target: {fileID: 1163734872266875002, guid: 1a14e3dc276d1864b85ac40e4b766be6,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7617179696660166481, guid: 1a14e3dc276d1864b85ac40e4b766be6,
+        type: 3}
+      propertyPath: blockType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7617179696660166481, guid: 1a14e3dc276d1864b85ac40e4b766be6,
+        type: 3}
+      propertyPath: obstacleType
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7617179696660166486, guid: 1a14e3dc276d1864b85ac40e4b766be6,
         type: 3}
       propertyPath: m_Name
@@ -7008,7 +7045,7 @@ PrefabInstance:
     - target: {fileID: 7617179696660166487, guid: 1a14e3dc276d1864b85ac40e4b766be6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 71
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 7617179696660166487, guid: 1a14e3dc276d1864b85ac40e4b766be6,
         type: 3}
