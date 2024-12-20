@@ -15,6 +15,17 @@ namespace FluffyDisdog
 
         private event Action OnNodeClickedCB;
 
+        /// <summary>
+        /// -1 : 꺼진 일반타일.
+        /// 0 : 켜진 일반타일
+        /// 1 : 장애물타일
+        /// 2 : 보물타일
+        /// </summary>
+        private int[] nodeConditions;
+
+        private int normalTotal;
+        private int diggedNormalTile;
+
         public void BindTileClickedHandler(Action cb)
         {
             OnNodeClickedCB -= cb;
@@ -31,11 +42,67 @@ namespace FluffyDisdog
 
         public void InitGame()
         {
+            normalTotal = 0;
+            diggedNormalTile = 0;
+            nodeConditions = new int[nodes.Length];
             for (int i = 0; i < nodes.Length; i++)
             {
                 var cur = nodes[i];
-                cur.InitNode(i%row,i/row, OnNodeClicked);
+                cur.InitNode(i%row,i/row, OnNodeClicked, this);
+                nodeConditions[i] = (int) cur.blockType;
+                if (cur.blockType == NodeType.NONE)
+                    normalTotal++;
             }
+
+            if (normalTotal <= 0)
+                normalTotal = 1;
+        }
+
+        public void RegenRandomNormalTileAsObstacle()
+        {
+            var len = nodeConditions.Length;
+            var target = Random.Range(0, len);
+            while (nodeConditions[target] >=1)
+            {
+                target = Random.Range(0, len);
+            }
+
+            nodeConditions[target] = 1;
+            nodes[target].RegenerateAsObstacle();
+        }
+
+        public void SwapNormalTiles()
+        {
+            var len = nodeConditions.Length;
+            for (int i = 0; i < len; i++)
+            {
+                var current = nodeConditions[i];
+                if(nodeConditions[i] >= 1)
+                    continue;
+                var target = Random.Range(0, len);
+                var targetCondition = nodeConditions[target];
+                if(targetCondition >=1 || targetCondition == current)
+                    continue;
+
+                nodeConditions[i] = targetCondition;
+                nodeConditions[target] = current;
+            }
+
+            for (int i = 0; i < len; i++)
+            {
+                var current = nodeConditions[i];
+                if (current < 1)
+                {
+                    nodes[i].EnableNode(current==0);
+                }
+            }
+        }
+
+        public void TryAddExecutedNode(TerrainNode node)
+        {
+            var coord = node.Coord;
+            var num =coord.Item1 + row * coord.Item2;
+            nodeConditions[num] = -1;
         }
 
         private void OnNodeClicked(Tuple<int, int> coord)
@@ -48,13 +115,15 @@ namespace FluffyDisdog
             
             OnNodeClickedCB?.Invoke();
             
+            //이것도 추후 타일처럼 디자인패턴화 시키자...
+            
             switch (currentType)
             {
                 case ToolType.Shovel:
-                    clicked.ChangeState();
+                    clicked.TryDigThisBlock();
                     break;
                 case ToolType.Rake:
-                    clicked.ChangeState();
+                    clicked.TryDigThisBlock();
                     var left = coord.Item1 - 1;
                     if (left >= 0)
                     {
@@ -63,7 +132,7 @@ namespace FluffyDisdog
                         {
                             var leftNode = nodes[left + row * coord.Item2];
                             if(leftNode.ValidNode())
-                               leftNode.ChangeState();
+                               leftNode.TryDigThisBlock();
                         }
                     }
                     
@@ -75,7 +144,7 @@ namespace FluffyDisdog
                         {
                             var rightNode = nodes[right + row * coord.Item2];
                             if(rightNode.ValidNode())
-                                rightNode.ChangeState();
+                                rightNode.TryDigThisBlock();
                         }
                     }
 

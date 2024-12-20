@@ -126,8 +126,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 996cc9d388c7cd14c93f55a7b5b8e092, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isObstacle: 0
   _renderer: {fileID: 1163734872266875002}
+  normalSprite: {fileID: 21300000, guid: f9161c6c9e06dc445ada3ee16d991f90, type: 3}
+  treasurePool:
+  - {fileID: 21300000, guid: b5ad22bd79e5b4948b965f7a1c7ed03f, type: 3}
+  - {fileID: 21300000, guid: 9d8ebe1232a82e5458fce2695e1f0188, type: 3}
+  - {fileID: 21300000, guid: e5f297ea671410b4bb0144104b09ff76, type: 3}
+  - {fileID: 21300000, guid: ab61b7527b9aa7449ace313733c7402b, type: 3}
+  - {fileID: 21300000, guid: 3cbb3e75f775935449f5b0ceb2032fb9, type: 3}
+  obstaclePool:
+  - {fileID: 21300000, guid: 42261c238607be24eb9387f22cac4c5d, type: 3}
+  - {fileID: 21300000, guid: 59a4a74130c54bf4e8ed65005987c2a3, type: 3}
+  - {fileID: 21300000, guid: a0333b298b79990409986075cc10f101, type: 3}
+  - {fileID: 21300000, guid: ddd66ab8ee690b447977e51cdf8d4dc3, type: 3}
+  - {fileID: 21300000, guid: 622646a3f1393c0459217a6f7377fc2f, type: 3}
+  blockType: 0
+  treasureType: -1
+  obstacleType: -1
 --- !u!61 &7617179696660166482
 BoxCollider2D:
   m_ObjectHideFlags: 0
