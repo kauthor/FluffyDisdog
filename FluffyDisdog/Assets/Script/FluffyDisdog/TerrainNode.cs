@@ -110,8 +110,16 @@ namespace FluffyDisdog
         }
     }
 
+    public struct DefaultNodeSetting
+    {
+        public TreasureType trType;
+        public ObstacleType obType;
+        public NodeType ndType;
+    }
+
     public class TerrainNode:MonoBehaviour
     {
+        private DefaultNodeSetting _defaultNodeSetting;
         public bool isObstacle => blockType == NodeType.Obstacle;
         private Tuple<int, int> coord;
         public Tuple<int, int> Coord => coord;
@@ -145,13 +153,29 @@ namespace FluffyDisdog
         private TileSet parent;
         private NodeExecuter Executer;
 
+        private void Awake()
+        {
+            _defaultNodeSetting = new DefaultNodeSetting()
+            {
+                ndType = blockType,
+                trType = treasureType,
+                obType = obstacleType
+            };
+        }
+
         public void InitNode(int row, int col, Action<Tuple<int, int>> cb, TileSet par)
         {
+            blockType = _defaultNodeSetting.ndType;
+            treasureType = _defaultNodeSetting.trType;
+            obstacleType = _defaultNodeSetting.obType;
+            
+            
             coord = new Tuple<int, int>(row, col);
             parent = par;
             onClicked = cb;
             currentState = NodeState.Raw;
             UpdateSprite();
+            
             Executer = NodeExecuter.MakeExecuter(this, parent);
         }
 
@@ -174,6 +198,11 @@ namespace FluffyDisdog
 
         private void OnMouseDown()
         {
+            if (!TileGameManager.I.IsGameRunning)
+                return;
+            if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+                return;
+            
             onClicked?.Invoke(coord);
         }
 

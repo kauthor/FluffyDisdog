@@ -103,18 +103,19 @@ namespace FluffyDisdog
             var coord = node.Coord;
             var num =coord.Item1 + row * coord.Item2;
             nodeConditions[num] = -1;
+            TileGameManager.I.AddScore(1);
         }
 
         private void OnNodeClicked(Tuple<int, int> coord)
         {
             var currentType = TileGameManager.I.CurrentTool;
+            if (currentType == ToolType.None)
+                return;
 
             var clicked = nodes[coord.Item1 + row * coord.Item2];
             if (!clicked.ValidNode())
                 return;
-            
-            OnNodeClickedCB?.Invoke();
-            
+
             //이것도 추후 타일처럼 디자인패턴화 시키자...
             
             switch (currentType)
@@ -150,6 +151,8 @@ namespace FluffyDisdog
 
                     break;
             }
+            
+            OnNodeClickedCB?.Invoke();
         }
     }
 }
