@@ -32,6 +32,7 @@ namespace FluffyDisdog.UI
             _toolType = type;
             ID = id;
             gameObject.SetActive(true);
+            Select(false);
         }
 
         public void Select(bool sel)
