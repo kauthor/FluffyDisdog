@@ -1,5 +1,6 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
+using Sirenix.Utilities;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.AddressableAssets.ResourceLocators;
@@ -27,8 +28,8 @@ namespace FluffyDisdog
         /// <summary>
         /// -1 : 꺼진 일반타일.
         /// 0 : 켜진 일반타일
-        /// 1 : 장애물타일
-        /// 2 : 보물타일
+        /// 1~5 : 장애물타일
+        /// 6~10 : 보물타일
         /// </summary>
         private int[] nodeConditions;
 
@@ -73,7 +74,57 @@ namespace FluffyDisdog
             {
                 var cur = nodes[i];
                 cur.InitNode(i%row,i/row, OnNodeClicked, this);
-                nodeConditions[i] = (int) cur.blockType;
+                int blockOp = 0;
+                switch (cur.blockType)
+                {
+                    case NodeType.NONE:
+                        blockOp = 0;
+                        break;
+                    case NodeType.Obstacle:
+                        switch (cur.ObstacleType)
+                        {
+                            case ObstacleType.Type2:
+                                blockOp = 2;
+                                break;
+                            case ObstacleType.Type3:
+                                blockOp = 3;
+                                break;
+                            case ObstacleType.Type4:
+                                blockOp = 4;
+                                break;
+                            case ObstacleType.Type5:
+                                blockOp = 5;
+                                break;
+                            case ObstacleType.Type1:
+                            default:
+                                blockOp = 1;
+                                break;
+                        }
+                        break;
+                    case NodeType.Treasure:
+                        switch (cur.TreasureType)
+                        {
+                            case TreasureType.Type2:
+                                blockOp = 7;
+                                break;
+                            case TreasureType.Type3:
+                                blockOp = 8;
+                                break;
+                            case TreasureType.Type4:
+                                blockOp = 9;
+                                break;
+                            case TreasureType.Type5:
+                                blockOp = 10;
+                                break;
+                            case TreasureType.Type1:
+                            default:
+                                blockOp = 6;
+                                break;
+                        }
+                        break;
+                }
+                
+                nodeConditions[i] = blockOp;
                 if (cur.blockType == NodeType.NONE)
                     normalTotal++;
             }
@@ -119,6 +170,28 @@ namespace FluffyDisdog
                 {
                     nodes[i].EnableNode(current==0);
                 }
+            }
+        }
+
+        public void SwapAllTiles()
+        {
+            var len = nodeConditions.Length;
+            for (int i = 0; i < len; i++)
+            {
+                var current = nodeConditions[i];
+                var target = Random.Range(0, len);
+                var targetCondition = nodeConditions[target];
+                if(targetCondition == current)
+                    continue;
+
+                nodeConditions[i] = targetCondition;
+                nodeConditions[target] = current;
+            }
+
+            for (int i = 0; i < len; i++)
+            {
+                var current = nodeConditions[i];
+                nodes[i].SwapNodeByData(current);
             }
         }
 

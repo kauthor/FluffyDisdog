@@ -20,7 +20,8 @@ namespace Script.FluffyDisdog.TileClass
     {
         public override void Execute()
         {
-            parentTileSet.SwapNormalTiles();
+            //parentTileSet.SwapNormalTiles();
+            parentTileSet.SwapAllTiles();
         }
     }
     public class ObstacleType4:NodeExecuter

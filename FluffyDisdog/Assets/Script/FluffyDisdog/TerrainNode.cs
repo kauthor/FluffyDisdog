@@ -231,10 +231,50 @@ namespace FluffyDisdog
             }
         }
 
-        public void RegenerateAsObstacle()
+        public void SwapNodeByData(int newType)
+        {
+            switch (newType)
+            {
+                case -1:
+                    RegenerateAsNormalTile();
+                    break;
+                case 0:
+                    RegenerateAsNormalTile(true);
+                    break;
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                    RegenerateAsObstacle((ObstacleType)(newType-1));
+                    break;
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                case 10:
+                    RegenerateAsTreasure((TreasureType)(newType-6));
+                    break;
+            }
+        }
+
+        public void RegenerateAsNormalTile(bool enable=false)
+        {
+            blockType = NodeType.NONE;
+            EnableNode(enable);
+            Executer = NodeExecuter.MakeExecuter(this, parent);
+        }
+        public void RegenerateAsObstacle(ObstacleType type = ObstacleType.Type1)
         {
             blockType = NodeType.Obstacle;
-            obstacleType = ObstacleType.Type1;
+            obstacleType = type;
+            EnableNode(true);
+            Executer = NodeExecuter.MakeExecuter(this, parent);
+        }
+        public void RegenerateAsTreasure(TreasureType type = TreasureType.Type1)
+        {
+            blockType = NodeType.Treasure;
+            treasureType = type;
             EnableNode(true);
             Executer = NodeExecuter.MakeExecuter(this, parent);
         }
