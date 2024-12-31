@@ -42,14 +42,21 @@ namespace FluffyDisdog
 
         public bool IsGameRunning => isGameRunning;
 
+        public int currentLevel = 1;
+
         [Button]
-        private void GameStart()
+        private async void GameStart(int level=1)
         {
 #if UNITY_EDITOR
             if (!Application.isPlaying)
                 return;
 #endif
-            _tileSet.InitGame();
+            currentLevel = level;
+            
+            //임의로 최대레벨 설정
+            if (currentLevel > 2)
+                currentLevel = 1;
+            await _tileSet.InitGame(currentLevel);
             
             
             InitLevel();
@@ -57,6 +64,12 @@ namespace FluffyDisdog
 
         public void GameStartRoute()
             => GameStart();
+
+        public void GoNextLevel()
+            => GameStart(currentLevel + 1);
+
+        public void ResetLevel()
+            => GameStart(1);
 
         private void InitLevel()
         {

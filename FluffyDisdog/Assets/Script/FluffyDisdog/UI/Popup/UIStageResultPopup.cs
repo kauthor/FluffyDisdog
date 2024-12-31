@@ -9,13 +9,16 @@ namespace FluffyDisdog.UI
         [SerializeField] private Button btnNext;
         public override PopupType type => PopupType.StageResult;
 
+        private bool levelResult;
         protected override void Awake()
         {
             base.Awake();
             btnNext.onClick.RemoveAllListeners();
             btnNext.onClick.AddListener(() =>
             {
-                TileGameManager.I.GameStartRoute();
+                if(levelResult)
+                   TileGameManager.I.GoNextLevel();
+                else TileGameManager.I.ResetLevel();
                 Close();
             });
         }
@@ -32,6 +35,7 @@ namespace FluffyDisdog.UI
 
         private void Init(bool result)
         {
+            levelResult = result;
             txtResult.text = result ? "Clear" : "Fail";
         }
     }

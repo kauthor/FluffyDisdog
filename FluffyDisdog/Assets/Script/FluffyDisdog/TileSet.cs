@@ -1,5 +1,9 @@
 ﻿using System;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.AddressableAssets.ResourceLocators;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using Random = UnityEngine.Random;
 
 
@@ -9,10 +13,15 @@ namespace FluffyDisdog
     {
         private Transform nodesParent => transform;
 
-        private TerrainNode[] nodes;
-        [SerializeField] private int row;
-        [SerializeField] private int column;
+        
 
+        [SerializeField] private Transform levelParent;
+
+        private TerrainNode[] nodes => currentLevelSet.Nodes;
+        private int row => currentLevelSet.Row;
+
+        private int currentLevel = 0;
+        private TileLevel currentLevelSet;
         private event Action OnNodeClickedCB;
 
         /// <summary>
@@ -34,14 +43,29 @@ namespace FluffyDisdog
         
         private void Awake()
         {
-            nodes = nodesParent.GetComponentsInChildren<TerrainNode>();
+            //nodes = nodesParent.GetComponentsInChildren<TerrainNode>();
             OnNodeClickedCB = null;
-            if (row <= 0)
-                row = 1;
         }
 
-        public void InitGame()
+        public async UniTask InitGame(int level =1)
         {
+            if (levelParent.childCount>0)
+            {
+                Destroy(levelParent.GetChild(0).gameObject);
+            }
+            currentLevel = level;
+            
+            AsyncOperationHandle initHandle =
+                Addressables.LoadAssetAsync<GameObject>($"Level{currentLevel}");
+            initHandle.Completed += op =>
+            {
+                var res = op.Result as GameObject;
+                currentLevelSet = GameObject.Instantiate(res, levelParent).GetComponent<TileLevel>();
+                currentLevelSet.transform.localPosition = new Vector3(0, 0, 0);
+            };
+            await initHandle;
+            Addressables.Release(initHandle);
+            
             normalTotal = 0;
             diggedNormalTile = 0;
             nodeConditions = new int[nodes.Length];
