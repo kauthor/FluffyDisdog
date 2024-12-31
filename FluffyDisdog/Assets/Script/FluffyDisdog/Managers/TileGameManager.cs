@@ -74,7 +74,7 @@ namespace FluffyDisdog
         private void InitLevel()
         {
             //일단 임시 데이터로 만든다.
-            _levelData = new LevelData(12, 8);
+            _levelData = new LevelData(10 + currentLevel*2, 8);
             currentScore = new IntReactiveFluffyProperty();
             
             DeckManager.I.Init(_levelData.MaxHandCard);
