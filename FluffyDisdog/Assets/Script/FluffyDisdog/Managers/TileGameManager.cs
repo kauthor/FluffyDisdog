@@ -12,7 +12,16 @@ namespace FluffyDisdog
     {
         None=-1,
         Shovel=0,
-        Rake=1
+        Rake=1,
+        NewTool1=2,
+        NewTool2=3,
+        NewTool3=4,
+        NewTool4=5,
+        NewTool5=6,
+        NewTool6=7,
+        NewTool7=8,
+        NewTool8=9,
+        MAX=10
     }
 
     public class LevelData
