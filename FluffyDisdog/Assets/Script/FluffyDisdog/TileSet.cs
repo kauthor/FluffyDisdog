@@ -1,5 +1,6 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
+using Script.FluffyDisdog.Managers;
 using Sirenix.Utilities;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -214,8 +215,29 @@ namespace FluffyDisdog
                 return;
 
             //이것도 추후 타일처럼 디자인패턴화 시키자...
+
+            var data = ExcelManager.I.GetToolData(currentType);
+            int startCoordCol = coord.Item2 - data.CenterColumn;
+            int startCoordRow = coord.Item1 - data.CenterRow;
+
+            for (int i = 0; i < data.cellHeight; i++)
+            {
+                int currentH = i + startCoordCol;
+                if(currentH<0 || currentH >= currentLevelSet.Column)
+                    continue;
+                for (int j = 0; j < data.cellWidth; j++)
+                {
+                    int currentW = j + startCoordRow;
+                    if(currentW < 0 || currentW >= currentLevelSet.Row)
+                        continue;
+                    
+                    var currentNode = nodes[currentW + row * currentH];
+                    if(currentNode.ValidNode())
+                        currentNode.TryDigThisBlock(data.GetRatioValue(j,i));
+                }
+            }
             
-            switch (currentType)
+            /*switch (currentType)
             {
                 case ToolType.Shovel:
                     clicked.TryDigThisBlock();
@@ -247,7 +269,7 @@ namespace FluffyDisdog
                     }
 
                     break;
-            }
+            }*/
             
             OnNodeClickedCB?.Invoke();
         }

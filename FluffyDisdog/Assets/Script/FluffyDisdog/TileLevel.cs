@@ -12,6 +12,7 @@ namespace FluffyDisdog
 
         public TerrainNode[] Nodes => nodes;
         public int Row => row;
+        public int Column => column;
         private void Awake()
         {
             nodes = GetComponentsInChildren<TerrainNode>();

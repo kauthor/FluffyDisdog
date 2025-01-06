@@ -13,6 +13,9 @@ namespace FluffyDisdog.Data
         public int[] ratio;
         public int Center;
 
+        public int CenterRow => Center % cellWidth;
+        public int CenterColumn => Center / cellWidth;
+
         public int[] GetRatioValues()
         {
             int[] newArr = new int[ratio.Length];
@@ -22,6 +25,11 @@ namespace FluffyDisdog.Data
             }
 
             return newArr;
+        }
+
+        public int GetRatioValue(int row, int col)
+        {
+            return ratio[col * cellWidth + row];
         }
         
         public ToolData Copy()

@@ -3,6 +3,8 @@ using Script.FluffyDisdog.TileClass;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Random = UnityEngine.Random;
+
 
 namespace FluffyDisdog
 {
@@ -206,12 +208,23 @@ namespace FluffyDisdog
             onClicked?.Invoke(coord);
         }
 
-        public void TryDigThisBlock()
+        public void TryDigThisBlock(int rate = 100)
         {
             if (currentState == NodeState.Digged)
                 return;
+
+            if (rate <= 0)
+                return;
             
-            Executer?.Execute();
+            if (rate >= 100)
+            {
+                Executer?.Execute();
+                return;
+            }
+
+            int rand = Random.Range(0, 100);
+            if(rand <= rate)
+                Executer?.Execute();
 
             //여기에서 게임 매니저에 점수 호출
         }
