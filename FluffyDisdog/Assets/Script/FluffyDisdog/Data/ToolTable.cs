@@ -8,10 +8,34 @@ namespace FluffyDisdog.Data
     public enum ToolTag : uint
     {
         NONE=0,
+        /// <summary>
+        /// 1번
+        /// </summary>
         First=1<<0,
         Sec=1<<1,
         Third=1<<2
     }
+
+    public enum ToolAdditionalOption
+    {
+        /// <summary>
+        /// 그런거없다
+        /// </summary>
+        None=0,
+        /// <summary>
+        /// 실패 시 확률로 균열
+        /// </summary>
+        ChangeCrackWhenFail=1,
+        /// <summary>
+        /// 실패 시 확률로 전염
+        /// </summary>
+        ChangeFlagueWhenFail=2,
+        /// <summary>
+        /// 인접 타일 전염
+        /// </summary>
+        ChangeFlagueRandomNearTile=3
+    }
+    
     [Serializable]
     public class ToolData
     {
@@ -21,6 +45,8 @@ namespace FluffyDisdog.Data
         public int[] ratio;
         public int Center;
         public ToolTag tag;
+        public ToolAdditionalOption option;
+        public int optionValue;
 
         public int CenterRow => Center % cellWidth;
         public int CenterColumn => Center / cellWidth;
@@ -50,7 +76,10 @@ namespace FluffyDisdog.Data
                 cellHeight = this.cellHeight,
                 cellWidth = this.cellWidth,
                 ratio = newArr,
-                Center = this.Center
+                Center = this.Center,
+                tag = this.tag,
+                option = this.option,
+                optionValue = this.optionValue
             };
         }
     }

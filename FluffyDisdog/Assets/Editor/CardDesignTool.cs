@@ -78,6 +78,9 @@ namespace Editor
 
         private ToolTag currentTag;
         private bool needSync = false;
+        
+        private ToolAdditionalOption currentOption;
+        private int currentOptionValue = 0;
         void OnGUI()
         {
             //currentSelectId = -1;
@@ -107,6 +110,8 @@ namespace Editor
                 {
                     ratioTemp = currentData?.GetRatioValues();
                     currentTag = currentData.tag;
+                    currentOption = currentData.option;
+                    currentOptionValue = currentData.optionValue;
                 }
 
                 needSync = false;
@@ -151,6 +156,8 @@ namespace Editor
                 
                 GUILayout.Space(20);
                 currentTag =  (ToolTag)EditorGUILayout.EnumFlagsField("태그 설정", currentTag);
+                currentOption =  (ToolAdditionalOption)EditorGUILayout.EnumPopup("추가 옵션", currentOption);
+                currentOptionValue = EditorGUILayout.IntField("추가 옵션 값", currentOptionValue);
                 GUILayout.Space(30);
             
                 for (int i = 0; i < currentData.cellHeight; i++)
@@ -202,6 +209,8 @@ namespace Editor
                 {
                     currentData.ratio = ratioTemp;
                     currentData.tag = currentTag;
+                    currentData.option = currentOption;
+                    currentData.optionValue = currentOptionValue;
                     _toolDatas[selectedTab] = currentData;
                     table.SetData(_toolDatas.Values.ToArray());
                     
