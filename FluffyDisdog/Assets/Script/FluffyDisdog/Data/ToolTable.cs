@@ -4,6 +4,14 @@ using UnityEngine;
 
 namespace FluffyDisdog.Data
 {
+    [Flags]
+    public enum ToolTag : uint
+    {
+        NONE=0,
+        First=1<<0,
+        Sec=1<<1,
+        Third=1<<2
+    }
     [Serializable]
     public class ToolData
     {
@@ -12,6 +20,7 @@ namespace FluffyDisdog.Data
         public int cellHeight;
         public int[] ratio;
         public int Center;
+        public ToolTag tag;
 
         public int CenterRow => Center % cellWidth;
         public int CenterColumn => Center / cellWidth;

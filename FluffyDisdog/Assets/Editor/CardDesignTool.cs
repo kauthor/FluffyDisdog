@@ -75,6 +75,9 @@ namespace Editor
         int newWidth=1;
         int newHeight = 1;
         private bool isCenter = false;
+
+        private ToolTag currentTag;
+        private bool needSync = false;
         void OnGUI()
         {
             //currentSelectId = -1;
@@ -90,13 +93,26 @@ namespace Editor
                     currentSelectId = -1;
                     newWidth = 1;
                     newHeight = 1;
+                    needSync = false;
                 }
             }
+
+            if (currentData==null || selectedTab != currentData.type || needSync)
+            {
+                if (_toolDatas.TryGetValue(selectedTab, out var ret))
+                    currentData = ret.Copy();
+                else currentData = null;
+
+                if (currentData != null)
+                {
+                    ratioTemp = currentData?.GetRatioValues();
+                    currentTag = currentData.tag;
+                }
+
+                needSync = false;
+            }
             
-            if (_toolDatas.TryGetValue(selectedTab, out var ret))
-                currentData = ret.Copy();
-            else currentData = null;
-            ratioTemp = currentData?.GetRatioValues();
+            
             
             GUILayout.EndVertical();
 
@@ -127,10 +143,15 @@ namespace Editor
                     ratioTemp = currentData?.GetRatioValues();
                     _toolDatas[selectedTab] = currentData;
                     table.SetData(_toolDatas.Values.ToArray());
+                    needSync = true;
                     
                     AssetDatabase.SaveAssets();
                     AssetDatabase.Refresh();
                 }
+                
+                GUILayout.Space(20);
+                currentTag =  (ToolTag)EditorGUILayout.EnumFlagsField("태그 설정", currentTag);
+                GUILayout.Space(30);
             
                 for (int i = 0; i < currentData.cellHeight; i++)
                 {
@@ -154,7 +175,7 @@ namespace Editor
                 }
 
                 GUILayout.EndVertical(); // 세로 방향 레이아웃 종료
-
+                GUILayout.Space(30);
                 if (currentSelectId > -1)
                 {
                     GUILayout.BeginVertical(); // 세로 방향 레이아웃 시작
@@ -172,17 +193,21 @@ namespace Editor
                     if(isCenter)
                        currentData.Center = currentSelectId;
                     
+                    GUILayout.Space(30);
                     GUILayout.EndVertical(); // 세로 방향 레이아웃 종료
 
-                    if (GUILayout.Button("Save", GUILayout.Width(100), GUILayout.Height(30)))
-                    {
-                        currentData.ratio = ratioTemp;
-                        _toolDatas[selectedTab] = currentData;
-                        table.SetData(_toolDatas.Values.ToArray());
                     
-                        AssetDatabase.SaveAssets();
-                        AssetDatabase.Refresh();
-                    }
+                }
+                if (GUILayout.Button("Save", GUILayout.Width(100), GUILayout.Height(30)))
+                {
+                    currentData.ratio = ratioTemp;
+                    currentData.tag = currentTag;
+                    _toolDatas[selectedTab] = currentData;
+                    table.SetData(_toolDatas.Values.ToArray());
+                    
+                    AssetDatabase.SaveAssets();
+                    AssetDatabase.Refresh();
+                    needSync = true;
                 }
 
                 GUILayout.EndVertical();
