@@ -19,7 +19,7 @@ MonoBehaviour:
     ratio: 64000000
     Center: 0
     tag: 0
-    option: 0
+    option: 2
     optionValue: 0
   - type: 1
     cellWidth: 3

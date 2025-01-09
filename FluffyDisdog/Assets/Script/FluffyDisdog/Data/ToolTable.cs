@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 namespace FluffyDisdog.Data
@@ -8,9 +9,6 @@ namespace FluffyDisdog.Data
     public enum ToolTag : uint
     {
         NONE=0,
-        /// <summary>
-        /// 1번
-        /// </summary>
         First=1<<0,
         Sec=1<<1,
         Third=1<<2
@@ -18,21 +16,13 @@ namespace FluffyDisdog.Data
 
     public enum ToolAdditionalOption
     {
-        /// <summary>
-        /// 그런거없다
-        /// </summary>
+        [Description("그런 거 없다.")]
         None=0,
-        /// <summary>
-        /// 실패 시 확률로 균열
-        /// </summary>
+        [Description("파괴 실패 시 확률로 균열.")]
         ChangeCrackWhenFail=1,
-        /// <summary>
-        /// 실패 시 확률로 전염
-        /// </summary>
+        [Description("파괴 실패 시 확률로 전염.")]
         ChangeFlagueWhenFail=2,
-        /// <summary>
-        /// 인접 타일 전염
-        /// </summary>
+        [Description("인접 랜덤타일 전염.")]
         ChangeFlagueRandomNearTile=3
     }
     
