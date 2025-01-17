@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Xml;
+using FluffyDisdog.Data;
 using Script.FluffyDisdog.TileClass;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -112,6 +114,48 @@ namespace FluffyDisdog
         }
     }
 
+    [Flags]
+    public enum NodeSubstate:uint
+    {
+        NONE=0,
+        Infest=1<<0,
+        Crack=1<<1
+    }
+    public class NodeSubstateSystem
+    {
+        private NodeSubstate currentState;
+        private event Action<NodeSubstate> OnNodeStateChanged;
+
+        public bool Is(NodeSubstate ns)
+        {
+            return (currentState & ns) > 0;
+        }
+
+        public void Init()
+        {
+            currentState = NodeSubstate.NONE;
+            OnNodeStateChanged = null;
+        }
+
+        public void SetCB(Action<NodeSubstate> cb)
+        {
+            OnNodeStateChanged -= cb;
+            OnNodeStateChanged += cb;
+        }
+
+        public void SetState(NodeSubstate ns)
+        {
+            currentState |= ns;
+            OnNodeStateChanged?.Invoke(ns);
+        }
+
+        public void RemoveState(NodeSubstate ns)
+        {
+            currentState ^= ns;
+            OnNodeStateChanged?.Invoke(currentState);
+        }
+    }
+
     public struct DefaultNodeSetting
     {
         public TreasureType trType;
@@ -154,6 +198,7 @@ namespace FluffyDisdog
 
         private TileSet parent;
         private NodeExecuter Executer;
+        private NodeSubstateSystem _substateSystem;
 
         private void Awake()
         {
@@ -179,6 +224,9 @@ namespace FluffyDisdog
             UpdateSprite();
             
             Executer = NodeExecuter.MakeExecuter(this, parent);
+            _substateSystem = new NodeSubstateSystem();
+            _substateSystem.Init();
+            _substateSystem.SetCB(SetTileColorByState);
         }
 
         [Button]
@@ -208,7 +256,7 @@ namespace FluffyDisdog
             onClicked?.Invoke(coord);
         }
 
-        public void TryDigThisBlock(int rate = 100)
+        public void TryDigThisBlock(ToolData data ,int rate = 100)
         {
             if (currentState == NodeState.Digged)
                 return;
@@ -216,7 +264,7 @@ namespace FluffyDisdog
             if (rate <= 0)
                 return;
             
-            if (rate >= 100)
+            if (rate >= 100 || _substateSystem.Is(NodeSubstate.Crack))
             {
                 Executer?.Execute();
                 return;
@@ -225,6 +273,18 @@ namespace FluffyDisdog
             int rand = Random.Range(0, 100);
             if(rand <= rate)
                 Executer?.Execute();
+            else
+            {
+                switch (data.option)
+                {
+                    case ToolAdditionalOption.ChangeCrackWhenFail:
+                        _substateSystem.SetState(NodeSubstate.Crack);
+                        break;
+                    case ToolAdditionalOption.ChangeFlagueWhenFail:
+                        _substateSystem.SetState(NodeSubstate.Infest);
+                        break;
+                }
+            }
 
             //여기에서 게임 매니저에 점수 호출
         }
@@ -290,6 +350,23 @@ namespace FluffyDisdog
             treasureType = type;
             EnableNode(true);
             Executer = NodeExecuter.MakeExecuter(this, parent);
+        }
+
+        public void SetTileColorByState(NodeSubstate state)
+        {
+            
+            switch (state)
+            {
+                case NodeSubstate.Crack:
+                    _renderer.color = Color.yellow;
+                    break;
+                case NodeSubstate.Infest:
+                    _renderer.color = Color.blue;
+                    break;
+                case NodeSubstate.NONE:
+                    _renderer.color = Color.white;
+                    break;
+            }
         }
 
         public bool ValidNode() => currentState == NodeState.Raw;

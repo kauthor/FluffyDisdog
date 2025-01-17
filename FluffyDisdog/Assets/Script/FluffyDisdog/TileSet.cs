@@ -233,7 +233,7 @@ namespace FluffyDisdog
                     
                     var currentNode = nodes[currentW + row * currentH];
                     if(currentNode.ValidNode())
-                        currentNode.TryDigThisBlock(data.GetRatioValue(j,i));
+                        currentNode.TryDigThisBlock(data, data.GetRatioValue(j,i));
                 }
             }
             
