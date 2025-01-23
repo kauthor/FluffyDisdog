@@ -56,6 +56,8 @@ namespace FluffyDisdog.UI
                 }
                 
                 current.Init(i, handList[i], OnCardClicked);
+                current.InitHandler(OnCardHovered, CardSort);
+                current.transform.localPosition = new Vector3(0, -100 * i+400, 0);
                 currentCard.Add(current);
             }
             
@@ -90,13 +92,51 @@ namespace FluffyDisdog.UI
             var card = currentCard[id];
             card.gameObject.SetActive(false);
             
-            currentSelected = 0;
+            currentSelected = -1;
             txtCurrentTool.gameObject.SetActive(false);
+            CardSort(true);
         }
 
         private void RefreshCurrentScore(int sc)
         {
             txtCurrentScore.text = sc.ToString();
+        }
+
+        private void OnCardHovered(int id=0)
+        {
+            int trId = 0;
+            for(int i=0; i< currentCard.Count; i ++)
+            {
+                if(id == i || !currentCard[i].gameObject.activeSelf)
+                    continue;
+                currentCard[i].transform.SetSiblingIndex(trId);
+                trId++;
+            }
+            if(currentSelected >=0)
+               currentCard[currentSelected].transform.SetAsLastSibling();
+            currentCard[id].transform.SetAsLastSibling();
+        }
+
+        private void CardSort(bool onCardUsed=false)
+        {
+            int trId = 0;
+            for(int i=0; i< currentCard.Count; i ++)
+            {
+                if(!currentCard[i].gameObject.activeSelf)
+                    continue;
+                currentCard[i].transform.SetSiblingIndex(trId);
+                
+                currentCard[i].transform.localPosition = 
+                    new Vector3(currentCard[i].IsSelected? 20 :0
+                    , -100 * trId+400, 0);
+                trId++;
+            }
+
+            if (!onCardUsed)
+            {
+                if(currentSelected >=0)
+                   currentCard[currentSelected].transform.SetAsLastSibling();
+            }
         }
     }
 }
