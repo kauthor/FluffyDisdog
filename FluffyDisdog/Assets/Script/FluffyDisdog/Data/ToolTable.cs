@@ -33,6 +33,7 @@ namespace FluffyDisdog.Data
         public int cellWidth;
         public int cellHeight;
         public int[] ratio;
+        public bool[] interact;
         public int Center;
         public ToolTag tag;
         public ToolAdditionalOption option;
@@ -57,9 +58,28 @@ namespace FluffyDisdog.Data
             return ratio[col * cellWidth + row];
         }
         
+        public bool[] GetInteractable()
+        {
+            if (interact == null)
+                return new bool[cellHeight*cellWidth];
+            bool[] newArr = new bool[ratio.Length];
+            for (int i = 0; i < interact.Length; i++)
+            {
+                newArr[i] = interact[i];
+            }
+
+            return newArr;
+        }
+
+        public bool GetInteractable(int row, int col)
+        {
+            return interact[col * cellWidth + row];
+        }
+        
         public ToolData Copy()
         {
             var newArr = GetRatioValues();
+            var newInteract = GetInteractable();
             return new ToolData()
             {
                 type = this.type,
@@ -69,7 +89,8 @@ namespace FluffyDisdog.Data
                 Center = this.Center,
                 tag = this.tag,
                 option = this.option,
-                optionValue = this.optionValue
+                optionValue = this.optionValue,
+                interact = newInteract
             };
         }
     }

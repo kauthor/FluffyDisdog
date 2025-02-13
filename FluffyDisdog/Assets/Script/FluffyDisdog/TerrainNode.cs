@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Xml;
 using FluffyDisdog.Data;
 using Script.FluffyDisdog.TileClass;
@@ -126,15 +127,19 @@ namespace FluffyDisdog
         private NodeSubstate currentState;
         private event Action<NodeSubstate> OnNodeStateChanged;
 
+        private Dictionary<NodeSubstate, NodeSubstateCommand> _commands;
+        private TerrainNode Owner;
         public bool Is(NodeSubstate ns)
         {
             return (currentState & ns) > 0;
         }
 
-        public void Init()
+        public void Init(TerrainNode owner)
         {
+            Owner = owner;
             currentState = NodeSubstate.NONE;
             OnNodeStateChanged = null;
+            _commands = new Dictionary<NodeSubstate, NodeSubstateCommand>();
         }
 
         public void SetCB(Action<NodeSubstate> cb)
@@ -146,12 +151,21 @@ namespace FluffyDisdog
         public void SetState(NodeSubstate ns)
         {
             currentState |= ns;
+            if (!_commands.ContainsKey(ns))
+            {
+                _commands.Add(ns, NodeSubstateCommand.MakeSubstateCommand(ns, Owner));
+            }
             OnNodeStateChanged?.Invoke(ns);
         }
 
         public void RemoveState(NodeSubstate ns)
         {
             currentState ^= ns;
+            if (_commands.ContainsKey(ns))
+            {
+                _commands[ns].Finish();
+                _commands.Remove(ns);
+            }
             OnNodeStateChanged?.Invoke(currentState);
         }
     }
@@ -170,11 +184,14 @@ namespace FluffyDisdog
         private Tuple<int, int> coord;
         public Tuple<int, int> Coord => coord;
         private Action<Tuple<int, int>> onClicked;
+        private Action<Tuple<int, int>> OnMouseEnterCb;
+        private Action<Tuple<int, int>> OnMouseExitCb;
         [SerializeField]private SpriteRenderer _renderer;
 
         [SerializeField] private Sprite normalSprite;
         [SerializeField] private Sprite[] treasurePool;
         [SerializeField] private Sprite[] obstaclePool;
+        [SerializeField] private Transform mouseOverEffect;
 
         private NodeState currentState;
         
@@ -199,6 +216,7 @@ namespace FluffyDisdog
         private TileSet parent;
         private NodeExecuter Executer;
         private NodeSubstateSystem _substateSystem;
+        public NodeSubstateSystem SubstateSystem => _substateSystem;
 
         private void Awake()
         {
@@ -215,6 +233,7 @@ namespace FluffyDisdog
             blockType = _defaultNodeSetting.ndType;
             treasureType = _defaultNodeSetting.trType;
             obstacleType = _defaultNodeSetting.obType;
+            mouseOverEffect.gameObject.SetActive(false);
             
             
             coord = new Tuple<int, int>(row, col);
@@ -225,8 +244,14 @@ namespace FluffyDisdog
             
             Executer = NodeExecuter.MakeExecuter(this, parent);
             _substateSystem = new NodeSubstateSystem();
-            _substateSystem.Init();
+            _substateSystem.Init(this);
             _substateSystem.SetCB(SetTileColorByState);
+        }
+
+        public void InitMouseOverHandler(Action<Tuple<int, int>> mouseOver, Action<Tuple<int, int>> mouseExit)
+        {
+            OnMouseEnterCb = mouseOver;
+            OnMouseExitCb = mouseExit;
         }
 
         [Button]
@@ -256,12 +281,27 @@ namespace FluffyDisdog
             onClicked?.Invoke(coord);
         }
 
+        private void OnMouseEnter()
+        {
+            if (!TileGameManager.I.IsGameRunning)
+                return;
+            if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+                return;
+            OnMouseEnterCb?.Invoke(coord);
+        }
+
+        private void OnMouseExit()
+        {
+            if (!TileGameManager.I.IsGameRunning)
+                return;
+            if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+                return;
+            OnMouseExitCb?.Invoke(coord);
+        }
+
         public void TryDigThisBlock(ToolData data ,int rate = 100)
         {
             if (currentState == NodeState.Digged)
-                return;
-
-            if (rate <= 0)
                 return;
             
             if (rate >= 100 || _substateSystem.Is(NodeSubstate.Crack))
@@ -270,8 +310,9 @@ namespace FluffyDisdog
                 return;
             }
 
+
             int rand = Random.Range(0, 100);
-            if(rand <= rate)
+            if(rand <= rate && rate >0)
                 Executer?.Execute();
             else
             {
@@ -370,5 +411,11 @@ namespace FluffyDisdog
         }
 
         public bool ValidNode() => currentState == NodeState.Raw;
+
+        public void MouseOverOnOff(bool on)
+        {
+            if(mouseOverEffect!=null)
+                mouseOverEffect.gameObject.SetActive(on);
+        }
     }
 }

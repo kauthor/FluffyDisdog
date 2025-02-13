@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Script.FluffyDisdog.Managers;
 using Sirenix.Utilities;
@@ -37,6 +38,9 @@ namespace FluffyDisdog
         private int normalTotal;
         private int diggedNormalTile;
 
+        private TurnEventSystem _eventSystem;
+        public TurnEventSystem EventSystem=>_eventSystem;
+
         public void BindTileClickedHandler(Action cb)
         {
             OnNodeClickedCB -= cb;
@@ -71,10 +75,15 @@ namespace FluffyDisdog
             normalTotal = 0;
             diggedNormalTile = 0;
             nodeConditions = new int[nodes.Length];
+            mouseEffectedNode = new List<TerrainNode>();
+            _eventSystem = new TurnEventSystem();
+            _eventSystem.Init();
+            
             for (int i = 0; i < nodes.Length; i++)
             {
                 var cur = nodes[i];
                 cur.InitNode(i%row,i/row, OnNodeClicked, this);
+                cur.InitMouseOverHandler(OnNodeMouseOver, OnNodeMouseExit);
                 int blockOp = 0;
                 switch (cur.blockType)
                 {
@@ -204,6 +213,83 @@ namespace FluffyDisdog
             TileGameManager.I.AddScore(1);
         }
 
+        private List<TerrainNode> mouseEffectedNode;
+
+        private void OnNodeMouseOver(Tuple<int, int> coord)
+        {
+            if (mouseEffectedNode.Count != 0)
+                mouseEffectedNode.ForEach(_ => _.MouseOverOnOff(false));
+            
+            mouseEffectedNode.Clear();
+            var currentType = TileGameManager.I.CurrentTool;
+            if (currentType == ToolType.None)
+                return;
+
+            var clicked = nodes[coord.Item1 + row * coord.Item2];
+            if (!clicked.ValidNode())
+                return;
+
+            //이것도 추후 타일처럼 디자인패턴화 시키자...
+
+            var data = ExcelManager.I.GetToolData(currentType);
+            int startCoordCol = coord.Item2 - data.CenterColumn;
+            int startCoordRow = coord.Item1 - data.CenterRow;
+
+            for (int i = 0; i < data.cellHeight; i++)
+            {
+                int currentH = i + startCoordCol;
+                if(currentH<0 || currentH >= currentLevelSet.Column)
+                    continue;
+                for (int j = 0; j < data.cellWidth; j++)
+                {
+                    int currentW = j + startCoordRow;
+                    if(currentW < 0 || currentW >= currentLevelSet.Row)
+                        continue;
+                    
+                    var currentNode = nodes[currentW + row * currentH];
+                    //여기서 활성화여부 체크
+                    if(currentNode.ValidNode())
+                    {
+                        currentNode.MouseOverOnOff(true);
+                        mouseEffectedNode.Add(currentNode);
+                    }
+                }
+            }
+        }
+
+        private void OnNodeMouseExit(Tuple<int, int> coord)
+        {
+            if (mouseEffectedNode.Count != 0)
+                mouseEffectedNode.ForEach(_ => _.MouseOverOnOff(false));
+            
+            mouseEffectedNode.Clear();
+        }
+
+        public List<TerrainNode> GetTilesByRange(Tuple<int, int> coord, int range)
+        {
+            var center = nodes[coord.Item1 + row * coord.Item2];
+            var ret = new List<TerrainNode>();
+            int startCoordCol = coord.Item2 - range;
+            int startCoordRow = coord.Item1 - range;
+            for (int i = 0; i < range*2+1; i++)
+            {
+                int currentH = i + startCoordCol;
+                if(currentH<0 || currentH >= currentLevelSet.Column)
+                    continue;
+                for (int j = 0; j < range*2+1; j++)
+                {
+                    int currentW = j + startCoordRow;
+                    if(currentW < 0 || currentW >= currentLevelSet.Row)
+                        continue;
+                    
+                    var currentNode = nodes[currentW + row * currentH];
+                    //여기서 활성화여부 체크
+                    ret.Add(currentNode);
+                }
+            }
+
+            return ret;
+        }
         private void OnNodeClicked(Tuple<int, int> coord)
         {
             var currentType = TileGameManager.I.CurrentTool;
@@ -232,46 +318,22 @@ namespace FluffyDisdog
                         continue;
                     
                     var currentNode = nodes[currentW + row * currentH];
-                    if(currentNode.ValidNode())
-                        currentNode.TryDigThisBlock(data, data.GetRatioValue(j,i));
+                    //여기서 활성화여부 체크
+                    if (currentNode.ValidNode())
+                    {
+                        if(data.GetInteractable(j,i))
+                           currentNode.TryDigThisBlock(data, data.GetRatioValue(j,i));
+                    }
                 }
             }
+            if (mouseEffectedNode.Count != 0)
+                mouseEffectedNode.ForEach(_ => _.MouseOverOnOff(false));
             
-            /*switch (currentType)
-            {
-                case ToolType.Shovel:
-                    clicked.TryDigThisBlock();
-                    break;
-                case ToolType.Rake:
-                    clicked.TryDigThisBlock();
-                    var left = coord.Item1 - 1;
-                    if (left >= 0)
-                    {
-                        var dig = Random.Range(0.0f, 1.0f);
-                        if (dig >= 0.5f)
-                        {
-                            var leftNode = nodes[left + row * coord.Item2];
-                            if(leftNode.ValidNode())
-                               leftNode.TryDigThisBlock();
-                        }
-                    }
-                    
-                    var right = coord.Item1 + 1;
-                    if (right < row)
-                    {
-                        var dig = Random.Range(0.0f, 1.0f);
-                        if (dig >= 0.5f)
-                        {
-                            var rightNode = nodes[right + row * coord.Item2];
-                            if(rightNode.ValidNode())
-                                rightNode.TryDigThisBlock();
-                        }
-                    }
+            mouseEffectedNode.Clear();
 
-                    break;
-            }*/
-            
             OnNodeClickedCB?.Invoke();
+            _eventSystem?.FireEvent(TurnEvent.TurnEnd);
+            _eventSystem?.FireEvent(TurnEvent.TurnStart);
         }
     }
 }
