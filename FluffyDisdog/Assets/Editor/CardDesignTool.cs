@@ -70,7 +70,9 @@ namespace Editor
 
         private int currentSelectId = -1;
         private int currentRatio = 0;
+        private bool currentInteractable = true;
         private int[] ratioTemp;
+        private bool[] interactableTemp;
         
         int newWidth=1;
         int newHeight = 1;
@@ -109,6 +111,7 @@ namespace Editor
                 if (currentData != null)
                 {
                     ratioTemp = currentData?.GetRatioValues();
+                    interactableTemp = currentData?.GetInteractable();
                     currentTag = currentData.tag;
                     currentOption = currentData.option;
                     currentOptionValue = currentData.optionValue;
@@ -143,9 +146,11 @@ namespace Editor
                         cellWidth = newWidth,
                         Center = 0,
                         ratio = new int[newHeight * newWidth],
+                        interact = new bool[newHeight * newWidth],
                         type = selectedTab
                     };
                     ratioTemp = currentData?.GetRatioValues();
+                    interactableTemp = currentData?.GetInteractable();
                     _toolDatas[selectedTab] = currentData;
                     table.SetData(_toolDatas.Values.ToArray());
                     needSync = true;
@@ -167,13 +172,27 @@ namespace Editor
                     for (int j = 0; j < currentData.cellWidth; j++)
                     {
                         GUIStyle bg = new GUIStyle(GUI.skin.button);
-                        bg.normal.background = MakeBackgroundTexture(60, 60, 
-                            currentData.Center == i * currentData.cellWidth + j?  Color.yellow : Color.white);
+                        bool isC = currentData.Center == i * currentData.cellWidth + j;
+
+                        if (isC)
+                        {
+                            bg.normal.background = MakeBackgroundTexture(60, 60, 
+                                Color.yellow );
+                        }
+                        else if(currentData.GetInteractable(j, i))
+                            bg.normal.background = MakeBackgroundTexture(60, 60, 
+                                Color.gray );
+                        else
+                        {
+                            bg.normal.background = MakeBackgroundTexture(60, 60, 
+                                Color.white );
+                        }
                         
                         if (GUILayout.Button(ratioTemp[i * currentData.cellWidth + j].ToString(),bg,GUILayout.Width(60), GUILayout.Height(60)))
                         {
                             currentSelectId = i * currentData.cellWidth + j;
                             currentRatio = ratioTemp[currentSelectId];
+                            currentInteractable = interactableTemp[currentSelectId];
                             isCenter = currentSelectId == currentData.Center;
                         }
                     }
@@ -191,11 +210,14 @@ namespace Editor
                     {
                         ratioTemp = currentData.GetRatioValues();
                         currentRatio = ratioTemp[currentSelectId];
+                        currentInteractable = interactableTemp[currentSelectId];
                         isCenter = currentSelectId == currentData.Center;
                     }
 
                     currentRatio= EditorGUILayout.IntSlider("파괴확률",currentRatio, 0, 100);
                     ratioTemp[currentSelectId] = currentRatio;
+                    currentInteractable = EditorGUILayout.Toggle("타격판정 여부", currentInteractable);
+                    interactableTemp[currentSelectId] = currentInteractable;
                     isCenter = EditorGUILayout.Toggle("중심점?", isCenter);
                     if(isCenter)
                        currentData.Center = currentSelectId;
@@ -208,6 +230,7 @@ namespace Editor
                 if (GUILayout.Button("Save", GUILayout.Width(100), GUILayout.Height(30)))
                 {
                     currentData.ratio = ratioTemp;
+                    currentData.interact = interactableTemp;
                     currentData.tag = currentTag;
                     currentData.option = currentOption;
                     currentData.optionValue = currentOptionValue;

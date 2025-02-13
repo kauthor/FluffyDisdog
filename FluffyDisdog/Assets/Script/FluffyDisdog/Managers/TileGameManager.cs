@@ -37,10 +37,12 @@ namespace FluffyDisdog
             maxHandCard = m;
         }
     }
-    
+
     public class TileGameManager:CustomSingleton<TileGameManager>
     {
         [SerializeField] private TileSet _tileSet;
+
+        public TileSet TileSet => _tileSet;
 
         private ToolType currentTool = ToolType.None;
 
@@ -116,7 +118,10 @@ namespace FluffyDisdog
         
         //도구의 타입은 나중에 클래스가 될 가능성이 높다.
         public void PrepareTool(ToolType type)
-            => currentTool = type;
+        {
+            currentTool = type;
+            //todo : 여기서 마우스 아이콘을 바꾸자.
+        }
     }
 }
 
