@@ -75,7 +75,7 @@ namespace Script.FluffyDisdog.TileClass
 
         public override void Execute()
         {
-            var infestTarget = TileGameManager.I.TileSet.GetTilesByRange(Owner.Coord, 1);
+            /*var infestTarget = TileGameManager.I.TileSet.GetTilesByRange(Owner.Coord, 1);
             var infestCoord = Random.Range(0, 8);
 
             int tempLoop = 0;
@@ -97,6 +97,13 @@ namespace Script.FluffyDisdog.TileClass
                 }
 
                 tempCoord++;
+            }*/
+            var infestTarget = TileGameManager.I.TileSet.GetNearTiles(Owner.Coord);
+            infestTarget.RemoveAll(_ => _.SubstateSystem.Is(NodeSubstate.Infest));
+            if (infestTarget.Count > 0)
+            {
+                var target = Random.Range(0, infestTarget.Count);
+                infestTarget[target].SubstateSystem.SetState(NodeSubstate.Infest);
             }
         }
     }
