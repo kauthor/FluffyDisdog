@@ -290,6 +290,32 @@ namespace FluffyDisdog
 
             return ret;
         }
+
+        public List<TerrainNode> GetNearTiles(Tuple<int, int> coord)
+        {
+            //0북 1서 2남 3동
+            var ret = new List<TerrainNode>();
+            for (int i = 0; i < 2; i++)
+            {
+                int currentH = coord.Item2 + (i == 0 ? -1 : 1);
+                if(currentH<0 || currentH >= currentLevelSet.Column)
+                    continue;
+                var currentNode = nodes[coord.Item1 + row * currentH];
+                ret.Add(currentNode);
+            }
+            for (int i = 0; i < 2; i++)
+            {
+                int currentW = coord.Item1 + (i == 0 ? -1 : 1);
+                if(currentW<0 || currentW >= currentLevelSet.Row)
+                    continue;
+                var currentNode = nodes[currentW + row * coord.Item2];
+                ret.Add(currentNode);
+            }
+
+            return ret;
+        }
+        
+        
         private void OnNodeClicked(Tuple<int, int> coord)
         {
             var currentType = TileGameManager.I.CurrentTool;
