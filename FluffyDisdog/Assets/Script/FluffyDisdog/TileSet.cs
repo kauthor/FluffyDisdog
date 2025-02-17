@@ -67,7 +67,7 @@ namespace FluffyDisdog
             {
                 var res = op.Result as GameObject;
                 currentLevelSet = GameObject.Instantiate(res, levelParent).GetComponent<TileLevel>();
-                currentLevelSet.transform.localPosition = new Vector3(0, 0, 0);
+                currentLevelSet.transform.localPosition = new Vector3(4, 0, 0);
             };
             await initHandle;
             Addressables.Release(initHandle);

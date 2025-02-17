@@ -15,7 +15,7 @@ namespace FluffyDisdog.UI
 
         [SerializeField] private Transform cardArea;
         [SerializeField] private CardPart cardPrefab;
-
+        [SerializeField] private int cardSpace = 70;
         public override UIType type => UIType.InGame;
 
         private List<CardPart> cardPool;
@@ -57,7 +57,7 @@ namespace FluffyDisdog.UI
                 
                 current.Init(i, handList[i], OnCardClicked);
                 current.InitHandler(OnCardHovered, CardSort);
-                current.transform.localPosition = new Vector3(0, -100 * i+400, 0);
+                current.transform.localPosition = new Vector3(cardSpace * i, 0, 0);
                 currentCard.Add(current);
             }
             
@@ -127,8 +127,7 @@ namespace FluffyDisdog.UI
                 currentCard[i].transform.SetSiblingIndex(trId);
                 
                 currentCard[i].transform.localPosition = 
-                    new Vector3(currentCard[i].IsSelected? 20 :0
-                    , -100 * trId+400, 0);
+                    new Vector3(cardSpace * trId,currentCard[i].IsSelected? 20 :0, 0);
                 trId++;
             }
 

@@ -61,7 +61,7 @@ namespace FluffyDisdog.UI
         private void Hovered()
         {
             var localPosition = transform.localPosition;
-            localPosition = new Vector3(20, localPosition.y, 0);
+            localPosition = new Vector3( localPosition.x,20, 0);
             transform.localPosition = localPosition;
             
             onHoverCb?.Invoke(ID);
@@ -77,7 +77,7 @@ namespace FluffyDisdog.UI
             if (!isSelected)
             {
                 var localPosition = transform.localPosition;
-                localPosition = new Vector3(0, localPosition.y, 0);
+                localPosition = new Vector3( localPosition.x,0, 0);
                 transform.localPosition = localPosition;
                 onExitCb?.Invoke(false);
             }
