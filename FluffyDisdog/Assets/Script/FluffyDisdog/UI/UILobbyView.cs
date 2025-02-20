@@ -14,7 +14,8 @@ namespace FluffyDisdog.UI
         {
             btnEnter.onClick.AddListener(() =>
             {
-                LoadSceneManager.I.LoadScene("GameScene",null);
+                UIDungeonSelectPopup.OpenPopup();
+                //LoadSceneManager.I.LoadScene("GameScene",null);
             });
         }
     }

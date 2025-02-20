@@ -62,6 +62,7 @@ namespace FluffyDisdog
             if (!Application.isPlaying)
                 return;
 #endif
+            var load = UILoadingPopup.NormalLoadStart();
             currentLevel = level;
             
             //임의로 최대레벨 설정
@@ -71,6 +72,7 @@ namespace FluffyDisdog
             
             
             InitLevel();
+            load.Close();
         }
 
         private void Start()

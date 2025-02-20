@@ -57,6 +57,15 @@ namespace FluffyDisdog.Manager
             return currentView;
         }
 
+        public void CloseAllView()
+        {
+            if (currentView)
+            {
+                currentView.gameObject.SetActive(false);
+                currentView.CallEnd();
+            }
+        }
+
         public void OnAwakeEnd(Action<UIManager> onEnd)
         {
             OnAwake += onEnd;

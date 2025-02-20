@@ -30,6 +30,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -56,6 +57,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -82,6 +84,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &2549806011228893042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,3 +116,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popups:
   - {fileID: 4452110094830051838, guid: e4dd4da1c9796bc4581d57fc63f5bec7, type: 3}
+  - {fileID: 4656257186958419419, guid: 25d2fa2d86209664a82a6a777137c42a, type: 3}
+  - {fileID: 6117939420524472895, guid: d3689ac25a32a4448a631ced2f3132cd, type: 3}
+  - {fileID: 4084052339874859117, guid: 21d72851bd060924ebfe7536e5cd31e9, type: 3}
