@@ -73,6 +73,11 @@ namespace FluffyDisdog
             InitLevel();
         }
 
+        private void Start()
+        {
+            GameStartRoute();
+        }
+
         public void GameStartRoute()
             => GameStart();
 
