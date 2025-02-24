@@ -324,6 +324,7 @@ MonoBehaviour:
     type: 3}
   initialRow: 8
   initialColume: 8
+  testSeed: -1
 --- !u!1001 &2877914686451708371
 PrefabInstance:
   m_ObjectHideFlags: 0
