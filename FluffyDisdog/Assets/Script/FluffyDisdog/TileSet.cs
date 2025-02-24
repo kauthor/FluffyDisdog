@@ -23,6 +23,7 @@ namespace FluffyDisdog
         [SerializeField] private TerrainNode tilePrefab;
         [SerializeField] private int initialRow=8;
         [SerializeField] private int initialColume=8;
+        [SerializeField] private int testSeed=-1;
         private TerrainNode[] nodes => currentLevelSet.Nodes;
         private int row => currentLevelSet.Row;
 
@@ -64,7 +65,7 @@ namespace FluffyDisdog
             }
             currentLevel = level;
             
-            var randSeed = new System.Random();
+            var randSeed = testSeed >=0 ? new System.Random(testSeed): new System.Random();
             int seed = randSeed.Next();
 
 
