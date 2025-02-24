@@ -230,9 +230,9 @@ namespace FluffyDisdog
 
         public void InitNode(int row, int col, Action<Tuple<int, int>> cb, TileSet par)
         {
-            blockType = _defaultNodeSetting.ndType;
+            /*blockType = _defaultNodeSetting.ndType;
             treasureType = _defaultNodeSetting.trType;
-            obstacleType = _defaultNodeSetting.obType;
+            obstacleType = _defaultNodeSetting.obType;*/
             mouseOverEffect.gameObject.SetActive(false);
             
             
@@ -391,6 +391,14 @@ namespace FluffyDisdog
             treasureType = type;
             EnableNode(true);
             Executer = NodeExecuter.MakeExecuter(this, parent);
+        }
+
+        public void RuntimePropertyInit(NodeType type, ObstacleType obsType, TreasureType trType)
+        {
+            blockType = type;
+            treasureType = trType;
+            obstacleType = obsType;
+            //EnableNode(true);
         }
 
         public void SetTileColorByState(NodeSubstate state)

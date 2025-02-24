@@ -4980,6 +4980,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6821306349655124689}
     m_Modifications:
+    - target: {fileID: 7617179696660166481, guid: 1a14e3dc276d1864b85ac40e4b766be6,
+        type: 3}
+      propertyPath: blockType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7617179696660166481, guid: 1a14e3dc276d1864b85ac40e4b766be6,
+        type: 3}
+      propertyPath: treasureType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7617179696660166486, guid: 1a14e3dc276d1864b85ac40e4b766be6,
         type: 3}
       propertyPath: m_Name

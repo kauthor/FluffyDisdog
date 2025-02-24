@@ -320,6 +320,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelParent: {fileID: 1486912189}
+  tilePrefab: {fileID: 7617179696660166481, guid: 1a14e3dc276d1864b85ac40e4b766be6,
+    type: 3}
+  initialRow: 8
+  initialColume: 8
 --- !u!1001 &2877914686451708371
 PrefabInstance:
   m_ObjectHideFlags: 0

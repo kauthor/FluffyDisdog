@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Cysharp.Threading.Tasks;
 using Script.FluffyDisdog.Managers;
 using Sirenix.Utilities;
@@ -7,7 +8,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.AddressableAssets.ResourceLocators;
 using UnityEngine.ResourceManagement.AsyncOperations;
-using Random = UnityEngine.Random;
+
 
 
 namespace FluffyDisdog
@@ -19,7 +20,9 @@ namespace FluffyDisdog
         
 
         [SerializeField] private Transform levelParent;
-
+        [SerializeField] private TerrainNode tilePrefab;
+        [SerializeField] private int initialRow=8;
+        [SerializeField] private int initialColume=8;
         private TerrainNode[] nodes => currentLevelSet.Nodes;
         private int row => currentLevelSet.Row;
 
@@ -61,7 +64,69 @@ namespace FluffyDisdog
             }
             currentLevel = level;
             
-            AsyncOperationHandle initHandle =
+            var randSeed = new System.Random();
+            int seed = randSeed.Next();
+
+
+            var rand = new System.Random(seed);
+            
+            int obstacleAmount = 5;
+            int treasureAmount = 3;
+
+            var tileLevel = new GameObject();
+            var levelSet = tileLevel.AddComponent<TileLevel>();
+            tileLevel.transform.SetParent(levelParent);
+            currentLevelSet = levelSet;
+            currentLevelSet.transform.localPosition = new Vector3(4, 0, 0);
+
+            TerrainNode[] tileArray = new TerrainNode[initialColume*initialColume];
+
+            for (int i = 0; i < initialColume; i++)
+            {
+                for (int j = 0; j < initialRow; j++)
+                {
+                    var newtile = GameObject.Instantiate(tilePrefab, currentLevelSet.transform);
+                    newtile.transform.localPosition = new Vector3(-4 + j, 4 - i, 0);
+                    tileArray[j + i * initialRow] = newtile;
+                }
+            }
+
+            int[] obsTargets = new int[obstacleAmount];
+            for (int i = 0; i < obsTargets.Length; i++)
+            {
+                obsTargets[i] = -1;
+            }
+            int[] treasureTargets = new int[treasureAmount];
+            for (int i = 0; i < treasureTargets.Length; i++)
+            {
+                treasureTargets[i] = -1;
+            }
+
+            int obsSuccess = 0;
+            while (obsSuccess < obstacleAmount)
+            {
+                int nextRand = rand.Next(0, 10000) % (initialRow * initialColume);
+                if(obsTargets.Contains(nextRand))
+                    continue;
+
+                obsTargets[obsSuccess++] = nextRand;
+                tileArray[nextRand].RuntimePropertyInit(NodeType.Obstacle, (ObstacleType)rand.Next(0,5), TreasureType.None);
+            }
+            
+            int treSuccess = 0;
+            while (treSuccess < treasureAmount)
+            {
+                int nextRand = rand.Next(0, 10000) % (initialRow * initialColume);
+                if(treasureTargets.Contains(nextRand) || obsTargets.Contains(nextRand))
+                    continue;
+
+                treasureTargets[treSuccess++] = nextRand;
+                tileArray[nextRand].RuntimePropertyInit(NodeType.Treasure, ObstacleType.None, (TreasureType)rand.Next(0,5));
+            }
+            
+            currentLevelSet.InitFromRuntime(initialRow, initialColume, tileArray);
+            
+            /*AsyncOperationHandle initHandle =
                 Addressables.LoadAssetAsync<GameObject>($"Level{currentLevel}");
             initHandle.Completed += op =>
             {
@@ -70,7 +135,7 @@ namespace FluffyDisdog
                 currentLevelSet.transform.localPosition = new Vector3(4, 0, 0);
             };
             await initHandle;
-            Addressables.Release(initHandle);
+            Addressables.Release(initHandle);*/
             
             normalTotal = 0;
             diggedNormalTile = 0;
@@ -146,10 +211,10 @@ namespace FluffyDisdog
         public void RegenRandomNormalTileAsObstacle()
         {
             var len = nodeConditions.Length;
-            var target = Random.Range(0, len);
+            var target = UnityEngine.Random.Range(0, len);
             while (nodeConditions[target] >=1)
             {
-                target = Random.Range(0, len);
+                target = UnityEngine.Random.Range(0, len);
             }
 
             nodeConditions[target] = 1;
@@ -164,7 +229,7 @@ namespace FluffyDisdog
                 var current = nodeConditions[i];
                 if(nodeConditions[i] >= 1)
                     continue;
-                var target = Random.Range(0, len);
+                var target = UnityEngine.Random.Range(0, len);
                 var targetCondition = nodeConditions[target];
                 if(targetCondition >=1 || targetCondition == current)
                     continue;
@@ -189,7 +254,7 @@ namespace FluffyDisdog
             for (int i = 0; i < len; i++)
             {
                 var current = nodeConditions[i];
-                var target = Random.Range(0, len);
+                var target = UnityEngine.Random.Range(0, len);
                 var targetCondition = nodeConditions[target];
                 if(targetCondition == current)
                     continue;
