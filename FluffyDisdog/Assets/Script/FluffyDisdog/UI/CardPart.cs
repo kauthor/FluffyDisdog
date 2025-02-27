@@ -12,6 +12,7 @@ namespace FluffyDisdog.UI
         [SerializeField] private Button btnClickArea;
         [SerializeField] private Image imgSelected;
         [SerializeField] private Image imgUnselected;
+        [SerializeField] private Image imgBackward;
         private int ID;
         private ToolType _toolType;
         private Action<int, ToolType> onClickedCb;
@@ -38,6 +39,12 @@ namespace FluffyDisdog.UI
             ID = id;
             gameObject.SetActive(true);
             Select(false);
+            Flip(false);
+        }
+
+        public void Flip(bool front)
+        {
+            imgBackward.gameObject.SetActive(!front);
         }
 
         public void Select(bool sel)
