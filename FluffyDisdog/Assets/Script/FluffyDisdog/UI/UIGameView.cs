@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using Script.FluffyDisdog.Managers;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,6 +27,8 @@ namespace FluffyDisdog.UI
         private List<CardPart> currentCard;
 
         private int currentSelected = 0;
+
+        [SerializeField]private Transform deckPosition;
         
 
         public override void Init(UIViewParam param)
@@ -57,10 +63,13 @@ namespace FluffyDisdog.UI
                 
                 current.Init(i, handList[i], OnCardClicked);
                 current.InitHandler(OnCardHovered, CardSort);
-                current.transform.localPosition = new Vector3(cardSpace * i, 0, 0);
+                current.transform.position = //new Vector3(cardSpace * i, 0, 0);
+                    deckPosition.transform.position;
                 currentCard.Add(current);
             }
             
+            CardDraw();
+
             txtGoalScore.text = TileGameManager.I.LevelData.Goal.ToString();
             TileGameManager.I.SubscribeCurrentScore(RefreshCurrentScore);
 
@@ -71,6 +80,27 @@ namespace FluffyDisdog.UI
             DeckManager.I.SelectTool(0);
             txtCurrentTool.gameObject.SetActive(true);
             txtCurrentTool.text = DeckManager.I.Deck[0].ToString();
+        }
+
+        private async void CardDraw()
+        {
+            int i = 0;
+            CancellationTokenSource token = new CancellationTokenSource();
+            foreach (var card in currentCard)
+            {
+                var target = cardArea.transform.position + new Vector3(cardSpace * i, i==0? 20 : 0, 0);
+                card.transform.DOMove(target, 0.5f);
+                card.transform.DOScaleX(0, 0.125f)
+                    .OnComplete(() =>
+                    {
+                        card.Flip(true);
+                        card.transform.DOScaleX(1, 0.25f);
+                    });
+                await Task.Delay(83, token.Token);
+
+                
+                i++;
+            }
         }
 
         private void OnCardClicked(int id, ToolType type)

@@ -6,7 +6,10 @@ namespace FluffyDisdog.UI
     public enum PopupType
     {
         NONE=-1,
-        StageResult=0
+        StageResult=0,
+        CharacterSelect=1,
+        DungeonSelect=2,
+        Loading=3
     }
 
     public class PopupManager:CustomSingleton<PopupManager>

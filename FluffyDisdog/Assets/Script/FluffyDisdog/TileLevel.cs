@@ -15,7 +15,15 @@ namespace FluffyDisdog
         public int Column => column;
         private void Awake()
         {
-            nodes = GetComponentsInChildren<TerrainNode>();
+            if(transform.childCount>0)
+                nodes = GetComponentsInChildren<TerrainNode>();
+        }
+
+        public void InitFromRuntime(int r, int c, TerrainNode[] _nodes)
+        {
+            row = r;
+            column = c;
+            nodes = _nodes;
         }
     }
 }

@@ -6,7 +6,9 @@ namespace FluffyDisdog.UI
     public enum UIType
     {
         None=-1,
-        InGame=0
+        InGame=0,
+        Login=1,
+        Lobby=2
     }
 
     public class UIViewParam

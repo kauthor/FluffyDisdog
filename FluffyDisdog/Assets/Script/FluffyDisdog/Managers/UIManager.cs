@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using FluffyDisdog.UI;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ namespace FluffyDisdog.Manager
 
         private Dictionary<UIType, UIViewBehaviour> uiDic = new Dictionary<UIType, UIViewBehaviour>();
         private UIViewBehaviour currentView;
+        private event Action<UIManager> OnAwake;
 
         public UIType CurentViewType
         {
@@ -34,6 +36,8 @@ namespace FluffyDisdog.Manager
                 uiDic.Add(v.type, v);
                 v.gameObject.SetActive(false);
             }
+            OnAwake?.Invoke(this);
+            OnAwake = null;
         }
 
         public UIViewBehaviour ChangeView(UIType type, UIViewParam param=null)
@@ -51,6 +55,20 @@ namespace FluffyDisdog.Manager
             }
 
             return currentView;
+        }
+
+        public void CloseAllView()
+        {
+            if (currentView)
+            {
+                currentView.gameObject.SetActive(false);
+                currentView.CallEnd();
+            }
+        }
+
+        public void OnAwakeEnd(Action<UIManager> onEnd)
+        {
+            OnAwake += onEnd;
         }
     }
 }
