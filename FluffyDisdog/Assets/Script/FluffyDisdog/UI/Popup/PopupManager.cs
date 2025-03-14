@@ -9,7 +9,9 @@ namespace FluffyDisdog.UI
         StageResult=0,
         CharacterSelect=1,
         DungeonSelect=2,
-        Loading=3
+        Loading=3,
+        Reward=4,
+        DeckList=5
     }
 
     public class PopupManager:CustomSingleton<PopupManager>

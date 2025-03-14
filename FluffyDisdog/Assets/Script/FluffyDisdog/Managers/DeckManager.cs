@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using FluffyDisdog;
 using FluffyDisdog.UI;
 using Sirenix.Utilities;
-using Random = UnityEngine.Random;
+using UnityEngine;
+using Random = System.Random;
+using URandom = UnityEngine.Random;
 
 namespace Script.FluffyDisdog.Managers
 {
@@ -16,6 +19,17 @@ namespace Script.FluffyDisdog.Managers
         private bool[] cardUseState;
         public List<ToolType> Deck => deck;
 
+        private List<ToolType> trueDeck;
+
+        private ToolType[] startDeck = new ToolType[]
+        {
+            ToolType.Rake, ToolType.Rake, ToolType.Rake, ToolType.Rake, ToolType.Rake, ToolType.Rake, ToolType.Rake,
+            ToolType.Rake, ToolType.Shovel, ToolType.Shovel, ToolType.Shovel, ToolType.Shovel, ToolType.Shovel,
+            ToolType.Shovel, ToolType.Shovel, ToolType.Shovel
+        };
+
+        private Dictionary<ToolType, int> DeckList;
+
         private event Action<int> onCardUse;
 
         private int handMax;
@@ -26,12 +40,51 @@ namespace Script.FluffyDisdog.Managers
         {
             currentType = ToolType.None;
             deck = new List<ToolType>();
+            if (trueDeck == null || trueDeck.Count <=0)
+            {
+                trueDeck = startDeck.ToList();
+            }
+
+            if (DeckList == null)
+            {
+                DeckList = new Dictionary<ToolType, int>();
+                trueDeck.ForEach(_ =>
+                {
+                    if(DeckList.ContainsKey(_))
+                    {
+                        DeckList[_] = DeckList[_] + 1;
+                    }
+                    else
+                    {
+                        DeckList.Add(_,1);
+                    }
+                });
+            }
+
+            var rand = new Random();
+            trueDeck = trueDeck.OrderBy(_ => rand.Next()).ToList();
 
             //일단은 타일을 클릭하면 드로우 하게 하자
             TileGameManager.I.BindTileClickedHandler(OnDigged);
             onCardUse = null;
             handMax = maxHandCard;
             SetHand();
+        }
+
+        public void TryAddDeck(ToolType tool)
+        {
+            if (trueDeck != null)
+            {
+                trueDeck.Add(tool);
+                if (DeckList.ContainsKey(tool))
+                {
+                    DeckList[tool] = DeckList[tool] + 1;
+                }
+                else
+                {
+                    DeckList.Add(tool,1);
+                }
+            }
         }
 
         //public void StartGameAfterInit() => Draw();
@@ -48,11 +101,11 @@ namespace Script.FluffyDisdog.Managers
 
             currentDigged = 0;
             currentSelected = 0;
-            var l = handMax; 
+            var l = Mathf.Min( handMax, trueDeck.Count); 
             //변경필요
             for (int i = 0; i < l; i++)
             {
-                deck.Add((ToolType)Random.Range(0,2));
+                deck.Add(trueDeck[i]);
             }
 
             cardUseState = new bool[l];
@@ -81,10 +134,35 @@ namespace Script.FluffyDisdog.Managers
                 currentType = ToolType.None;
                 var gameEnd = TileGameManager.I.EndStage();
                 
-                UIStageResultPopup.OpenPopup(gameEnd);
-                
+                if(!gameEnd)
+                    UIStageResultPopup.OpenPopup(false);
+                else
+                {
+                    UIStageRewardPopup.OpenPopup(() =>
+                    {
+                        TileGameManager.I.GoNextLevel();
+                    });
+                }
                 return;
             }
+        }
+
+        public ToolType GetRandomCardFromDeck()
+        {
+            var rand = new Random();
+            return trueDeck[rand.Next() % trueDeck.Count];
+        }
+
+        public void RemoveCard(ToolType tool)
+        {
+            trueDeck.Remove(tool);
+            if (DeckList[tool] <= 1)
+            {
+                DeckList.Remove(tool);
+            }
+            else
+               DeckList[tool] = DeckList[tool] - 1;
+            Debug.Log(trueDeck.Count);
         }
 
         /*private void Draw()
@@ -104,5 +182,7 @@ namespace Script.FluffyDisdog.Managers
             if(TileGameManager.ExistInstance())
                 TileGameManager.I.PrepareTool(currentType);
         }*/
+
+        public Dictionary<ToolType, int> GetDeckList() => DeckList;
     }
 }

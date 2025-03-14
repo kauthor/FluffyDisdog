@@ -29,7 +29,13 @@ namespace FluffyDisdog.UI
         private int currentSelected = 0;
 
         [SerializeField]private Transform deckPosition;
-        
+        [SerializeField] private Button btnDeckList;
+
+        private void Awake()
+        {
+            btnDeckList.onClick.RemoveAllListeners();
+            btnDeckList.onClick.AddListener(UIDeckListPopup.OpenPopup);
+        }
 
         public override void Init(UIViewParam param)
         {
@@ -66,6 +72,7 @@ namespace FluffyDisdog.UI
                 current.transform.position = //new Vector3(cardSpace * i, 0, 0);
                     deckPosition.transform.position;
                 currentCard.Add(current);
+                current.gameObject.SetActive(false);
             }
             
             CardDraw();
@@ -75,11 +82,7 @@ namespace FluffyDisdog.UI
 
             DeckManager.I.BindHandler(DisableCardWhenUsed);
             
-            currentSelected = 0;
-            currentCard[0].Select(true);
-            DeckManager.I.SelectTool(0);
-            txtCurrentTool.gameObject.SetActive(true);
-            txtCurrentTool.text = DeckManager.I.Deck[0].ToString();
+            
         }
 
         private async void CardDraw()
@@ -88,7 +91,11 @@ namespace FluffyDisdog.UI
             CancellationTokenSource token = new CancellationTokenSource();
             foreach (var card in currentCard)
             {
+                card.transform.position = //new Vector3(cardSpace * i, 0, 0);
+                    deckPosition.transform.position;
+                card.gameObject.SetActive(true);
                 var target = cardArea.transform.position + new Vector3(cardSpace * i, i==0? 20 : 0, 0);
+                card.transform.SetAsLastSibling();
                 card.transform.DOMove(target, 0.5f);
                 card.transform.DOScaleX(0, 0.125f)
                     .OnComplete(() =>
@@ -101,6 +108,11 @@ namespace FluffyDisdog.UI
                 
                 i++;
             }
+            currentSelected = 0;
+            currentCard[0].Select(true);
+            DeckManager.I.SelectTool(0);
+            txtCurrentTool.gameObject.SetActive(true);
+            txtCurrentTool.text = DeckManager.I.Deck[0].ToString();
         }
 
         private void OnCardClicked(int id, ToolType type)
