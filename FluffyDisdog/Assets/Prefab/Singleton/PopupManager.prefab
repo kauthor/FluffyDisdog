@@ -60,7 +60,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 50
   m_TargetDisplay: 0
 --- !u!114 &4952354628207260019
 MonoBehaviour:
@@ -121,3 +121,4 @@ MonoBehaviour:
   - {fileID: 4084052339874859117, guid: 21d72851bd060924ebfe7536e5cd31e9, type: 3}
   - {fileID: 1339340348567870300, guid: 16e1d70b45a97054c81028dd83788cab, type: 3}
   - {fileID: 4862119874212230761, guid: a506c79399110c3478be7ec676d062f4, type: 3}
+  - {fileID: 132113840914148047, guid: c05d216fba4be7b4da3606a6bf4fe478, type: 3}

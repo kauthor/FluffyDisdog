@@ -11,7 +11,8 @@ namespace FluffyDisdog.UI
         DungeonSelect=2,
         Loading=3,
         Reward=4,
-        DeckList=5
+        DeckList=5,
+        DeckSelect=6
     }
 
     public class PopupManager:CustomSingleton<PopupManager>

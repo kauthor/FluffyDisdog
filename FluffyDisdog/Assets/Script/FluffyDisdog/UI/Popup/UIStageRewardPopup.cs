@@ -12,7 +12,8 @@ namespace FluffyDisdog.UI
     {
         public override PopupType type => PopupType.Reward;
 
-        [SerializeField] private RewardCardSlot[] cards;
+        [SerializeField] private CardPopupParts[] cards;
+        [SerializeField] private Button btnSelectRemoveFromDeck;
 
         [SerializeField] private Button btnReroll;
 
@@ -34,22 +35,40 @@ namespace FluffyDisdog.UI
             btnReroll.onClick.RemoveAllListeners();
             btnReroll.onClick.AddListener(() =>
             {
-                for (int i = 0; i < cards.Length - 1; i++)
+                for (int i = 0; i < cards.Length ; i++)
                 {
-                    cards[i].SetCardData((ToolType) Random.Range(0, 2));
+                    cards[i].Init((ToolType) Random.Range(0, 2), 0);
+                    cards[i].BindHandler((a, b) =>
+                    {
+                        OnCardClicked(a);
+                    });
                 }
-                cards[^1].SetCardData(DeckManager.I.GetRandomCardFromDeck());
+                //cards[^1].SetCardData(DeckManager.I.GetRandomCardFromDeck());
+            });
+            
+            btnSelectRemoveFromDeck.onClick.RemoveAllListeners();
+            btnSelectRemoveFromDeck.onClick.AddListener(() =>
+            {
+                UIDeckSelectPopup.OpenPopup(_ =>
+                {
+                    DeckManager.I.RemoveCard(_);
+                    Close();
+                });
             });
         }
 
         private void Init(Action onclosed)
         {
-            for (int i = 0; i < cards.Length - 1; i++)
+            for (int i = 0; i < cards.Length ; i++)
             {
-                cards[i].Init(OnCardClicked, (ToolType)Random.Range(0, 2));
+                cards[i].Init( (ToolType)Random.Range(0, 2), 0);
+                cards[i].BindHandler((a, b) =>
+                {
+                    OnCardClicked(a);
+                });
             }
-            cards[^1].InitAsReroll(OnRerollCardClicked, DeckManager.I.GetRandomCardFromDeck());
-                OnClosedCb = onclosed;
+            //cards[^1].InitAsReroll(OnRerollCardClicked, DeckManager.I.GetRandomCardFromDeck());
+            OnClosedCb = onclosed;
         }
 
         protected override void OnCloseClick()
