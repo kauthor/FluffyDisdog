@@ -21,7 +21,7 @@ namespace Script.FluffyDisdog.Managers
 
         private List<ToolType> trueDeck;
 
-        private ToolType[] startDeck = new ToolType[]
+        [SerializeField] private ToolType[] startDeck = new ToolType[]
         {
             ToolType.Rake, ToolType.Rake, ToolType.Rake, ToolType.Rake, ToolType.Rake, ToolType.Rake, ToolType.Rake,
             ToolType.Rake, ToolType.Shovel, ToolType.Shovel, ToolType.Shovel, ToolType.Shovel, ToolType.Shovel,
