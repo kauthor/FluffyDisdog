@@ -83,6 +83,7 @@ namespace Editor
         
         private ToolAdditionalOption currentOption;
         private int currentOptionValue = 0;
+        private Vector2 scrollPosition;
         void OnGUI()
         {
             //currentSelectId = -1;
@@ -90,6 +91,7 @@ namespace Editor
 
             // 좌측 탭 영역
             GUILayout.BeginVertical(GUILayout.Width(100)); // 탭의 넓이를 고정
+            scrollPosition = GUILayout.BeginScrollView(scrollPosition, GUILayout.Width(200), GUILayout.Height(500));
             for (int i = 0; i < tabs.Length; i++)
             {
                 if (GUILayout.Button(tabs[i].ToString(), GUILayout.Height(30)))
@@ -101,6 +103,7 @@ namespace Editor
                     needSync = false;
                 }
             }
+            GUILayout.EndScrollView();
 
             if (currentData==null || selectedTab != currentData.type || needSync)
             {
