@@ -175,6 +175,7 @@ namespace Editor
                     for (int j = 0; j < currentData.cellWidth; j++)
                     {
                         GUIStyle bg = new GUIStyle(GUI.skin.button);
+                        bg.normal.textColor = Color.black;
                         bool isC = currentData.Center == i * currentData.cellWidth + j;
 
                         if (isC)
