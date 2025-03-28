@@ -8,7 +8,8 @@ namespace FluffyDisdog.UI
         None=-1,
         InGame=0,
         Login=1,
-        Lobby=2
+        Lobby=2,
+        Store=3
     }
 
     public class UIViewParam

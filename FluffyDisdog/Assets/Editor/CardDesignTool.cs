@@ -227,7 +227,7 @@ namespace Editor
                     
                     GUILayout.Space(30);
                     GUILayout.EndVertical(); // 세로 방향 레이아웃 종료
-
+                    needSync = true;
                     
                 }
                 if (GUILayout.Button("Save", GUILayout.Width(100), GUILayout.Height(30)))
@@ -263,6 +263,7 @@ namespace Editor
                     };
                     _toolDatas.TryAdd(selectedTab, currentData);
                     table.SetData(_toolDatas.Values.ToArray());
+                    needSync = true;
                     
                     AssetDatabase.SaveAssets();
                     AssetDatabase.Refresh();

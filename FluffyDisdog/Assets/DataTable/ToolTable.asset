@@ -31,3 +31,12 @@ MonoBehaviour:
     tag: 0
     option: 0
     optionValue: 0
+  - type: 2
+    cellWidth: 1
+    cellHeight: 1
+    ratio: 64000000
+    interact: 
+    Center: 0
+    tag: 0
+    option: 0
+    optionValue: 0
