@@ -158,6 +158,7 @@ namespace Editor
                     table.SetData(_toolDatas.Values.ToArray());
                     needSync = true;
                     
+                    EditorUtility.SetDirty(table);
                     AssetDatabase.SaveAssets();
                     AssetDatabase.Refresh();
                 }
@@ -241,6 +242,7 @@ namespace Editor
                     _toolDatas[selectedTab] = currentData;
                     table.SetData(_toolDatas.Values.ToArray());
                     
+                    EditorUtility.SetDirty(table);
                     AssetDatabase.SaveAssets();
                     AssetDatabase.Refresh();
                     needSync = true;
@@ -264,8 +266,10 @@ namespace Editor
                     };
                     _toolDatas.TryAdd(selectedTab, currentData);
                     table.SetData(_toolDatas.Values.ToArray());
+                    
                     needSync = true;
                     
+                    EditorUtility.SetDirty(table);
                     AssetDatabase.SaveAssets();
                     AssetDatabase.Refresh();
                 }
