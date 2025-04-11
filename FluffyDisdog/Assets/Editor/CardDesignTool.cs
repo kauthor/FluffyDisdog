@@ -122,8 +122,11 @@ namespace Editor
 
                 needSync = false;
             }
-            
-            
+
+            if (GUILayout.Button("카드 이름 수정"))
+            {
+                EnumGeneratorTool.Open();
+            }
             
             GUILayout.EndVertical();
 
@@ -165,6 +168,8 @@ namespace Editor
                 
                 GUILayout.Space(20);
                 currentTag =  (ToolTag)EditorGUILayout.EnumFlagsField("태그 설정", currentTag);
+                int tagInt = (int) currentTag;
+                currentTag = (ToolTag)EditorGUILayout.IntField("비트 값으로 태그 입력", tagInt);
                 currentOption =  (ToolAdditionalOption)EditorGUILayout.EnumPopup("추가 옵션", currentOption);
                 currentOptionValue = EditorGUILayout.IntField("추가 옵션 값", currentOptionValue);
                 GUILayout.Space(30);

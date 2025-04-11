@@ -5,34 +5,7 @@ using UnityEngine;
 
 namespace FluffyDisdog.Data
 {
-    [Flags]
-    public enum ToolTag : uint
-    {
-        NONE=0,
-        First=1<<0,
-        Sec=1<<1,
-        Third=1<<2,
-        Fourth=1<<3,
-        Fifth=1<<4,
-        Sixth=1<<5,
-        Seventh=1<<6,
-        Eighth=1<<7,
-        Ninth=1<<8,
-        Tenth=1<<9
-    }
 
-    public enum ToolAdditionalOption
-    {
-        [Description("그런 거 없다.")]
-        None=0,
-        [Description("파괴 실패 시 확률로 균열.")]
-        ChangeCrackWhenFail=1,
-        [Description("파괴 실패 시 확률로 전염.")]
-        ChangeFlagueWhenFail=2,
-        [Description("인접 랜덤타일 전염.")]
-        ChangeFlagueRandomNearTile=3
-    }
-    
     [Serializable]
     public class ToolData
     {
