@@ -29,7 +29,7 @@ namespace Editor
             for (int i = 0; i < (int)ToolType.MAX; i++)
             {
                 
-                currentList.Add( tabs[i].ToString() );
+                currentList.Add(  ((ToolType)i).ToString() );
             }
         }
         
