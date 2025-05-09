@@ -64,9 +64,8 @@ namespace FluffyDisdog
                 Destroy(levelParent.GetChild(0).gameObject);
             }
             currentLevel = level;
-            
-            var randSeed = testSeed >=0 ? new System.Random(testSeed): new System.Random();
-            int seed = randSeed.Next();
+
+            int seed = SeedManager.I.UpdateStage(level);
 
 
             var rand = new System.Random(seed);

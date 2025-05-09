@@ -37,7 +37,7 @@ namespace FluffyDisdog.UI
             {
                 for (int i = 0; i < cards.Length ; i++)
                 {
-                    cards[i].Init((ToolType) Random.Range(0, 2), 0);
+                    cards[i].Init((ToolType) (SeedManager.I.GetStoreSeed() %2), 0);
                     cards[i].BindHandler((a, b) =>
                     {
                         OnCardClicked(a);
@@ -61,7 +61,7 @@ namespace FluffyDisdog.UI
         {
             for (int i = 0; i < cards.Length ; i++)
             {
-                cards[i].Init( (ToolType)Random.Range(0, 2), 0);
+                cards[i].Init( (ToolType) (SeedManager.I.GetStoreSeed() %2), 0);
                 cards[i].BindHandler((a, b) =>
                 {
                     OnCardClicked(a);
