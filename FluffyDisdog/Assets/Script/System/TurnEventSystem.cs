@@ -11,24 +11,28 @@ namespace FluffyDisdog
         TurnStart,
         TurnEnd
     }
-    
+
+    public class TurnEventOptionParam
+    {
+        
+    }
 
     public class TurnEventHandler
     {
-        private event Action _delegates;
+        private event Action<TurnEventOptionParam> _delegates;
 
-        public void AddEvent(Action del)
+        public void AddEvent(Action<TurnEventOptionParam> del)
         {
             _delegates += del;
         }
-        public void RemoveEvent(Action del)
+        public void RemoveEvent(Action<TurnEventOptionParam> del)
         {
             _delegates -= del;
         }
 
-        public void FireEvent()
+        public void FireEvent(TurnEventOptionParam param=null)
         {
-            _delegates?.Invoke();
+            _delegates?.Invoke(param);
         }
 
         public void ClearEvent()
@@ -40,14 +44,14 @@ namespace FluffyDisdog
     public class TurnEventSystem
     {
         
-        private Dictionary<TerrainNode, Dictionary<TurnEvent, TurnEventHandler>> _handler;
+        private Dictionary<IEventAffectable, Dictionary<TurnEvent, TurnEventHandler>> _handler;
 
         public void Init()
         {
-            _handler = new Dictionary<TerrainNode, Dictionary<TurnEvent, TurnEventHandler>>();
+            _handler = new Dictionary<IEventAffectable, Dictionary<TurnEvent, TurnEventHandler>>();
         }
 
-        public void AddEvent(TurnEvent EventType, Action cb, TerrainNode unit)
+        public void AddEvent(TurnEvent EventType, Action<TurnEventOptionParam> cb, IEventAffectable unit)
         {
             if(!_handler.ContainsKey(unit))
                 _handler.Add(unit, new Dictionary<TurnEvent, TurnEventHandler>());
@@ -60,7 +64,7 @@ namespace FluffyDisdog
             handler.AddEvent(cb);
         }
 
-        public void RemoveEvent(TurnEvent EventType, Action cb, TerrainNode unit)
+        public void RemoveEvent(TurnEvent EventType, Action<TurnEventOptionParam> cb, IEventAffectable unit)
         {
             if (!_handler.ContainsKey(unit))
             {
@@ -77,7 +81,7 @@ namespace FluffyDisdog
             handler.RemoveEvent(cb);
         }
 
-        public void FireEvent(TurnEvent eventType)
+        public void FireEvent(TurnEvent eventType, TurnEventOptionParam param =null)
         {
             Stack<TurnEventHandler> handlers = new Stack<TurnEventHandler>();
             foreach (var dic in _handler.Values)
@@ -90,11 +94,11 @@ namespace FluffyDisdog
 
             while (handlers.Count >0)
             {
-                handlers.Pop().FireEvent();
+                handlers.Pop().FireEvent(param);
             }
         }
 
-        public void RemoveAllEventAsType(TerrainNode unit, TurnEvent EventType)
+        public void RemoveAllEventAsType(IEventAffectable unit, TurnEvent EventType)
         {
             if (!_handler.ContainsKey(unit))
             {

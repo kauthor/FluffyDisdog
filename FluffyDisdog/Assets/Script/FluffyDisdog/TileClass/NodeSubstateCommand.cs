@@ -7,7 +7,7 @@ namespace Script.FluffyDisdog.TileClass
     {
         public abstract NodeSubstate SubstateType { get; }
 
-        public abstract void Execute();
+        public abstract void Execute(TurnEventOptionParam param=null);
 
         protected virtual void InitHandler()
         {
@@ -46,7 +46,7 @@ namespace Script.FluffyDisdog.TileClass
     public class NodeCrackCommand : NodeSubstateCommand
     {
         public override NodeSubstate SubstateType => NodeSubstate.Crack;
-        public override void Execute()
+        public override void Execute(TurnEventOptionParam param=null)
         {
             
         }
@@ -67,13 +67,13 @@ namespace Script.FluffyDisdog.TileClass
             TileGameManager.I.TileSet.EventSystem.RemoveEvent(TurnEvent.TurnEnd, Execute, Owner);
         }
 
-        private void OnTurnStart()
+        private void OnTurnStart(TurnEventOptionParam param=null)
         {
             TileGameManager.I.TileSet.EventSystem.RemoveEvent(TurnEvent.TurnStart, OnTurnStart, Owner);
             TileGameManager.I.TileSet.EventSystem.AddEvent(TurnEvent.TurnEnd, Execute, Owner);
         }
 
-        public override void Execute()
+        public override void Execute(TurnEventOptionParam param=null)
         {
             /*var infestTarget = TileGameManager.I.TileSet.GetTilesByRange(Owner.Coord, 1);
             var infestCoord = Random.Range(0, 8);

@@ -177,7 +177,7 @@ namespace FluffyDisdog
         public NodeType ndType;
     }
 
-    public class TerrainNode:MonoBehaviour
+    public class TerrainNode:MonoBehaviour,IEventAffectable
     {
         private DefaultNodeSetting _defaultNodeSetting;
         public bool isObstacle => blockType == NodeType.Obstacle;
