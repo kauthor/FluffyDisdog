@@ -9,7 +9,8 @@ namespace FluffyDisdog
     {
         None=0,
         TurnStart,
-        TurnEnd
+        TurnEnd,
+        TileDigged
     }
 
     public class TurnEventOptionParam

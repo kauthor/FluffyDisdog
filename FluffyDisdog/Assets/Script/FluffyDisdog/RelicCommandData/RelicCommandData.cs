@@ -13,7 +13,12 @@ namespace FluffyDisdog.RelicCommandData
             PlayerManager.I.TurnEventSystem.AddEvent(rawData.eventType, ExecuteCommand, this);
         }
 
-        public virtual void ExecuteCommand(TurnEventOptionParam param)
+        protected void ExecuteCommand(TurnEventOptionParam param)
+        {
+            OnExecuteCommand(param);
+        }
+
+        protected virtual void OnExecuteCommand(TurnEventOptionParam param)
         {
             
         }
@@ -23,7 +28,7 @@ namespace FluffyDisdog.RelicCommandData
             switch (rawData.relicName)
             {
                 case RelicName.Oil:
-                    var ret = new RelicCommandData();
+                    var ret = new OilCommandData();
                     ret.InitCommandData(rawData);
                     return ret;
                     //return new OilCommandData();

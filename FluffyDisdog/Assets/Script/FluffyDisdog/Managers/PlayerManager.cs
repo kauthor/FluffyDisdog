@@ -1,4 +1,5 @@
-﻿using FluffyDisdog;
+﻿using System;
+using FluffyDisdog;
 using UnityEngine;
 
 namespace Script.FluffyDisdog.Managers
@@ -12,11 +13,19 @@ namespace Script.FluffyDisdog.Managers
         
         public TurnEventSystem TurnEventSystem => turnEventSystem;
         private RelicSystem relicSystem;
+        public RelicSystem RelicSystem => relicSystem;
+
+        private void Start()
+        {
+            Init();
+        }
 
         public void Init()
         {
             turnEventSystem = new TurnEventSystem();
             turnEventSystem.Init();
+
+            relicSystem = new RelicSystem(this);
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Xml;
 using FluffyDisdog.Data;
+using Script.FluffyDisdog.Managers;
 using Script.FluffyDisdog.TileClass;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -307,13 +308,18 @@ namespace FluffyDisdog
             if (rate >= 100 || _substateSystem.Is(NodeSubstate.Crack))
             {
                 Executer?.Execute();
+                PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.TileDigged, null);
+                
                 return;
             }
 
 
             int rand = Random.Range(0, 100);
-            if(rand <= rate && rate >0)
+            if (rand <= rate && rate > 0)
+            {
                 Executer?.Execute();
+                PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.TileDigged, null);
+            }
             else
             {
                 switch (data.option)
