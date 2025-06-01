@@ -7,10 +7,13 @@ namespace FluffyDisdog
 {
     public enum TurnEvent
     {
-        None=0,
-        TurnStart,
-        TurnEnd,
-        TileDigged
+        None=0,   
+        TurnStart,      //턴시작
+        TurnEnd,        //턴끝
+        TileDigged,     //타일 파괴시
+        GameStart,      //게임 시작시
+        GameEnd,        //게임 끝날시
+        ToolConsumed    //도구 소진 시
     }
 
     public class TurnEventOptionParam
