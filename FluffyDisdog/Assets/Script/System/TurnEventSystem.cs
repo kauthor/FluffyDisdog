@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using FluffyDisdog.Data.RelicData;
 using Script.FluffyDisdog.Managers;
 using UnityEngine;
 
@@ -13,7 +15,10 @@ namespace FluffyDisdog
         TileDigged,     //타일 파괴시
         GameStart,      //게임 시작시
         GameEnd,        //게임 끝날시
-        ToolConsumed    //도구 소진 시
+        ToolConsumed,    //도구 소진 시
+        EndCrack,     //도구 효과처리 끝날 시.
+        ToolConsumeDesire, //도구 소진 판정
+        TileClicked    //타일 클릭시
     }
 
     public class TurnEventOptionParam
@@ -50,9 +55,12 @@ namespace FluffyDisdog
         
         private Dictionary<IEventAffectable, Dictionary<TurnEvent, TurnEventHandler>> _handler;
 
+        private List<RelicCommandData.RelicCommandData> commandList;
+
         public void Init()
         {
             _handler = new Dictionary<IEventAffectable, Dictionary<TurnEvent, TurnEventHandler>>();
+            commandList = new List<RelicCommandData.RelicCommandData>();
         }
 
         public void AddEvent(TurnEvent EventType, Action<TurnEventOptionParam> cb, IEventAffectable unit)
@@ -66,6 +74,26 @@ namespace FluffyDisdog
 
             var handler = dic[EventType];
             handler.AddEvent(cb);
+
+            if (unit is RelicCommandData.RelicCommandData data)
+            {
+                commandList.Add(data);
+            }
+        }
+
+        public bool HasRelicCommand(RelicName name)
+        {
+            return commandList.Exists(_ => _.relicType == name);
+        }
+
+        public void RemoveEvent(IEventAffectable unit)
+        {
+            if (!_handler.ContainsKey(unit))
+            {
+                Debug.LogError("이벤트 등록된 적 없음!");
+                return;
+            } 
+            _handler[unit].Clear();
         }
 
         public void RemoveEvent(TurnEvent EventType, Action<TurnEventOptionParam> cb, IEventAffectable unit)

@@ -35,6 +35,7 @@ namespace FluffyDisdog
         private LevelData _levelData;
         public LevelData LevelData => _levelData;
         private IntReactiveFluffyProperty currentScore;
+        public IntReactiveFluffyProperty CurrentScore => currentScore;
         private bool isGameRunning=false;
 
         public bool IsGameRunning => isGameRunning;
@@ -48,6 +49,7 @@ namespace FluffyDisdog
             if (!Application.isPlaying)
                 return;
 #endif
+            PlayerManager.I.Init();
             var load = UILoadingPopup.NormalLoadStart();
             currentLevel = level;
             

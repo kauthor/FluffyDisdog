@@ -5,16 +5,16 @@ namespace Script.FluffyDisdog.Managers
 {
     public class StageSeedGroup
     {
-        private System.Random drawSeed;
+        private System.Random minorSeed;
         private System.Random storeSeed;
 
         public StageSeedGroup(int bases)
         {
-            drawSeed = new System.Random(bases);
+            minorSeed = new System.Random(bases);
             storeSeed = new System.Random(bases+1);
         }
         
-        public int GetNextDrawSeed() => drawSeed.Next();
+        public int GetNextMinorSeed() => minorSeed.Next();
         public int GetNextStoreSeed() => storeSeed.Next();
     }
     public class SeedManager:CustomSingleton<SeedManager>
@@ -54,12 +54,12 @@ namespace Script.FluffyDisdog.Managers
         }
 
 
-        public int GetDrawSeed()
+        public int GetMinor()
         {
             if (stageGroup == null)
                 return 0;
 
-            return stageGroup.GetNextDrawSeed();
+            return stageGroup.GetNextMinorSeed();
         }
 
         public int GetStoreSeed()

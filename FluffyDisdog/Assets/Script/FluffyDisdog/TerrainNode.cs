@@ -300,12 +300,50 @@ namespace FluffyDisdog
             OnMouseExitCb?.Invoke(coord);
         }
 
-        public void TryDigThisBlock(ToolData data ,int rate = 100)
+        public bool TryDigThisBlock(ToolData data ,int rate = 100)
+        {
+            if (currentState == NodeState.Digged)
+                return false;
+            
+            if (rate >= 100 || _substateSystem.Is(NodeSubstate.Crack))
+            {
+                Executer?.Execute();
+                PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.TileDigged, null);
+                
+                return true;
+            }
+
+
+            int rand = Random.Range(0, 100);
+            if (rand <= rate && rate > 0)
+            {
+                Executer?.Execute();
+                PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.TileDigged, null);
+                return true;
+            }
+            else
+            {
+                switch (data.option)
+                {
+                    case ToolAdditionalOption.ChangeCrackWhenFail:
+                        _substateSystem.SetState(NodeSubstate.Crack);
+                        break;
+                    case ToolAdditionalOption.ChangeFlagueWhenFail:
+                        _substateSystem.SetState(NodeSubstate.Infest);
+                        break;
+                }
+                return false;
+            }
+
+            //여기에서 게임 매니저에 점수 호출
+        }
+
+        public void TryDigBlockForce()
         {
             if (currentState == NodeState.Digged)
                 return;
             
-            if (rate >= 100 || _substateSystem.Is(NodeSubstate.Crack))
+            //if (_substateSystem.Is(NodeSubstate.Crack))
             {
                 Executer?.Execute();
                 PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.TileDigged, null);
@@ -314,7 +352,7 @@ namespace FluffyDisdog
             }
 
 
-            int rand = Random.Range(0, 100);
+            /*int rand = Random.Range(0, 100);
             if (rand <= rate && rate > 0)
             {
                 Executer?.Execute();
@@ -331,9 +369,7 @@ namespace FluffyDisdog
                         _substateSystem.SetState(NodeSubstate.Infest);
                         break;
                 }
-            }
-
-            //여기에서 게임 매니저에 점수 호출
+            }*/
         }
         
 
@@ -349,6 +385,11 @@ namespace FluffyDisdog
                 currentState = NodeState.Digged;
                 _renderer.sprite = null;
             }
+        }
+
+        public bool IsDiggable()
+        {
+            return currentState != NodeState.Digged;
         }
 
         public void SwapNodeByData(int newType)

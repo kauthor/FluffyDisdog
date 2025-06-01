@@ -39,7 +39,7 @@ namespace Script.FluffyDisdog.Managers
 
         private void Start()
         {
-            Init();
+            //Init();
         }
 
         public void Init()

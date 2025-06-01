@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using FluffyDisdog;
+using FluffyDisdog.Data.RelicData;
+using FluffyDisdog.RelicCommandData;
 using FluffyDisdog.UI;
 using Sirenix.Utilities;
 using UnityEngine;
@@ -67,7 +69,7 @@ namespace Script.FluffyDisdog.Managers
             //일단은 타일을 클릭하면 드로우 하게 하자
             TileGameManager.I.BindTileClickedHandler(OnDigged);
             onCardUse = null;
-            handMax = maxHandCard;
+            handMax = maxHandCard + (PlayerManager.I.TurnEventSystem.HasRelicCommand(RelicName.ExpandedBackpack) ? 1:0);
             SetHand();
         }
 
@@ -124,11 +126,21 @@ namespace Script.FluffyDisdog.Managers
 
         private void OnDigged()
         {
-            onCardUse?.Invoke(currentSelected);
-            currentDigged++;
-            cardUseState[currentSelected] = true;
-            TileGameManager.I.PrepareTool(ToolType.None);
-            currentType = ToolType.None;
+            var param = new ToolConsumeDesire()
+            {
+                 consumed = true
+            };
+            PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.ToolConsumeDesire,param);
+            if (param.consumed)
+            {
+                onCardUse?.Invoke(currentSelected);
+                currentDigged++;
+                PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.ToolConsumed, new TurnEventOptionParam());
+                cardUseState[currentSelected] = true;
+                TileGameManager.I.PrepareTool(ToolType.None);
+                currentType = ToolType.None;
+            }
+            
             if (currentDigged >= deck.Count)
             {
                 currentType = ToolType.None;

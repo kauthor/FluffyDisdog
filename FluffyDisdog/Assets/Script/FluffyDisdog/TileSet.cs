@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
+using FluffyDisdog.RelicCommandData;
 using Script.FluffyDisdog.Managers;
 using Sirenix.Utilities;
 using UnityEngine;
@@ -392,11 +393,18 @@ namespace FluffyDisdog
                 return;
 
             //이것도 추후 타일처럼 디자인패턴화 시키자...
+            var beforeScore = TileGameManager.I.CurrentScore.Value;
+            PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.TileClicked, new AncientCompassParam()
+            {
+                targetNode = clicked
+            });
 
             var data = ExcelManager.I.GetToolData(currentType);
             int startCoordCol = coord.Item2 - data.CenterColumn;
             int startCoordRow = coord.Item1 - data.CenterRow;
 
+            
+            int nodeCracked = 0;
             for (int i = 0; i < data.cellHeight; i++)
             {
                 int currentH = i + startCoordCol;
@@ -412,11 +420,28 @@ namespace FluffyDisdog
                     //여기서 활성화여부 체크
                     if (currentNode.ValidNode())
                     {
-                        if(data.GetInteractable(j,i))
-                           currentNode.TryDigThisBlock(data, data.GetRatioValue(j,i));
+                        if (data.GetInteractable(j, i))
+                        {
+                            if (currentNode.TryDigThisBlock(data, data.GetRatioValue(j, i)))
+                            {
+                                nodeCracked++;
+                            }
+                        }
                     }
                 }
             }
+            
+            var afterScore = TileGameManager.I.CurrentScore.Value;
+            
+            if(nodeCracked > 0)
+                PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.EndCrack, new OnEndCrackParam()
+                {
+                    digged = nodeCracked,
+                });
+            
+            //todo : 여기에 OnEndCrackParam 으로 점수배율 책정 후 덧셈.
+            
+            
             if (mouseEffectedNode.Count != 0)
                 mouseEffectedNode.ForEach(_ => _.MouseOverOnOff(false));
             
