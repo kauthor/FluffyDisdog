@@ -86,6 +86,7 @@ namespace FluffyDisdog
             DeckManager.I.Init(_levelData.MaxHandCard);
             UIManager.I.ChangeView(UIType.InGame);
             isGameRunning = true;
+            PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.GameStart);
             //DeckManager.I.StartGameAfterInit();
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace FluffyDisdog.Data.RelicData
 {
@@ -40,10 +41,12 @@ namespace FluffyDisdog.Data.RelicData
         
         public float[] Values => values;
 
-        public RelicData()
+        public RelicData(int relicId, float[] val)
         {
-            
+            relicName = (RelicName)relicId;
+            values = val;
         }
+        
         
         #if UNITY_EDITOR
         public RelicData(TurnEvent newEvent, RelicName name, float[] val)
@@ -52,5 +55,21 @@ namespace FluffyDisdog.Data.RelicData
             values = val;
         }
         #endif
+    }
+    
+    [CreateAssetMenu]
+    public class RelicDataTable:ScriptableObject
+    {
+        [SerializeField] private RelicData[] _relicDatas;
+
+        public void SetRelicData(RelicData[] arr) => _relicDatas = arr;
+        
+        public RelicData GetRelicData(int index)
+        {
+            if (index-1 >= _relicDatas.Length)
+                return _relicDatas[0];
+
+            return _relicDatas[index-1];
+        }
     }
 }

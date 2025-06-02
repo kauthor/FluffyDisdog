@@ -18,7 +18,8 @@ namespace FluffyDisdog
         ToolConsumed,    //도구 소진 시
         EndCrack,     //도구 효과처리 끝날 시.
         ToolConsumeDesire, //도구 소진 판정
-        TileClicked    //타일 클릭시
+        TileClicked,    //타일 클릭시
+        HorOrVerTileTry, //가로 세로 타일 타격 시도시
     }
 
     public class TurnEventOptionParam

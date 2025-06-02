@@ -417,12 +417,27 @@ namespace FluffyDisdog
                         continue;
                     
                     var currentNode = nodes[currentW + row * currentH];
+
+                    float addedRate = 0;
+                    
+                    if (currentNode.Coord.Item1 == coord.Item1 || currentNode.Coord.Item2 == coord.Item2)
+                    {
+                        var hparam = new CrackPointMeasureParam()
+                        {
+                            clicked = coord,
+                            target = currentNode.Coord
+                        };
+                        PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.HorOrVerTileTry, hparam);
+                        
+                        addedRate = hparam.addedRate;
+                    }
+                    
                     //여기서 활성화여부 체크
                     if (currentNode.ValidNode())
                     {
                         if (data.GetInteractable(j, i))
                         {
-                            if (currentNode.TryDigThisBlock(data, data.GetRatioValue(j, i)))
+                            if (currentNode.TryDigThisBlock(data, data.GetRatioValue(j, i) + (int)(addedRate*100.0f)))
                             {
                                 nodeCracked++;
                             }
