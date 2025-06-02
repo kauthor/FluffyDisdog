@@ -30,7 +30,7 @@ namespace FluffyDisdog.RelicCommandData
         public override void InitCommandData(RelicData data)
         {
             base.InitCommandData(data);
-            PlayerManager.I.TurnEventSystem.AddEvent(TurnEvent.HorOrVerTileTry, ExecuteCommand, this);
+            PlayerManager.I.TurnEventSystem.AddEvent(TurnEvent.DistanceDesire, ExecuteCommand, this);
         }
     }
 }

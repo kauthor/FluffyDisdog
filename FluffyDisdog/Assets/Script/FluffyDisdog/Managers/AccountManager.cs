@@ -13,6 +13,11 @@
             gold -= amount;
             return true;
         }
+
+        public void AddGold(int amount)
+        {
+            gold += amount;
+        }
         
     }
 }

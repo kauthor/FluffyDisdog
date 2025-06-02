@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Xml;
 using FluffyDisdog.Data;
+using FluffyDisdog.RelicCommandData;
 using Script.FluffyDisdog.Managers;
 using Script.FluffyDisdog.TileClass;
 using Sirenix.OdinInspector;
@@ -308,7 +309,10 @@ namespace FluffyDisdog
             if (rate >= 100 || _substateSystem.Is(NodeSubstate.Crack))
             {
                 Executer?.Execute();
-                PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.TileDigged, null);
+                PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.TileDigged, new TileDiggedParam()
+                {
+                    target = this
+                });
                 
                 return true;
             }
@@ -318,7 +322,10 @@ namespace FluffyDisdog
             if (rand <= rate && rate > 0)
             {
                 Executer?.Execute();
-                PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.TileDigged, null);
+                PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.TileDigged, new TileDiggedParam()
+                {
+                    target = this
+                });
                 return true;
             }
             else
@@ -346,7 +353,10 @@ namespace FluffyDisdog
             //if (_substateSystem.Is(NodeSubstate.Crack))
             {
                 Executer?.Execute();
-                PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.TileDigged, null);
+                PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.TileDigged, new TileDiggedParam()
+                {
+                    target = this
+                });
                 
                 return;
             }

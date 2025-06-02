@@ -107,6 +107,10 @@ namespace Script.FluffyDisdog.Managers
             //변경필요
             for (int i = 0; i < l; i++)
             {
+                PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.Draw, new DrawParam()
+                {
+                    toolType = trueDeck[i]
+                });
                 deck.Add(trueDeck[i]);
             }
 

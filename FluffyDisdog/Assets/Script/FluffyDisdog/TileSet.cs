@@ -416,9 +416,19 @@ namespace FluffyDisdog
                     if(currentW < 0 || currentW >= currentLevelSet.Row)
                         continue;
                     
+                    float addedRate = PlayerManager.I.RuntimeStat.ScoreMultiplier;
+                    
+                    var calParam = new ToolCalculateStart()
+                    {
+                        toolType = currentType,
+                    };
+                    PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.ToolCalculateStart, calParam);
+                    
+                    addedRate+= calParam.addRate;
+                    
                     var currentNode = nodes[currentW + row * currentH];
 
-                    float addedRate = 0;
+                    
                     
                     if (currentNode.Coord.Item1 == coord.Item1 || currentNode.Coord.Item2 == coord.Item2)
                     {
@@ -427,9 +437,9 @@ namespace FluffyDisdog
                             clicked = coord,
                             target = currentNode.Coord
                         };
-                        PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.HorOrVerTileTry, hparam);
+                        PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.DistanceDesire, hparam);
                         
-                        addedRate = hparam.addedRate;
+                        addedRate += hparam.addedRate;
                     }
                     
                     //여기서 활성화여부 체크
@@ -440,6 +450,13 @@ namespace FluffyDisdog
                             if (currentNode.TryDigThisBlock(data, data.GetRatioValue(j, i) + (int)(addedRate*100.0f)))
                             {
                                 nodeCracked++;
+                            }
+                            else
+                            {
+                                PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.DigFail, new DigFailParam()
+                                {
+                                    target = currentNode,
+                                });
                             }
                         }
                     }
