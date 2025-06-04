@@ -34,8 +34,6 @@ namespace FluffyDisdog.UI
             base.Init(param);
             
             SyncGold();
-
-            
         }
 
         private void SyncGold()
