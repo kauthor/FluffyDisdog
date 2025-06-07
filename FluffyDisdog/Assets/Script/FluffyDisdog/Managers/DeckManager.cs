@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using FluffyDisdog;
 using FluffyDisdog.Data.RelicData;
+using FluffyDisdog.Manager;
 using FluffyDisdog.RelicCommandData;
 using FluffyDisdog.UI;
 using Sirenix.Utilities;
@@ -156,7 +157,8 @@ namespace Script.FluffyDisdog.Managers
                 {
                     UIStageRewardPopup.OpenPopup(() =>
                     {
-                        TileGameManager.I.GoNextLevel();
+                        //TileGameManager.I.GoNextLevel();
+                        UIManager.I.ChangeView(UIType.Store);
                     });
                 }
                 return;

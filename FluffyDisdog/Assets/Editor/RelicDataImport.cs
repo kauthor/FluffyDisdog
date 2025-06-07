@@ -13,7 +13,7 @@ namespace Editor
     {
         //private BaseTable scrip=null;
         
-        [MenuItem("Window/Excel Importer/Base Data")]
+        [MenuItem("Window/Excel Importer/Relic Data")]
         public static void ShowWindow()
         {
             //Show existing window instance. If one doesn't exist, make one.

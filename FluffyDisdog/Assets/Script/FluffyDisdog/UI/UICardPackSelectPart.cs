@@ -11,7 +11,7 @@ namespace FluffyDisdog.UI
         [SerializeField] private GameObject pnlPurchase;
 
         [SerializeField] private Text txtCardPackPrice;
-        [SerializeField] private Text txtRelicName;
+        //[SerializeField] private Text txtRelicName;
         
         private event Action<int, int, UICardPackSelectPart> onCardPackOpen;
         private bool purchased=false;
@@ -33,6 +33,7 @@ namespace FluffyDisdog.UI
             this.onCardPackOpen += onCardPackOpen;
             purchased=false;
             pnlPurchase.SetActive(false);
+            txtCardPackPrice.text = cost.ToString();
         }
 
         public void Reroll(int cost, int gachaType, Action<int, int, UICardPackSelectPart> onCardPackOpen)

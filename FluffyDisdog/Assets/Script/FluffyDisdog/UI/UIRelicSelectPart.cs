@@ -35,6 +35,8 @@ namespace FluffyDisdog.UI
             this.onCardPackOpen += onCardPackOpen;
             pnlPurchase.SetActive(false);
             purchased = false;
+            txtRelicName.text = relicType.ToString();
+            txtRelicPrice.text = cost.ToString();
         }
 
         public void Reroll(int cost, int relicN, Action<int, RelicName, UIRelicSelectPart> onCardPackOpen)

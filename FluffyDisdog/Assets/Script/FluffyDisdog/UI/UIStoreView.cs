@@ -22,13 +22,9 @@ namespace FluffyDisdog.UI
 
         [FoldoutGroup("Store")] [SerializeField]
         private Button btnReroll;
-
-        [FoldoutGroup("Store")] [SerializeField]
-        private Button btnStoreAccept;
-
-        [FoldoutGroup("Store")] [SerializeField]
-        private GameObject pnlSoldOut;
-
+        
+        [SerializeField]
+        private Button btnNextStage;
 
         [SerializeField] private int storeValueEditor=20;
 
@@ -36,11 +32,37 @@ namespace FluffyDisdog.UI
 
         private ToolType currentStoreSelected;
 
+        [FoldoutGroup("Request")] [SerializeField]
+        private GameObject pnlRequestStart;
+
+        [FoldoutGroup("Request")] [SerializeField]
+        private GameObject pnlRequestStartAccept;
+        
+        [FoldoutGroup("Request")] [SerializeField]
+        private GameObject pnlRequestAdd;
+
+        [FoldoutGroup("Request")] [SerializeField]
+        private GameObject pnlRequestAddComplete;
+        
+        [FoldoutGroup("Request")] [SerializeField]
+        private Button[] btnRequestStart;
+
+        [FoldoutGroup("Request")] [SerializeField]
+        private Button btnRequestAdd;
+        
+        [FoldoutGroup("Request")] [SerializeField]
+        private Button btnRequestComplete;
+
+        private int requestAddPrice;
+
+        [SerializeField]private Text txtRequestAddPrice;
+
         public override void Init(UIViewParam param)
         {
             base.Init(param);
             
             SyncGold();
+            
             
             foreach (var p in packs)
             {
@@ -63,6 +85,72 @@ namespace FluffyDisdog.UI
             
             btnReroll.onClick.RemoveAllListeners();
             btnReroll.onClick.AddListener(Reroll);
+
+            if (TileGameManager.I.RequestSystem.IsReqRunning)
+            {
+                pnlRequestStart.SetActive(false);
+                pnlRequestStart.SetActive(true);
+                requestAddPrice = TileGameManager.I.RequestSystem.ReqDegree * 5;
+                txtRequestAddPrice.text = requestAddPrice.ToString();
+                txtRequestAddPrice.gameObject.SetActive(true);
+            }
+            else
+            {
+                pnlRequestStart.SetActive(true);
+                pnlRequestStart.SetActive(false);
+                
+                txtRequestAddPrice.gameObject.SetActive(false);
+            }
+            
+            pnlRequestStartAccept.gameObject.SetActive(false);
+            pnlRequestAddComplete.gameObject.SetActive(false);
+            
+            btnRequestStart[0].onClick.RemoveAllListeners();
+            btnRequestStart[1].onClick.RemoveAllListeners();
+            btnRequestStart[2].onClick.RemoveAllListeners();
+            
+            btnRequestStart[0].onClick.AddListener(()=>StartRequest(1));
+            btnRequestStart[1].onClick.AddListener(()=>StartRequest(2));
+            btnRequestStart[2].onClick.AddListener(()=>StartRequest(3));
+            
+            btnRequestAdd.onClick.RemoveAllListeners();
+            btnRequestAdd.onClick.AddListener(RequestAdd);
+            
+            btnRequestComplete.onClick.RemoveAllListeners();
+            btnRequestComplete.onClick.AddListener(RequestComplete);
+            
+            btnNextStage.onClick.RemoveAllListeners();
+            btnNextStage.onClick.AddListener(() =>
+            {
+                TileGameManager.I.GoNextLevel();
+            });
+        }
+
+        private void StartRequest(int deg)
+        {
+            TileGameManager.I.RequestSystem.StartRequest(TileGameManager.I.currentLevel,deg);
+            AccountManager.I.GoldConsume(deg*5);
+            pnlRequestStartAccept.gameObject.SetActive(true);
+            
+            SyncGold();
+        }
+
+        private void RequestAdd()
+        {
+            TileGameManager.I.RequestSystem.RewardLevelAdd();
+            AccountManager.I.GoldConsume(requestAddPrice);
+            pnlRequestAddComplete.gameObject.SetActive(true);
+            
+            SyncGold();
+        }
+
+        private void RequestComplete()
+        {
+            pnlRequestAddComplete.gameObject.SetActive(true);
+            TileGameManager.I.RequestSystem.RequestEnd(out var ret);
+            AccountManager.I.AddGold(ret);
+            
+            SyncGold();
         }
 
 

@@ -51,7 +51,7 @@ namespace FluffyDisdog
             var suc = SeedManager.I.GetStoreSeed() % (100);
             if (suc <= defaultSuccessRate + ReqRewardLevelAdd)
             {
-                reward = 20 + reqDegree * 5; 
+                reward = 20 + reqDegree * 5 + ReqRewardLevelAdd * 10; 
                 AccountManager.I.AddGold(reward); //todo:임시
                 return true;
             }
