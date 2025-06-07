@@ -31,8 +31,7 @@ namespace Script.FluffyDisdog.Managers
         private TurnEventSystem turnEventSystem;
         
         public TurnEventSystem TurnEventSystem => turnEventSystem;
-        private RelicSystem relicSystem;
-        public RelicSystem RelicSystem => relicSystem;
+        
         
         private RuntimeStat runtimeStat;
         public RuntimeStat RuntimeStat => runtimeStat;
@@ -46,8 +45,6 @@ namespace Script.FluffyDisdog.Managers
         {
             turnEventSystem = new TurnEventSystem();
             turnEventSystem.Init();
-
-            relicSystem = new RelicSystem(this);
 
             runtimeStat = new RuntimeStat(0, 0);
         }

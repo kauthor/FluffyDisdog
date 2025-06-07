@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -70,6 +71,17 @@ namespace FluffyDisdog.Data.RelicData
                 return _relicDatas[0];
 
             return _relicDatas[index-1];
+        }
+
+        public Dictionary<RelicName, RelicData> TryCache()
+        {
+            var ret = new Dictionary<RelicName, RelicData>();
+            for (int i = 0; i < _relicDatas.Length; i++)
+            {
+                ret.Add(_relicDatas[i].relicName, _relicDatas[i]);
+            }
+
+            return ret;
         }
     }
 }

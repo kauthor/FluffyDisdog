@@ -12,7 +12,8 @@ namespace FluffyDisdog.UI
         Loading=3,
         Reward=4,
         DeckList=5,
-        DeckSelect=6
+        DeckSelect=6,
+        CardPackResult=7,
     }
 
     public class PopupManager:CustomSingleton<PopupManager>

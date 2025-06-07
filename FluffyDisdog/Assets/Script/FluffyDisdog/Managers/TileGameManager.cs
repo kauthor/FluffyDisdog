@@ -29,6 +29,8 @@ namespace FluffyDisdog
         [SerializeField] private TileSet _tileSet;
 
         public TileSet TileSet => _tileSet;
+        private RequestSystem _requestSystem;
+        public RequestSystem RequestSystem => _requestSystem;
 
         private ToolType currentTool = ToolType.None;
 
@@ -39,6 +41,9 @@ namespace FluffyDisdog
         private bool isGameRunning=false;
 
         public bool IsGameRunning => isGameRunning;
+        
+        private RelicSystem relicSystem;
+        public RelicSystem RelicSystem => relicSystem;
 
         public int currentLevel = 1;
 
@@ -50,6 +55,7 @@ namespace FluffyDisdog
                 return;
 #endif
             PlayerManager.I.Init();
+            relicSystem.InitStageRelic();
             var load = UILoadingPopup.NormalLoadStart();
             currentLevel = level;
             
@@ -65,6 +71,10 @@ namespace FluffyDisdog
 
         private void Start()
         {
+            _requestSystem = new RequestSystem();
+            _requestSystem.Init();
+
+            relicSystem = new RelicSystem(PlayerManager.I);
             GameStartRoute();
         }
 

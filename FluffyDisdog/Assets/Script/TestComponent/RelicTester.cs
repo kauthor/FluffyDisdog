@@ -16,7 +16,7 @@ namespace FluffyDisdog
         private void MakeTestRelic()
         {
             RelicData data = new RelicData(eventType, name, values);
-            PlayerManager.I.RelicSystem.InitNewCommand(data);
+            TileGameManager.I.RelicSystem.InitNewCommand(data);
         }
     }
 }

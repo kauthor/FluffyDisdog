@@ -14,6 +14,7 @@ namespace FluffyDisdog.UI
         [SerializeField] private Text txtAmount;
         private int ID;
         private ToolType _toolType;
+        public ToolType ToolType => _toolType;
 
         private Action<ToolType, CardPopupParts>  OnCLicked;
 

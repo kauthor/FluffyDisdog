@@ -23,7 +23,7 @@ namespace Editor
         private void OnGUI()
         {
             var pathProj = Application.dataPath.Replace("FluffyDisdog/Assets", "FluffyDisdog");
-            string path =  "/Plan/Table/LiveData/RelicData.xlsx";
+            string path =  "/Plan/Table/LiveData/03.RelicData.xlsx";
             
             //scrip = EditorGUILayout.ObjectField("Scriptable Object", scrip, typeof(ScriptableObject), true)
              //   as BaseTable;
