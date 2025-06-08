@@ -31,10 +31,19 @@ namespace FluffyDisdog.UI
         [SerializeField]private Transform deckPosition;
         [SerializeField] private Button btnDeckList;
 
+        private Queue<UIRelicInfoPart> relicPool;
+        private Queue<UIRelicInfoPart> currentRelic;
+        
+        [SerializeField] private UIRelicInfoPart relicPrefab;
+        [SerializeField] private Transform relicParent;
+        
         private void Awake()
         {
             btnDeckList.onClick.RemoveAllListeners();
             btnDeckList.onClick.AddListener(UIDeckListPopup.OpenPopup);
+            
+            relicPool = new Queue<UIRelicInfoPart>();
+            currentRelic = new Queue<UIRelicInfoPart>();
         }
 
         public override void Init(UIViewParam param)
@@ -81,8 +90,26 @@ namespace FluffyDisdog.UI
             TileGameManager.I.SubscribeCurrentScore(RefreshCurrentScore);
 
             DeckManager.I.BindHandler(DisableCardWhenUsed);
-            
-            
+
+            var relics = TileGameManager.I.RelicSystem.currentRelicDatas;
+
+            if(relics != null && relics.Length > 0)
+                foreach (var relic in relics)
+                {
+                    if (relicPool.Count > 0)
+                    {
+                        var current = relicPool.Dequeue();
+                        current.gameObject.SetActive(true);
+                        current.InitData(relic.relicName);
+                        currentRelic.Enqueue(current);
+                    }
+                    else
+                    {
+                        var newRelic = GameObject.Instantiate(relicPrefab, relicParent);
+                        newRelic.InitData(relic.relicName);
+                        currentRelic.Enqueue(newRelic);
+                    }
+                }
         }
 
         private async void CardDraw()
@@ -177,6 +204,16 @@ namespace FluffyDisdog.UI
             {
                 if(currentSelected >=0)
                    currentCard[currentSelected].transform.SetAsLastSibling();
+            }
+        }
+
+        protected override void Dispose()
+        {
+            base.Dispose();
+            foreach (var re in currentRelic)
+            {
+                re.ReturnToPool();
+                relicPool.Enqueue(re);
             }
         }
     }
