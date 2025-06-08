@@ -195,6 +195,7 @@ namespace FluffyDisdog.UI
             
             //UICardPackResultPopup.OpenPopup(gachaType, cost);
             AccountManager.I.GoldConsume(cost);
+            SyncGold();
             TileGameManager.I.RelicSystem.GainRelic(relicName);
             
             slot.AfterBuy();

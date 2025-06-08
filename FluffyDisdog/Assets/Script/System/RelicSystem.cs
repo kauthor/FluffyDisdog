@@ -13,6 +13,8 @@ namespace FluffyDisdog
         /// 임시
         /// </summary>
         private RelicData[] datas;
+
+        public RelicData[] currentRelicDatas => datas;
         
         private List<RelicCommandData.RelicCommandData> commands;
 
