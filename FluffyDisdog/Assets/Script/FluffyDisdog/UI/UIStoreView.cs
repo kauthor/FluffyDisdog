@@ -89,7 +89,7 @@ namespace FluffyDisdog.UI
             if (TileGameManager.I.RequestSystem.IsReqRunning)
             {
                 pnlRequestStart.SetActive(false);
-                pnlRequestStart.SetActive(true);
+                pnlRequestAdd.SetActive(true);
                 requestAddPrice = TileGameManager.I.RequestSystem.ReqDegree * 5;
                 txtRequestAddPrice.text = requestAddPrice.ToString();
                 txtRequestAddPrice.gameObject.SetActive(true);
@@ -97,7 +97,7 @@ namespace FluffyDisdog.UI
             else
             {
                 pnlRequestStart.SetActive(true);
-                pnlRequestStart.SetActive(false);
+                pnlRequestAdd.SetActive(false);
                 
                 txtRequestAddPrice.gameObject.SetActive(false);
             }
@@ -159,14 +159,16 @@ namespace FluffyDisdog.UI
             foreach (var r in relics)
             {
                 if(!r.Purchased)
-                    r.Reroll(20, (int)Mathf.Max(0, (int)RelicName.HorizontalVerticalStabilizer +1), OnClickRelicPack);
+                    r.Reroll(20, (int)Random.Range(1, (int)RelicName.HorizontalVerticalStabilizer +1), OnClickRelicPack);
             }
 
             foreach (var p in packs)
             {
                 if(!p.Purchased)
-                    p.Reroll(20,0, OnClickGachaPack);
+                    p.Reroll(Random.Range(20,31),0, OnClickGachaPack);
             }
+            
+            SyncGold();
         }
 
         private void SyncGold()
@@ -175,11 +177,13 @@ namespace FluffyDisdog.UI
             txtGold.text = currentAccountGold.ToString();
         }
 
-        private void OnClickGachaPack(int gachaType, int cost, UICardPackSelectPart slot)
+        private void OnClickGachaPack(int cost, int gachaType, UICardPackSelectPart slot)
         {
             if (cost > AccountManager.I.Gold)
                 return;
-            
+
+            AccountManager.I.GoldConsume(cost);
+            SyncGold();
             UICardPackResultPopup.OpenPopup(gachaType, cost);
             slot.AfterBuy();
         }

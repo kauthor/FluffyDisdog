@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _toolTable: {fileID: 11400000, guid: 899b20b277ecb13499bfdbd7e6519280, type: 2}
+  _relicDataTable: {fileID: 11400000, guid: b110d02ec7d6383499d848d3a500ad33, type: 2}

@@ -6,6 +6,7 @@ using UnityEditor;
 using UnityEngine;
 using ExcelDataReader;
 using FluffyDisdog.Data.RelicData;
+using UnityEditor.AddressableAssets;
 
 namespace Editor
 {
@@ -22,8 +23,8 @@ namespace Editor
 
         private void OnGUI()
         {
-            var pathProj = Application.dataPath.Replace("FluffyDisdog/Assets", "FluffyDisdog");
-            string path =  "/Plan/Table/LiveData/03.RelicData.xlsx";
+            //var pathProj = Application.dataPath.Replace("FluffyDisdog/Assets", "");
+            //string path =  "/Plan/Table/LiveData/03.RelicData.xlsx";
             
             //scrip = EditorGUILayout.ObjectField("Scriptable Object", scrip, typeof(ScriptableObject), true)
              //   as BaseTable;
@@ -32,51 +33,78 @@ namespace Editor
              
             if (GUILayout.Button("Relic Table Export"))
             {
-                RelicDataTable baseT = ScriptableObject.CreateInstance<RelicDataTable>();
-                //var fields = scrip.GetType().GetField("baseDatas");
-                using (var stream = File.Open(pathProj+ path, FileMode.Open, FileAccess.Read, FileShare.Read))
+                string assetPath = "Assets/DataTable/RelicTable.asset";
+                string pathProj = Application.dataPath.Replace("FluffyDisdog/Assets", ""); // 너의 환경에 따라 조정 가능
+                string excelPath = "/Plan/Table/LiveData/03.RelicData.xlsx";
+
+                RelicDataTable tableAsset = AssetDatabase.LoadAssetAtPath<RelicDataTable>(assetPath);
+
+                if (tableAsset == null)
                 {
-                    using (var reader = ExcelReaderFactory.CreateReader(stream))
+                    tableAsset = ScriptableObject.CreateInstance<RelicDataTable>();
+                    AssetDatabase.CreateAsset(tableAsset, assetPath);
+                    Debug.Log("새 RelicTable.asset 생성됨");
+                }
+                else
+                {
+                    Debug.Log("기존 RelicTable.asset 불러와 덮어씀");
+                }
+
+                // 엑셀 파일 읽기
+                using (var stream = File.Open(pathProj + excelPath, FileMode.Open, FileAccess.Read, FileShare.Read))
+                using (var reader = ExcelReaderFactory.CreateReader(stream))
+                {
+                    var result = reader.AsDataSet();
+                    for (int i = 0; i < result.Tables.Count; i++)
                     {
-                        var result = reader.AsDataSet();
+                        var rows = result.Tables[i].Rows;
+                        RelicData[] baseArr = new RelicData[rows.Count - 1];
 
-                        
-                        //시트 개수만큼 반복
-                        for (int i = 0; i < result.Tables.Count; i++)
+                        for (int j = 1; j < rows.Count; j++)
                         {
-                            RelicData[] baseArr = new RelicData[result.Tables[i].Rows.Count-1];
-                            //해당 시트의 행데이터(한줄씩)로 반복
-                            for (int j = 1; j < result.Tables[i].Rows.Count; j++)
-                            {
-                                //해당행의 0,1,2 셀의 데이터 파싱
-                                string data1 = result.Tables[i].Rows[j][0].ToString();
-                                string data2 = result.Tables[i].Rows[j][1].ToString();
-                                string data3 = result.Tables[i].Rows[j][2].ToString();
-                                
-                                int data1Parse = Int32.Parse(data1);
-                                int data2Parse = Int32.Parse(data2);
-                                int data3Parse = Int32.Parse(data3);
-                                
-                                float[] values = new float[2]
-                                {
-                                    data2Parse,data3Parse
-                                }; 
-                                RelicData newB = new RelicData(data1Parse, values);
-                                baseArr[j-1] = newB;
-                            }
+                            string data1 = rows[j][1].ToString();
+                            string data2 = rows[j][2].ToString();
+                            string data3 = rows[j][3].ToString();
 
-                            baseT.SetRelicData(baseArr);
+                            int relicId = int.Parse(data1.Remove(0, 5));
+                            float value1 = float.Parse(data2);
+                            float value2 = float.Parse(data3);
+
+                            baseArr[j - 1] = new RelicData(relicId, new[] { value1, value2 }, data1);
                         }
+
+                        tableAsset.SetRelicData(baseArr);
                     }
                 }
-                
-               
-                AssetDatabase.CreateAsset(baseT, "Assets/Tables/RelicTable.asset");
-                AssetDatabase.SaveAssets();
-            }
 
-           
-            
+                // 에셋 저장
+                EditorUtility.SetDirty(tableAsset);
+                AssetDatabase.SaveAssets();
+
+        #if UNITY_EDITOR
+                // Addressables 자동 등록 (중복 확인 포함)
+                var settings = AddressableAssetSettingsDefaultObject.Settings;
+                var group = settings.DefaultGroup;
+                string guid = AssetDatabase.AssetPathToGUID(assetPath);
+                var entry = settings.FindAssetEntry(guid);
+
+                if (entry == null)
+                {
+                    entry = settings.CreateOrMoveEntry(guid, group);
+                    entry.address = "RelicTable";
+                    Debug.Log("Addressables에 RelicTable 등록됨");
+                }
+                else
+                {
+                    Debug.Log("Addressables 이미 등록됨");
+                }
+
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
+        #endif
+
+                Debug.Log("RelicTable 임포트 완료");
+            }
         }
     }
 }

@@ -33,6 +33,14 @@ MonoBehaviour:
     m_Address: Lobby
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 6219ea7e741109a43acd360755e06b0a
+    m_Address: RelicTable
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 899b20b277ecb13499bfdbd7e6519280
+    m_Address: ToolTable
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c4b4aea7e916bf6448fc92af0dc0baf0, type: 2}
   m_SchemaSet:
