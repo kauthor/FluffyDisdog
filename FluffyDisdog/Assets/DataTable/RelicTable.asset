@@ -1,0 +1,125 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98c12bc7624a4772bbe9c52769117e81, type: 3}
+  m_Name: RelicTable
+  m_EditorClassIdentifier: 
+  _relicDatas:
+  - localKey: relic1
+    relicName: 1
+    values:
+    - 3
+    - 0
+  - localKey: relic2
+    relicName: 2
+    values:
+    - 1.25
+    - 0
+  - localKey: relic3
+    relicName: 3
+    values:
+    - 3000
+    - 0
+  - localKey: relic4
+    relicName: 4
+    values:
+    - 1
+    - 0
+  - localKey: relic5
+    relicName: 5
+    values:
+    - 0
+    - 0
+  - localKey: relic6
+    relicName: 6
+    values:
+    - 10
+    - 5
+  - localKey: relic7
+    relicName: 7
+    values:
+    - 0
+    - 0
+  - localKey: relic8
+    relicName: 8
+    values:
+    - 0
+    - 0
+  - localKey: relic9
+    relicName: 9
+    values:
+    - 3
+    - 0
+  - localKey: relic10
+    relicName: 10
+    values:
+    - 1.5
+    - 0
+  - localKey: relic11
+    relicName: 11
+    values:
+    - 3000
+    - 0
+  - localKey: relic12
+    relicName: 12
+    values:
+    - 0
+    - 0
+  - localKey: relic13
+    relicName: 13
+    values:
+    - 2.25
+    - 0
+  - localKey: relic14
+    relicName: 14
+    values:
+    - 0
+    - 0
+  - localKey: relic15
+    relicName: 15
+    values:
+    - 3000
+    - 0
+  - localKey: relic16
+    relicName: 16
+    values:
+    - 3000
+    - 0
+  - localKey: relic17
+    relicName: 17
+    values:
+    - 5
+    - 0
+  - localKey: relic18
+    relicName: 18
+    values:
+    - 3
+    - 0
+  - localKey: relic19
+    relicName: 19
+    values:
+    - 2.5
+    - 0
+  - localKey: relic20
+    relicName: 20
+    values:
+    - 7
+    - 0
+  - localKey: relic21
+    relicName: 21
+    values:
+    - 2500
+    - 2000
+  - localKey: relic22
+    relicName: 22
+    values:
+    - 2000
+    - 0

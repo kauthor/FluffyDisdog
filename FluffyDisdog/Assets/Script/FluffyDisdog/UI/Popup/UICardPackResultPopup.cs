@@ -21,6 +21,7 @@ namespace FluffyDisdog.UI
             if (pop is UICardPackResultPopup pack)
             {
                 pack.Init(gachaType, cost);
+                pack.gameObject.SetActive(true);
                 //return pop;
             }
 

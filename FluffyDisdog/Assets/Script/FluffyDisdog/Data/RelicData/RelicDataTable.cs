@@ -35,6 +35,8 @@ namespace FluffyDisdog.Data.RelicData
     public class RelicData
     {
         //public TurnEvent eventType;
+
+        public string localKey;
         
         public RelicName relicName;
 
@@ -42,10 +44,11 @@ namespace FluffyDisdog.Data.RelicData
         
         public float[] Values => values;
 
-        public RelicData(int relicId, float[] val)
+        public RelicData(int relicId, float[] val, string key)
         {
             relicName = (RelicName)relicId;
             values = val;
+            localKey = key;
         }
         
         

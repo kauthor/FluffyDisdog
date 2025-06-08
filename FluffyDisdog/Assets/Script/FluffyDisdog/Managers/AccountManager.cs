@@ -6,6 +6,12 @@
 
         public int Gold => gold;
 
+        protected override void Awake()
+        {
+            base.Awake();
+            gold = 1000; //임시
+        }
+
         public bool GoldConsume(int amount)
         {
             if (amount > gold)
