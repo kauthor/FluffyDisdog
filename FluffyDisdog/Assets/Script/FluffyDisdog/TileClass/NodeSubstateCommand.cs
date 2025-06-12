@@ -31,6 +31,9 @@ namespace Script.FluffyDisdog.TileClass
                 case NodeSubstate.Infest:
                     ret = new NodeInfestCommand().InitCommand(owner);
                     break;
+                case NodeSubstate.Dark:
+                    ret = new DarkSubstateCommand().InitCommand(owner);
+                    break;
                 case NodeSubstate.Crack:
                 default:
                     ret = new NodeCrackCommand().InitCommand(owner);
@@ -105,6 +108,15 @@ namespace Script.FluffyDisdog.TileClass
                 var target = Random.Range(0, infestTarget.Count);
                 infestTarget[target].SubstateSystem.SetState(NodeSubstate.Infest);
             }
+        }
+    }
+
+    public class DarkSubstateCommand : NodeSubstateCommand
+    {
+        public override NodeSubstate SubstateType => NodeSubstate.Dark;
+        public override void Execute(TurnEventOptionParam param = null)
+        {
+            
         }
     }
 }

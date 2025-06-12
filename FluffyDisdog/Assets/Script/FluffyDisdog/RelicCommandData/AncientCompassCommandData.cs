@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace FluffyDisdog.RelicCommandData
 {
-    public class AncientCompassParam : TurnEventOptionParam
+    public class TileClickedParam : TurnEventOptionParam
     {
         public TerrainNode targetNode;
     }
@@ -30,7 +30,7 @@ namespace FluffyDisdog.RelicCommandData
 
             if (count < maxDestroy)
             {
-                if (param is AncientCompassParam aparam)
+                if (param is TileClickedParam aparam)
                 {
                     var Owner = aparam.targetNode;
                     var nearTarget = TileGameManager.I.TileSet.GetNearTiles(Owner.Coord);

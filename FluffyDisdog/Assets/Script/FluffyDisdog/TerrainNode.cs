@@ -17,6 +17,7 @@ namespace FluffyDisdog
     {
         Raw=0,
         Digged=1,
+        AfterImage=2
     }
 
     public enum NodeType
@@ -122,7 +123,8 @@ namespace FluffyDisdog
     {
         NONE=0,
         Infest=1<<0,
-        Crack=1<<1
+        Crack=1<<1,
+        Dark=1<<2,
     }
     public class NodeSubstateSystem
     {
@@ -196,6 +198,8 @@ namespace FluffyDisdog
         [SerializeField] private Transform mouseOverEffect;
 
         private NodeState currentState;
+        
+        public NodeState CurrentState => currentState;
         
 
         [FoldoutGroup("Block Property")] [SerializeField]
@@ -303,7 +307,7 @@ namespace FluffyDisdog
 
         public bool TryDigThisBlock(ToolData data ,int rate = 100)
         {
-            if (currentState == NodeState.Digged)
+            if ((int)currentState >= (int)NodeState.Digged)
                 return false;
             
             if (rate >= 100 || _substateSystem.Is(NodeSubstate.Crack))
@@ -347,7 +351,7 @@ namespace FluffyDisdog
 
         public void TryDigBlockForce()
         {
-            if (currentState == NodeState.Digged)
+            if ((int)currentState >= (int)NodeState.Digged)
                 return;
             
             //if (_substateSystem.Is(NodeSubstate.Crack))
@@ -392,14 +396,15 @@ namespace FluffyDisdog
             }
             else
             {
-                currentState = NodeState.Digged;
+                //todo : 잔상 작업중
+                currentState = NodeState.AfterImage;
                 _renderer.sprite = null;
             }
         }
 
         public bool IsDiggable()
         {
-            return currentState != NodeState.Digged;
+            return (int)currentState < (int)NodeState.Digged;
         }
 
         public void SwapNodeByData(int newType)
@@ -475,8 +480,11 @@ namespace FluffyDisdog
             }
         }
 
-        public bool ValidNode() => currentState == NodeState.Raw;
+        public bool ValidNode() => (int)currentState != (int)NodeState.Digged;
+        
 
+        
+        
         public void MouseOverOnOff(bool on)
         {
             if(mouseOverEffect!=null)

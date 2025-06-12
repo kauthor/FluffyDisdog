@@ -394,7 +394,7 @@ namespace FluffyDisdog
 
             //이것도 추후 타일처럼 디자인패턴화 시키자...
             var beforeScore = TileGameManager.I.CurrentScore.Value;
-            PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.TileClicked, new AncientCompassParam()
+            PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.TileClicked, new TileClickedParam()
             {
                 targetNode = clicked
             });
