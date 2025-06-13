@@ -195,6 +195,7 @@ namespace FluffyDisdog
         [SerializeField] private Sprite normalSprite;
         [SerializeField] private Sprite[] treasurePool;
         [SerializeField] private Sprite[] obstaclePool;
+        [SerializeField] private Sprite afterImageSprite;
         [SerializeField] private Transform mouseOverEffect;
 
         private NodeState currentState;
@@ -398,7 +399,7 @@ namespace FluffyDisdog
             {
                 //todo : 잔상 작업중
                 currentState = NodeState.AfterImage;
-                _renderer.sprite = null;
+                _renderer.sprite = afterImageSprite;
             }
         }
 

@@ -9,7 +9,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.AddressableAssets.ResourceLocators;
 using UnityEngine.ResourceManagement.AsyncOperations;
-
+using Random = UnityEngine.Random;
 
 
 namespace FluffyDisdog
@@ -482,6 +482,20 @@ namespace FluffyDisdog
             OnNodeClickedCB?.Invoke();
             _eventSystem?.FireEvent(TurnEvent.TurnEnd);
             _eventSystem?.FireEvent(TurnEvent.TurnStart);
+        }
+
+
+        public TerrainNode GetRandomNode(Func<TerrainNode, bool> predicate = null)
+        {
+            if (predicate == null)
+                return null;
+            var rand = nodes[Random.Range(0, nodes.Length)];
+            while (!predicate(rand))
+            {
+                rand = nodes[Random.Range(0, nodes.Length)];
+            }
+
+            return rand;
         }
     }
 }
