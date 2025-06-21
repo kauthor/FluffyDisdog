@@ -26,9 +26,8 @@ namespace Script.FluffyDisdog.Managers
 
         [SerializeField] private ToolType[] startDeck = new ToolType[]
         {
-            ToolType.Rake, ToolType.Rake, ToolType.Rake, ToolType.Rake, ToolType.Rake, ToolType.Rake, ToolType.Rake,
-            ToolType.Rake, ToolType.Shovel, ToolType.Shovel, ToolType.Shovel, ToolType.Shovel, ToolType.Shovel,
-            ToolType.Shovel, ToolType.Shovel, ToolType.Shovel
+            (ToolType)1,(ToolType)1,(ToolType)1,(ToolType)1,(ToolType)1,(ToolType)1,(ToolType)1,(ToolType)1,
+            (ToolType)2,(ToolType)2,(ToolType)2,(ToolType)2,(ToolType)2,(ToolType)2,(ToolType)2,(ToolType)2,
         };
 
         private Dictionary<ToolType, int> DeckList;

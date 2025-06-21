@@ -13,9 +13,11 @@ namespace Script.FluffyDisdog.Managers
     {
         private ToolTable _toolTable;
         private RelicDataTable _relicDataTable;
+        private ToolExcelDataTable _toolExcelDatas;
 
         private Dictionary<ToolType, ToolData> toolDataDic;
         private Dictionary<RelicName, RelicData> relicDataDic;
+        private Dictionary<ToolType, ToolExcelData> toolExcelDataDic;
 
         protected override void Awake()
         {
@@ -47,8 +49,19 @@ namespace Script.FluffyDisdog.Managers
             await toolhandle;
             Addressables.Release(toolhandle);
             
+            AsyncOperationHandle texcelHandle =
+                Addressables.LoadAssetAsync<ToolTable>("ToolExcelTable");
+            texcelHandle.Completed += op =>
+            {
+                var res = op.Result as ToolTable;
+                _toolTable = res;
+            };
+            await texcelHandle;
+            Addressables.Release(texcelHandle);
+            
             toolDataDic = _toolTable.TryCache();
             relicDataDic = _relicDataTable.TryCache();
+            toolExcelDataDic = _toolExcelDatas.TryCache();
         }
 
         public ToolData GetToolData(ToolType t)
@@ -59,6 +72,11 @@ namespace Script.FluffyDisdog.Managers
         public RelicData GetRelicData(RelicName relicName)
         {
             return relicDataDic[relicName];
+        }
+
+        public ToolExcelData GetToolExcelData(ToolType t)
+        {
+            return toolExcelDataDic[t];
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using Script.FluffyDisdog.Managers;
 using UnityEngine;
 
 namespace FluffyDisdog.Data
@@ -15,9 +16,25 @@ namespace FluffyDisdog.Data
         public int[] ratio;
         public bool[] interact;
         public int Center;
-        public ToolTag tag;
-        public ToolAdditionalOption option;
-        public int optionValue;
+        public ToolTag tag => runtimeData?.ToolTag ?? ToolTag.NONE;
+        public ToolAdditionalOption option
+        => runtimeData?.Option ?? ToolAdditionalOption.None;
+        public int optionValue
+        => runtimeData?.OptionValue ?? 0;
+
+        private ToolExcelData runtimeData;
+
+        public ToolExcelData RuntimeData
+        {
+            get
+            {
+                if (runtimeData == null)
+                {
+                    runtimeData = ExcelManager.I.GetToolExcelData(type);
+                }
+                return runtimeData;
+            }
+        }
 
         public int CenterRow => Center % cellWidth;
         public int CenterColumn => Center / cellWidth;
@@ -67,9 +84,9 @@ namespace FluffyDisdog.Data
                 cellWidth = this.cellWidth,
                 ratio = newArr,
                 Center = this.Center,
-                tag = this.tag,
-                option = this.option,
-                optionValue = this.optionValue,
+                //tag = this.tag,
+                //option = this.option,
+                //optionValue = this.optionValue,
                 interact = newInteract
             };
         }

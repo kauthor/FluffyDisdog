@@ -44,14 +44,16 @@ namespace FluffyDisdog.UI
 
         public void Flip(bool front)
         {
-            imgBackward.gameObject.SetActive(!front);
+            imgBackward?.gameObject.SetActive(!front);
+            
+            //todo : 여기에 신규 프리팹 구성요소 온오프
         }
 
         public void Select(bool sel)
         {
             isSelected = sel;
-            imgSelected.gameObject.SetActive(sel);
-            imgUnselected.gameObject.SetActive(!sel);
+            imgSelected?.gameObject.SetActive(sel);
+            imgUnselected?.gameObject.SetActive(!sel);
             if(sel)
                 Hovered();
             else

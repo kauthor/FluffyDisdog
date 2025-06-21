@@ -4266,8 +4266,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5116745776298560003}
   - component: {fileID: 4632937787293959921}
+  - component: {fileID: 3606648058237726793}
   m_Layer: 5
-  m_Name: Card Prefab11
+  m_Name: CardPopupPrefabNew
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4310,6 +4311,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 413169203243877429}
   m_CullTransparentMesh: 0
+--- !u!114 &3606648058237726793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413169203243877429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7340982be744184bc6c118f285208aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  txtType: {fileID: 0}
+  btnClickArea: {fileID: 0}
+  imgSelected: {fileID: 0}
+  imgUnselected: {fileID: 0}
+  imgBackward: {fileID: 0}
 --- !u!1 &415669613382222632
 GameObject:
   m_ObjectHideFlags: 0

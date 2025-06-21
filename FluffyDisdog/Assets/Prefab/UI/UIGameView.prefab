@@ -306,7 +306,7 @@ MonoBehaviour:
   txtCurrentScore: {fileID: 247649951025669834}
   txtGoalScore: {fileID: 4814386000951269618}
   cardArea: {fileID: 6159606902401156192}
-  cardPrefab: {fileID: 5221416881348819875, guid: 6efa48786c427f3439a2f3edc2ae5031,
+  cardPrefab: {fileID: 3606648058237726793, guid: 71ec16c74d546c1449649484e02aa728,
     type: 3}
   cardSpace: 90
   deckPosition: {fileID: 7901547223335146630}

@@ -115,9 +115,9 @@ namespace Editor
                 {
                     ratioTemp = currentData?.GetRatioValues();
                     interactableTemp = currentData?.GetInteractable();
-                    currentTag = currentData.tag;
-                    currentOption = currentData.option;
-                    currentOptionValue = currentData.optionValue;
+                    //currentTag = currentData.tag;
+                    //currentOption = currentData.option;
+                    //currentOptionValue = currentData.optionValue;
                 }
 
                 needSync = false;
@@ -241,9 +241,9 @@ namespace Editor
                 {
                     currentData.ratio = ratioTemp;
                     currentData.interact = interactableTemp;
-                    currentData.tag = currentTag;
-                    currentData.option = currentOption;
-                    currentData.optionValue = currentOptionValue;
+                    //currentData.tag = currentTag;
+                    //currentData.option = currentOption;
+                    //'currentData.optionValue = currentOptionValue;
                     _toolDatas[selectedTab] = currentData;
                     table.SetData(_toolDatas.Values.ToArray());
                     
