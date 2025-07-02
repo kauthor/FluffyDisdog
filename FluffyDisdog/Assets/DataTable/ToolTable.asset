@@ -19,222 +19,183 @@ MonoBehaviour:
     ratio: 64000000
     interact: 01
     Center: 0
-    tag: 549
-    option: 0
-    optionValue: 0
   - type: 1
     cellWidth: 3
     cellHeight: 1
     ratio: 420000006400000042000000
     interact: 010101
     Center: 1
-    tag: 549
-    option: 0
-    optionValue: 0
   - type: 2
     cellWidth: 1
     cellHeight: 1
     ratio: 64000000
     interact: 01
     Center: 0
-    tag: 805
-    option: 0
-    optionValue: 0
   - type: 3
     cellWidth: 3
     cellHeight: 1
     ratio: 640000006400000064000000
     interact: 010101
     Center: 1
-    tag: 805
-    option: 0
-    optionValue: 0
   - type: 4
     cellWidth: 1
     cellHeight: 1
     ratio: 64000000
     interact: 01
     Center: 0
-    tag: 613
-    option: 0
-    optionValue: 0
   - type: 5
     cellWidth: 1
     cellHeight: 1
     ratio: 64000000
     interact: 01
     Center: 0
-    tag: 869
-    option: 0
-    optionValue: 0
   - type: 6
     cellWidth: 1
     cellHeight: 3
     ratio: 420000006400000042000000
     interact: 010101
     Center: 1
-    tag: 549
-    option: 0
-    optionValue: 0
   - type: 7
     cellWidth: 1
     cellHeight: 3
     ratio: 640000006400000064000000
     interact: 010101
     Center: 1
-    tag: 805
-    option: 0
-    optionValue: 0
   - type: 8
     cellWidth: 3
     cellHeight: 3
     ratio: 000000003200000000000000320000006400000032000000000000003200000000000000
     interact: 000100010101000100
     Center: 4
-    tag: 549
-    option: 0
-    optionValue: 0
   - type: 9
     cellWidth: 3
     cellHeight: 3
     ratio: 000000004b000000000000004b000000640000004b000000000000004b00000000000000
     interact: 000100010101000100
     Center: 4
-    tag: 805
-    option: 0
-    optionValue: 0
   - type: 10
     cellWidth: 3
     cellHeight: 3
     ratio: 320000000000000032000000000000006400000000000000320000000000000032000000
     interact: 010001000100010001
     Center: 4
-    tag: 549
-    option: 0
-    optionValue: 0
   - type: 11
     cellWidth: 3
     cellHeight: 3
     ratio: 4b000000000000004b0000000000000064000000000000004b000000000000004b000000
     interact: 010001000100010001
     Center: 4
-    tag: 805
-    option: 0
-    optionValue: 0
   - type: 12
     cellWidth: 1
     cellHeight: 1
     ratio: 64000000
     interact: 00
     Center: 0
-    tag: 549
-    option: 0
-    optionValue: 0
   - type: 14
     cellWidth: 3
     cellHeight: 3
     ratio: 210000004200000021000000420000006400000042000000210000004200000021000000
     interact: 010101010101010101
     Center: 4
-    tag: 553
-    option: 0
-    optionValue: 0
   - type: 13
     cellWidth: 1
     cellHeight: 1
     ratio: 64000000
     interact: 00
     Center: 0
-    tag: 805
-    option: 0
-    optionValue: 0
   - type: 16
     cellWidth: 3
     cellHeight: 3
     ratio: 420000002100000042000000210000006400000021000000420000002100000042000000
     interact: 010101010101010101
     Center: 4
-    tag: 553
-    option: 0
-    optionValue: 0
   - type: 15
     cellWidth: 3
     cellHeight: 3
     ratio: 320000004b000000320000004b000000640000004b000000320000004b00000032000000
     interact: 010101010101010101
     Center: 4
-    tag: 809
-    option: 0
-    optionValue: 0
   - type: 17
     cellWidth: 3
     cellHeight: 3
     ratio: 4b000000320000004b0000003200000064000000320000004b000000320000004b000000
     interact: 010101010101010101
     Center: 4
-    tag: 809
-    option: 0
-    optionValue: 0
   - type: 18
     cellWidth: 1
     cellHeight: 3
     ratio: 420000006400000042000000
     interact: 010101
     Center: 1
-    tag: 617
-    option: 0
-    optionValue: 0
   - type: 19
     cellWidth: 1
     cellHeight: 3
     ratio: 640000006400000064000000
     interact: 010101
     Center: 1
-    tag: 873
-    option: 0
-    optionValue: 0
   - type: 20
     cellWidth: 3
     cellHeight: 3
     ratio: 4b000000000000004b0000004b000000640000004b0000004b000000000000004b000000
     interact: 010001010101010001
     Center: 4
-    tag: 561
-    option: 0
-    optionValue: 0
   - type: 21
     cellWidth: 3
     cellHeight: 3
     ratio: 640000000000000064000000640000006400000064000000640000000000000064000000
     interact: 010001010101010001
     Center: 4
-    tag: 817
-    option: 0
-    optionValue: 0
   - type: 22
     cellWidth: 1
     cellHeight: 1
     ratio: 00000000
     interact: 01
     Center: 0
-    tag: 645
-    option: 1
-    optionValue: 100
   - type: 23
     cellWidth: 3
     cellHeight: 3
     ratio: 000000000000000000000000000000000000000000000000000000000000000000000000
     interact: 010101010101010101
     Center: 4
-    tag: 649
-    option: 1
-    optionValue: 100
   - type: 24
     cellWidth: 5
     cellHeight: 5
     ratio: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
     interact: 01010101010101010101010101010101010101010101010101
     Center: 12
-    tag: 657
-    option: 1
-    optionValue: 100
+  - type: 26
+    cellWidth: 3
+    cellHeight: 3
+    ratio: 000000000000000000000000000000000000000000000000000000000000000000000000
+    interact: 010101010101010101
+    Center: 4
+  - type: 27
+    cellWidth: 3
+    cellHeight: 3
+    ratio: 000000000000000000000000000000000000000000000000000000000000000000000000
+    interact: 010101010101010101
+    Center: 4
+  - type: 30
+    cellWidth: 1
+    cellHeight: 1
+    ratio: 50000000
+    interact: 01
+    Center: 0
+  - type: 31
+    cellWidth: 1
+    cellHeight: 1
+    ratio: 64000000
+    interact: 01
+    Center: 0
+  - type: 32
+    cellWidth: 5
+    cellHeight: 1
+    ratio: 0000000000000000640000000000000000000000
+    interact: 0101010101
+    Center: 2
+  - type: 33
+    cellWidth: 5
+    cellHeight: 1
+    ratio: 0000000000000000640000000000000000000000
+    interact: 0101010101
+    Center: 2
