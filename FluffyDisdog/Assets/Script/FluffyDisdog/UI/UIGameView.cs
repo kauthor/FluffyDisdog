@@ -52,8 +52,8 @@ namespace FluffyDisdog.UI
             //DeckManager.I.BindHandler(_=> txtCurrentTool.text = _.ToString());
             txtCurrentScore.text = "0";
 
-            var hand = DeckManager.I.Deck.Count;
-            var handList = DeckManager.I.Deck;
+            var hand = DeckManager.I.Hand.Count;
+            var handList = DeckManager.I.Hand;
             
             if (cardPool == null)
                 cardPool = new List<CardPart>();
@@ -76,7 +76,7 @@ namespace FluffyDisdog.UI
                     current = cardPool[i];
                 }
                 
-                current.Init(i, handList[i], OnCardClicked);
+                current.Init(i, handList[i].ToolType, OnCardClicked);
                 current.InitHandler(OnCardHovered, CardSort);
                 current.transform.position = //new Vector3(cardSpace * i, 0, 0);
                     deckPosition.transform.position;
@@ -139,7 +139,7 @@ namespace FluffyDisdog.UI
             currentCard[0].Select(true);
             DeckManager.I.SelectTool(0);
             txtCurrentTool.gameObject.SetActive(true);
-            txtCurrentTool.text = DeckManager.I.Deck[0].ToString();
+            txtCurrentTool.text = DeckManager.I.Hand[0].ToString();
         }
 
         private void OnCardClicked(int id, ToolType type)

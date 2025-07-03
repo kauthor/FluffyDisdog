@@ -335,7 +335,8 @@ namespace FluffyDisdog
             }
             else
             {
-                switch (data.option)
+                //todo : 카드 옵션 모듈 개편되면...
+                /*switch (data.option)
                 {
                     case ToolAdditionalOption.ChangeCrackWhenFail:
                         _substateSystem.SetState(NodeSubstate.Crack);
@@ -344,6 +345,7 @@ namespace FluffyDisdog
                         _substateSystem.SetState(NodeSubstate.Infest);
                         break;
                 }
+                return false;*/
                 return false;
             }
 
