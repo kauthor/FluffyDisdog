@@ -24,14 +24,16 @@ namespace Script.FluffyDisdog.Managers
         public int CardUsedCount => cardUsedCount;
         
         private CardOptionExecuter executer;
+        public CardOptionExecuter Executor => executer;
         private int deckId;
         public int DeckId => deckId;
 
         public CardInGame(ToolType toolType, int deckId)
         {
             _toolType = toolType;
-            //todo : 팩토리 만들자
-            executer = new CardOptionExecuter();
+            var cardData = ExcelManager.I.GetToolCardOpData(this._toolType);
+            if(cardData != null)
+               executer = CardOptionExecuter.MakeCardAddOptionExecuter(cardData);
             //executer.InitCommandData();
             this.deckId = deckId;
         }
@@ -68,6 +70,7 @@ namespace Script.FluffyDisdog.Managers
         private int usedId = 0;
 
         private CardInGame currentCard;
+        public CardInGame CurrentCard => currentCard; 
         
         public void Init(int maxHandCard)
         {
@@ -108,6 +111,24 @@ namespace Script.FluffyDisdog.Managers
             onCardUse = null;
             handMax = maxHandCard + (PlayerManager.I.TurnEventSystem.HasRelicCommand(RelicName.ExpandedBackpack) ? 1:0);
             SetHand();
+        }
+
+        public void PreEffect(CardExecuteParam param)
+        {
+            if(currentCard!=null)
+                currentCard.Executor.PreEffect(param);
+        }
+
+        public void OnEffect(CardExecuteParam param)
+        {
+            if(currentCard!=null)
+                currentCard.Executor.ExecuteTileEffect(param);
+        }
+        
+        public void PostEffect(CardExecuteParam param)
+        {
+            if(currentCard!=null)
+                currentCard.Executor.PostEffect(param);
         }
 
         public void TryAddDeck(ToolType tool)

@@ -139,7 +139,7 @@ namespace FluffyDisdog.UI
             currentCard[0].Select(true);
             DeckManager.I.SelectTool(0);
             txtCurrentTool.gameObject.SetActive(true);
-            txtCurrentTool.text = DeckManager.I.Hand[0].ToString();
+            txtCurrentTool.text = DeckManager.I.Hand[0].ToolType.ToString();
         }
 
         private void OnCardClicked(int id, ToolType type)
