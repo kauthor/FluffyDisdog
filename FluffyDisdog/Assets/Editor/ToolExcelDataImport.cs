@@ -32,7 +32,7 @@ namespace Editor
             {
                 string assetPath = "Assets/DataTable/ToolExcelTable.asset";
                 string pathProj = Application.dataPath.Replace("FluffyDisdog/Assets", ""); // 너의 환경에 따라 조정 가능
-                string excelPath = "/Plan/Table/LiveData/03.CardData.xlsx";
+                string excelPath = "/Plan/Table/LiveData/02.CardData.xlsx";
 
                 ToolExcelDataTable tableAsset = AssetDatabase.LoadAssetAtPath<ToolExcelDataTable>(assetPath);
 

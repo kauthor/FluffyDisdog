@@ -62,9 +62,9 @@ namespace Editor
 
                         for (int j = 1; j < rows.Count; j++)
                         {
-                            string data1 = rows[j][1].ToString();
-                            string data2 = rows[j][2].ToString();
-                            string data3 = rows[j][3].ToString();
+                            string data1 = rows[j][0].ToString();
+                            string data2 = rows[j][3].ToString();
+                            string data3 = rows[j][4].ToString();
 
                             int relicId = int.Parse(data1.Remove(0, 5));
                             float value1 = float.Parse(data2);

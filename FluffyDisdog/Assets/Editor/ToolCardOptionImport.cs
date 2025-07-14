@@ -25,7 +25,7 @@ namespace Editor
             {
                 string assetPath = "Assets/DataTable/ToolCardOptionTable.asset";
                 string pathProj = Application.dataPath.Replace("FluffyDisdog/Assets", ""); // 너의 환경에 따라 조정 가능
-                string excelPath = "/Plan/Table/LiveData/03.CardAddData.xlsx";
+                string excelPath = "/Plan/Table/LiveData/04.CardAddData.xlsx";
 
                 ToolCardOptionTable tableAsset = AssetDatabase.LoadAssetAtPath<ToolCardOptionTable>(assetPath);
 
