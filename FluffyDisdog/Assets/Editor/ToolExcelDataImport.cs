@@ -55,7 +55,7 @@ namespace Editor
                     for (int i = 0; i < result.Tables.Count; i++)
                     {
                         var rows = result.Tables[i].Rows;
-                        ToolExcelData[] baseArr = new ToolExcelData[rows.Count - 1];
+                        ToolExcelData[] baseArr = new ToolExcelData[Mathf.Min(rows.Count - 1, (int)ToolType.MAX -1) ];
 
                         for (int j = 1; j < rows.Count; j++)
                         {
@@ -92,6 +92,7 @@ namespace Editor
                             string data18 = rows[j][17].ToString();
                             
                             int id = int.Parse(data1);
+                            if(id > 134) continue;
                             string key = data2;
                             string localNKey = data3;
                             string localDKey = data4;

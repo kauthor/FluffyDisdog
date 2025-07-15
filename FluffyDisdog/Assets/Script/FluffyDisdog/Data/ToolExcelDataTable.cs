@@ -8,10 +8,7 @@ namespace FluffyDisdog.Data
     [Serializable]
     public class ToolExcelData
     {
-        [SerializeField] ToolType cardKey;
-        [SerializeField] ToolTag toolTag;
-        [SerializeField] ToolAdditionalOption option;
-        [SerializeField] int optionValue;
+        
         
         [SerializeField] ToolType cardKeyNew;
         [SerializeField] private string cardKeyString;
@@ -53,16 +50,16 @@ namespace FluffyDisdog.Data
         
         public ToolExcelData(ToolType type, ToolTag tag, ToolAdditionalOption op, int val)
         {
-            this.cardKey = type;
+           /* this.cardKey = type;
             this.toolTag = tag;
             this.option = op;
-            this.optionValue = val;
+            this.optionValue = val;*/
         }
 
         public ToolExcelData(int id,string key,string localNKey,string localDKey,int cardType,int charType, int upType, string upKey, int rarity, int bit, int tagBit, int mana, int[] addOpId1,
             int cardDexId, int sort, string gridId, string imgId)
         {
-            this.cardKey = (ToolType)(id - 100);
+            this.cardKeyNew = (ToolType)(id - 101);
             cardKeyString = key;
             cardNameKeyLocal = localNKey;
             cardDescKeyLocal = localDKey;

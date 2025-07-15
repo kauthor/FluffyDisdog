@@ -33,12 +33,16 @@ namespace FluffyDisdog.CardOptionExecuter
             CardOptionExecuter ret;
             switch (data.Id)
             {
+                case 101:
+                    ret = new RandomExecuter();
+                    break;
                 case 1:
                 default:
-                    ret = new CardOptionExecuter().InitData(data);
+                    ret = new CardOptionExecuter();
                     break;
             }
 
+            ret.InitData(data);
             return ret;
         }
         

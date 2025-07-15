@@ -13,11 +13,7 @@ MonoBehaviour:
   m_Name: ToolExcelTable
   m_EditorClassIdentifier: 
   _toolExcelDatas:
-  - cardKey: 1
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
+  - cardKeyNew: 0
     cardKeyString: Card_Shovel
     cardNameKeyLocal: Card_Shovel_Name
     cardDescKeyLocal: Card_Shovel_Des
@@ -34,11 +30,7 @@ MonoBehaviour:
     sortId: 0
     cardGridId: Card_Effect_101
     cardImgId: Card_Effect_101
-  - cardKey: 2
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
+  - cardKeyNew: 1
     cardKeyString: Card_Rake
     cardNameKeyLocal: Card_Rake_Name
     cardDescKeyLocal: Card_Rake_Des
@@ -55,11 +47,7 @@ MonoBehaviour:
     sortId: 0
     cardGridId: Card_Effect_102
     cardImgId: Card_Effect_102
-  - cardKey: 3
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
+  - cardKeyNew: 2
     cardKeyString: Card_Shovel_Enhanced
     cardNameKeyLocal: Card_Shovel_Enhanced_Name
     cardDescKeyLocal: Card_Shovel_Enhanced_Des
@@ -76,11 +64,7 @@ MonoBehaviour:
     sortId: 0
     cardGridId: Card_Effect_101
     cardImgId: Card_Effect_101
-  - cardKey: 4
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
+  - cardKeyNew: 3
     cardKeyString: Card_Rake_Enhanced
     cardNameKeyLocal: Card_Rake_Enhanced_Name
     cardDescKeyLocal: Card_Rake_Enhanced_Des
@@ -97,11 +81,7 @@ MonoBehaviour:
     sortId: 0
     cardGridId: Card_Effect_102
     cardImgId: Card_Effect_102
-  - cardKey: 5
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
+  - cardKeyNew: 4
     cardKeyString: Card_GoldenShovel
     cardNameKeyLocal: Card_GoldenShovel_Name
     cardDescKeyLocal: Card_GoldenShovel_Des
@@ -118,11 +98,7 @@ MonoBehaviour:
     sortId: 0
     cardGridId: Card_Effect_101
     cardImgId: Card_Effect_101
-  - cardKey: 6
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
+  - cardKeyNew: 5
     cardKeyString: Card_GoldenShovel_Enhanced
     cardNameKeyLocal: Card_GoldenShovel_Enhanced_Name
     cardDescKeyLocal: Card_GoldenShovel_Enhanced_Des
@@ -139,11 +115,7 @@ MonoBehaviour:
     sortId: 0
     cardGridId: Card_Effect_101
     cardImgId: Card_Effect_101
-  - cardKey: 7
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
+  - cardKeyNew: 6
     cardKeyString: Card_Axe
     cardNameKeyLocal: Card_Axe_Name
     cardDescKeyLocal: Card_Axe_Des
@@ -160,11 +132,7 @@ MonoBehaviour:
     sortId: 0
     cardGridId: Card_Effect_107
     cardImgId: Card_Effect_107
-  - cardKey: 8
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
+  - cardKeyNew: 7
     cardKeyString: Card_Axe_Enhanced
     cardNameKeyLocal: Card_Axe_Enhanced_Name
     cardDescKeyLocal: Card_Axe_Enhanced_Des
@@ -181,11 +149,7 @@ MonoBehaviour:
     sortId: 0
     cardGridId: Card_Effect_107
     cardImgId: Card_Effect_107
-  - cardKey: 9
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
+  - cardKeyNew: 8
     cardKeyString: Card_CrossChisel
     cardNameKeyLocal: Card_Cross Chisel_Name
     cardDescKeyLocal: Card_Cross Chisel_Des
@@ -202,11 +166,7 @@ MonoBehaviour:
     sortId: 0
     cardGridId: Card_Effect_109
     cardImgId: Card_Effect_109
-  - cardKey: 10
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
+  - cardKeyNew: 9
     cardKeyString: Card_CrossChisel_Enhanced
     cardNameKeyLocal: Card_Cross Chisel_Enhanced_Name
     cardDescKeyLocal: Card_Cross Chisel_Enhanced_Des
@@ -223,11 +183,7 @@ MonoBehaviour:
     sortId: 0
     cardGridId: Card_Effect_109
     cardImgId: Card_Effect_109
-  - cardKey: 11
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
+  - cardKeyNew: 10
     cardKeyString: Card_Pickaxe
     cardNameKeyLocal: Card_Pickaxe_Name
     cardDescKeyLocal: Card_Pickaxe_Des
@@ -244,11 +200,7 @@ MonoBehaviour:
     sortId: 0
     cardGridId: Card_Effect_111
     cardImgId: Card_Effect_111
-  - cardKey: 12
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
+  - cardKeyNew: 11
     cardKeyString: Card_Pickaxe_Enhanced
     cardNameKeyLocal: Card_Pickaxe_Enhanced_Name
     cardDescKeyLocal: Card_Pickaxe_Enhanced_Des
@@ -265,11 +217,7 @@ MonoBehaviour:
     sortId: 0
     cardGridId: Card_Effect_111
     cardImgId: Card_Effect_111
-  - cardKey: 13
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
+  - cardKeyNew: 12
     cardKeyString: Card_Slingshot
     cardNameKeyLocal: Card_Slingshot_Name
     cardDescKeyLocal: Card_Slingshot_Des
@@ -286,11 +234,7 @@ MonoBehaviour:
     sortId: 0
     cardGridId: Card_Effect_101
     cardImgId: Card_Effect_101
-  - cardKey: 14
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
+  - cardKeyNew: 13
     cardKeyString: Card_Slingshot_Enhanced
     cardNameKeyLocal: Card_Slingshot_Enhanced_Name
     cardDescKeyLocal: Card_Slingshot_Enhanced_Des
@@ -307,11 +251,7 @@ MonoBehaviour:
     sortId: 0
     cardGridId: Card_Effect_101
     cardImgId: Card_Effect_101
-  - cardKey: 15
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
+  - cardKeyNew: 14
     cardKeyString: Card_CornerCrushingHammer
     cardNameKeyLocal: Card_CornerCrushingHammer_Name
     cardDescKeyLocal: Card_CornerCrushingHammer_Des
@@ -328,11 +268,7 @@ MonoBehaviour:
     sortId: 0
     cardGridId: Card_Effect_115
     cardImgId: Card_Effect_115
-  - cardKey: 16
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
+  - cardKeyNew: 15
     cardKeyString: Card_CornerCrushingHammer_Enhanced
     cardNameKeyLocal: Card_CornerCrushingHammer_Enhanced_Name
     cardDescKeyLocal: Card_CornerCrushingHammer_Enhanced_Des
@@ -349,11 +285,7 @@ MonoBehaviour:
     sortId: 0
     cardGridId: Card_Effect_115
     cardImgId: Card_Effect_115
-  - cardKey: 17
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
+  - cardKeyNew: 16
     cardKeyString: Card_ConcentratedCrossDrill
     cardNameKeyLocal: Card_ConcentratedCrossDrill_Name
     cardDescKeyLocal: Card_ConcentratedCrossDrill_Des
@@ -370,11 +302,7 @@ MonoBehaviour:
     sortId: 0
     cardGridId: Card_Effect_115
     cardImgId: Card_Effect_115
-  - cardKey: 18
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
+  - cardKeyNew: 17
     cardKeyString: Card_ConcentratedCrossDrill_Enhanced
     cardNameKeyLocal: Card_ConcentratedCrossDrill_Enhanced_Name
     cardDescKeyLocal: Card_ConcentratedCrossDrill_Enhanced_Des
@@ -391,11 +319,7 @@ MonoBehaviour:
     sortId: 0
     cardGridId: Card_Effect_115
     cardImgId: Card_Effect_115
-  - cardKey: 19
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
+  - cardKeyNew: 18
     cardKeyString: Card_GoldenAxe
     cardNameKeyLocal: Card_GoldenAxe_Name
     cardDescKeyLocal: Card_GoldenAxe_Des
@@ -412,11 +336,7 @@ MonoBehaviour:
     sortId: 0
     cardGridId: Card_Effect_102
     cardImgId: Card_Effect_102
-  - cardKey: 20
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
+  - cardKeyNew: 19
     cardKeyString: Card_GoldenAxe_Enhanced
     cardNameKeyLocal: Card_GoldenAxe_Enhanced_Name
     cardDescKeyLocal: Card_GoldenAxe_Enhanced_Des
@@ -433,11 +353,7 @@ MonoBehaviour:
     sortId: 0
     cardGridId: Card_Effect_102
     cardImgId: Card_Effect_102
-  - cardKey: 21
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
+  - cardKeyNew: 20
     cardKeyString: Card_LargeScissors
     cardNameKeyLocal: Card_Large Scissors_Name
     cardDescKeyLocal: Card_Large Scissors_Des
@@ -454,11 +370,7 @@ MonoBehaviour:
     sortId: 0
     cardGridId: Card_Effect_121
     cardImgId: Card_Effect_121
-  - cardKey: 22
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
+  - cardKeyNew: 21
     cardKeyString: Card_LargeScissors_Enhanced
     cardNameKeyLocal: Card_Large Scissors_Enhanced_Name
     cardDescKeyLocal: Card_Large Scissors_Enhanced_Des
@@ -475,11 +387,7 @@ MonoBehaviour:
     sortId: 0
     cardGridId: Card_Effect_121
     cardImgId: Card_Effect_121
-  - cardKey: 23
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
+  - cardKeyNew: 22
     cardKeyString: Card_WeakeningNormal
     cardNameKeyLocal: Card_WeakeningNormal_Name
     cardDescKeyLocal: Card_WeakeningNormal_Des
@@ -496,11 +404,7 @@ MonoBehaviour:
     sortId: 0
     cardGridId: Card_Effect_101
     cardImgId: Card_Effect_101
-  - cardKey: 24
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
+  - cardKeyNew: 23
     cardKeyString: Card_WeakeningRare
     cardNameKeyLocal: Card_WeakeningRare_Name
     cardDescKeyLocal: Card_WeakeningRare_Des
@@ -517,11 +421,7 @@ MonoBehaviour:
     sortId: 0
     cardGridId: Card_Effect_124
     cardImgId: Card_Effect_124
-  - cardKey: 25
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
+  - cardKeyNew: 24
     cardKeyString: Card_WeakeningUnique
     cardNameKeyLocal: Card_WeakeningUnique_Name
     cardDescKeyLocal: Card_WeakeningUnique_Des
@@ -538,11 +438,7 @@ MonoBehaviour:
     sortId: 0
     cardGridId: Card_Effect_125
     cardImgId: Card_Effect_125
-  - cardKey: 26
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
+  - cardKeyNew: 25
     cardKeyString: Card_Bag
     cardNameKeyLocal: Card_Bag_Name
     cardDescKeyLocal: Card_Bag_Des
@@ -559,11 +455,7 @@ MonoBehaviour:
     sortId: 0
     cardGridId: 0
     cardImgId: 0
-  - cardKey: 27
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
+  - cardKeyNew: 26
     cardKeyString: Card_ToolTransformation
     cardNameKeyLocal: Card_ToolTransformation_Name
     cardDescKeyLocal: Card_ToolTransformation_Des
@@ -580,11 +472,7 @@ MonoBehaviour:
     sortId: 0
     cardGridId: 0
     cardImgId: 0
-  - cardKey: 28
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
+  - cardKeyNew: 27
     cardKeyString: Card_ToolEnhancement
     cardNameKeyLocal: Card_ToolEnhancement_Name
     cardDescKeyLocal: Card_ToolEnhancement_Des
@@ -601,11 +489,7 @@ MonoBehaviour:
     sortId: 0
     cardGridId: 0
     cardImgId: 0
-  - cardKey: 29
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
+  - cardKeyNew: 28
     cardKeyString: Card_AdventurerTorch
     cardNameKeyLocal: Card_AdventurerTorch_Name
     cardDescKeyLocal: Card_AdventurerTorch_Des
@@ -622,11 +506,7 @@ MonoBehaviour:
     sortId: 0
     cardGridId: Card_Effect_124
     cardImgId: Card_Effect_124
-  - cardKey: 30
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
+  - cardKeyNew: 29
     cardKeyString: Card_AdventurerTorch_Enhanced
     cardNameKeyLocal: Card_AdventurerTorch_Enhanced_Name
     cardDescKeyLocal: Card_AdventurerTorch_Enhanced_Des
@@ -643,11 +523,7 @@ MonoBehaviour:
     sortId: 0
     cardGridId: Card_Effect_124
     cardImgId: Card_Effect_124
-  - cardKey: 31
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
+  - cardKeyNew: 30
     cardKeyString: Card_HammerOfMemory
     cardNameKeyLocal: Card_HammerOfMemory_Name
     cardDescKeyLocal: Card_HammerOfMemory_Des
@@ -664,11 +540,7 @@ MonoBehaviour:
     sortId: 0
     cardGridId: Card_Effect_101
     cardImgId: Card_Effect_101
-  - cardKey: 32
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
+  - cardKeyNew: 31
     cardKeyString: Card_HammerOfMemory_Enhanced
     cardNameKeyLocal: Card_HammerOfMemory_Enhanced_Name
     cardDescKeyLocal: Card_HammerOfMemory_Enhanced_Des
@@ -685,11 +557,7 @@ MonoBehaviour:
     sortId: 0
     cardGridId: Card_Effect_101
     cardImgId: Card_Effect_101
-  - cardKey: 33
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
+  - cardKeyNew: 32
     cardKeyString: Card_RiftStartumAnalysis
     cardNameKeyLocal: Card_RiftStartumAnalysis_Name
     cardDescKeyLocal: Card_RiftStartumAnalysis_Des
@@ -706,11 +574,7 @@ MonoBehaviour:
     sortId: 0
     cardGridId: Card_Effect_133
     cardImgId: Card_Effect_133
-  - cardKey: 34
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
+  - cardKeyNew: 33
     cardKeyString: Card_RiftStartumAnalysis_Enhanced
     cardNameKeyLocal: Card_RiftStartumAnalysis_Enhanced_Name
     cardDescKeyLocal: Card_RiftStartumAnalysis_Enhanced_Des
@@ -727,1221 +591,3 @@ MonoBehaviour:
     sortId: 0
     cardGridId: Card_Effect_133
     cardImgId: Card_Effect_133
-  - cardKey: 101
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Novice_Wand
-    cardNameKeyLocal: Card_Novice_Wand_Name
-    cardDescKeyLocal: Card_Novice_Wand_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 1
-    upgradeKey: Card_Novice_Wand_Enhanced
-    rarityKey: 1
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 102
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Novice_Wand_Enhanced
-    cardNameKeyLocal: Card_Novice_Wand_Enhanced_Name
-    cardDescKeyLocal: Card_Novice_Wand_Enhanced_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 2
-    upgradeKey: Card_Novice_Wand
-    rarityKey: 1
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 103
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Magic_Arrow
-    cardNameKeyLocal: Card_Mana_Arrow_Name
-    cardDescKeyLocal: Card_Mana_Arrow_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 1
-    upgradeKey: Card_Mana_Arrow_Enhanced
-    rarityKey: 2
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 104
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Magic_Arrow_Enhanced
-    cardNameKeyLocal: Card_Mana_Arrow_Enhanced_Name
-    cardDescKeyLocal: Card_Mana_Arrow_Enhanced_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 2
-    upgradeKey: Card_Mana_Arrow
-    rarityKey: 2
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 105
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Sparkle
-    cardNameKeyLocal: Card_Sparkle_Name
-    cardDescKeyLocal: Card_Sparkle_Des
-    cardTypeId: 2
-    charaTypeId: 3
-    upgradeTypeId: 1
-    upgradeKey: Card_Sparkle_Enhanced
-    rarityKey: 2
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 106
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Sparkle_Enhanced
-    cardNameKeyLocal: Card_Sparkle_Enhanced_Name
-    cardDescKeyLocal: Card_Sparkle_Enhanced_Des
-    cardTypeId: 2
-    charaTypeId: 3
-    upgradeTypeId: 2
-    upgradeKey: Card_Sparkle
-    rarityKey: 2
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 107
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Magic_Pierce
-    cardNameKeyLocal: Card_Mana_Pierce_Name
-    cardDescKeyLocal: Card_Mana_Pierce_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 1
-    upgradeKey: Card_Mana_Pierce_Enhanced
-    rarityKey: 1
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 108
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Magic_Pierce_Enhanced
-    cardNameKeyLocal: Card_Mana_Pierce_Enhanced_Name
-    cardDescKeyLocal: Card_Mana_Pierce_Enhanced_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 2
-    upgradeKey: Card_Mana_Pierce
-    rarityKey: 1
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 109
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Magic_Spear
-    cardNameKeyLocal: Card_Magic_Spear_Name
-    cardDescKeyLocal: Card_Magic_Spear_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 1
-    upgradeKey: Card_Magic_Spear_Enhanced
-    rarityKey: 2
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 110
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Magic_Spear_Enhanced
-    cardNameKeyLocal: Card_Magic_Spear_Enhanced_Name
-    cardDescKeyLocal: Card_Magic_Spear_Enhanced_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 2
-    upgradeKey: Card_Magic_Spear
-    rarityKey: 2
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 111
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Magic_Slash
-    cardNameKeyLocal: Card_Magic_Slash_Name
-    cardDescKeyLocal: Card_Magic_Slash_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 1
-    upgradeKey: Card_Magic_Slash_Enhanced
-    rarityKey: 1
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 112
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Magic_Slash_Enhanced
-    cardNameKeyLocal: Card_Magic_Slash_Enhanced_Name
-    cardDescKeyLocal: Card_Magic_Slash_Enhanced_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 2
-    upgradeKey: Card_Magic_Slash
-    rarityKey: 1
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 113
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Magic_Sword
-    cardNameKeyLocal: Card_Magic_Sword_Name
-    cardDescKeyLocal: Card_Magic_Sword_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 1
-    upgradeKey: Card_Magic_Sword_Enhanced
-    rarityKey: 2
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 114
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Magic_Sword_Enhanced
-    cardNameKeyLocal: Card_Magic_Sword_Enhanced_Name
-    cardDescKeyLocal: Card_Magic_Sword_Enhanced_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 2
-    upgradeKey: Card_Magic_Sword
-    rarityKey: 2
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 115
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Magic_Claw
-    cardNameKeyLocal: Card_Magic_Claw_Name
-    cardDescKeyLocal: Card_Magic_Claw_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 1
-    upgradeKey: Card_Magic_Claw_Enhanced
-    rarityKey: 2
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 116
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Magic_Claw_Enhanced
-    cardNameKeyLocal: Card_Magic_Claw_Enhanced_Name
-    cardDescKeyLocal: Card_Magic_Claw_Enhanced_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 2
-    upgradeKey: Card_Magic_Claw
-    rarityKey: 2
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 117
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Magic_Cannon
-    cardNameKeyLocal: Card_Magic_Cannon_Name
-    cardDescKeyLocal: Card_Magic_Cannon_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 1
-    upgradeKey: Card_Magic_Cannon_Enhanced
-    rarityKey: 3
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 118
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Magic_Cannon_Enhanced
-    cardNameKeyLocal: Card_Magic_Cannon_Enhanced_Name
-    cardDescKeyLocal: Card_Magic_Cannon_Enhanced_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 2
-    upgradeKey: Card_Magic_Cannon
-    rarityKey: 3
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 119
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Frog
-    cardNameKeyLocal: Card_Frog_Name
-    cardDescKeyLocal: Card_Frog_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 1
-    upgradeKey: Card_Frog_Enhanced
-    rarityKey: 1
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 120
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Frog_Enhanced
-    cardNameKeyLocal: Card_Frog_Enhanced_Name
-    cardDescKeyLocal: Card_Frog_Enhanced_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 2
-    upgradeKey: Card_Frog
-    rarityKey: 1
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 121
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Inchant_Magic
-    cardNameKeyLocal: Card_Inchant_Magic_Name
-    cardDescKeyLocal: Card_Inchant_Magic_Des
-    cardTypeId: 2
-    charaTypeId: 3
-    upgradeTypeId: 1
-    upgradeKey: Card_Inchant_Magic_Enhanced
-    rarityKey: 3
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 122
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Inchant_Magic_Enhanced
-    cardNameKeyLocal: Card_Inchant_Magic_Enhanced_Name
-    cardDescKeyLocal: Card_Inchant_Magic_Enhanced_Des
-    cardTypeId: 2
-    charaTypeId: 3
-    upgradeTypeId: 2
-    upgradeKey: Card_Inchant_Magic
-    rarityKey: 3
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 123
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Ignite
-    cardNameKeyLocal: Card_Ignite_Name
-    cardDescKeyLocal: Card_Ignite_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 1
-    upgradeKey: Card_Ignite_Enhanced
-    rarityKey: 1
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 124
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Ignite_Enhanced
-    cardNameKeyLocal: Card_Ignite_Enhanced_Name
-    cardDescKeyLocal: Card_Ignite_Enhanced_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 2
-    upgradeKey: Card_Ignite
-    rarityKey: 1
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 125
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Flame_Explosion
-    cardNameKeyLocal: Card_Flame_Explosion_Name
-    cardDescKeyLocal: Card_Flame_Explosion_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 1
-    upgradeKey: Card_Flame_Explosion_Enhanced
-    rarityKey: 2
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 126
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Flame_Explosion_Enhanced
-    cardNameKeyLocal: Card_Flame_Explosion_Enhanced_Name
-    cardDescKeyLocal: Card_Flame_Explosion_Enhanced_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 2
-    upgradeKey: Card_Flame_Explosion
-    rarityKey: 2
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 127
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Ember
-    cardNameKeyLocal: Card_Ember_Name
-    cardDescKeyLocal: Card_Ember_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 1
-    upgradeKey: Card_Ember_Enhanced
-    rarityKey: 2
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 128
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Ember_Enhanced
-    cardNameKeyLocal: Card_Ember_Enhanced_Name
-    cardDescKeyLocal: Card_Ember_Enhanced_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 2
-    upgradeKey: Card_Ember
-    rarityKey: 2
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 129
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Flame_Wall
-    cardNameKeyLocal: Card_Flame_Wall_Name
-    cardDescKeyLocal: Card_Flame_Wall_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 1
-    upgradeKey: Card_Flame_Wall_Enhanced
-    rarityKey: 2
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 130
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Flame_Wall_Enhanced
-    cardNameKeyLocal: Card_Flame_Wall_Enhanced_Name
-    cardDescKeyLocal: Card_Flame_Wall_Enhanced_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 2
-    upgradeKey: Card_Flame_Wall
-    rarityKey: 2
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 131
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Chain_Ignition
-    cardNameKeyLocal: Card_Chain_Ignition_Name
-    cardDescKeyLocal: Card_Chain_Ignition_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 1
-    upgradeKey: Card_Chain_Ignition_Enhanced
-    rarityKey: 3
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 132
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Chain_Ignition_Enhanced
-    cardNameKeyLocal: Card_Chain_Ignition_Enhanced_Name
-    cardDescKeyLocal: Card_Chain_Ignition_Enhanced_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 2
-    upgradeKey: Card_Chain_Ignition
-    rarityKey: 3
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 133
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Volcano
-    cardNameKeyLocal: Card_Volcano_Name
-    cardDescKeyLocal: Card_Volcano_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 1
-    upgradeKey: Card_Volcano_Enhanced
-    rarityKey: 3
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 134
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Volcano_Enhanced
-    cardNameKeyLocal: Card_Volcano_Enhanced_Name
-    cardDescKeyLocal: Card_Volcano_Enhanced_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 2
-    upgradeKey: Card_Volcano
-    rarityKey: 3
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 135
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Freeze
-    cardNameKeyLocal: Card_Freeze_Name
-    cardDescKeyLocal: Card_Freeze_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 1
-    upgradeKey: Card_Freeze_Enhanced
-    rarityKey: 1
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 136
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Freeze_Enhanced
-    cardNameKeyLocal: Card_Freeze_Enhanced_Name
-    cardDescKeyLocal: Card_Freeze_Enhanced_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 2
-    upgradeKey: Card_Freeze
-    rarityKey: 1
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 137
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Frost_Blast
-    cardNameKeyLocal: Card_Frost_Blast_Name
-    cardDescKeyLocal: Card_Frost_Blast_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 1
-    upgradeKey: Card_Frost_Blast_Enhanced
-    rarityKey: 2
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 138
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Frost_Blast_Enhanced
-    cardNameKeyLocal: Card_Frost_Blast_Enhanced_Name
-    cardDescKeyLocal: Card_Frost_Blast_Enhanced_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 2
-    upgradeKey: Card_Frost_Blast
-    rarityKey: 2
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 139
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Spreading_Frost
-    cardNameKeyLocal: Card_Spreading_Frost_Name
-    cardDescKeyLocal: Card_Spreading_Frost_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 1
-    upgradeKey: Card_Spreading_Frost_Enhanced
-    rarityKey: 3
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 140
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Spreading_Frost_Enhanced
-    cardNameKeyLocal: Card_Spreading_Frost_Enhanced_Name
-    cardDescKeyLocal: Card_Spreading_Frost_Enhanced_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 2
-    upgradeKey: Card_Spreading_Frost
-    rarityKey: 3
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 141
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Ice_Sword
-    cardNameKeyLocal: Card_Ice_Sword_Name
-    cardDescKeyLocal: Card_Ice_Sword_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 1
-    upgradeKey: Card_Ice_Sword_Enhanced
-    rarityKey: 1
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 142
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Ice_Sword_Enhanced
-    cardNameKeyLocal: Card_Ice_Sword_Enhanced_Name
-    cardDescKeyLocal: Card_Ice_Sword_Enhanced_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 2
-    upgradeKey: Card_Ice_Sword
-    rarityKey: 1
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 143
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Ice_Spear
-    cardNameKeyLocal: Card_Ice_Spear_Name
-    cardDescKeyLocal: Card_Ice_Spear_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 1
-    upgradeKey: Card_Ice_Spear_Enhanced
-    rarityKey: 1
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 144
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Ice_Spear_Enhanced
-    cardNameKeyLocal: Card_Ice_Spear_Enhanced_Name
-    cardDescKeyLocal: Card_Ice_Spear_Enhanced_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 2
-    upgradeKey: Card_Ice_Spear
-    rarityKey: 1
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 145
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Ice_Arrow
-    cardNameKeyLocal: Card_Ice_Arrow_Name
-    cardDescKeyLocal: Card_Ice_Arrow_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 1
-    upgradeKey: Card_Ice_Arrow_Enhanced
-    rarityKey: 2
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 146
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Ice_Arrow_Enhanced
-    cardNameKeyLocal: Card_Ice_Arrow_Enhanced_Name
-    cardDescKeyLocal: Card_Ice_Arrow_Enhanced_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 2
-    upgradeKey: Card_Ice_Arrow
-    rarityKey: 2
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 147
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Current
-    cardNameKeyLocal: Card_Current_Name
-    cardDescKeyLocal: Card_Current_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 1
-    upgradeKey: Card_Current_Enhanced
-    rarityKey: 1
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 148
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Current_Enhanced
-    cardNameKeyLocal: Card_Current_Enhanced_Name
-    cardDescKeyLocal: Card_Current_Enhanced_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 2
-    upgradeKey: Card_Current
-    rarityKey: 1
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 149
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Lightning_Storm
-    cardNameKeyLocal: Card_Lightning_Storm_Name
-    cardDescKeyLocal: Card_Lightning_Storm_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 1
-    upgradeKey: Card_Lightning_Storm_Enhanced
-    rarityKey: 2
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 150
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Lightning_Storm_Enhanced
-    cardNameKeyLocal: Card_Lightning_Storm_Enhanced_Name
-    cardDescKeyLocal: Card_Lightning_Storm_Enhanced_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 2
-    upgradeKey: Card_Lightning_Storm
-    rarityKey: 2
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 151
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Overcurrent
-    cardNameKeyLocal: Card_Overcurrent_Name
-    cardDescKeyLocal: Card_Overcurrent_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 1
-    upgradeKey: Card_Overcurrent_Enhanced
-    rarityKey: 2
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 152
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Overcurrent_Enhanced
-    cardNameKeyLocal: Card_Overcurrent_Enhanced_Name
-    cardDescKeyLocal: Card_Overcurrent_Enhanced_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 2
-    upgradeKey: Card_Overcurrent
-    rarityKey: 2
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 153
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Lightning_Spear
-    cardNameKeyLocal: Card_Lightning_Spear_Name
-    cardDescKeyLocal: Card_Lightning_Spear_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 1
-    upgradeKey: Card_Lightning_Spear_Enhanced
-    rarityKey: 3
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 154
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Lightning_Spear_Enhanced
-    cardNameKeyLocal: Card_Lightning_Spear_Enhanced_Name
-    cardDescKeyLocal: Card_Lightning_Spear_Enhanced_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 2
-    upgradeKey: Card_Lightning_Spear
-    rarityKey: 3
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 155
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Spark
-    cardNameKeyLocal: Card_Spark_Name
-    cardDescKeyLocal: Card_Spark_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 1
-    upgradeKey: Card_Spark_Enhanced
-    rarityKey: 2
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 156
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Spark_Enhanced
-    cardNameKeyLocal: Card_Spark_Enhanced_Name
-    cardDescKeyLocal: Card_Spark_Enhanced_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 2
-    upgradeKey: Card_Spark
-    rarityKey: 2
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 157
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Thunderbolt
-    cardNameKeyLocal: Card_Thunderbolt_Name
-    cardDescKeyLocal: Card_Thunderbolt_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 1
-    upgradeKey: Card_Thunderbolt_Enhanced
-    rarityKey: 3
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
-  - cardKey: 158
-    toolTag: 0
-    option: 0
-    optionValue: 0
-    cardKeyNew: 0
-    cardKeyString: Card_Thunderbolt_Enhanced
-    cardNameKeyLocal: Card_Thunderbolt_Enhanced_Name
-    cardDescKeyLocal: Card_Thunderbolt_Enhanced_Des
-    cardTypeId: 1
-    charaTypeId: 3
-    upgradeTypeId: 2
-    upgradeKey: Card_Thunderbolt
-    rarityKey: 3
-    carBit: 2
-    cardTagBit: 0
-    manaCost: 0
-    addedOptionIds: 000000000000000000000000
-    cardDescId: 0
-    sortId: 0
-    cardGridId: 0
-    cardImgId: 0
