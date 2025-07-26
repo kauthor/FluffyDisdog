@@ -4,13 +4,21 @@ namespace FluffyDisdog.Data
 {
     public enum ToolAdditionalOption
     {
-        [Description("그런 거 없다.")]
         None=0,
-        [Description("파괴 실패 시 확률로 균열.")]
-        ChangeCrackWhenFail=1,
-        [Description("파괴 실패 시 확률로 전염.")]
-        ChangeFlagueWhenFail=2,
-        [Description("인접 랜덤타일 전염.")]
-        ChangeFlagueRandomNearTile=3
+        SlingShot=1,
+        SlingShotEn=2,
+        Weak=3,
+        Torch1=4,
+        Torch2=5,
+        Torch3=6,
+        Torch2En=7,
+        Hammer=8,
+        HammerEn=9,
+        Rift1=10,
+        Rift2=11,
+        Rift3=12,
+        Rift1En=13,
+        Rift2En=14,
+        Rift3En=15,
     }
 }

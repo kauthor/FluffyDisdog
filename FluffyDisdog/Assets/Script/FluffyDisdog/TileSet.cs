@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
+using FluffyDisdog.CardOptionExecuter;
 using FluffyDisdog.RelicCommandData;
 using Script.FluffyDisdog.Managers;
 using Sirenix.Utilities;
@@ -392,6 +393,11 @@ namespace FluffyDisdog
             if (!clicked.ValidNode())
                 return;
 
+            var param = new CardExecuteParam(clicked, 0);
+            var ex = DeckManager.I.CurrentCard.Executor;
+            
+            ex.PreEffect(param);
+            
             //이것도 추후 타일처럼 디자인패턴화 시키자...
             var beforeScore = TileGameManager.I.CurrentScore.Value;
             PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.TileClicked, new TileClickedParam()
@@ -403,6 +409,7 @@ namespace FluffyDisdog
             int startCoordCol = coord.Item2 - data.CenterColumn;
             int startCoordRow = coord.Item1 - data.CenterRow;
 
+            float preEndParamOut = param.output;
             
             int nodeCracked = 0;
             for (int i = 0; i < data.cellHeight; i++)
@@ -428,7 +435,9 @@ namespace FluffyDisdog
                     
                     var currentNode = nodes[currentW + row * currentH];
 
-                    
+                    var tileParam = new CardExecuteParam(currentNode, preEndParamOut); 
+                    ex.ExecuteTileEffect(tileParam);
+                    preEndParamOut = param.output;
                     
                     if (currentNode.Coord.Item1 == coord.Item1 || currentNode.Coord.Item2 == coord.Item2)
                     {
@@ -464,6 +473,11 @@ namespace FluffyDisdog
             }
             
             var afterScore = TileGameManager.I.CurrentScore.Value;
+            var endParam = new CardExecuteParam(clicked, preEndParamOut);
+            
+            ex.PostEffect(endParam);
+            
+            float ret = param.output;
             
             if(nodeCracked > 0)
                 PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.EndCrack, new OnEndCrackParam()
@@ -472,6 +486,7 @@ namespace FluffyDisdog
                 });
             
             //todo : 여기에 OnEndCrackParam 으로 점수배율 책정 후 덧셈.
+            
             
             
             if (mouseEffectedNode.Count != 0)

@@ -33,6 +33,7 @@ namespace FluffyDisdog
         public RequestSystem RequestSystem => _requestSystem;
 
         private ToolType currentTool = ToolType.None;
+        private int currentId = 0;
 
         private LevelData _levelData;
         public LevelData LevelData => _levelData;
@@ -123,9 +124,10 @@ namespace FluffyDisdog
         }
         
         //도구의 타입은 나중에 클래스가 될 가능성이 높다.
-        public void PrepareTool(ToolType type)
+        public void PrepareTool(ToolType type, int id)
         {
             currentTool = type;
+            currentId = id;
             //todo : 여기서 마우스 아이콘을 바꾸자.
         }
     }
