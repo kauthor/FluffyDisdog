@@ -1,53 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
-using UnityEditor;
-using UnityEngine;
+﻿using System.IO;
 using ExcelDataReader;
-using FluffyDisdog.Data.RelicData;
+using FluffyDisdog;
+using FluffyDisdog.Data;
+using UnityEditor;
 using UnityEditor.AddressableAssets;
+using UnityEngine;
 
 namespace Editor
 {
-    public class RelicDataImport : EditorWindow
+    public class ToolCardOptionImport:EditorWindow
     {
-        //private BaseTable scrip=null;
-        
-        [MenuItem("Window/Excel Importer/Relic Data")]
+        [MenuItem("Window/Excel Importer/Tool Card Option Data")]
         public static void ShowWindow()
         {
             //Show existing window instance. If one doesn't exist, make one.
-            EditorWindow.GetWindow(typeof(RelicDataImport));
+            EditorWindow.GetWindow(typeof(ToolCardOptionImport));
         }
 
         private void OnGUI()
         {
-            //var pathProj = Application.dataPath.Replace("FluffyDisdog/Assets", "");
-            //string path =  "/Plan/Table/LiveData/03.RelicData.xlsx";
             
-            //scrip = EditorGUILayout.ObjectField("Scriptable Object", scrip, typeof(ScriptableObject), true)
-             //   as BaseTable;
-            
-             //1.base Table
              
-            if (GUILayout.Button("Relic Table Export"))
+            if (GUILayout.Button("Option Table Export"))
             {
-                string assetPath = "Assets/DataTable/RelicTable.asset";
+                string assetPath = "Assets/DataTable/ToolCardOptionTable.asset";
                 string pathProj = Application.dataPath.Replace("FluffyDisdog/Assets", ""); // 너의 환경에 따라 조정 가능
-                string excelPath = "/Plan/Table/LiveData/03.RelicData.xlsx";
+                string excelPath = "/Plan/Table/LiveData/04.CardAddData.xlsx";
 
-                RelicDataTable tableAsset = AssetDatabase.LoadAssetAtPath<RelicDataTable>(assetPath);
+                ToolCardOptionTable tableAsset = AssetDatabase.LoadAssetAtPath<ToolCardOptionTable>(assetPath);
 
                 if (tableAsset == null)
                 {
-                    tableAsset = ScriptableObject.CreateInstance<RelicDataTable>();
+                    tableAsset = ScriptableObject.CreateInstance<ToolCardOptionTable>();
                     AssetDatabase.CreateAsset(tableAsset, assetPath);
-                    Debug.Log("새 RelicTable.asset 생성됨");
+                    Debug.Log("새 ToolCardOptionTable.asset 생성됨");
                 }
                 else
                 {
-                    Debug.Log("기존 RelicTable.asset 불러와 덮어씀");
+                    Debug.Log("기존 ToolCardOptionTable.asset 불러와 덮어씀");
                 }
 
                 // 엑셀 파일 읽기
@@ -58,22 +48,28 @@ namespace Editor
                     for (int i = 0; i < result.Tables.Count; i++)
                     {
                         var rows = result.Tables[i].Rows;
-                        RelicData[] baseArr = new RelicData[rows.Count - 1];
+                        ToolCardOpData[] baseArr = new ToolCardOpData[rows.Count - 1];
 
                         for (int j = 1; j < rows.Count; j++)
                         {
                             string data1 = rows[j][0].ToString();
-                            string data2 = rows[j][3].ToString();
-                            string data3 = rows[j][4].ToString();
-
-                            int relicId = int.Parse(data1.Remove(0, 5));
-                            float value1 = float.Parse(data2);
-                            float value2 = float.Parse(data3);
-
-                            baseArr[j - 1] = new RelicData(relicId, new[] { value1, value2 }, data1);
+                            string data2 = rows[j][1].ToString();
+                            string data3 = rows[j][2].ToString();
+                            string data4 = rows[j][3].ToString();
+                            string data5 = rows[j][4].ToString();
+                            
+                            int id = int.Parse(data1);
+                            string desc = data2;
+                            int[] val = new int[3]
+                            {
+                                int.Parse(data3),int.Parse(data4),int.Parse(data5)
+                            };
+                            
+                            ToolCardOpData data = new ToolCardOpData(id, desc, val);
+                            baseArr[j-1] = data;
                         }
 
-                        tableAsset.SetRelicData(baseArr);
+                        tableAsset.SetData(baseArr);
                     }
                 }
 
@@ -91,8 +87,8 @@ namespace Editor
                 if (entry == null)
                 {
                     entry = settings.CreateOrMoveEntry(guid, group);
-                    entry.address = "RelicTable";
-                    Debug.Log("Addressables에 RelicTable 등록됨");
+                    entry.address = "ToolCardOptionTable";
+                    Debug.Log("Addressables에 ToolCardOptionTable 등록됨");
                 }
                 else
                 {
@@ -103,7 +99,7 @@ namespace Editor
                 AssetDatabase.Refresh();
         #endif
 
-                Debug.Log("RelicTable 임포트 완료");
+                Debug.Log("ToolCardOptionTable 임포트 완료");
             }
         }
     }

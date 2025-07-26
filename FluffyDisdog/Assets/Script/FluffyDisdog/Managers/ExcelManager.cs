@@ -14,10 +14,12 @@ namespace Script.FluffyDisdog.Managers
         private ToolTable _toolTable;
         private RelicDataTable _relicDataTable;
         private ToolExcelDataTable _toolExcelDatas;
+        private ToolCardOptionTable _toolCardOptionTable;
 
         private Dictionary<ToolType, ToolData> toolDataDic;
         private Dictionary<RelicName, RelicData> relicDataDic;
         private Dictionary<ToolType, ToolExcelData> toolExcelDataDic;
+        private Dictionary<int, ToolCardOpData> toolCardOpDataDic;
 
         protected override void Awake()
         {
@@ -50,18 +52,29 @@ namespace Script.FluffyDisdog.Managers
             Addressables.Release(toolhandle);
             
             AsyncOperationHandle texcelHandle =
-                Addressables.LoadAssetAsync<ToolTable>("ToolExcelTable");
+                Addressables.LoadAssetAsync<ToolExcelDataTable>("ToolExcelTable");
             texcelHandle.Completed += op =>
             {
-                var res = op.Result as ToolTable;
-                _toolTable = res;
+                var res = op.Result as ToolExcelDataTable;
+                _toolExcelDatas = res;
             };
             await texcelHandle;
             Addressables.Release(texcelHandle);
             
+            AsyncOperationHandle topHandle =
+                Addressables.LoadAssetAsync<ToolCardOptionTable>("ToolCardOptionTable");
+            topHandle.Completed += op =>
+            {
+                var res = op.Result as ToolCardOptionTable;
+                _toolCardOptionTable = res;
+            };
+            await topHandle;
+            Addressables.Release(topHandle);
+            
             toolDataDic = _toolTable.TryCache();
             relicDataDic = _relicDataTable.TryCache();
             toolExcelDataDic = _toolExcelDatas.TryCache();
+            toolCardOpDataDic = _toolCardOptionTable.TryCache();
         }
 
         public ToolData GetToolData(ToolType t)
@@ -77,6 +90,14 @@ namespace Script.FluffyDisdog.Managers
         public ToolExcelData GetToolExcelData(ToolType t)
         {
             return toolExcelDataDic[t];
+        }
+
+        public ToolCardOpData GetToolCardOpData(ToolType t)
+        {
+            var data = GetToolExcelData(t);
+            if(data.AddedOptionIds[0] > 99)
+               return toolCardOpDataDic[data.AddedOptionIds[0]];
+            return null;
         }
     }
 }

@@ -13,113 +13,178 @@ MonoBehaviour:
   m_Name: RelicTable
   m_EditorClassIdentifier: 
   _relicDatas:
-  - localKey: relic1
-    relicName: 1
+  - localKey: relic101
+    relicName: 101
     values:
+    - 1
     - 3
-    - 0
-  - localKey: relic2
-    relicName: 2
+  - localKey: relic102
+    relicName: 102
     values:
+    - 1
     - 1.25
-    - 0
-  - localKey: relic3
-    relicName: 3
+  - localKey: relic103
+    relicName: 103
     values:
+    - 1
     - 3000
-    - 0
-  - localKey: relic4
-    relicName: 4
+  - localKey: relic104
+    relicName: 104
+    values:
+    - 1
+    - 1
+  - localKey: relic105
+    relicName: 105
     values:
     - 1
     - 0
-  - localKey: relic5
-    relicName: 5
+  - localKey: relic106
+    relicName: 106
     values:
-    - 0
-    - 0
-  - localKey: relic6
-    relicName: 6
-    values:
+    - 1
     - 10
-    - 5
-  - localKey: relic7
-    relicName: 7
+  - localKey: relic107
+    relicName: 107
     values:
-    - 0
-    - 0
-  - localKey: relic8
-    relicName: 8
+    - 1
+    - 1
+  - localKey: relic108
+    relicName: 108
     values:
+    - 1
     - 0
-    - 0
-  - localKey: relic9
-    relicName: 9
+  - localKey: relic109
+    relicName: 109
     values:
+    - 1
     - 3
-    - 0
-  - localKey: relic10
-    relicName: 10
+  - localKey: relic110
+    relicName: 110
     values:
+    - 1
     - 1.5
-    - 0
-  - localKey: relic11
-    relicName: 11
+  - localKey: relic111
+    relicName: 111
     values:
+    - 1
     - 3000
-    - 0
-  - localKey: relic12
-    relicName: 12
+  - localKey: relic112
+    relicName: 112
     values:
+    - 1
     - 0
-    - 0
-  - localKey: relic13
-    relicName: 13
+  - localKey: relic113
+    relicName: 113
     values:
+    - 1
     - 2.25
-    - 0
-  - localKey: relic14
-    relicName: 14
+  - localKey: relic114
+    relicName: 114
     values:
-    - 0
-    - 0
-  - localKey: relic15
-    relicName: 15
+    - 1
+    - 0.1
+  - localKey: relic115
+    relicName: 115
     values:
+    - 1
     - 3000
-    - 0
-  - localKey: relic16
-    relicName: 16
+  - localKey: relic116
+    relicName: 116
     values:
+    - 1
     - 3000
-    - 0
-  - localKey: relic17
-    relicName: 17
+  - localKey: relic117
+    relicName: 117
     values:
+    - 1
     - 5
-    - 0
-  - localKey: relic18
-    relicName: 18
+  - localKey: relic118
+    relicName: 118
     values:
+    - 1
     - 3
-    - 0
-  - localKey: relic19
-    relicName: 19
+  - localKey: relic119
+    relicName: 119
     values:
+    - 1
     - 2.5
-    - 0
-  - localKey: relic20
-    relicName: 20
+  - localKey: relic120
+    relicName: 120
     values:
+    - 1
     - 7
-    - 0
-  - localKey: relic21
-    relicName: 21
+  - localKey: relic121
+    relicName: 121
     values:
+    - 1
     - 2500
-    - 2000
-  - localKey: relic22
-    relicName: 22
+  - localKey: relic122
+    relicName: 122
     values:
+    - 1
     - 2000
+  - localKey: relic201
+    relicName: 201
+    values:
+    - 1
+    - 500
+  - localKey: relic202
+    relicName: 202
+    values:
+    - 1
+    - 0
+  - localKey: relic203
+    relicName: 203
+    values:
+    - 1
+    - 30
+  - localKey: relic204
+    relicName: 204
+    values:
+    - 1
+    - 1
+  - localKey: relic205
+    relicName: 205
+    values:
+    - 1
+    - 2
+  - localKey: relic206
+    relicName: 206
+    values:
+    - 1
+    - 1
+  - localKey: relic207
+    relicName: 207
+    values:
+    - 1
+    - 1
+  - localKey: relic208
+    relicName: 208
+    values:
+    - 1
+    - 1000
+  - localKey: relic209
+    relicName: 209
+    values:
+    - 1
+    - 3
+  - localKey: relic210
+    relicName: 210
+    values:
+    - 1
+    - 5
+  - localKey: relic211
+    relicName: 211
+    values:
+    - 1
+    - 7
+  - localKey: relic212
+    relicName: 212
+    values:
+    - 1
+    - 11
+  - localKey: relic213
+    relicName: 213
+    values:
+    - 1
     - 0

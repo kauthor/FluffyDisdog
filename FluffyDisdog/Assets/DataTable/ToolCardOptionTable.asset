@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f5f38c556e43769741e1f5af35f22f, type: 3}
+  m_Name: ToolCardOptionTable
+  m_EditorClassIdentifier: 
+  rawDatas:
+  - id: 101
+    desc: 5
+    values: e40c00000000000000000000
+  - id: 102
+    desc: 7
+    values: 881300000000000000000000
+  - id: 103
+    desc: 10000
+    values: 000000000000000000000000
+  - id: 104
+    desc: 10000
+    values: 000000000000000000000000
+  - id: 105
+    desc: 1
+    values: 000000000000000000000000
+  - id: 106
+    desc: 7
+    values: 020000000000000000000000
+  - id: 107
+    desc: 2
+    values: 000000000000000000000000
+  - id: 108
+    desc: 2
+    values: 102700000000000000000000
+  - id: 109
+    desc: 4
+    values: 102700000000000000000000
+  - id: 110
+    desc: 3
+    values: 000000000000000000000000
+  - id: 111
+    desc: 1
+    values: 020000000000000000000000
+  - id: 112
+    desc: 5
+    values: 010000000000000000000000
+  - id: 113
+    desc: 3
+    values: 000000000000000000000000
+  - id: 114
+    desc: 1
+    values: 050000000000000000000000
+  - id: 115
+    desc: 5
+    values: 020000000000000000000000

@@ -41,6 +41,14 @@ MonoBehaviour:
     m_Address: ToolTable
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: f42f4eeabbff9a34b967beea6ea832a9
+    m_Address: ToolExcelTable
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c198d7202cbb8b14aa38e5cf61a86228
+    m_Address: ToolCardOptionTable
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c4b4aea7e916bf6448fc92af0dc0baf0, type: 2}
   m_SchemaSet:

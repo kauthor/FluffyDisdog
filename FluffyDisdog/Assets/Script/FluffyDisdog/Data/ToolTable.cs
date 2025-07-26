@@ -17,10 +17,6 @@ namespace FluffyDisdog.Data
         public bool[] interact;
         public int Center;
         public ToolTag tag => runtimeData?.ToolTag ?? ToolTag.NONE;
-        public ToolAdditionalOption option
-        => runtimeData?.Option ?? ToolAdditionalOption.None;
-        public int optionValue
-        => runtimeData?.OptionValue ?? 0;
 
         private ToolExcelData runtimeData;
 
