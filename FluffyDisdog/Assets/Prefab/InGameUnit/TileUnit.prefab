@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1034136401852121400
 Transform:
   m_ObjectHideFlags: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: a1cbca422105d8b4aa06a6592ec41bc5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 75014fbd172c91046bb1909c6513d7e5, type: 3}
   m_Color: {r: 1, g: 1, b: 0, a: 0.49803922}
   m_FlipX: 0
   m_FlipY: 0
@@ -112,7 +112,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4759472183917653084}
   m_Father: {fileID: 7617179696660166487}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -157,7 +158,91 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: a1cbca422105d8b4aa06a6592ec41bc5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 75014fbd172c91046bb1909c6513d7e5, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.24, y: 0.24}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!1 &4516584951286564803
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4759472183917653084}
+  - component: {fileID: 5130332093157244769}
+  m_Layer: 0
+  m_Name: Rune
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4759472183917653084
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4516584951286564803}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8500075440455165635}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &5130332093157244769
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4516584951286564803}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
+  m_Sprite: {fileID: 21300000, guid: 7fe51418240479b4487f69b2c1f7d013, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -195,7 +280,7 @@ Transform:
   m_GameObject: {fileID: 7617179696660166486}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5, y: 4, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.94, y: 0.94, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8500075440455165635}
@@ -216,13 +301,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _renderer: {fileID: 1163734872266875002}
-  normalSprite: {fileID: 21300000, guid: a1cbca422105d8b4aa06a6592ec41bc5, type: 3}
+  normalSprite: {fileID: 21300000, guid: 75014fbd172c91046bb1909c6513d7e5, type: 3}
   treasurePool:
-  - {fileID: 21300000, guid: b5ad22bd79e5b4948b965f7a1c7ed03f, type: 3}
-  - {fileID: 21300000, guid: 9d8ebe1232a82e5458fce2695e1f0188, type: 3}
-  - {fileID: 21300000, guid: e5f297ea671410b4bb0144104b09ff76, type: 3}
-  - {fileID: 21300000, guid: ab61b7527b9aa7449ace313733c7402b, type: 3}
-  - {fileID: 21300000, guid: 3cbb3e75f775935449f5b0ceb2032fb9, type: 3}
+  - {fileID: 21300000, guid: 30c3525c8888d1543a110bbe3b3068e1, type: 3}
+  - {fileID: 21300000, guid: b672d273538d9634e824c1545595ecf5, type: 3}
+  - {fileID: 21300000, guid: a7dd15daf3f562145bba17c5c5597af1, type: 3}
+  - {fileID: 21300000, guid: a47feb5728a4e7e4cad36127963fc2bb, type: 3}
+  - {fileID: 21300000, guid: 69b5004932066ac478ea261c184ed9b4, type: 3}
   obstaclePool:
   - {fileID: 21300000, guid: 42261c238607be24eb9387f22cac4c5d, type: 3}
   - {fileID: 21300000, guid: 59a4a74130c54bf4e8ed65005987c2a3, type: 3}
@@ -231,6 +316,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 622646a3f1393c0459217a6f7377fc2f, type: 3}
   afterImageSprite: {fileID: 21300000, guid: a83dbfac5ee4aa64dad7ca8f902e26c2, type: 3}
   mouseOverEffect: {fileID: 1034136401852121400}
+  substatesKey: 020000000100000000000000
+  substatesValueSprite:
+  - {fileID: 21300000, guid: 3a14e8626a0c7af4596f79e7b08ca64a, type: 3}
+  - {fileID: 21300000, guid: f1b95295e3d82fc4f8f9c813c2839305, type: 3}
+  - {fileID: 21300000, guid: 75014fbd172c91046bb1909c6513d7e5, type: 3}
+  runeArea: {fileID: 4516584951286564803}
   blockType: 0
   treasureType: -1
   obstacleType: -1

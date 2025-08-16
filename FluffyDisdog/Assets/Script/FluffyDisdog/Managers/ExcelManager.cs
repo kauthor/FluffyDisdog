@@ -15,11 +15,13 @@ namespace Script.FluffyDisdog.Managers
         private RelicDataTable _relicDataTable;
         private ToolExcelDataTable _toolExcelDatas;
         private ToolCardOptionTable _toolCardOptionTable;
+        private GachaTable _gachaTable;
 
         private Dictionary<ToolType, ToolData> toolDataDic;
         private Dictionary<RelicName, RelicData> relicDataDic;
         private Dictionary<ToolType, ToolExcelData> toolExcelDataDic;
         private Dictionary<int, ToolCardOpData> toolCardOpDataDic;
+        private Dictionary<int, GacheInGameData> gacheInGameDataDic;
 
         protected override void Awake()
         {
@@ -71,10 +73,21 @@ namespace Script.FluffyDisdog.Managers
             await topHandle;
             Addressables.Release(topHandle);
             
+            AsyncOperationHandle gachaHandle =
+                Addressables.LoadAssetAsync<GachaTable>("GachaTable");
+            gachaHandle.Completed += op =>
+            {
+                var res = op.Result as GachaTable;
+                _gachaTable = res;
+            };
+            await gachaHandle;
+            Addressables.Release(gachaHandle);
+            
             toolDataDic = _toolTable.TryCache();
             relicDataDic = _relicDataTable.TryCache();
             toolExcelDataDic = _toolExcelDatas.TryCache();
             toolCardOpDataDic = _toolCardOptionTable.TryCache();
+            gacheInGameDataDic = _gachaTable.TryCache();
         }
 
         public ToolData GetToolData(ToolType t)

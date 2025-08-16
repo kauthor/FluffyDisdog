@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Xml;
 using FluffyDisdog.Data;
 using FluffyDisdog.RelicCommandData;
@@ -198,6 +199,12 @@ namespace FluffyDisdog
         [SerializeField] private Sprite afterImageSprite;
         [SerializeField] private Transform mouseOverEffect;
 
+        [SerializeField] private NodeSubstate[] substatesKey;
+        [SerializeField] private Sprite[] substatesValueSprite;
+        [SerializeField] private GameObject runeArea;
+        
+        private Dictionary<NodeSubstate, Sprite> substates;
+
         private NodeState currentState;
         
         public NodeState CurrentState => currentState;
@@ -233,6 +240,12 @@ namespace FluffyDisdog
                 trType = treasureType,
                 obType = obstacleType
             };
+            
+            substates = new Dictionary<NodeSubstate, Sprite>();
+            for (int i = 0; i < substatesKey.Length; i++)
+            {
+                substates.Add(substatesKey[i], substatesValueSprite[i]);
+            }
         }
 
         public void InitNode(int row, int col, Action<Tuple<int, int>> cb, TileSet par)
@@ -268,12 +281,15 @@ namespace FluffyDisdog
             {
                 case NodeType.NONE:
                     _renderer.sprite = normalSprite;
+                    runeArea.gameObject.SetActive(true);
                     break;
                 case NodeType.Treasure:
                     _renderer.sprite = treasurePool[(int) treasureType];
+                    runeArea.gameObject.SetActive(false);
                     break;
                 case NodeType.Obstacle:
                     _renderer.sprite = obstaclePool[(int) obstacleType];
+                    runeArea.gameObject.SetActive(false);
                     break;
             }
         }
@@ -395,12 +411,14 @@ namespace FluffyDisdog
             if (alive)
             {
                 currentState = NodeState.Raw;
+                runeArea.gameObject.SetActive(true);
                 UpdateSprite();
             }
             else
             {
                 //todo : 잔상 작업중
                 currentState = NodeState.AfterImage;
+                runeArea.gameObject.SetActive(false);
                 _renderer.sprite = afterImageSprite;
             }
         }
@@ -468,18 +486,9 @@ namespace FluffyDisdog
 
         public void SetTileColorByState(NodeSubstate state)
         {
-            
-            switch (state)
+            if (substates.ContainsKey(state))
             {
-                case NodeSubstate.Crack:
-                    _renderer.color = Color.yellow;
-                    break;
-                case NodeSubstate.Infest:
-                    _renderer.color = Color.blue;
-                    break;
-                case NodeSubstate.NONE:
-                    _renderer.color = Color.white;
-                    break;
+                _renderer.sprite = substates[state];
             }
         }
 

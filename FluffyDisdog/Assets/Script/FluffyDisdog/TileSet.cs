@@ -88,7 +88,7 @@ namespace FluffyDisdog
                 for (int j = 0; j < initialRow; j++)
                 {
                     var newtile = GameObject.Instantiate(tilePrefab, currentLevelSet.transform);
-                    newtile.transform.localPosition = new Vector3(-4 + j, 4 - i, 0);
+                    newtile.transform.localPosition = new Vector3(-4 + j*0.93f, 4 - i*0.93f, 0);
                     tileArray[j + i * initialRow] = newtile;
                 }
             }

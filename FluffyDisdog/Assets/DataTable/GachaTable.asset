@@ -1,0 +1,253 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e64effee8600473fb799c53e3c21f32d, type: 3}
+  m_Name: GachaTable
+  m_EditorClassIdentifier: 
+  datas:
+  - id: 1
+    gachaType: 1
+    gachaId: 1
+    rate: 1
+    rewardType: 2
+    rewardValue: Card_Shovel
+    rewardCount: 1
+  - id: 2
+    gachaType: 1
+    gachaId: 1
+    rate: 1
+    rewardType: 2
+    rewardValue: Card_Rake
+    rewardCount: 1
+  - id: 3
+    gachaType: 1
+    gachaId: 1
+    rate: 1
+    rewardType: 2
+    rewardValue: Card_Shovel_Enhanced
+    rewardCount: 1
+  - id: 4
+    gachaType: 1
+    gachaId: 1
+    rate: 1
+    rewardType: 2
+    rewardValue: Card_Rake_Enhanced
+    rewardCount: 1
+  - id: 5
+    gachaType: 1
+    gachaId: 1
+    rate: 1
+    rewardType: 2
+    rewardValue: Card_GoldenShovel
+    rewardCount: 1
+  - id: 6
+    gachaType: 1
+    gachaId: 1
+    rate: 1
+    rewardType: 2
+    rewardValue: Card_GoldenShovel_Enhanced
+    rewardCount: 1
+  - id: 7
+    gachaType: 1
+    gachaId: 1
+    rate: 1
+    rewardType: 2
+    rewardValue: Card_Axe
+    rewardCount: 1
+  - id: 8
+    gachaType: 1
+    gachaId: 1
+    rate: 1
+    rewardType: 2
+    rewardValue: Card_Axe_Enhanced
+    rewardCount: 1
+  - id: 9
+    gachaType: 1
+    gachaId: 1
+    rate: 1
+    rewardType: 2
+    rewardValue: Card_CrossChisel
+    rewardCount: 1
+  - id: 10
+    gachaType: 1
+    gachaId: 1
+    rate: 1
+    rewardType: 2
+    rewardValue: Card_CrossChisel_Enhanced
+    rewardCount: 1
+  - id: 11
+    gachaType: 1
+    gachaId: 1
+    rate: 1
+    rewardType: 2
+    rewardValue: Card_Pickaxe
+    rewardCount: 1
+  - id: 12
+    gachaType: 1
+    gachaId: 1
+    rate: 1
+    rewardType: 2
+    rewardValue: Card_Pickaxe_Enhanced
+    rewardCount: 1
+  - id: 13
+    gachaType: 1
+    gachaId: 1
+    rate: 1
+    rewardType: 2
+    rewardValue: Card_Slingshot
+    rewardCount: 1
+  - id: 14
+    gachaType: 1
+    gachaId: 1
+    rate: 1
+    rewardType: 2
+    rewardValue: Card_Slingshot_Enhanced
+    rewardCount: 1
+  - id: 15
+    gachaType: 1
+    gachaId: 1
+    rate: 1
+    rewardType: 2
+    rewardValue: Card_CornerCrushingHammer
+    rewardCount: 1
+  - id: 16
+    gachaType: 1
+    gachaId: 1
+    rate: 1
+    rewardType: 2
+    rewardValue: Card_CornerCrushingHammer_Enhanced
+    rewardCount: 1
+  - id: 17
+    gachaType: 1
+    gachaId: 1
+    rate: 1
+    rewardType: 2
+    rewardValue: Card_ConcentratedCrossDrill
+    rewardCount: 1
+  - id: 18
+    gachaType: 1
+    gachaId: 1
+    rate: 1
+    rewardType: 2
+    rewardValue: Card_ConcentratedCrossDrill_Enhanced
+    rewardCount: 1
+  - id: 19
+    gachaType: 1
+    gachaId: 1
+    rate: 1
+    rewardType: 2
+    rewardValue: Card_GoldenAxe
+    rewardCount: 1
+  - id: 20
+    gachaType: 1
+    gachaId: 1
+    rate: 1
+    rewardType: 2
+    rewardValue: Card_GoldenAxe_Enhanced
+    rewardCount: 1
+  - id: 21
+    gachaType: 1
+    gachaId: 1
+    rate: 1
+    rewardType: 2
+    rewardValue: Card_LargeScissors
+    rewardCount: 1
+  - id: 22
+    gachaType: 1
+    gachaId: 1
+    rate: 1
+    rewardType: 2
+    rewardValue: Card_LargeScissors_Enhanced
+    rewardCount: 1
+  - id: 23
+    gachaType: 1
+    gachaId: 1
+    rate: 1
+    rewardType: 2
+    rewardValue: Card_WeakeningNormal
+    rewardCount: 1
+  - id: 24
+    gachaType: 1
+    gachaId: 1
+    rate: 1
+    rewardType: 2
+    rewardValue: Card_WeakeningRare
+    rewardCount: 1
+  - id: 25
+    gachaType: 1
+    gachaId: 1
+    rate: 1
+    rewardType: 2
+    rewardValue: Card_WeakeningUnique
+    rewardCount: 1
+  - id: 26
+    gachaType: 1
+    gachaId: 1
+    rate: 1
+    rewardType: 2
+    rewardValue: Card_Bag
+    rewardCount: 1
+  - id: 27
+    gachaType: 1
+    gachaId: 1
+    rate: 1
+    rewardType: 2
+    rewardValue: Card_ToolTransformation
+    rewardCount: 1
+  - id: 28
+    gachaType: 1
+    gachaId: 1
+    rate: 1
+    rewardType: 2
+    rewardValue: Card_ToolEnhancement
+    rewardCount: 1
+  - id: 29
+    gachaType: 1
+    gachaId: 1
+    rate: 1
+    rewardType: 2
+    rewardValue: Card_AdventurerTorch
+    rewardCount: 1
+  - id: 30
+    gachaType: 1
+    gachaId: 1
+    rate: 1
+    rewardType: 2
+    rewardValue: Card_AdventurerTorch_Enhanced
+    rewardCount: 1
+  - id: 31
+    gachaType: 1
+    gachaId: 1
+    rate: 1
+    rewardType: 2
+    rewardValue: Card_HammerOfMemory
+    rewardCount: 1
+  - id: 32
+    gachaType: 1
+    gachaId: 1
+    rate: 1
+    rewardType: 2
+    rewardValue: Card_HammerOfMemory_Enhanced
+    rewardCount: 1
+  - id: 33
+    gachaType: 1
+    gachaId: 1
+    rate: 1
+    rewardType: 2
+    rewardValue: Card_RiftStartumAnalysis
+    rewardCount: 1
+  - id: 34
+    gachaType: 1
+    gachaId: 1
+    rate: 1
+    rewardType: 2
+    rewardValue: Card_RiftStartumAnalysis_Enhanced
+    rewardCount: 1
