@@ -79,7 +79,8 @@ namespace FluffyDisdog
             var levelSet = tileLevel.AddComponent<TileLevel>();
             tileLevel.transform.SetParent(levelParent);
             currentLevelSet = levelSet;
-            currentLevelSet.transform.localPosition = new Vector3(4, 0, 0);
+            currentLevelSet.transform.localScale = new Vector3(1,1,1);
+            currentLevelSet.transform.localPosition = new Vector3(0, 0, 0);
 
             TerrainNode[] tileArray = new TerrainNode[initialColume*initialColume];
 
@@ -88,7 +89,7 @@ namespace FluffyDisdog
                 for (int j = 0; j < initialRow; j++)
                 {
                     var newtile = GameObject.Instantiate(tilePrefab, currentLevelSet.transform);
-                    newtile.transform.localPosition = new Vector3(-4 + j*0.93f, 4 - i*0.93f, 0);
+                    newtile.transform.localPosition = new Vector3(-86.7f + j*25, 86.5f - i*25, 0);
                     tileArray[j + i * initialRow] = newtile;
                 }
             }
@@ -396,7 +397,8 @@ namespace FluffyDisdog
             var param = new CardExecuteParam(clicked, 0);
             var ex = DeckManager.I.CurrentCard.Executor;
             
-            ex.PreEffect(param);
+            if(ex != null)
+               ex.PreEffect(param);
             
             //이것도 추후 타일처럼 디자인패턴화 시키자...
             var beforeScore = TileGameManager.I.CurrentScore.Value;
@@ -436,7 +438,7 @@ namespace FluffyDisdog
                     var currentNode = nodes[currentW + row * currentH];
 
                     var tileParam = new CardExecuteParam(currentNode, preEndParamOut); 
-                    ex.ExecuteTileEffect(tileParam);
+                    if(ex != null) ex.ExecuteTileEffect(tileParam);
                     preEndParamOut = param.output;
                     
                     if (currentNode.Coord.Item1 == coord.Item1 || currentNode.Coord.Item2 == coord.Item2)
@@ -475,7 +477,7 @@ namespace FluffyDisdog
             var afterScore = TileGameManager.I.CurrentScore.Value;
             var endParam = new CardExecuteParam(clicked, preEndParamOut);
             
-            ex.PostEffect(endParam);
+            if(ex != null) ex.PostEffect(endParam);
             
             float ret = param.output;
             

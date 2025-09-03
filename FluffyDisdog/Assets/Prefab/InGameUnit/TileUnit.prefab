@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: 75014fbd172c91046bb1909c6513d7e5, type: 3}
   m_Color: {r: 1, g: 1, b: 0, a: 0.49803922}
   m_FlipX: 0
@@ -322,6 +322,32 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f1b95295e3d82fc4f8f9c813c2839305, type: 3}
   - {fileID: 21300000, guid: 75014fbd172c91046bb1909c6513d7e5, type: 3}
   runeArea: {fileID: 4516584951286564803}
+  sprRune:
+  - {fileID: 21300000, guid: 7fe51418240479b4487f69b2c1f7d013, type: 3}
+  - {fileID: 21300000, guid: defb005bb2018654b9041589d0470c89, type: 3}
+  - {fileID: 21300000, guid: b3e9759c93b16ef4e9df7cdbd3c70b38, type: 3}
+  - {fileID: 21300000, guid: 9632e0924853cff458b73e1ef8e6312b, type: 3}
+  - {fileID: 21300000, guid: e8a79bec518ba304cad016d0bbf49278, type: 3}
+  - {fileID: 21300000, guid: dc289e10659d31b47aa081f695311d20, type: 3}
+  - {fileID: 21300000, guid: c235c803e033d854ab7b08e109c9cec7, type: 3}
+  - {fileID: 21300000, guid: f778d1fe6425e0841aa03bf96f330d1a, type: 3}
+  - {fileID: 21300000, guid: 2a6849a341b807b4081bf83386bb5ea4, type: 3}
+  - {fileID: 21300000, guid: b19d703405ec8574092af3b5bfb856ed, type: 3}
+  - {fileID: 21300000, guid: b3def5c280047e64bb2bd20d5f786808, type: 3}
+  - {fileID: 21300000, guid: cc21d34e21ae54f46b2927672ef37a01, type: 3}
+  - {fileID: 21300000, guid: 514aa967d9cd6e043b1344604f25b993, type: 3}
+  - {fileID: 21300000, guid: 7b9d9969e0ecd09499c7fca230634a8c, type: 3}
+  - {fileID: 21300000, guid: b90b4f6ebb32f3a4899ce2c7b2a83133, type: 3}
+  - {fileID: 21300000, guid: 9b5ac8e4b1382ab42b9386b70480ecb1, type: 3}
+  - {fileID: 21300000, guid: d598993f8fe9b8a4989a24f99e58735a, type: 3}
+  - {fileID: 21300000, guid: 62c5ba12532caab49ae0f9bb6e13bfeb, type: 3}
+  - {fileID: 21300000, guid: 6d2eede520771dd4a9ed3e1c4e101c41, type: 3}
+  - {fileID: 21300000, guid: 5c92c7153ba869142a25b0a461807a81, type: 3}
+  - {fileID: 21300000, guid: 1cb34a9c902abcb49baf2d0ddb8a0b95, type: 3}
+  - {fileID: 21300000, guid: 5782efc6482bbbf4dbdbae8d511b6472, type: 3}
+  - {fileID: 21300000, guid: 28e25a79e6e25a947bc7829378f08610, type: 3}
+  - {fileID: 21300000, guid: 6c62dace6a78b724f8f034d67a9911de, type: 3}
+  spriteRune: {fileID: 5130332093157244769}
   blockType: 0
   treasureType: -1
   obstacleType: -1

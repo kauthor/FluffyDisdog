@@ -9,6 +9,7 @@ using Script.FluffyDisdog.TileClass;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 
@@ -182,7 +183,7 @@ namespace FluffyDisdog
         public NodeType ndType;
     }
 
-    public class TerrainNode:MonoBehaviour,IEventAffectable
+    public class TerrainNode:MonoBehaviour,IEventAffectable,IPointerEnterHandler,IPointerExitHandler
     {
         private DefaultNodeSetting _defaultNodeSetting;
         public bool isObstacle => blockType == NodeType.Obstacle;
@@ -191,7 +192,7 @@ namespace FluffyDisdog
         private Action<Tuple<int, int>> onClicked;
         private Action<Tuple<int, int>> OnMouseEnterCb;
         private Action<Tuple<int, int>> OnMouseExitCb;
-        [SerializeField]private SpriteRenderer _renderer;
+        [SerializeField]private Image _renderer;
 
         [SerializeField] private Sprite normalSprite;
         [SerializeField] private Sprite[] treasurePool;
@@ -202,6 +203,12 @@ namespace FluffyDisdog
         [SerializeField] private NodeSubstate[] substatesKey;
         [SerializeField] private Sprite[] substatesValueSprite;
         [SerializeField] private GameObject runeArea;
+
+        [SerializeField] private Sprite[] sprRune;
+
+        [SerializeField] private Image spriteRune;
+
+        [SerializeField] private Button mouseOverArea;
         
         private Dictionary<NodeSubstate, Sprite> substates;
 
@@ -246,6 +253,11 @@ namespace FluffyDisdog
             {
                 substates.Add(substatesKey[i], substatesValueSprite[i]);
             }
+            
+            spriteRune.sprite = sprRune[Random.Range(0, sprRune.Length)];
+            
+            mouseOverArea.onClick.RemoveAllListeners();
+            mouseOverArea.onClick.AddListener(OnClick);
         }
 
         public void InitNode(int row, int col, Action<Tuple<int, int>> cb, TileSet par)
@@ -294,30 +306,25 @@ namespace FluffyDisdog
             }
         }
 
-        private void OnMouseDown()
+        //private void OnMouseDown()
+        private void OnClick()
         {
             if (!TileGameManager.I.IsGameRunning)
-                return;
-            if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
                 return;
             
             onClicked?.Invoke(coord);
         }
 
-        private void OnMouseEnter()
+        public void OnPointerEnter(PointerEventData eventData)
         {
             if (!TileGameManager.I.IsGameRunning)
-                return;
-            if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
                 return;
             OnMouseEnterCb?.Invoke(coord);
         }
 
-        private void OnMouseExit()
+        public void OnPointerExit(PointerEventData eventData)
         {
             if (!TileGameManager.I.IsGameRunning)
-                return;
-            if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
                 return;
             OnMouseExitCb?.Invoke(coord);
         }
@@ -413,6 +420,7 @@ namespace FluffyDisdog
                 currentState = NodeState.Raw;
                 runeArea.gameObject.SetActive(true);
                 UpdateSprite();
+                mouseOverArea.interactable = true;
             }
             else
             {
@@ -420,6 +428,7 @@ namespace FluffyDisdog
                 currentState = NodeState.AfterImage;
                 runeArea.gameObject.SetActive(false);
                 _renderer.sprite = afterImageSprite;
+                mouseOverArea.interactable = false;
             }
         }
 
@@ -502,5 +511,7 @@ namespace FluffyDisdog
             if(mouseOverEffect!=null)
                 mouseOverEffect.gameObject.SetActive(on);
         }
+
+        
     }
 }

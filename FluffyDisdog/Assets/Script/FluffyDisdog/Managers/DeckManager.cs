@@ -35,12 +35,6 @@ namespace Script.FluffyDisdog.Managers
             var cardData = ExcelManager.I.GetToolCardOpData(this._toolType);
             if(cardData != null)
                executer = CardOptionExecuter.MakeCardAddOptionExecuter(cardData);
-            //todo : 임시 테스트
-            else
-            {
-                cardData = new ToolCardOpData(101, "", new int[] { 3 });
-                executer = CardOptionExecuter.MakeCardAddOptionExecuter(cardData);
-            }
             //executer.InitCommandData();
             this.deckId = deckId;
         }
