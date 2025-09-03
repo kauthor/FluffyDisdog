@@ -308,7 +308,7 @@ MonoBehaviour:
   cardArea: {fileID: 6159606902401156192}
   cardPrefab: {fileID: 3606648058237726793, guid: 71ec16c74d546c1449649484e02aa728,
     type: 3}
-  cardSpace: 90
+  cardSpace: 120
   deckPosition: {fileID: 7901547223335146630}
   btnDeckList: {fileID: 4954024430695890546}
   relicPrefab: {fileID: 1861023005655091343, guid: 3b2889367465a1f44a36850b68bb7d3c,
@@ -532,7 +532,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 105, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1743464436087026902
@@ -714,7 +714,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6979276061868423556
 RectTransform:
   m_ObjectHideFlags: 0

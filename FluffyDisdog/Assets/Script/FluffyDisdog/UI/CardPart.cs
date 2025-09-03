@@ -16,6 +16,7 @@ namespace FluffyDisdog.UI
         private int ID;
         private ToolType _toolType;
         private Action<int, ToolType> onClickedCb;
+        private Action onClickCanceledCb;
         private Action<int> onHoverCb;
         private Action<bool> onExitCb;
         private bool isSelected = false;
@@ -26,18 +27,27 @@ namespace FluffyDisdog.UI
             btnClickArea.onClick.RemoveAllListeners();
             btnClickArea.onClick.AddListener(() =>
             {
-                Select(true);
-                onClickedCb?.Invoke(ID, _toolType);
+                if (!isSelected)
+                {
+                    Select(true);
+                    onClickedCb?.Invoke(ID, _toolType);
+                }
+                else
+                {
+                    Select(false);
+                    onClickCanceledCb?.Invoke();
+                }
             });
         }
 
-        public void Init(int id, ToolType type, Action<int, ToolType> cb)
+        public void Init(int id, ToolType type, Action<int, ToolType> cb, Action onCancelCb)
         {
             txtType.text = type.ToString();
             onClickedCb = cb;
             _toolType = type;
             ID = id;
             gameObject.SetActive(true);
+            onClickCanceledCb = onCancelCb;
             Select(false);
             Flip(false);
         }
@@ -70,7 +80,7 @@ namespace FluffyDisdog.UI
         private void Hovered()
         {
             var localPosition = transform.localPosition;
-            localPosition = new Vector3( localPosition.x,20, 0);
+            localPosition = new Vector3( localPosition.x,-190, 0);
             transform.localPosition = localPosition;
             
             onHoverCb?.Invoke(ID);
@@ -86,7 +96,7 @@ namespace FluffyDisdog.UI
             if (!isSelected)
             {
                 var localPosition = transform.localPosition;
-                localPosition = new Vector3( localPosition.x,0, 0);
+                localPosition = new Vector3( localPosition.x,-300, 0);
                 transform.localPosition = localPosition;
                 onExitCb?.Invoke(false);
             }
