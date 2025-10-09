@@ -90,6 +90,11 @@ namespace FluffyDisdog
             return commandList.Exists(_ => _.relicType == name);
         }
 
+        public RelicCommandData.RelicCommandData GetRelicCommand(RelicName name)
+        {
+            return commandList.Find(_ => _.relicType == name);
+        }
+
         public void RemoveEvent(IEventAffectable unit)
         {
             if (!_handler.ContainsKey(unit))

@@ -29,12 +29,19 @@ namespace Script.FluffyDisdog.Managers
         private int deckId;
         public int DeckId => deckId;
 
+        private ToolCardOpData rawOpData;
+        private ToolExcelData excelData;
+
         public CardInGame(ToolType toolType, int deckId)
         {
             _toolType = toolType;
             var cardData = ExcelManager.I.GetToolCardOpData(this._toolType);
-            if(cardData != null)
-               executer = CardOptionExecuter.MakeCardAddOptionExecuter(cardData);
+            excelData = ExcelManager.I.GetToolExcelData(this._toolType);
+            if (cardData != null)
+            {
+                rawOpData = cardData;
+                executer = CardOptionExecuter.MakeCardAddOptionExecuter(cardData);
+            }
             //executer.InitCommandData();
             this.deckId = deckId;
         }
@@ -42,7 +49,25 @@ namespace Script.FluffyDisdog.Managers
         public void OnCardUsed()
         {
             //executer?.ExecuteCommand();
+            
             cardUsedCount++;
+            if (excelData != null)
+            {
+                var tag = excelData.ToolTag;
+                if (((int)tag & 128) != 0)
+                {
+                    DeckManager.I.RemoveCard(this);
+                }
+                else if (((int)tag & 32) != 0)
+                {
+                    var seed = SeedManager.I.GetMinor();
+                    var rand = seed % 10000;
+                    if (rand  <  Mathf.Min(cardUsedCount,14)*500)
+                    {
+                        DeckManager.I.RemoveCard(this);
+                    }
+                }
+            }
             //todo : 여기서 카드 사용 판정내자
         }
     }
@@ -244,6 +269,12 @@ namespace Script.FluffyDisdog.Managers
             else
                DeckList[tool] = DeckList[tool] - 1;
             Debug.Log(trueDeck.Count);
+        }
+
+        public void RemoveCard(CardInGame card)
+        {
+            if(trueDeck.Contains(card))
+                trueDeck.Remove(card);
         }
 
         /*private void Draw()

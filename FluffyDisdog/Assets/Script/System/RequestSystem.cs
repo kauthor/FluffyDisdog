@@ -1,4 +1,5 @@
-﻿using Script.FluffyDisdog.Managers;
+﻿using FluffyDisdog.Data.RelicData;
+using Script.FluffyDisdog.Managers;
 using UnityEngine;
 
 namespace FluffyDisdog
@@ -49,6 +50,12 @@ namespace FluffyDisdog
         {
             isReqRunning = false;
             var suc = SeedManager.I.GetStoreSeed() % (100);
+            int add = 0;
+            if (PlayerManager.I.TurnEventSystem.HasRelicCommand(RelicName.TradersCompanion))
+            {
+                var data = PlayerManager.I.TurnEventSystem.GetRelicCommand(RelicName.TradersCompanion).RawData;
+                add = (int)data.Values[0];
+            }
             if (suc <= defaultSuccessRate + ReqRewardLevelAdd)
             {
                 reward = 20 + reqDegree * 5 + ReqRewardLevelAdd * 10; 

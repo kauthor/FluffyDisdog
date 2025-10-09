@@ -452,6 +452,8 @@ namespace FluffyDisdog
                         
                         addedRate += hparam.addedRate;
                     }
+                    //여기서 도구 파괴여부 체크.
+                    
                     
                     //여기서 활성화여부 체크
                     if (currentNode.ValidNode())

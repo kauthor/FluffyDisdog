@@ -8,6 +8,7 @@ namespace FluffyDisdog.RelicCommandData
     public abstract class RelicCommandData: IEventAffectable
     {
         protected RelicData rawData;
+        public RelicData RawData => rawData;
         
         private static readonly Dictionary<RelicName, Func<RelicCommandData>> factoryMap =
             new Dictionary<RelicName, Func<RelicCommandData>>
