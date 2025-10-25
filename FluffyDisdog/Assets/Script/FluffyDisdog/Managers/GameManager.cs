@@ -29,6 +29,15 @@ namespace Script.FluffyDisdog.Managers
             await popup.Task;
             Addressables.Release(popup);
             
+            var resLoader = Addressables.LoadAssetAsync<GameObject>("ResourceLoadManager");
+            resLoader.Completed += _ =>
+            {
+                var res = _.Result as GameObject;
+                var obj = GameObject.Instantiate(res);
+            };
+            await resLoader.Task;
+            Addressables.Release(resLoader);
+            
             //UIManager
             UIManager.I.ChangeView(UIType.Login);
         }

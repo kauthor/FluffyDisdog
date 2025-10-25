@@ -20,6 +20,8 @@ namespace FluffyDisdog.UI
         [SerializeField] private Transform cardArea;
         [SerializeField] private CardPart cardPrefab;
         [SerializeField] private int cardSpace = 70;
+        
+        [SerializeField] private BinaryGoldPrefab[] goldText;
         public override UIType type => UIType.InGame;
 
         private List<CardPart> cardPool;
@@ -44,6 +46,17 @@ namespace FluffyDisdog.UI
             
             relicPool = new Queue<UIRelicInfoPart>();
             currentRelic = new Queue<UIRelicInfoPart>();
+        }
+
+        private void SyncGold()
+        {
+            int gold = AccountManager.I.Gold;
+
+            for (int i = 0; i < goldText.Length; i++)
+            {
+                goldText[i].SetBinary(gold%10);
+                gold = gold/10;
+            }
         }
 
         public override void Init(UIViewParam param)
@@ -110,6 +123,8 @@ namespace FluffyDisdog.UI
                         currentRelic.Enqueue(newRelic);
                     }
                 }
+            
+            SyncGold();
         }
 
         private async void CardDraw()
@@ -121,7 +136,7 @@ namespace FluffyDisdog.UI
                 card.transform.position = //new Vector3(cardSpace * i, 0, 0);
                     deckPosition.transform.position;
                 card.gameObject.SetActive(true);
-                var target = cardArea.transform.position + new Vector3(cardSpace * (i+1), -300, 0);
+                var target = cardArea.transform.position + new Vector3(cardSpace * (i+1), -250, 0);
                 //card.transform.SetAsLastSibling();
                 card.transform.DOMove(target, 0.5f);
                 card.transform.DOScaleX(0, 0.125f)
@@ -203,7 +218,7 @@ namespace FluffyDisdog.UI
                 //currentCard[i].transform.SetSiblingIndex(trId);
                 
                 currentCard[i].transform.localPosition = 
-                    new Vector3(cardSpace * (trId+1),currentCard[i].IsSelected? -190 :-300, 0);
+                    new Vector3(cardSpace * (trId+1),currentCard[i].IsSelected? -140 :-250, 0);
                 trId++;
             }
 

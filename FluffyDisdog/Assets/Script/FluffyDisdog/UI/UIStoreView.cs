@@ -72,7 +72,7 @@ namespace FluffyDisdog.UI
 
             foreach (var r in relics)
             {
-                r.Init(20, (int)Random.Range(0, (int)RelicName.HorizontalVerticalStabilizer +1), OnClickRelicPack);
+                r.Init(20, (int)Random.Range(101, (int)RelicName.HorizontalVerticalStabilizer +1), OnClickRelicPack);
                 r.gameObject.SetActive(true);
             }
 

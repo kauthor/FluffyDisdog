@@ -1,4 +1,5 @@
 ﻿using FluffyDisdog.Data.RelicData;
+using Script.FluffyDisdog.Managers;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,10 +13,17 @@ namespace FluffyDisdog.UI
         private RelicName relicName;
         public RelicName RelicName => relicName;
         
-        public void InitData(RelicName relic)
+        public void InitData(RelicName relic, string key="")
         {
             relicName = relic;
-            txtRelicName.text = relicName.ToString();
+            //txtRelicName.text = relicName.ToString();
+            txtRelicName.gameObject.SetActive(false);
+            
+            ResourceLoadManager.I.LoadRelicIcon($"Relic{(int)relicName}", _ =>
+            {
+                if (_ != null)
+                    imgRelicIcon.sprite = _;
+            }).Forget();
         }
 
         public void ReturnToPool()

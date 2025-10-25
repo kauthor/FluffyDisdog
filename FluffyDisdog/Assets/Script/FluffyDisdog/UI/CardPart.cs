@@ -13,6 +13,12 @@ namespace FluffyDisdog.UI
         [SerializeField] private Image imgSelected;
         [SerializeField] private Image imgUnselected;
         [SerializeField] private Image imgBackward;
+        [SerializeField] private GameObject tagAndIconArea;
+        [SerializeField] private Image cardImage;
+        [SerializeField] private Image cardGridImage;
+        
+        
+        [SerializeField] private GameObject[] tags;
         private int ID;
         private ToolType _toolType;
         private Action<int, ToolType> onClickedCb;
@@ -40,6 +46,11 @@ namespace FluffyDisdog.UI
             });
         }
 
+        private void Start()
+        {
+            //ResourceLoadManager.I.LoadSprite(" ", sprite => cardImage.sprite = sprite).Forget() ;
+        }
+
         public void Init(int id, ToolType type, Action<int, ToolType> cb, Action onCancelCb)
         {
             txtType.text = type.ToString();
@@ -55,7 +66,7 @@ namespace FluffyDisdog.UI
         public void Flip(bool front)
         {
             imgBackward?.gameObject.SetActive(!front);
-            
+            tagAndIconArea?.SetActive(front);
             //todo : 여기에 신규 프리팹 구성요소 온오프
         }
 
@@ -80,7 +91,7 @@ namespace FluffyDisdog.UI
         private void Hovered()
         {
             var localPosition = transform.localPosition;
-            localPosition = new Vector3( localPosition.x,-190, 0);
+            localPosition = new Vector3( localPosition.x,-140, 0);
             transform.localPosition = localPosition;
             
             onHoverCb?.Invoke(ID);
@@ -96,7 +107,7 @@ namespace FluffyDisdog.UI
             if (!isSelected)
             {
                 var localPosition = transform.localPosition;
-                localPosition = new Vector3( localPosition.x,-300, 0);
+                localPosition = new Vector3( localPosition.x,-250, 0);
                 transform.localPosition = localPosition;
                 onExitCb?.Invoke(false);
             }

@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ArtifactIcon
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 21300000, guid: 20aa7c4dddc01e343bf9be38a78eb109, type: 3}
+    - {fileID: 21300000, guid: a7e38e501660c834d91b27828307cbe1, type: 3}
+    - {fileID: 21300000, guid: 3facf87158e2278488a6b2b4b3aa3e94, type: 3}
+    - {fileID: 21300000, guid: 8171dd8abb3cca94db71ac30c1b34549, type: 3}
+    - {fileID: 21300000, guid: 283690b6c871f334185db6cc755cb6ed, type: 3}
+    - {fileID: 21300000, guid: 4143fab7ecad28948bb515a2a9501ecc, type: 3}
+    - {fileID: 21300000, guid: 126a7369181c3d94f9c29b38af9d2dfb, type: 3}
+    - {fileID: 21300000, guid: b06156ca8601eaa4ea44d2f3929e92ee, type: 3}
+    - {fileID: 21300000, guid: 3da259c1bfe65b04c9bf46794b274460, type: 3}
+    - {fileID: 21300000, guid: f9a8f763305e417479b979fa7b172bd2, type: 3}
+    - {fileID: 21300000, guid: 7615d089af16a514eb25dd3b57b196db, type: 3}
+    - {fileID: 21300000, guid: 308d000ab9973194daf2d45ab4a52176, type: 3}
+    - {fileID: 21300000, guid: 1e050e5e36b4c2644b32c1a17ea804ae, type: 3}
+    - {fileID: 21300000, guid: dac2dad5fc1fb1d44875618494d249e4, type: 3}
+    - {fileID: 21300000, guid: b4a1a43976735cd45b383349eef36f6a, type: 3}
+    - {fileID: 21300000, guid: 15aaf1347d236944f929274fa9c509d7, type: 3}
+    - {fileID: 21300000, guid: bdd0ed6c232de0043a9b94b76fe21024, type: 3}
+    - {fileID: 21300000, guid: f4cbbf1c0d47ba840b3356ca220e193e, type: 3}
+    - {fileID: 21300000, guid: 6807ad65c63a828468772b88cfe7f892, type: 3}
+    - {fileID: 21300000, guid: 6b459ff070966e74f8d2d8321259e6a1, type: 3}
+    - {fileID: 21300000, guid: 0570ddff1a98edc488a4ae82042f5b79, type: 3}
+    - {fileID: 21300000, guid: 08e86ae0e24e51f4d81b05a388df0794, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: a7e38e501660c834d91b27828307cbe1, type: 3}
+  - {fileID: 21300000, guid: 08e86ae0e24e51f4d81b05a388df0794, type: 3}
+  - {fileID: 21300000, guid: 6b459ff070966e74f8d2d8321259e6a1, type: 3}
+  - {fileID: 21300000, guid: 3facf87158e2278488a6b2b4b3aa3e94, type: 3}
+  - {fileID: 21300000, guid: 3da259c1bfe65b04c9bf46794b274460, type: 3}
+  - {fileID: 21300000, guid: f9a8f763305e417479b979fa7b172bd2, type: 3}
+  - {fileID: 21300000, guid: 15aaf1347d236944f929274fa9c509d7, type: 3}
+  - {fileID: 21300000, guid: 6807ad65c63a828468772b88cfe7f892, type: 3}
+  - {fileID: 21300000, guid: dac2dad5fc1fb1d44875618494d249e4, type: 3}
+  - {fileID: 21300000, guid: 283690b6c871f334185db6cc755cb6ed, type: 3}
+  - {fileID: 21300000, guid: 4143fab7ecad28948bb515a2a9501ecc, type: 3}
+  - {fileID: 21300000, guid: b4a1a43976735cd45b383349eef36f6a, type: 3}
+  - {fileID: 21300000, guid: 126a7369181c3d94f9c29b38af9d2dfb, type: 3}
+  - {fileID: 21300000, guid: 7615d089af16a514eb25dd3b57b196db, type: 3}
+  - {fileID: 21300000, guid: 308d000ab9973194daf2d45ab4a52176, type: 3}
+  - {fileID: 21300000, guid: 8171dd8abb3cca94db71ac30c1b34549, type: 3}
+  - {fileID: 21300000, guid: b06156ca8601eaa4ea44d2f3929e92ee, type: 3}
+  - {fileID: 21300000, guid: f4cbbf1c0d47ba840b3356ca220e193e, type: 3}
+  - {fileID: 21300000, guid: bdd0ed6c232de0043a9b94b76fe21024, type: 3}
+  - {fileID: 21300000, guid: 20aa7c4dddc01e343bf9be38a78eb109, type: 3}
+  - {fileID: 21300000, guid: 1e050e5e36b4c2644b32c1a17ea804ae, type: 3}
+  - {fileID: 21300000, guid: 0570ddff1a98edc488a4ae82042f5b79, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Relic102
+  - Relic123
+  - Relic121
+  - Relic103
+  - Relic110
+  - Relic111
+  - Relic117
+  - Relic120
+  - Relic115
+  - Relic105
+  - Relic106
+  - Relic116
+  - Relic107
+  - Relic112
+  - Relic113
+  - Relic104
+  - Relic108
+  - Relic119
+  - Relic118
+  - Relic101
+  - Relic114
+  - Relic122
+  m_RenderDataMap: {}
+  m_Tag: ArtifactIcon
+  m_IsVariant: 0

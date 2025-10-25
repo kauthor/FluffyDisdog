@@ -53,6 +53,10 @@ MonoBehaviour:
     m_Address: GachaTable
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: cdf10cb1e4a93f24ea01c5747fbae497
+    m_Address: ResourceLoadManager
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c4b4aea7e916bf6448fc92af0dc0baf0, type: 2}
   m_SchemaSet:
