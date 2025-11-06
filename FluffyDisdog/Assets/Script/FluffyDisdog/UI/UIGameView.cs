@@ -38,14 +38,23 @@ namespace FluffyDisdog.UI
         
         [SerializeField] private UIRelicInfoPart relicPrefab;
         [SerializeField] private Transform relicParent;
+
+        [SerializeField] private Button btnOption;
         
         private void Awake()
         {
-            btnDeckList.onClick.RemoveAllListeners();
-            btnDeckList.onClick.AddListener(UIDeckListPopup.OpenPopup);
+            
             
             relicPool = new Queue<UIRelicInfoPart>();
             currentRelic = new Queue<UIRelicInfoPart>();
+        }
+
+        private void Start()
+        {
+            btnDeckList.onClick.RemoveAllListeners();
+            btnDeckList.onClick.AddListener(UIDeckListPopup.OpenPopup);
+            btnOption.onClick.RemoveAllListeners();
+            btnOption.onClick.AddListener(UIOptionPopup.OpenPopup);
         }
 
         private void SyncGold()
@@ -96,6 +105,8 @@ namespace FluffyDisdog.UI
                 currentCard.Add(current);
                 current.gameObject.SetActive(false);
             }
+            
+            
             
             CardDraw();
 
