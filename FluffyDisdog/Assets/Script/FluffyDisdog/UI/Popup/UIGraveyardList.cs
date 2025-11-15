@@ -4,9 +4,9 @@ using UnityEngine.UI;
 
 namespace FluffyDisdog.UI
 {
-    public class UIDeckListPopup:PopupMonoBehavior
+    public class UIGraveyardList:PopupMonoBehavior
     {
-        public override PopupType type => PopupType.DeckList;
+        public override PopupType type => PopupType.GraveyardList;
 
         [SerializeField] private Text[] txtCardList;
         [SerializeField] private Transform cardHolder;
@@ -14,8 +14,8 @@ namespace FluffyDisdog.UI
         
         public static void OpenPopup()
         {
-            var pop = PopupManager.I.GetPopup(PopupType.DeckList);
-            if (pop is UIDeckListPopup de)
+            var pop = PopupManager.I.GetPopup(PopupType.GraveyardList);
+            if (pop is UIGraveyardList de)
             {
                 de.gameObject.SetActive(true);
                 de.Init();
@@ -24,13 +24,13 @@ namespace FluffyDisdog.UI
 
         private void Init()
         {
-            var list = DeckManager.I.GetDeckList();
+            var list = DeckManager.I.Graveyard;
 
             int loop = 0;
-            foreach (var keypair in list)
+            foreach (var data in list)
             {
                 var card = GameObject.Instantiate(cardPrefab, cardHolder) as CardPopupParts;
-                card.Init(keypair.Key, keypair.Value);
+                card.Init(data.ToolType, 1);
             }
         }
     }

@@ -32,6 +32,7 @@ namespace FluffyDisdog.UI
 
         [SerializeField]private Transform deckPosition;
         [SerializeField] private Button btnDeckList;
+        [SerializeField] private Button btnShowGrave;
 
         private Queue<UIRelicInfoPart> relicPool;
         private Queue<UIRelicInfoPart> currentRelic;
@@ -55,6 +56,8 @@ namespace FluffyDisdog.UI
             btnDeckList.onClick.AddListener(UIDeckListPopup.OpenPopup);
             btnOption.onClick.RemoveAllListeners();
             btnOption.onClick.AddListener(UIOptionPopup.OpenPopup);
+            btnShowGrave.onClick.RemoveAllListeners();
+            btnShowGrave.onClick.AddListener(UIGraveyardList.OpenPopup);
         }
 
         private void SyncGold()

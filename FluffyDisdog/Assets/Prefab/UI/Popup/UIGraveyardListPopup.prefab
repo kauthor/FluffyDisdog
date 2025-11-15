@@ -697,9 +697,9 @@ GameObject:
   - component: {fileID: 3272342868301971678}
   - component: {fileID: 3272342868301971679}
   - component: {fileID: 3272342868301971672}
-  - component: {fileID: 4862119874212230761}
+  - component: {fileID: 8580302738900837281}
   m_Layer: 5
-  m_Name: UIDeckListPopup
+  m_Name: UIGraveyardListPopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -789,7 +789,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 55
---- !u!114 &4862119874212230761
+--- !u!114 &8580302738900837281
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -798,17 +798,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3272342868301971674}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31a3053c7c1f4d9896d35ee61c196702, type: 3}
+  m_Script: {fileID: 11500000, guid: e1accefd981c443e982ef542c16272ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   BtnClose: {fileID: 3272342867610100791}
   BtnOutClose: {fileID: 0}
-  txtCardList:
-  - {fileID: 6793465713011056715}
-  - {fileID: 5634251033095043064}
-  - {fileID: 3467582995403888339}
-  - {fileID: 7411810336490637301}
-  - {fileID: 1095459553392250089}
+  txtCardList: []
   cardHolder: {fileID: 5110648008640564628}
   cardPrefab: {fileID: 4786470350345075878, guid: ccfedccf1719220458e172e806072b78,
     type: 3}
