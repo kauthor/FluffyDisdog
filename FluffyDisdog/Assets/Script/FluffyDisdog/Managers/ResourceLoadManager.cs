@@ -8,18 +8,24 @@ using UnityEngine.U2D;
 
 namespace Script.FluffyDisdog.Managers
 {
+    public static class ResourceAddress
+    {
+        public static string RelicIcon => "Atlas/RelicIcon";
+        public static string CardEffect => "Atlas/CardEffect";
+        public static string CardIllust => "Atlas/CardIllust";
+        public static string CardRarity => "Atlas/CardRarity";
+        public static string CardTag => "Atlas/CardTag";
+    }
     public class ResourceLoadManager:CustomSingleton<ResourceLoadManager>
     {
         private Dictionary<string, GameObject> cache = new Dictionary<string, GameObject>();
-        private SpriteAtlas _cardImageAtlas;
-        private SpriteAtlas _cardGridImageAtlas;
-        private SpriteAtlas _cardTagIconAtlas;
-        private SpriteAtlas _relicIconAtlas;
+        private Dictionary<string, SpriteAtlas> atlasCache = new Dictionary<string, SpriteAtlas>();
 
         protected override void Awake()
         {
             base.Awake();
             cache = new Dictionary<string, GameObject>();
+            atlasCache = new Dictionary<string, SpriteAtlas>();
         }
 
         
@@ -46,79 +52,29 @@ namespace Script.FluffyDisdog.Managers
             loadEnd?.Invoke(ob);
         }
 
-        public async UniTaskVoid LoadCardImage(string key, Action<Sprite> loadEnd)
+        public async UniTaskVoid LoadSpriteAtlasResource(string address, string key, Action<Sprite> loadEnd)
         {
-            if (_cardImageAtlas == null)
+            if (key == "0" || key == "")
+                return;
+            
+            SpriteAtlas ret = null;
+            if(atlasCache.TryGetValue(address, out var value))
+                ret = value;
+            else
             {
-                var loader = Addressables.LoadAssetAsync<SpriteAtlas>("UI/CardImage");
+                var loader = Addressables.LoadAssetAsync<SpriteAtlas>(address);
                 loader.Completed += _ =>
                 {
                     var res = _.Result as SpriteAtlas;
-                    _cardImageAtlas = res;
+                    ret = res;
+                    atlasCache.TryAdd(address, res);
                 };
                 await loader.Task;
                 Addressables.Release(loader);
             }
             
-            var ret = _cardImageAtlas.GetSprite(key);
-            loadEnd?.Invoke(ret);
-            
-        }
-        
-        public async UniTaskVoid LoadCardTagIconImage(string key, Action<Sprite> loadEnd)
-        {
-            if (_cardTagIconAtlas == null)
-            {
-                var loader = Addressables.LoadAssetAsync<SpriteAtlas>("UI/CardTagIcon");
-                loader.Completed += _ =>
-                {
-                    var res = _.Result as SpriteAtlas;
-                    _cardTagIconAtlas = res;
-                };
-                await loader.Task;
-                Addressables.Release(loader);
-            }
-            
-            var ret = _cardTagIconAtlas.GetSprite(key);
-            loadEnd?.Invoke(ret);
-            
-        }
-        
-        public async UniTaskVoid LoadCardIconImage(string key, Action<Sprite> loadEnd)
-        {
-            if (_cardGridImageAtlas == null)
-            {
-                var loader = Addressables.LoadAssetAsync<SpriteAtlas>("UI/CardIcon");
-                loader.Completed += _ =>
-                {
-                    var res = _.Result as SpriteAtlas;
-                    _cardGridImageAtlas = res;
-                };
-                await loader.Task;
-                Addressables.Release(loader);
-            }
-            
-            var ret = _cardGridImageAtlas.GetSprite(key);
-            loadEnd?.Invoke(ret);
-            
-        }
-        public async UniTaskVoid LoadRelicIcon(string key, Action<Sprite> loadEnd)
-        {
-            if (_relicIconAtlas == null)
-            {
-                var loader = Addressables.LoadAssetAsync<SpriteAtlas>("Atlas/RelicIcon");
-                loader.Completed += _ =>
-                {
-                    var res = _.Result as SpriteAtlas;
-                    _relicIconAtlas = res;
-                };
-                await loader.Task;
-                Addressables.Release(loader);
-            }
-            
-            var ret = _relicIconAtlas.GetSprite(key);
-            loadEnd?.Invoke(ret);
-            
+            var sprite = ret.GetSprite(key);
+            loadEnd?.Invoke(sprite);
         }
         
     }

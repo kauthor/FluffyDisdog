@@ -29,7 +29,7 @@ MonoBehaviour:
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_101
-    cardImgId: Card_Effect_101
+    cardImgId: Card_Illust_101
   - cardKeyNew: 1
     cardKeyString: Card_Rake
     cardNameKeyLocal: Card_Rake_Name
@@ -46,7 +46,7 @@ MonoBehaviour:
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_102
-    cardImgId: Card_Effect_102
+    cardImgId: Card_Illust_102
   - cardKeyNew: 2
     cardKeyString: Card_Shovel_Enhanced
     cardNameKeyLocal: Card_Shovel_Enhanced_Name
@@ -63,7 +63,7 @@ MonoBehaviour:
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_101
-    cardImgId: Card_Effect_101
+    cardImgId: Card_Illust_101
   - cardKeyNew: 3
     cardKeyString: Card_Rake_Enhanced
     cardNameKeyLocal: Card_Rake_Enhanced_Name
@@ -80,7 +80,7 @@ MonoBehaviour:
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_102
-    cardImgId: Card_Effect_102
+    cardImgId: Card_Illust_102
   - cardKeyNew: 4
     cardKeyString: Card_GoldenShovel
     cardNameKeyLocal: Card_GoldenShovel_Name
@@ -97,7 +97,7 @@ MonoBehaviour:
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_101
-    cardImgId: Card_Effect_101
+    cardImgId: Card_Illust_105
   - cardKeyNew: 5
     cardKeyString: Card_GoldenShovel_Enhanced
     cardNameKeyLocal: Card_GoldenShovel_Enhanced_Name
@@ -114,7 +114,7 @@ MonoBehaviour:
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_101
-    cardImgId: Card_Effect_101
+    cardImgId: Card_Illust_105
   - cardKeyNew: 6
     cardKeyString: Card_Axe
     cardNameKeyLocal: Card_Axe_Name
@@ -131,7 +131,7 @@ MonoBehaviour:
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_107
-    cardImgId: Card_Effect_107
+    cardImgId: Card_Illust_107
   - cardKeyNew: 7
     cardKeyString: Card_Axe_Enhanced
     cardNameKeyLocal: Card_Axe_Enhanced_Name
@@ -148,7 +148,7 @@ MonoBehaviour:
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_107
-    cardImgId: Card_Effect_107
+    cardImgId: Card_Illust_107
   - cardKeyNew: 8
     cardKeyString: Card_CrossChisel
     cardNameKeyLocal: Card_Cross Chisel_Name
@@ -165,7 +165,7 @@ MonoBehaviour:
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_109
-    cardImgId: Card_Effect_109
+    cardImgId: 0
   - cardKeyNew: 9
     cardKeyString: Card_CrossChisel_Enhanced
     cardNameKeyLocal: Card_Cross Chisel_Enhanced_Name
@@ -182,7 +182,7 @@ MonoBehaviour:
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_109
-    cardImgId: Card_Effect_109
+    cardImgId: 0
   - cardKeyNew: 10
     cardKeyString: Card_Pickaxe
     cardNameKeyLocal: Card_Pickaxe_Name
@@ -199,7 +199,7 @@ MonoBehaviour:
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_111
-    cardImgId: Card_Effect_111
+    cardImgId: Card_Illust_111
   - cardKeyNew: 11
     cardKeyString: Card_Pickaxe_Enhanced
     cardNameKeyLocal: Card_Pickaxe_Enhanced_Name
@@ -216,7 +216,7 @@ MonoBehaviour:
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_111
-    cardImgId: Card_Effect_111
+    cardImgId: Card_Illust_111
   - cardKeyNew: 12
     cardKeyString: Card_Slingshot
     cardNameKeyLocal: Card_Slingshot_Name
@@ -229,11 +229,11 @@ MonoBehaviour:
     carBit: 1
     cardTagBit: 0
     manaCost: 0
-    addedOptionIds: 000000006500000000000000
+    addedOptionIds: 650000000000000000000000
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_101
-    cardImgId: Card_Effect_101
+    cardImgId: Card_Illust_113
   - cardKeyNew: 13
     cardKeyString: Card_Slingshot_Enhanced
     cardNameKeyLocal: Card_Slingshot_Enhanced_Name
@@ -246,11 +246,11 @@ MonoBehaviour:
     carBit: 1
     cardTagBit: 0
     manaCost: 0
-    addedOptionIds: 000000006600000000000000
+    addedOptionIds: 660000000000000000000000
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_101
-    cardImgId: Card_Effect_101
+    cardImgId: Card_Illust_113
   - cardKeyNew: 14
     cardKeyString: Card_CornerCrushingHammer
     cardNameKeyLocal: Card_CornerCrushingHammer_Name
@@ -267,7 +267,7 @@ MonoBehaviour:
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_115
-    cardImgId: Card_Effect_115
+    cardImgId: Card_Illust_115
   - cardKeyNew: 15
     cardKeyString: Card_CornerCrushingHammer_Enhanced
     cardNameKeyLocal: Card_CornerCrushingHammer_Enhanced_Name
@@ -284,7 +284,7 @@ MonoBehaviour:
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_115
-    cardImgId: Card_Effect_115
+    cardImgId: Card_Illust_115
   - cardKeyNew: 16
     cardKeyString: Card_ConcentratedCrossDrill
     cardNameKeyLocal: Card_ConcentratedCrossDrill_Name
@@ -301,7 +301,7 @@ MonoBehaviour:
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_115
-    cardImgId: Card_Effect_115
+    cardImgId: Card_Illust_117
   - cardKeyNew: 17
     cardKeyString: Card_ConcentratedCrossDrill_Enhanced
     cardNameKeyLocal: Card_ConcentratedCrossDrill_Enhanced_Name
@@ -318,7 +318,7 @@ MonoBehaviour:
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_115
-    cardImgId: Card_Effect_115
+    cardImgId: Card_Illust_117
   - cardKeyNew: 18
     cardKeyString: Card_GoldenAxe
     cardNameKeyLocal: Card_GoldenAxe_Name
@@ -335,7 +335,7 @@ MonoBehaviour:
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_102
-    cardImgId: Card_Effect_102
+    cardImgId: Card_Illust_119
   - cardKeyNew: 19
     cardKeyString: Card_GoldenAxe_Enhanced
     cardNameKeyLocal: Card_GoldenAxe_Enhanced_Name
@@ -352,7 +352,7 @@ MonoBehaviour:
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_102
-    cardImgId: Card_Effect_102
+    cardImgId: Card_Illust_119
   - cardKeyNew: 20
     cardKeyString: Card_LargeScissors
     cardNameKeyLocal: Card_Large Scissors_Name
@@ -369,7 +369,7 @@ MonoBehaviour:
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_121
-    cardImgId: Card_Effect_121
+    cardImgId: Card_Illust_121
   - cardKeyNew: 21
     cardKeyString: Card_LargeScissors_Enhanced
     cardNameKeyLocal: Card_Large Scissors_Enhanced_Name
@@ -386,7 +386,7 @@ MonoBehaviour:
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_121
-    cardImgId: Card_Effect_121
+    cardImgId: Card_Illust_121
   - cardKeyNew: 22
     cardKeyString: Card_WeakeningNormal
     cardNameKeyLocal: Card_WeakeningNormal_Name
@@ -399,11 +399,11 @@ MonoBehaviour:
     carBit: 1
     cardTagBit: 0
     manaCost: 0
-    addedOptionIds: 000000006700000000000000
+    addedOptionIds: 670000000000000000000000
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_101
-    cardImgId: Card_Effect_101
+    cardImgId: 0
   - cardKeyNew: 23
     cardKeyString: Card_WeakeningRare
     cardNameKeyLocal: Card_WeakeningRare_Name
@@ -416,11 +416,11 @@ MonoBehaviour:
     carBit: 1
     cardTagBit: 0
     manaCost: 0
-    addedOptionIds: 000000006700000000000000
+    addedOptionIds: 670000000000000000000000
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_124
-    cardImgId: Card_Effect_124
+    cardImgId: 0
   - cardKeyNew: 24
     cardKeyString: Card_WeakeningUnique
     cardNameKeyLocal: Card_WeakeningUnique_Name
@@ -433,11 +433,11 @@ MonoBehaviour:
     carBit: 1
     cardTagBit: 0
     manaCost: 0
-    addedOptionIds: 000000006700000000000000
+    addedOptionIds: 670000000000000000000000
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_125
-    cardImgId: Card_Effect_125
+    cardImgId: 0
   - cardKeyNew: 25
     cardKeyString: Card_Bag
     cardNameKeyLocal: Card_Bag_Name
@@ -499,13 +499,13 @@ MonoBehaviour:
     upgradeKey: Card_Adventurer'sTorch_Enhanced
     rarityKey: 3
     carBit: 1
-    cardTagBit: 106
+    cardTagBit: 0
     manaCost: 0
-    addedOptionIds: 000000006800000069000000
-    cardDescId: 106
+    addedOptionIds: 68000000690000006a000000
+    cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_124
-    cardImgId: Card_Effect_124
+    cardImgId: 0
   - cardKeyNew: 29
     cardKeyString: Card_AdventurerTorch_Enhanced
     cardNameKeyLocal: Card_AdventurerTorch_Enhanced_Name
@@ -516,13 +516,13 @@ MonoBehaviour:
     upgradeKey: Card_Adventurer'sTorch
     rarityKey: 3
     carBit: 1
-    cardTagBit: 106
+    cardTagBit: 0
     manaCost: 0
-    addedOptionIds: 00000000680000006b000000
-    cardDescId: 106
+    addedOptionIds: 680000006b0000006a000000
+    cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_124
-    cardImgId: Card_Effect_124
+    cardImgId: 0
   - cardKeyNew: 30
     cardKeyString: Card_HammerOfMemory
     cardNameKeyLocal: Card_HammerOfMemory_Name
@@ -535,11 +535,11 @@ MonoBehaviour:
     carBit: 1
     cardTagBit: 0
     manaCost: 0
-    addedOptionIds: 000000006c00000000000000
+    addedOptionIds: 6c0000000000000000000000
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_101
-    cardImgId: Card_Effect_101
+    cardImgId: 0
   - cardKeyNew: 31
     cardKeyString: Card_HammerOfMemory_Enhanced
     cardNameKeyLocal: Card_HammerOfMemory_Enhanced_Name
@@ -552,11 +552,11 @@ MonoBehaviour:
     carBit: 1
     cardTagBit: 0
     manaCost: 0
-    addedOptionIds: 000000006d00000000000000
+    addedOptionIds: 6d0000000000000000000000
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_101
-    cardImgId: Card_Effect_101
+    cardImgId: 0
   - cardKeyNew: 32
     cardKeyString: Card_RiftStartumAnalysis
     cardNameKeyLocal: Card_RiftStartumAnalysis_Name
@@ -567,13 +567,13 @@ MonoBehaviour:
     upgradeKey: Card_RiftStartumAnalysis_Enhanced
     rarityKey: 3
     carBit: 1
-    cardTagBit: 112
+    cardTagBit: 0
     manaCost: 0
-    addedOptionIds: 000000006e0000006f000000
-    cardDescId: 112
+    addedOptionIds: 6e0000006f00000070000000
+    cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_133
-    cardImgId: Card_Effect_133
+    cardImgId: 0
   - cardKeyNew: 33
     cardKeyString: Card_RiftStartumAnalysis_Enhanced
     cardNameKeyLocal: Card_RiftStartumAnalysis_Enhanced_Name
@@ -584,10 +584,10 @@ MonoBehaviour:
     upgradeKey: Card_RiftStartumAnalysis
     rarityKey: 3
     carBit: 1
-    cardTagBit: 115
+    cardTagBit: 0
     manaCost: 0
-    addedOptionIds: 000000007100000072000000
-    cardDescId: 115
+    addedOptionIds: 710000007200000073000000
+    cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_133
-    cardImgId: Card_Effect_133
+    cardImgId: 0

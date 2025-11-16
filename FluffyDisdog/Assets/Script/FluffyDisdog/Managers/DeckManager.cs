@@ -31,6 +31,7 @@ namespace Script.FluffyDisdog.Managers
 
         private ToolCardOpData rawOpData;
         private ToolExcelData excelData;
+        public ToolExcelData ExcelData => excelData;
 
         public CardInGame(ToolType toolType, int deckId)
         {

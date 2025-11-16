@@ -101,7 +101,7 @@ namespace FluffyDisdog.UI
                     current = cardPool[i];
                 }
                 
-                current.Init(i, handList[i].ToolType, OnCardClicked, OnCardClickCancel);
+                current.Init(i, handList[i].ToolType, OnCardClicked, OnCardClickCancel, handList[i].ExcelData);
                 current.InitHandler(OnCardHovered, CardSort);
                 current.transform.position = //new Vector3(cardSpace * i, 0, 0);
                     deckPosition.transform.position;

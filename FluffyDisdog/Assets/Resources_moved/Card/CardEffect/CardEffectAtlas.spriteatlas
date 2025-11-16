@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CardEffectAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: d22606094373ec94fabbd79d19ff2c21, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: c91633e0cee55bf40bfc5a4360b8f8ef, type: 3}
+  - {fileID: 21300000, guid: 3fa199f02157edf4cbadf055db3bd448, type: 3}
+  - {fileID: 21300000, guid: fa72d8c170fd0044aa9680d789aec40e, type: 3}
+  - {fileID: 21300000, guid: 550e0882200ef52468b66d24285af201, type: 3}
+  - {fileID: 21300000, guid: 201b327330a8cc14e959acb5f4b08d9d, type: 3}
+  - {fileID: 21300000, guid: 429ab3d43a7a7194b96992f08a9c6f20, type: 3}
+  - {fileID: 21300000, guid: 2e5a63659346c1a44ae1d82036d51738, type: 3}
+  - {fileID: 21300000, guid: 6e1f0d75147bc2f44914d2cccf0770e1, type: 3}
+  - {fileID: 21300000, guid: f97bd10660dcc164f98124ed1fc5181f, type: 3}
+  - {fileID: 21300000, guid: 83d6f907ebc332d4e936f68e80e3c4ff, type: 3}
+  - {fileID: 21300000, guid: b0037d173536d8348892904cf0af3d8c, type: 3}
+  - {fileID: 21300000, guid: 0aa3ebe7ddf76084cb00068ba12fec66, type: 3}
+  - {fileID: 21300000, guid: 7b048638d53c3a842a024d9c3c58941a, type: 3}
+  - {fileID: 21300000, guid: fcabda5ae201eb0429d66ac2a457cb92, type: 3}
+  - {fileID: 21300000, guid: 5b2e3e4bf0deda6489364ebbeb84bfee, type: 3}
+  - {fileID: 21300000, guid: 2a82786b354afa046be65c81bde67783, type: 3}
+  - {fileID: 21300000, guid: 684384eb92170a046a9d9a3bb6ce495f, type: 3}
+  - {fileID: 21300000, guid: b3f4d66c972cba34ea1fc300185e8134, type: 3}
+  - {fileID: 21300000, guid: 57d3508ce82080e499ae0bce876a17d1, type: 3}
+  - {fileID: 21300000, guid: 1a31240deb4ada844b57b1198b86bd3f, type: 3}
+  - {fileID: 21300000, guid: 728ccadd67ed6634abe62f36fc5865b9, type: 3}
+  - {fileID: 21300000, guid: 6ac23ded91cccb947aabff6001d7beaf, type: 3}
+  - {fileID: 21300000, guid: 6ca6582e8b10e974d8611b93b81f3467, type: 3}
+  - {fileID: 21300000, guid: c070ec7e5ffb9cd47812c9342218e0af, type: 3}
+  - {fileID: 21300000, guid: 2b45728e933e29e43b3693bcbe9681d2, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Card_Effect_247
+  - Card_Effect_125
+  - Card_Effect_121
+  - Card_Effect_207
+  - Card_Effect_245
+  - Card_Effect_211
+  - Card_Effect_109
+  - Card_Effect_115
+  - Card_Effect_230
+  - Card_Effect_124
+  - Card_Effect_249
+  - Card_Effect_242
+  - Card_Effect_225
+  - Card_Effect_101
+  - Card_Effect_215
+  - Card_Effect_111
+  - Card_Effect_201
+  - Card_Effect_209
+  - Card_Effect_213
+  - Card_Effect_133
+  - Card_Effect_203
+  - Card_Effect_107
+  - Card_Effect_244
+  - Card_Effect_102
+  - Card_Effect_233
+  m_RenderDataMap: {}
+  m_Tag: CardEffectAtlas
+  m_IsVariant: 0
