@@ -11,7 +11,11 @@ namespace FluffyDisdog.UI
         [SerializeField] private Image imgSelected;
         [SerializeField] private Image imgUnselected;
         [SerializeField] private Image imgBackward;
+        [SerializeField] private GameObject tagAndIconArea;
+        [SerializeField] private Image cardImage;
+        [SerializeField] private Image cardGridImage;
         [SerializeField] private Text txtAmount;
+        [SerializeField] private GameObject[] tags;
         private int ID;
         private ToolType _toolType;
         public ToolType ToolType => _toolType;
@@ -24,8 +28,8 @@ namespace FluffyDisdog.UI
             btnClickArea.onClick.AddListener(() =>
             {
                 OnCLicked?.Invoke(_toolType, this);
-                imgSelected.gameObject.SetActive(true);
-                imgUnselected.gameObject.SetActive(false);
+                imgSelected?.gameObject.SetActive(true);
+                imgUnselected?.gameObject.SetActive(false);
             });
         }
 
@@ -46,8 +50,8 @@ namespace FluffyDisdog.UI
 
         public void Unselect()
         {
-            imgSelected.gameObject.SetActive(false);
-            imgUnselected.gameObject.SetActive(true);
+            imgSelected?.gameObject.SetActive(false);
+            imgUnselected?.gameObject.SetActive(true);
         }
     }
 }

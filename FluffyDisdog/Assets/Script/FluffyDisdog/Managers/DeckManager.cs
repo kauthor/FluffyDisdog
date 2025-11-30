@@ -31,6 +31,7 @@ namespace Script.FluffyDisdog.Managers
 
         private ToolCardOpData rawOpData;
         private ToolExcelData excelData;
+        public ToolExcelData ExcelData => excelData;
 
         public CardInGame(ToolType toolType, int deckId)
         {
@@ -78,6 +79,9 @@ namespace Script.FluffyDisdog.Managers
         private List<CardInGame> hand;
         private bool[] cardUseState;
         public List<CardInGame> Hand => hand;
+        
+        private List<CardInGame> graveyard;
+        public List<CardInGame> Graveyard => graveyard;
 
         private List<CardInGame> trueDeck;
 
@@ -137,6 +141,7 @@ namespace Script.FluffyDisdog.Managers
             onCardUse = null;
             handMax = maxHandCard + (PlayerManager.I.TurnEventSystem.HasRelicCommand(RelicName.ExpandedBackpack) ? 1:0);
             SetHand();
+            graveyard = new List<CardInGame>();
         }
 
         public void PreEffect(CardExecuteParam param)
@@ -228,6 +233,7 @@ namespace Script.FluffyDisdog.Managers
                 currentDigged++;
                 PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.ToolConsumed, new TurnEventOptionParam());
                 cardUseState[currentSelected] = true;
+                graveyard.Add(hand[currentSelected]);
                 TileGameManager.I.PrepareTool(ToolType.None,-1);
                 currentType = ToolType.None;
             }

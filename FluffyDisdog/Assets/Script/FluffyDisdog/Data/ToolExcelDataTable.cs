@@ -74,7 +74,7 @@ namespace FluffyDisdog.Data
             addedOptionIds = addOpId1;
             cardDescId = cardDexId;
             sortId = sort;
-            cardGridId = imgId;
+            cardGridId = gridId;
             cardImgId = imgId;
         }
         

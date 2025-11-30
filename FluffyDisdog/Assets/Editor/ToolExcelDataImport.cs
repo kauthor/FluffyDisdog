@@ -90,6 +90,7 @@ namespace Editor
                             string data16 = rows[j][15].ToString();
                             string data17 = rows[j][16].ToString();
                             string data18 = rows[j][17].ToString();
+                            string data19 = rows[j][18].ToString();
                             
                             int id = int.Parse(data1);
                             if(id > 134) continue;
@@ -103,15 +104,15 @@ namespace Editor
                             int rarity= int.Parse(data9);
                             int bit= int.Parse(data10);
                             int tagBit= int.Parse(data11);
-                            int mana = 0;//int.Parse(data12);
+                            int mana = int.Parse(data12);
                             int[] addOpId1 = new int[3]
                             {
-                                int.Parse(data12), int.Parse(data13), int.Parse(data14)
+                                int.Parse(data13), int.Parse(data14), int.Parse(data15)
                             };
-                            int cardDexId= int.Parse(data15);
-                            int sort= int.Parse(data16);
-                            string gridId= data17;
-                            string imgId= data18;
+                            int cardDexId= int.Parse(data16);
+                            int sort= int.Parse(data17);
+                            string gridId= data18;
+                            string imgId= data19;
 
                             baseArr[j - 1] = new ToolExcelData(id, key, localNKey, localDKey, cardType, charType,
                                 upType, upKey, rarity, bit, tagBit, mana, addOpId1, cardDexId, sort, gridId, imgId);

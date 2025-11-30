@@ -9,6 +9,8 @@ namespace FluffyDisdog.UI
         public override PopupType type => PopupType.DeckList;
 
         [SerializeField] private Text[] txtCardList;
+        [SerializeField] private Transform cardHolder;
+        [SerializeField] private CardPopupParts cardPrefab;
         
         public static void OpenPopup()
         {
@@ -27,15 +29,8 @@ namespace FluffyDisdog.UI
             int loop = 0;
             foreach (var keypair in list)
             {
-                if(loop >= txtCardList.Length)
-                    break;
-
-                txtCardList[loop++].text = $"{keypair.Key} x {keypair.Value}";
-            }
-
-            for (int i = loop; i < txtCardList.Length; i++)
-            {
-                txtCardList[i].gameObject.SetActive(false);
+                var card = GameObject.Instantiate(cardPrefab, cardHolder) as CardPopupParts;
+                card.Init(keypair.Key, keypair.Value);
             }
         }
     }

@@ -19,7 +19,7 @@ namespace FluffyDisdog.UI
             //txtRelicName.text = relicName.ToString();
             txtRelicName.gameObject.SetActive(false);
             
-            ResourceLoadManager.I.LoadRelicIcon($"Relic{(int)relicName}", _ =>
+            ResourceLoadManager.I.LoadSpriteAtlasResource(ResourceAddress.RelicIcon,$"Relic{(int)relicName}", _ =>
             {
                 if (_ != null)
                     imgRelicIcon.sprite = _;

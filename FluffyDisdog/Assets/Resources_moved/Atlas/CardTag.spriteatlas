@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CardTag
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: f1e649a30267ef04eab0c42aba812c5c, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: c0d35ed09bc804e4793a91ed49f16635, type: 3}
+  - {fileID: 21300000, guid: 93bb3054b13d29f42a4225fcbee958ce, type: 3}
+  - {fileID: 21300000, guid: 6a992b7496d73d340860371c99b827df, type: 3}
+  - {fileID: 21300000, guid: 5d31eaf5988e80f409d695a2e58cd02e, type: 3}
+  - {fileID: 21300000, guid: 21690906a7011a14b83060a6e736992f, type: 3}
+  - {fileID: 21300000, guid: 7a45a7474d8b67a43bab93be4738699e, type: 3}
+  - {fileID: 21300000, guid: d73bbfe79c0883c4aac1e2e21c168546, type: 3}
+  - {fileID: 21300000, guid: 32d1774af10743b46927f253e9fe0a30, type: 3}
+  - {fileID: 21300000, guid: ea1ba38a33612384cb89026f464bf347, type: 3}
+  - {fileID: 21300000, guid: cc33026bbdf74ab4b89d9375bd26d60a, type: 3}
+  - {fileID: 21300000, guid: 43db16fb709b43b47a9f0ef8926e3c7c, type: 3}
+  - {fileID: 21300000, guid: 3aa17cbc8a9e7f648997a8849188f812, type: 3}
+  - {fileID: 21300000, guid: 17d41bad6535f394383f27cfc67b71b2, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Card_TagIcon_Heatpoint11
+  - Tag_Consumable
+  - Tag_Weapon
+  - Card_TagIcon_Heatbox11
+  - Tag_Magic
+  - Tag_Flame
+  - Tag_Tool
+  - Tag_Ice
+  - Card_TagIcon_Heatbox
+  - Card_TagIcon_Heatpoint
+  - Card_Tag
+  - Tag_Electric
+  - Tag_Mana
+  m_RenderDataMap: {}
+  m_Tag: CardTag
+  m_IsVariant: 0

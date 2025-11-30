@@ -1,4 +1,5 @@
 ﻿using System;
+using FluffyDisdog.Data;
 using Script.FluffyDisdog.Managers;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -16,8 +17,10 @@ namespace FluffyDisdog.UI
         [SerializeField] private GameObject tagAndIconArea;
         [SerializeField] private Image cardImage;
         [SerializeField] private Image cardGridImage;
-        
-        
+        [SerializeField] private Image cardRarityIcon;
+
+
+        [SerializeField] private Image[] tagIcons;
         [SerializeField] private GameObject[] tags;
         private int ID;
         private ToolType _toolType;
@@ -51,7 +54,7 @@ namespace FluffyDisdog.UI
             //ResourceLoadManager.I.LoadSprite(" ", sprite => cardImage.sprite = sprite).Forget() ;
         }
 
-        public void Init(int id, ToolType type, Action<int, ToolType> cb, Action onCancelCb)
+        public void Init(int id, ToolType type, Action<int, ToolType> cb, Action onCancelCb, ToolExcelData data=null)
         {
             txtType.text = type.ToString();
             onClickedCb = cb;
@@ -61,13 +64,30 @@ namespace FluffyDisdog.UI
             onClickCanceledCb = onCancelCb;
             Select(false);
             Flip(false);
+
+            if (data != null)
+            {
+                ResourceLoadManager.I.LoadSpriteAtlasResource(ResourceAddress.CardIllust, data.CardImgId, _ =>
+                {
+                    cardImage.sprite = _;
+                }).Forget();
+                ResourceLoadManager.I.LoadSpriteAtlasResource(ResourceAddress.CardEffect, data.CardGridId, _ =>
+                {
+                    cardGridImage.sprite = _;
+                }).Forget();
+                ResourceLoadManager.I.LoadSpriteAtlasResource(ResourceAddress.CardRarity, $"Card_Rarity_{data.RarityKey}",
+                    _ =>
+                    {
+                        cardRarityIcon.sprite = _;
+                    }).Forget();
+            }
+            
         }
 
         public void Flip(bool front)
         {
             imgBackward?.gameObject.SetActive(!front);
             tagAndIconArea?.SetActive(front);
-            //todo : 여기에 신규 프리팹 구성요소 온오프
         }
 
         public void Select(bool sel)

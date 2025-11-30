@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CardIllustAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 475ba77d3a54e7d4ea56735b652fc73b, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 7486ab203a46e7a4cae0b7c1c15fb306, type: 3}
+  - {fileID: 21300000, guid: a1af0cd2d22e6b94d9271be2403950c2, type: 3}
+  - {fileID: 21300000, guid: a1f0eeb5767033f4a9abc5f143bc1511, type: 3}
+  - {fileID: 21300000, guid: 669f7f28ffa987f48837a8e501ddd97b, type: 3}
+  - {fileID: 21300000, guid: 24307fb8cb58e6d4d80bb599247c66bc, type: 3}
+  - {fileID: 21300000, guid: d53f09da7238c0643a15586a46c74ee8, type: 3}
+  - {fileID: 21300000, guid: e2b63f7c399e3214ca0f29df393eba02, type: 3}
+  - {fileID: 21300000, guid: e094cefc36ea4694ebefd97b24eedda0, type: 3}
+  - {fileID: 21300000, guid: 11376e3dc9d529b4fa1f0f4bb49c8f16, type: 3}
+  - {fileID: 21300000, guid: c1c1e49df844a9b47b7ab05f912f1157, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Card_Illust_117
+  - Card_Illust_119
+  - Card_Illust_121
+  - Card_Illust_115
+  - Card_Illust_105
+  - Card_Illust_102
+  - Card_Illust_107
+  - Card_Illust_111
+  - Card_Illust_101
+  - Card_Illust_113
+  m_RenderDataMap: {}
+  m_Tag: CardIllustAtlas
+  m_IsVariant: 0

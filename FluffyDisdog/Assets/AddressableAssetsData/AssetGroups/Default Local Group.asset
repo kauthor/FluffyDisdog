@@ -57,6 +57,22 @@ MonoBehaviour:
     m_Address: ResourceLoadManager
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 3d345a5a49f60e0459fe77759a17cfdc
+    m_Address: Atlas/CardEffect
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8078331b9fb52e247a18121e8cc9cfa1
+    m_Address: Atlas/CardIllust
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2a7e56a5d657b8b42abcc107cce59124
+    m_Address: Atlas/CardRarity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b89c8bd0f9e17744e8fb41adf3230b7e
+    m_Address: Atlas/CardTag
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c4b4aea7e916bf6448fc92af0dc0baf0, type: 2}
   m_SchemaSet:
