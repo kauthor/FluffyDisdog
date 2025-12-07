@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace FluffyDisdog.UI
@@ -7,7 +8,16 @@ namespace FluffyDisdog.UI
     {
         [SerializeField] private Text txtResult;
         [SerializeField] private Button btnNext;
+        [SerializeField] private Text txtStage;
+        [SerializeField] private Text txtGold;
+        [SerializeField] private Text txtScore;
         public override PopupType type => PopupType.StageResult;
+        
+        private Queue<UIRelicInfoPart> relicPool;
+        private Queue<UIRelicInfoPart> currentRelic;
+        
+        [SerializeField] private UIRelicInfoPart relicPrefab;
+        [SerializeField] private Transform relicParent;
 
         private bool levelResult;
         protected override void Awake()
@@ -37,6 +47,10 @@ namespace FluffyDisdog.UI
         {
             levelResult = result;
             txtResult.text = result ? "Clear" : "Fail";
+
+            txtGold.text = AccountManager.I.Gold.ToString();
+            txtStage.text = TileGameManager.I.currentLevel.ToString();
+            txtScore.text = TileGameManager.I.CurrentScore.ToString();
         }
     }
 }

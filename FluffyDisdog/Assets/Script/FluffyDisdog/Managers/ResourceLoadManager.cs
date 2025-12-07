@@ -28,8 +28,34 @@ namespace Script.FluffyDisdog.Managers
             atlasCache = new Dictionary<string, SpriteAtlas>();
         }
 
-        
-        
+        private async void Start()
+        {
+            string[] group = new string[5]
+            {
+                ResourceAddress.RelicIcon, ResourceAddress.CardEffect, ResourceAddress.CardIllust,
+                ResourceAddress.CardRarity, ResourceAddress.CardTag
+            };
+
+            foreach (var address in group)
+            {
+                if(atlasCache.TryGetValue(address, out var value))
+                    continue;
+                else
+                {
+                    var loader = Addressables.LoadAssetAsync<SpriteAtlas>(address);
+                    loader.Completed += _ =>
+                    {
+                        var res = _.Result as SpriteAtlas;
+                        atlasCache.TryAdd(address, res);
+                    };
+                    await loader.Task;
+                    Addressables.Release(loader);
+                }
+            }
+            
+        }
+
+
         public async UniTaskVoid LoadGameObjectResource(string key, Action<GameObject> loadEnd) 
         {
             if (cache.TryGetValue(key, out var value))
