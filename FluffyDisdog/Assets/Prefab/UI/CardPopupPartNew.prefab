@@ -4453,8 +4453,14 @@ MonoBehaviour:
   tagAndIconArea: {fileID: 3482416560189588103}
   cardImage: {fileID: 7249817262887176590}
   cardGridImage: {fileID: 0}
+  cardRarityIcon: {fileID: 0}
   txtAmount: {fileID: 4975113263572940449}
-  tags: []
+  tagIcons:
+  - {fileID: 2911840199745383858}
+  - {fileID: 3681091669531831977}
+  tags:
+  - {fileID: 1727124718624579104}
+  - {fileID: 7070794901824136254}
 --- !u!1 &415669613382222632
 GameObject:
   m_ObjectHideFlags: 0

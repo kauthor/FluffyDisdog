@@ -244,7 +244,7 @@ namespace Script.FluffyDisdog.Managers
                 var gameEnd = TileGameManager.I.EndStage();
                 
                 if(!gameEnd)
-                    UIStageResultPopup.OpenPopup(false);
+                    UIGameOverResultPopup.OpenPopup();
                 else
                 {
                     UIStageRewardPopup.OpenPopup(() =>

@@ -1,4 +1,5 @@
 ﻿using System;
+using Script.FluffyDisdog.Managers;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,7 +15,9 @@ namespace FluffyDisdog.UI
         [SerializeField] private GameObject tagAndIconArea;
         [SerializeField] private Image cardImage;
         [SerializeField] private Image cardGridImage;
+        [SerializeField] private Image cardRarityIcon;
         [SerializeField] private Text txtAmount;
+        [SerializeField] private Image[] tagIcons;
         [SerializeField] private GameObject[] tags;
         private int ID;
         private ToolType _toolType;
@@ -41,6 +44,38 @@ namespace FluffyDisdog.UI
                 txtAmount.gameObject.SetActive(false);
             else txtAmount.text = $"x{amount}";
             gameObject.SetActive(true);
+
+            var data = ExcelManager.I.GetToolExcelData(type);
+            
+            if (data != null)
+            {
+                ResourceLoadManager.I.LoadSpriteAtlasResource(ResourceAddress.CardIllust, data.CardImgId, _ =>
+                {
+                    cardImage.sprite = _;
+                }).Forget();
+                ResourceLoadManager.I.LoadSpriteAtlasResource(ResourceAddress.CardEffect, data.CardGridId, _ =>
+                {
+                    cardGridImage.sprite = _;
+                }).Forget();
+                ResourceLoadManager.I.LoadSpriteAtlasResource(ResourceAddress.CardRarity, $"Card_Rarity_{data.RarityKey}",
+                    _ =>
+                    {
+                        cardRarityIcon.sprite = _;
+                    }).Forget();
+                ResourceLoadManager.I.LoadTagIcon(data.CarBit, _ =>
+                {
+                    for (int i = 0; i < tagIcons.Length; i++)
+                    {
+                        if (i >= _.Count)
+                        {
+                            tags[i].gameObject.SetActive(false);
+                            continue;
+                        }
+                        tags[i].gameObject.SetActive(true);
+                        tagIcons[i].sprite = _[i];
+                    }
+                }).Forget();
+            }
         }
 
         public void BindHandler(Action<ToolType, CardPopupParts> cb)

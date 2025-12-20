@@ -80,6 +80,19 @@ namespace FluffyDisdog.UI
                     {
                         cardRarityIcon.sprite = _;
                     }).Forget();
+                ResourceLoadManager.I.LoadTagIcon(data.CarBit, _ =>
+                {
+                    for (int i = 0; i < tagIcons.Length; i++)
+                    {
+                        if (i >= _.Count)
+                        {
+                            tags[i].gameObject.SetActive(false);
+                            continue;
+                        }
+                        tags[i].gameObject.SetActive(true);
+                        tagIcons[i].sprite = _[i];
+                    }
+                }).Forget();
             }
             
         }

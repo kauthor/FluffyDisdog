@@ -16,12 +16,15 @@ namespace Script.FluffyDisdog.Managers
         private ToolExcelDataTable _toolExcelDatas;
         private ToolCardOptionTable _toolCardOptionTable;
         private GachaTable _gachaTable;
+        
+        private TagTable _tagTable;
 
         private Dictionary<ToolType, ToolData> toolDataDic;
         private Dictionary<RelicName, RelicData> relicDataDic;
         private Dictionary<ToolType, ToolExcelData> toolExcelDataDic;
         private Dictionary<int, ToolCardOpData> toolCardOpDataDic;
         private Dictionary<int, GacheInGameData> gacheInGameDataDic;
+        private Dictionary<int, TagData> tagDataDic;
 
         protected override void Awake()
         {
@@ -83,11 +86,22 @@ namespace Script.FluffyDisdog.Managers
             await gachaHandle;
             Addressables.Release(gachaHandle);
             
+            AsyncOperationHandle tagHandle =
+                Addressables.LoadAssetAsync<TagTable>("TagTable");
+            tagHandle.Completed += op =>
+            {
+                var res = op.Result as TagTable;
+                _tagTable = res;
+            };
+            await tagHandle;
+            Addressables.Release(tagHandle);
+            
             toolDataDic = _toolTable.TryCache();
             relicDataDic = _relicDataTable.TryCache();
             toolExcelDataDic = _toolExcelDatas.TryCache();
             toolCardOpDataDic = _toolCardOptionTable.TryCache();
             gacheInGameDataDic = _gachaTable.TryCache();
+            tagDataDic = _tagTable.TryCache();
         }
 
         public ToolData GetToolData(ToolType t)
@@ -111,6 +125,11 @@ namespace Script.FluffyDisdog.Managers
             if(data.AddedOptionIds[0] > 99)
                return toolCardOpDataDic[data.AddedOptionIds[0]];
             return null;
+        }
+
+        public TagData GetTagData(int id)
+        {
+            return tagDataDic[id];
         }
     }
 }

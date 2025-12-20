@@ -102,6 +102,40 @@ namespace Script.FluffyDisdog.Managers
             var sprite = ret.GetSprite(key);
             loadEnd?.Invoke(sprite);
         }
+
+        public async UniTaskVoid LoadTagIcon(int key, Action<List<Sprite>> loadEnd)
+        {
+            SpriteAtlas ret = null;
+            if(atlasCache.TryGetValue(ResourceAddress.CardTag, out var value))
+                ret = value;
+            else
+            {
+                var loader = Addressables.LoadAssetAsync<SpriteAtlas>(ResourceAddress.CardTag);
+                loader.Completed += _ =>
+                {
+                    var res = _.Result as SpriteAtlas;
+                    ret = res;
+                    atlasCache.TryAdd(ResourceAddress.CardTag, res);
+                };
+                await loader.Task;
+                Addressables.Release(loader);
+            }
+
+            int current = key;
+            List<Sprite> onEnd = new List<Sprite>();
+
+            for (int i = 0; current > 0; i++)
+            {
+                int bit = current % 2;
+                current = current / 2;
+                if (bit > 0)
+                {
+                    var rawData = ExcelManager.I.GetTagData(i + 1);
+                    onEnd.Add(ret.GetSprite(rawData.tagImage));
+                }
+            }
+            loadEnd?.Invoke(onEnd);
+        }
         
     }
 }

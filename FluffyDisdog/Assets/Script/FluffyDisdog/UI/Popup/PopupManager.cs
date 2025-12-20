@@ -16,6 +16,7 @@ namespace FluffyDisdog.UI
         CardPackResult=7,
         Option=8,
         GraveyardList=9,
+        GameOver=10,
     }
 
     public class PopupManager:CustomSingleton<PopupManager>

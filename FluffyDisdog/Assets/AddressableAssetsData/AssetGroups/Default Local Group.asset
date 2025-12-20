@@ -73,6 +73,10 @@ MonoBehaviour:
     m_Address: Atlas/CardTag
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 731336d84baba6e43a6a6a473e68f82c
+    m_Address: TagTable
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c4b4aea7e916bf6448fc92af0dc0baf0, type: 2}
   m_SchemaSet:
