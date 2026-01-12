@@ -40,7 +40,7 @@ namespace FluffyDisdog.UI
         {
             txtType.text = type.ToString();
             _toolType = type;
-            if(amount<=0)
+            if(amount<=1)
                 txtAmount.gameObject.SetActive(false);
             else txtAmount.text = $"x{amount}";
             gameObject.SetActive(true);
