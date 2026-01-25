@@ -19,6 +19,9 @@ namespace FluffyDisdog.UI
         [FormerlySerializedAs("cardSlot")]
         [FoldoutGroup("Store")]
         [SerializeField] private CardPopupParts[] specialCardSlot;
+        
+        [FoldoutGroup("Store")]
+        [SerializeField] private Text[] txtSpecialPrice;
 
         [FoldoutGroup("Store")] [SerializeField]
         private Button btnReroll;
@@ -56,6 +59,10 @@ namespace FluffyDisdog.UI
         private int requestAddPrice;
 
         [SerializeField]private Text txtRequestAddPrice;
+        
+        [SerializeField] private GoldCasher goldCasher;
+
+        [SerializeField] private Button btnOption;
 
         public override void Init(UIViewParam param)
         {
@@ -76,11 +83,14 @@ namespace FluffyDisdog.UI
                 r.gameObject.SetActive(true);
             }
 
+
+            int special = 0;
             foreach (var c in specialCardSlot)
             {
-                c.Init((ToolType)Random.Range(0, (int)ToolType.MAX),1);
+                c.Init((ToolType)Random.Range(0, (int)ToolType.MAX),0);
                 c.BindHandler(OnBuySpecialCard);
                 c.gameObject.SetActive(true);
+                txtSpecialPrice[special++].text = $"10 G"; //todo 가격 임시
             }
             
             btnReroll.onClick.RemoveAllListeners();
@@ -123,6 +133,12 @@ namespace FluffyDisdog.UI
             btnNextStage.onClick.AddListener(() =>
             {
                 TileGameManager.I.GoNextLevel();
+            });
+            
+            btnOption.onClick.RemoveAllListeners();
+            btnOption.onClick.AddListener(() =>
+            {
+                UIOptionPopup.OpenPopup();
             });
         }
 
@@ -167,14 +183,15 @@ namespace FluffyDisdog.UI
                 if(!p.Purchased)
                     p.Reroll(Random.Range(20,31),0, OnClickGachaPack);
             }
-            
+            AccountManager.I.GoldConsume(5);
             SyncGold();
         }
 
         private void SyncGold()
         {
             currentAccountGold = AccountManager.I.Gold;
-            txtGold.text = currentAccountGold.ToString();
+            //txtGold.text = currentAccountGold.ToString();
+            goldCasher.SyncGold(currentAccountGold);
         }
 
         private void OnClickGachaPack(int cost, int gachaType, UICardPackSelectPart slot)
