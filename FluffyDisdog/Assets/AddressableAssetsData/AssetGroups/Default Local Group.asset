@@ -77,6 +77,10 @@ MonoBehaviour:
     m_Address: TagTable
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 98c5be35c0ffdd34b837fb9e996f1a31
+    m_Address: Login
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c4b4aea7e916bf6448fc92af0dc0baf0, type: 2}
   m_SchemaSet:

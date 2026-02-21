@@ -39,7 +39,6 @@ namespace Script.FluffyDisdog.Managers
             Addressables.Release(resLoader);
             
             //UIManager
-            UIManager.I.ChangeView(UIType.Login);
         }
 
        
