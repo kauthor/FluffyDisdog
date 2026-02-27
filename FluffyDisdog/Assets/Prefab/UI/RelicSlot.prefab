@@ -212,7 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   relicImage: {fileID: 6051635643613523239}
   btnRelicBuy: {fileID: 1338508241925264066}
-  pnlPurchase: {fileID: 0}
+  pnlPurchase: {fileID: 6611539708286157611}
   txtRelicPrice: {fileID: 4826776805568362196}
   txtRelicName: {fileID: 367571505215030641}
 --- !u!1 &2902479693443519865

@@ -226,6 +226,7 @@ namespace FluffyDisdog.UI
             AccountManager.I.GoldConsume(10);
             slot.gameObject.SetActive(false);
             DeckManager.I.TryAddDeck(tool);
+            SyncGold();
         }
         
     }

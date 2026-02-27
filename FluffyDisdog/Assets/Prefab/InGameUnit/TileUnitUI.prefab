@@ -177,11 +177,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a47feb5728a4e7e4cad36127963fc2bb, type: 3}
   - {fileID: 21300000, guid: 69b5004932066ac478ea261c184ed9b4, type: 3}
   obstaclePool:
-  - {fileID: 21300000, guid: 42261c238607be24eb9387f22cac4c5d, type: 3}
-  - {fileID: 21300000, guid: 59a4a74130c54bf4e8ed65005987c2a3, type: 3}
-  - {fileID: 21300000, guid: a0333b298b79990409986075cc10f101, type: 3}
-  - {fileID: 21300000, guid: ddd66ab8ee690b447977e51cdf8d4dc3, type: 3}
-  - {fileID: 21300000, guid: 622646a3f1393c0459217a6f7377fc2f, type: 3}
+  - {fileID: 21300000, guid: f1b95295e3d82fc4f8f9c813c2839305, type: 3}
+  - {fileID: 21300000, guid: f1b95295e3d82fc4f8f9c813c2839305, type: 3}
+  - {fileID: 21300000, guid: f1b95295e3d82fc4f8f9c813c2839305, type: 3}
+  - {fileID: 21300000, guid: f1b95295e3d82fc4f8f9c813c2839305, type: 3}
+  - {fileID: 21300000, guid: f1b95295e3d82fc4f8f9c813c2839305, type: 3}
   afterImageSprite: {fileID: 21300000, guid: a83dbfac5ee4aa64dad7ca8f902e26c2, type: 3}
   mouseOverEffect: {fileID: 8033972838447696495}
   substatesKey: 020000000100000000000000
