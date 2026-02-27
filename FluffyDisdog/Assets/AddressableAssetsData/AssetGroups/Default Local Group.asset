@@ -25,14 +25,6 @@ MonoBehaviour:
     m_Address: UIManager
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: 2cda990e2423bbf4892e6590ba056729
-    m_Address: GameScene
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 5aad775bfa09ef348bd5f83c33665431
-    m_Address: Lobby
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   - m_GUID: 6219ea7e741109a43acd360755e06b0a
     m_Address: RelicTable
     m_ReadOnly: 0
@@ -79,6 +71,14 @@ MonoBehaviour:
     m_SerializedLabels: []
   - m_GUID: 98c5be35c0ffdd34b837fb9e996f1a31
     m_Address: Login
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2cda990e2423bbf4892e6590ba056729
+    m_Address: GameScene
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5aad775bfa09ef348bd5f83c33665431
+    m_Address: Lobby
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

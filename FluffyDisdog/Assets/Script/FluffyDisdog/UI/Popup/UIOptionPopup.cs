@@ -19,7 +19,7 @@ namespace FluffyDisdog.UI
 
         private void Init()
         {
-            
+            textButtons[0].BindHandler(Application.Quit);
         }
     }
 }
