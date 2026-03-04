@@ -33,7 +33,13 @@ namespace FluffyDisdog.UI
 
             for (int i = 0; i < popups.Length; i++)
             {
-                popupDic.Add(popups[i].type, popups[i]);
+                var p = popups[i];
+                Debug.Log($"[PopupInit] i={i} type={(p ? p.type.ToString() : "NULL")} ref={(p ? p.name : "MISSING/NULL")}");
+
+                // 방어: null이면 여기서 바로 알 수 있음
+                if (!p) Debug.LogError($"[PopupInit] popups[{i}] is NULL/MISSING in build");
+                else //popupDic[p.type] = p;
+                   popupDic.Add(popups[i].type, popups[i]);
             }
         }
 
@@ -42,6 +48,7 @@ namespace FluffyDisdog.UI
         {
             if (popupDic.TryGetValue(type, out var pop))
             {
+                Debug.Log(pop==null? "Null!!" : pop.ToString());
                 var newPop = Instantiate(pop);
                 popupStack.Push(newPop);
                 newPop.gameObject.SetActive(false);

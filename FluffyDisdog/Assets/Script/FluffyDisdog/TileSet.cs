@@ -26,6 +26,8 @@ namespace FluffyDisdog
         [SerializeField] private int initialRow=8;
         [SerializeField] private int initialColume=8;
         [SerializeField] private int testSeed=-1;
+
+        [SerializeField] private Animation shakeAnim;
         private TerrainNode[] nodes => currentLevelSet.Nodes;
         private int row => currentLevelSet.Row;
 
@@ -390,6 +392,7 @@ namespace FluffyDisdog
             if (currentType == ToolType.None)
                 return;
 
+            shakeAnim?.Play();
             var clicked = nodes[coord.Item1 + row * coord.Item2];
             if (!clicked.ValidNode())
                 return;

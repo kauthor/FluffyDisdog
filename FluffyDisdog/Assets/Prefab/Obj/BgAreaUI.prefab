@@ -340,6 +340,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5717920520458997915}
   - component: {fileID: 2534251998164214367}
+  - component: {fileID: 4122182140840803225}
   m_Layer: 0
   m_Name: GameBoard
   m_TagString: Untagged
@@ -379,12 +380,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6953760627f4e36869611f277cb5d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelParent: {fileID: 0}
-  tilePrefab: {fileID: 7617179696660166481, guid: 1a14e3dc276d1864b85ac40e4b766be6,
+  levelParent: {fileID: 5717920520458997915}
+  tilePrefab: {fileID: 1358167270791674649, guid: 16d3b29b56f36504f8c8a934a1144c75,
     type: 3}
   initialRow: 8
   initialColume: 8
   testSeed: -1
+  shakeAnim: {fileID: 4122182140840803225}
+--- !u!111 &4122182140840803225
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2534251998164214365}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: eb1457a5ad5fec3409809e14a221e838, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: eb1457a5ad5fec3409809e14a221e838, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &4006037863105525194
 GameObject:
   m_ObjectHideFlags: 0

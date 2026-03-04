@@ -52,10 +52,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8cbee3b9e6d469cac97bf6125a4ad15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txtSelectable: {fileID: 0}
+  txtSelectable: {fileID: 5632738159738490791}
   onSelectedOnOff:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 5351368361686756664}
+  - {fileID: 8382882792955718895}
 --- !u!1 &2806809049778529404
 GameObject:
   m_ObjectHideFlags: 0

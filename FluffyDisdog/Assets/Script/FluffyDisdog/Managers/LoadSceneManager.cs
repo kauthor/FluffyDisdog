@@ -12,7 +12,8 @@ namespace Script.FluffyDisdog.Managers
     {
         public async void LoadScene(string sceneName, Action<AsyncOperationHandle<SceneInstance>> onComplete=null)
         {
-            UIManager.I.CloseAllView();
+            if(UIManager.ExistInstance())
+                 UIManager.I.CloseAllView();
             var loading = UILoadingPopup.NormalLoadStart();
             var handler = Addressables.LoadSceneAsync(sceneName);
             if(onComplete!=null)

@@ -15,10 +15,7 @@ namespace FluffyDisdog.UI
         {
             btnEnter.onClick.AddListener(() =>
             {
-                LoadSceneManager.I.LoadScene("Lobby", _ =>
-                {
-                    UIManager.I.ChangeView(UIType.Lobby);
-                });
+                LoadSceneManager.I.LoadScene("GameScene", null);
             });
         }
     }
