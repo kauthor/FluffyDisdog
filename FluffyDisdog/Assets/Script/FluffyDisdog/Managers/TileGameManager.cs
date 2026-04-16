@@ -116,6 +116,12 @@ namespace FluffyDisdog
         public void SubscribeCurrentScore(Action<int> cb)
             => currentScore?.Subscribe(cb);
 
+
+        public void EndScore()
+        {
+            AccountManager.I.AddGold(currentScore.Value*100);
+        }
+
         public ToolType CurrentTool => currentTool;
 
         public void BindTileClickedHandler(Action cb)
@@ -129,6 +135,22 @@ namespace FluffyDisdog
             currentTool = type;
             currentId = id;
             //todo : 여기서 마우스 아이콘을 바꾸자.
+        }
+
+
+        public void GameOverProcess(bool clear = false)
+        {
+            if(!clear)
+                UIGameOverResultPopup.OpenPopup();
+            else
+            {
+                EndScore();
+                UIStageRewardPopup.OpenPopup(() =>
+                {
+                    //TileGameManager.I.GoNextLevel();
+                    UIManager.I.ChangeView(UIType.Store);
+                });
+            }
         }
     }
 }

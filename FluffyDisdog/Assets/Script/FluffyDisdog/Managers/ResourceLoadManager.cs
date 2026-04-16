@@ -130,7 +130,7 @@ namespace Script.FluffyDisdog.Managers
                 current = current / 2;
                 if (bit > 0)
                 {
-                    var rawData = ExcelManager.I.GetTagData(i + 1);
+                    var rawData = ExcelManager.I.GetTagData(bit);
                     onEnd.Add(ret.GetSprite(rawData.tagImage));
                 }
             }

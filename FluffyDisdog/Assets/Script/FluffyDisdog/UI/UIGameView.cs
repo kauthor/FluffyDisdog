@@ -151,7 +151,7 @@ namespace FluffyDisdog.UI
                     deckPosition.transform.position;
                 card.gameObject.SetActive(true);
                 var target = cardArea.transform.position + new Vector3(cardSpace * (i+1), -250, 0);
-                //card.transform.SetAsLastSibling();
+                card.transform.SetAsLastSibling();
                 card.transform.DOMove(target, 0.5f);
                 card.transform.DOScaleX(0, 0.125f)
                     .OnComplete(() =>
@@ -214,12 +214,12 @@ namespace FluffyDisdog.UI
             {
                 if(id == i || !currentCard[i].gameObject.activeSelf)
                     continue;
-                //currentCard[i].transform.SetSiblingIndex(trId);
+                currentCard[i].transform.SetSiblingIndex(trId);
                 trId++;
             }
-            //if(currentSelected >=0)
-            //   currentCard[currentSelected].transform.SetAsLastSibling();
-            //currentCard[id].transform.SetAsLastSibling();
+            if(currentSelected >=0)
+               currentCard[currentSelected].transform.SetAsLastSibling();
+            currentCard[id].transform.SetAsLastSibling();
         }
 
         private void CardSort(bool onCardUsed=false)
@@ -229,17 +229,17 @@ namespace FluffyDisdog.UI
             {
                 if(!currentCard[i].gameObject.activeSelf)
                     continue;
-                //currentCard[i].transform.SetSiblingIndex(trId);
+                currentCard[i].transform.SetSiblingIndex(trId);
                 
                 currentCard[i].transform.localPosition = 
-                    new Vector3(cardSpace * (trId+1),currentCard[i].IsSelected? -140 :-250, 0);
+                    new Vector3(cardSpace * (trId+1),currentCard[i].IsSelected? 200 :-250, 0);
                 trId++;
             }
 
             if (!onCardUsed)
             {
-                //if(currentSelected >=0)
-                //   currentCard[currentSelected].transform.SetAsLastSibling();
+                if(currentSelected >=0)
+                   currentCard[currentSelected].transform.SetAsLastSibling();
             }
         }
 

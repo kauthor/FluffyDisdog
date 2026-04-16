@@ -1,4 +1,5 @@
-﻿using FluffyDisdog.Data.RelicData;
+﻿using System.Collections.Generic;
+using FluffyDisdog.Data.RelicData;
 using Script.FluffyDisdog.Managers;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -77,9 +78,17 @@ namespace FluffyDisdog.UI
                 p.gameObject.SetActive(true);
             }
 
+            List<int> usedRelic=new List<int>();
             foreach (var r in relics)
             {
-                r.Init(20, (int)Random.Range(101, (int)RelicName.HorizontalVerticalStabilizer +1), OnClickRelicPack);
+                int rel = -1;
+                for (;usedRelic.Contains(rel)||rel<0;)
+                {
+                    rel = Random.Range(101, (int)RelicName.HorizontalVerticalStabilizer + 1);
+                }
+                usedRelic.Add(rel);
+                 
+                r.Init(20, rel, OnClickRelicPack);
                 r.gameObject.SetActive(true);
             }
 
@@ -172,6 +181,8 @@ namespace FluffyDisdog.UI
 
         private void Reroll()
         {
+            if (AccountManager.I.Gold < 5)
+                return;
             foreach (var r in relics)
             {
                 if(!r.Purchased)
@@ -224,8 +235,10 @@ namespace FluffyDisdog.UI
                 return;
 
             AccountManager.I.GoldConsume(10);
-            slot.gameObject.SetActive(false);
+            //slot.gameObject.SetActive(false);
+            //slot.
             DeckManager.I.TryAddDeck(tool);
+            slot.AfterBuy();
             SyncGold();
         }
         

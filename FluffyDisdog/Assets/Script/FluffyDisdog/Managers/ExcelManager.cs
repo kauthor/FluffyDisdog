@@ -129,7 +129,8 @@ namespace Script.FluffyDisdog.Managers
 
         public TagData GetTagData(int id)
         {
-            return tagDataDic[id];
+            tagDataDic.TryGetValue(id, out var ret);
+            return ret;
         }
     }
 }
