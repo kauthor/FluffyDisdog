@@ -205,6 +205,7 @@ namespace FluffyDisdog
         [SerializeField] private GameObject runeArea;
 
         [SerializeField] private Sprite[] sprRune;
+        [SerializeField] private Sprite[] sprTile;
 
         [SerializeField] private Image spriteRune;
 
@@ -255,7 +256,7 @@ namespace FluffyDisdog
             }
             
             spriteRune.sprite = sprRune[Random.Range(0, sprRune.Length)];
-            
+            normalSprite = sprTile[Random.Range(0, sprTile.Length)];
             mouseOverArea.onClick.RemoveAllListeners();
             mouseOverArea.onClick.AddListener(OnClick);
         }

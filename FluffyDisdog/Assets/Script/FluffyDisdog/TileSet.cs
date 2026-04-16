@@ -315,7 +315,8 @@ namespace FluffyDisdog
                     int currentW = j + startCoordRow;
                     if(currentW < 0 || currentW >= currentLevelSet.Row)
                         continue;
-                    
+                    if(data.ratio[j+i*data.cellWidth] <=0)
+                        continue;
                     var currentNode = nodes[currentW + row * currentH];
                     //여기서 활성화여부 체크
                     if(currentNode.ValidNode())

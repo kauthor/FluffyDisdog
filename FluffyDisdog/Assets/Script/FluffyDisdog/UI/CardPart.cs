@@ -122,7 +122,7 @@ namespace FluffyDisdog.UI
         {
             //todo : 이거 fsm 으로 바꿔야한다.
             var localPosition = transform.localPosition;
-            localPosition = new Vector3( localPosition.x,80, 0);
+            localPosition = new Vector3( localPosition.x,200, 0);
             transform.localPosition = localPosition;
             
             ignoreHover = true;

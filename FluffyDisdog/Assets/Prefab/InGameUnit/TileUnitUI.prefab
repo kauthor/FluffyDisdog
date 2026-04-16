@@ -215,6 +215,15 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5782efc6482bbbf4dbdbae8d511b6472, type: 3}
   - {fileID: 21300000, guid: 28e25a79e6e25a947bc7829378f08610, type: 3}
   - {fileID: 21300000, guid: 6c62dace6a78b724f8f034d67a9911de, type: 3}
+  sprTile:
+  - {fileID: 21300000, guid: 75014fbd172c91046bb1909c6513d7e5, type: 3}
+  - {fileID: 21300000, guid: 10bbdf495ed37984682d9139a23346de, type: 3}
+  - {fileID: 21300000, guid: 824344472acf2bf42a3a2fd93815c873, type: 3}
+  - {fileID: 21300000, guid: 9fc80db9fa9435841a4f7a514572d259, type: 3}
+  - {fileID: 21300000, guid: 77264979c4890744faf2e3ad4ae6e41c, type: 3}
+  - {fileID: 21300000, guid: 69eb69ab0c80ea94d889470ad80c942e, type: 3}
+  - {fileID: 21300000, guid: bf1851fb5e9d8bb449c3c29d73c0151b, type: 3}
+  - {fileID: 21300000, guid: 7484aba2131b2ce4bb259af4a0f4b8f7, type: 3}
   spriteRune: {fileID: 1001540025016042695}
   mouseOverArea: {fileID: 4947884994495019002}
   blockType: 0

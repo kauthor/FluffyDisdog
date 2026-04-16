@@ -232,7 +232,7 @@ namespace FluffyDisdog.UI
                 currentCard[i].transform.SetSiblingIndex(trId);
                 
                 currentCard[i].transform.localPosition = 
-                    new Vector3(cardSpace * (trId+1),currentCard[i].IsSelected? -140 :-250, 0);
+                    new Vector3(cardSpace * (trId+1),currentCard[i].IsSelected? 200 :-250, 0);
                 trId++;
             }
 
