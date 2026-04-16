@@ -19,6 +19,7 @@ namespace FluffyDisdog.UI
         [SerializeField] private Text txtAmount;
         [SerializeField] private Image[] tagIcons;
         [SerializeField] private GameObject[] tags;
+        [SerializeField] private GameObject soldOut;
         private int ID;
         private ToolType _toolType;
         public ToolType ToolType => _toolType;
@@ -34,6 +35,7 @@ namespace FluffyDisdog.UI
                 imgSelected?.gameObject.SetActive(true);
                 imgUnselected?.gameObject.SetActive(false);
             });
+            soldOut.SetActive(false);
         }
 
         public void Init(ToolType type, int amount)
@@ -88,5 +90,7 @@ namespace FluffyDisdog.UI
             imgSelected?.gameObject.SetActive(false);
             imgUnselected?.gameObject.SetActive(true);
         }
+        
+        public void AfterBuy() => soldOut.SetActive(true);
     }
 }

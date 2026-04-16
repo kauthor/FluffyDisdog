@@ -243,16 +243,7 @@ namespace Script.FluffyDisdog.Managers
                 currentType = ToolType.None;
                 var gameEnd = TileGameManager.I.EndStage();
                 
-                if(!gameEnd)
-                    UIGameOverResultPopup.OpenPopup();
-                else
-                {
-                    UIStageRewardPopup.OpenPopup(() =>
-                    {
-                        //TileGameManager.I.GoNextLevel();
-                        UIManager.I.ChangeView(UIType.Store);
-                    });
-                }
+                TileGameManager.I.GameOverProcess(gameEnd);
                 return;
             }
         }

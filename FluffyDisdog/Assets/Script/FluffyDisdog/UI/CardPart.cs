@@ -39,6 +39,7 @@ namespace FluffyDisdog.UI
                 if (!isSelected)
                 {
                     Select(true);
+                    DescShowing();
                     onClickedCb?.Invoke(ID, _toolType);
                 }
                 else
@@ -116,6 +117,17 @@ namespace FluffyDisdog.UI
             }
         }
 
+        bool ignoreHover = false;
+        public void DescShowing()
+        {
+            //todo : 이거 fsm 으로 바꿔야한다.
+            var localPosition = transform.localPosition;
+            localPosition = new Vector3( localPosition.x,80, 0);
+            transform.localPosition = localPosition;
+            
+            ignoreHover = true;
+        }
+
         public void OnPointerEnter(PointerEventData eventData)
         {
             Hovered();
@@ -123,6 +135,9 @@ namespace FluffyDisdog.UI
 
         private void Hovered()
         {
+            if (ignoreHover)
+                return;
+            
             var localPosition = transform.localPosition;
             localPosition = new Vector3( localPosition.x,-140, 0);
             transform.localPosition = localPosition;
@@ -132,13 +147,15 @@ namespace FluffyDisdog.UI
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            Exited();
+            if(!ignoreHover)
+              Exited();
         }
 
         private void Exited()
         {
             if (!isSelected)
             {
+                ignoreHover = false;
                 var localPosition = transform.localPosition;
                 localPosition = new Vector3( localPosition.x,-250, 0);
                 transform.localPosition = localPosition;

@@ -17,49 +17,49 @@ MonoBehaviour:
     bit: 1
     nameKey: Tag_Name_1
     descKey: Tag_Des_1
-    tagImage: Card_Tag_001
+    tagImage: Tag_Tool
     values: 000000000000000000000000
   - id: 2
     bit: 2
     nameKey: Tag_Name_2
     descKey: Tag_Des_2
-    tagImage: Card_Tag_002
+    tagImage: Tag_Weapon
     values: 000000000000000000000000
   - id: 3
     bit: 4
     nameKey: Tag_Name_3
     descKey: Tag_Des_3
-    tagImage: Card_Tag_003
+    tagImage: Tag_Mana
     values: 000000000000000000000000
   - id: 4
     bit: 8
     nameKey: Tag_Name_4
     descKey: Tag_Des_4
-    tagImage: Card_Tag_004
+    tagImage: Tag_Ice
     values: 000000000000000000000000
   - id: 5
     bit: 16
     nameKey: Tag_Name_5
     descKey: Tag_Des_5
-    tagImage: Card_Tag_005
+    tagImage: Tag_Flame
     values: 000000000000000000000000
   - id: 6
     bit: 32
     nameKey: Tag_Name_6
     descKey: Tag_Des_6
-    tagImage: Card_Tag_006
+    tagImage: Tag_Electric
     values: f4010000f4010000f4010000
   - id: 7
     bit: 64
     nameKey: Tag_Name_7
     descKey: Tag_Des_7
-    tagImage: Card_Tag_007
+    tagImage: Tag_Consumable
     values: 010000000100000001000000
   - id: 8
     bit: 128
     nameKey: Tag_Name_8
     descKey: Tag_Des_8
-    tagImage: Card_Tag_008
+    tagImage: Tag_Magic
     values: 000000000000000000000000
   - id: 9
     bit: 256
