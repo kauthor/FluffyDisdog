@@ -420,15 +420,15 @@ namespace FluffyDisdog
             {
                 currentState = NodeState.Raw;
                 runeArea.gameObject.SetActive(true);
+                this.gameObject.SetActive(true);
                 UpdateSprite();
                 mouseOverArea.interactable = true;
             }
             else
             {
-                //todo : 잔상 작업중
-                currentState = NodeState.AfterImage;
+                currentState = NodeState.Digged;
                 runeArea.gameObject.SetActive(false);
-                _renderer.sprite = afterImageSprite;
+                this.gameObject.SetActive(false);
                 mouseOverArea.interactable = false;
             }
         }

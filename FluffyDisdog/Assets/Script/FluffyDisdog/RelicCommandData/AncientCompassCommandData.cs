@@ -41,7 +41,7 @@ namespace FluffyDisdog.RelicCommandData
                         nearTarget[target].TryDigBlockForce();
                     }
                     
-                    PlayerManager.I.TurnEventSystem.RemoveAllEventAsType(this, TurnEvent.ToolConsumed);
+                    PlayerManager.I.TurnEventSystem.RemoveAllEventAsType(this, TurnEvent.TileClicked);
                 }
             }
             

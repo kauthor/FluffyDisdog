@@ -251,6 +251,7 @@ namespace FluffyDisdog.UI
                 re.ReturnToPool();
                 relicPool.Enqueue(re);
             }
+            currentRelic.Clear();
         }
     }
 }

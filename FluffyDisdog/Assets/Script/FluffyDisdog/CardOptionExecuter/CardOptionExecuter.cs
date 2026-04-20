@@ -36,7 +36,12 @@ namespace FluffyDisdog.CardOptionExecuter
                 case 101:
                     ret = new RandomExecuter();
                     break;
-                case 1:
+                case 103:
+                    ret = new CrackExecuter();
+                    break;
+                case 104:
+                    ret = new DarkLitExecuter();
+                    break;
                 default:
                     ret = new CardOptionExecuter();
                     break;
