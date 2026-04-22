@@ -4325,6 +4325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   txtType: {fileID: 963245299122305378}
+  txtNameShadow: {fileID: 411814297449056960}
   btnClickArea: {fileID: 6858901269423026247}
   imgSelected: {fileID: 0}
   imgUnselected: {fileID: 0}

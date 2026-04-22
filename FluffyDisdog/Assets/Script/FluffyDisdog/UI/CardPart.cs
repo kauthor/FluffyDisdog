@@ -10,6 +10,7 @@ namespace FluffyDisdog.UI
     public class CardPart:MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField] private Text txtType;
+        [SerializeField] private Text txtNameShadow;
         [SerializeField] private Button btnClickArea;
         [SerializeField] private Image imgSelected;
         [SerializeField] private Image imgUnselected;
@@ -58,6 +59,7 @@ namespace FluffyDisdog.UI
         public void Init(int id, ToolType type, Action<int, ToolType> cb, Action onCancelCb, ToolExcelData data=null)
         {
             txtType.text = type.ToString();
+            txtNameShadow.text = type.ToString();
             onClickedCb = cb;
             _toolType = type;
             ID = id;
