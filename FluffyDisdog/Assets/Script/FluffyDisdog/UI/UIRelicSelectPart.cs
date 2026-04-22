@@ -1,5 +1,6 @@
 ﻿using System;
 using FluffyDisdog.Data.RelicData;
+using Script.FluffyDisdog.Managers;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,6 +32,13 @@ namespace FluffyDisdog.UI
         {
             this.cost = cost;
             this.relicType = (RelicName)relicN;
+             ResourceLoadManager.I.LoadSpriteAtlasResource(ResourceAddress.RelicIcon,
+                $"Relic{relicN}",
+                _ =>
+                {
+                    if (_ != null)
+                        relicImage.sprite = _;
+                }).Forget();
             this.onCardPackOpen -= onCardPackOpen;
             this.onCardPackOpen += onCardPackOpen;
             pnlPurchase.SetActive(false);

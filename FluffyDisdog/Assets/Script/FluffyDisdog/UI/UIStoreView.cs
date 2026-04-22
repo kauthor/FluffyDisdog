@@ -186,7 +186,7 @@ namespace FluffyDisdog.UI
             foreach (var r in relics)
             {
                 if(!r.Purchased)
-                    r.Reroll(20, (int)Random.Range(1, (int)RelicName.HorizontalVerticalStabilizer +1), OnClickRelicPack);
+                    r.Reroll(20, (int)Random.Range(101, (int)RelicName.HorizontalVerticalStabilizer +1), OnClickRelicPack);
             }
 
             foreach (var p in packs)

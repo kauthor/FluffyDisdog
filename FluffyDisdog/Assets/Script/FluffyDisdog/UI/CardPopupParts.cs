@@ -8,6 +8,7 @@ namespace FluffyDisdog.UI
     public class CardPopupParts:MonoBehaviour
     {
         [SerializeField] private Text txtType;
+        [SerializeField] private Text txtShadow;
         [SerializeField] private Button btnClickArea;
         [SerializeField] private Image imgSelected;
         [SerializeField] private Image imgUnselected;
@@ -41,6 +42,7 @@ namespace FluffyDisdog.UI
         public void Init(ToolType type, int amount)
         {
             txtType.text = type.ToString();
+            txtShadow.text = type.ToString();
             _toolType = type;
             if(amount<=1)
                 txtAmount.gameObject.SetActive(false);
