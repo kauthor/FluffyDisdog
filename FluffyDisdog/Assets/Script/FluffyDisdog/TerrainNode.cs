@@ -156,6 +156,8 @@ namespace FluffyDisdog
 
         public void SetState(NodeSubstate ns)
         {
+            if (Owner.isObstacle || Owner.isTreasure)
+                return;
             currentState |= ns;
             if (!_commands.ContainsKey(ns))
             {

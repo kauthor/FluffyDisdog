@@ -25,6 +25,9 @@ namespace Script.FluffyDisdog.Managers
         private Dictionary<int, ToolCardOpData> toolCardOpDataDic;
         private Dictionary<int, GacheInGameData> gacheInGameDataDic;
         private Dictionary<int, TagData> tagDataDic;
+        
+        private bool initialized=false;
+        public bool Initialized => initialized;
 
         protected override void Awake()
         {
@@ -102,6 +105,8 @@ namespace Script.FluffyDisdog.Managers
             toolCardOpDataDic = _toolCardOptionTable.TryCache();
             gacheInGameDataDic = _gachaTable.TryCache();
             tagDataDic = _tagTable.TryCache();
+            
+            initialized=true;
         }
 
         public ToolData GetToolData(ToolType t)
@@ -116,7 +121,13 @@ namespace Script.FluffyDisdog.Managers
 
         public ToolExcelData GetToolExcelData(ToolType t)
         {
-            return toolExcelDataDic[t];
+            if (toolExcelDataDic.TryGetValue(t, out var ret))
+                return ret;
+            else
+            {
+                Debug.LogError($"{t} tool data is undefined");
+                return toolExcelDataDic[ToolType.Card_Rake];
+            }
         }
 
         public ToolCardOpData GetToolCardOpData(ToolType t)

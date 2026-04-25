@@ -35,6 +35,9 @@ namespace FluffyDisdog
         private TileLevel currentLevelSet;
         private event Action OnNodeClickedCB;
 
+        private int validNodeCount = 0;
+        public int ValidNodeCount => validNodeCount;
+
         /// <summary>
         /// -1 : 꺼진 일반타일.
         /// 0 : 켜진 일반타일
@@ -211,6 +214,8 @@ namespace FluffyDisdog
 
             if (normalTotal <= 0)
                 normalTotal = 1;
+            
+            UpdateValidNodeCount();
         }
 
         public void RegenRandomNormalTileAsObstacle()
@@ -429,7 +434,7 @@ namespace FluffyDisdog
                     if(currentW < 0 || currentW >= currentLevelSet.Row)
                         continue;
                     
-                    float addedRate = PlayerManager.I.RuntimeStat.ScoreMultiplier;
+                    float addedRate = PlayerManager.I.RuntimeStat.TileSuccessRateAdd;
                     
                     var calParam = new ToolCalculateStart()
                     {
@@ -440,24 +445,6 @@ namespace FluffyDisdog
                     addedRate+= calParam.addRate;
                     
                     var currentNode = nodes[currentW + row * currentH];
-
-                    var tileParam = new CardExecuteParam(currentNode, preEndParamOut); 
-                    if(ex != null) ex.ExecuteTileEffect(tileParam);
-                    preEndParamOut = param.output;
-                    
-                    if (currentNode.Coord.Item1 == coord.Item1 || currentNode.Coord.Item2 == coord.Item2)
-                    {
-                        var hparam = new CrackPointMeasureParam()
-                        {
-                            clicked = coord,
-                            target = currentNode.Coord
-                        };
-                        PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.DistanceDesire, hparam);
-                        
-                        addedRate += hparam.addedRate;
-                    }
-                    //여기서 도구 파괴여부 체크.
-                    
                     
                     //여기서 활성화여부 체크
                     if (currentNode.ValidNode())
@@ -477,6 +464,26 @@ namespace FluffyDisdog
                             }
                         }
                     }
+
+                    var tileParam = new CardExecuteParam(currentNode, preEndParamOut); 
+                    if(ex != null) ex.ExecuteTileEffect(tileParam);
+                    preEndParamOut = param.output;
+                    
+                    if (currentNode.Coord.Item1 == coord.Item1 || currentNode.Coord.Item2 == coord.Item2)
+                    {
+                        var hparam = new CrackPointMeasureParam()
+                        {
+                            clicked = coord,
+                            target = currentNode.Coord
+                        };
+                        PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.DistanceDesire, hparam);
+                        
+                        addedRate += hparam.addedRate;
+                    }
+                    //여기서 도구 파괴여부 체크.
+                    
+                    
+                    
                 }
             }
             
@@ -505,6 +512,8 @@ namespace FluffyDisdog
             OnNodeClickedCB?.Invoke();
             _eventSystem?.FireEvent(TurnEvent.TurnEnd);
             _eventSystem?.FireEvent(TurnEvent.TurnStart);
+            
+            UpdateValidNodeCount();
         }
 
 
@@ -519,6 +528,17 @@ namespace FluffyDisdog
             }
 
             return rand;
+        }
+
+        public void UpdateValidNodeCount()
+        {
+            int valid = 0;
+            foreach (var node in nodes)
+            {
+                if (node.ValidNode())
+                    valid++;
+            }
+            validNodeCount = valid;
         }
     }
 }

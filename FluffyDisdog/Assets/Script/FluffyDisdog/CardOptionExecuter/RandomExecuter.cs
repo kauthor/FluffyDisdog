@@ -5,10 +5,13 @@
         protected override void OnPreEffect(CardExecuteParam param)
         {
             base.OnPreEffect(param);
-            int amount = rawData.Values[0];
+            int amount = //rawData.Values[0];
+                int.Parse( rawData.Desc);
+            if (amount > TileGameManager.I.TileSet.ValidNodeCount)
+                amount = TileGameManager.I.TileSet.ValidNodeCount;
             for (int i = 0; i < amount; i++)
             {
-                var tile = TileGameManager.I.TileSet.GetRandomNode(_=>_.CurrentState == NodeState.Raw && !_.isObstacle && !_.isTreasure);
+                var tile = TileGameManager.I.TileSet.GetRandomNode(_=>_.ValidNode());
                 tile.TryDigBlockForce();
             }
         }

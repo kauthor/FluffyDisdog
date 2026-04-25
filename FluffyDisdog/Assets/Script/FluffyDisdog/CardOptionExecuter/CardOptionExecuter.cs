@@ -34,6 +34,7 @@ namespace FluffyDisdog.CardOptionExecuter
             switch (data.Id)
             {
                 case 101:
+                case 102:
                     ret = new RandomExecuter();
                     break;
                 case 103:
