@@ -176,6 +176,11 @@ namespace FluffyDisdog
             }
             OnNodeStateChanged?.Invoke(currentState);
         }
+
+        public void RemoveAllState()
+        {
+            currentState = NodeSubstate.NONE;
+        }
     }
 
     public struct DefaultNodeSetting
@@ -440,7 +445,7 @@ namespace FluffyDisdog
             return (int)currentState < (int)NodeState.Digged;
         }
 
-        public void SwapNodeByData(int newType)
+        public void SwapNodeByData(int newType, NodeSubstate sub)
         {
             switch (newType)
             {

@@ -42,7 +42,8 @@ namespace FluffyDisdog.UI
             {
                 LoadSceneManager.I.LoadScene("Lobby", _ =>
                 {
-                    UIManager.I.ChangeView(UIType.Lobby);
+                    UIManager.I.ChangeView(UIType.Login);
+                    this.Close();
                 });
             });
         }

@@ -17,6 +17,8 @@ namespace FluffyDisdog.UI
         [SerializeField] private UICardPackSelectPart[] packs;
         [SerializeField] private UIRelicSelectPart[] relics;
 
+        [SerializeField] private Button btnShowDeck;
+
         [FormerlySerializedAs("cardSlot")]
         [FoldoutGroup("Store")]
         [SerializeField] private CardPopupParts[] specialCardSlot;
@@ -49,6 +51,9 @@ namespace FluffyDisdog.UI
         private GameObject pnlRequestAddComplete;
         
         [FoldoutGroup("Request")] [SerializeField]
+        private GameObject pnlRequestReceiveComplete;
+        
+        [FoldoutGroup("Request")] [SerializeField]
         private Button[] btnRequestStart;
 
         [FoldoutGroup("Request")] [SerializeField]
@@ -70,6 +75,12 @@ namespace FluffyDisdog.UI
             base.Init(param);
             
             SyncGold();
+            
+            btnShowDeck.onClick.RemoveAllListeners();
+            btnShowDeck.onClick.AddListener(() =>
+            {
+                UIDeckListPopup.OpenPopup();
+            });
             
             
             foreach (var p in packs)
@@ -123,6 +134,7 @@ namespace FluffyDisdog.UI
             
             pnlRequestStartAccept.gameObject.SetActive(false);
             pnlRequestAddComplete.gameObject.SetActive(false);
+            pnlRequestReceiveComplete.gameObject.SetActive(false);
             
             btnRequestStart[0].onClick.RemoveAllListeners();
             btnRequestStart[1].onClick.RemoveAllListeners();
@@ -171,7 +183,7 @@ namespace FluffyDisdog.UI
 
         private void RequestComplete()
         {
-            pnlRequestAddComplete.gameObject.SetActive(true);
+            pnlRequestReceiveComplete.gameObject.SetActive(true);
             TileGameManager.I.RequestSystem.RequestEnd(out var ret);
             AccountManager.I.AddGold(ret);
             
