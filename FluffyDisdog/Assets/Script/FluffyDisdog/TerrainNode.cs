@@ -445,7 +445,7 @@ namespace FluffyDisdog
             return (int)currentState < (int)NodeState.Digged;
         }
 
-        public void SwapNodeByData(int newType, NodeSubstate sub)
+        public void SwapNodeByData(int newType)
         {
             switch (newType)
             {
