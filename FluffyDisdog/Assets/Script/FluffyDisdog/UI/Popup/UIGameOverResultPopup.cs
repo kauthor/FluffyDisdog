@@ -40,10 +40,11 @@ namespace FluffyDisdog.UI
             btnOK.onClick.RemoveAllListeners();
             btnOK.onClick.AddListener(() =>
             {
+                this.Close();
                 LoadSceneManager.I.LoadScene("Lobby", _ =>
                 {
                     UIManager.I.ChangeView(UIType.Login);
-                    this.Close();
+                    
                 });
             });
         }

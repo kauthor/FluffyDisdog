@@ -22,6 +22,7 @@ namespace FluffyDisdog.UI
             textButtons[0].BindHandler(Application.Quit);
             textButtons[1].BindHandler(()=>
             {
+                Close();
                 TileGameManager.I.GameOverProcess();
             });
         }

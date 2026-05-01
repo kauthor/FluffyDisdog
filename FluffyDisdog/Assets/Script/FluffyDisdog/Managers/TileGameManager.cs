@@ -70,17 +70,16 @@ namespace FluffyDisdog
             load.Close();
         }
 
-        private void Start()
+       
+
+        public void GameStartRoute()
         {
             _requestSystem = new RequestSystem();
             _requestSystem.Init();
 
             relicSystem = new RelicSystem(PlayerManager.I);
-            GameStartRoute();
+            GameStart();
         }
-
-        public void GameStartRoute()
-            => GameStart();
 
         public void GoNextLevel()
             => GameStart(currentLevel + 1);

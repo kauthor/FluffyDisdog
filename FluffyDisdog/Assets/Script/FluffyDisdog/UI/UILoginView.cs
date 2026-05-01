@@ -16,7 +16,10 @@ namespace FluffyDisdog.UI
             btnEnter.onClick.AddListener(() =>
             {
                 if(ExcelManager.ExistInstance() && ExcelManager.I.Initialized)
-                   LoadSceneManager.I.LoadScene("GameScene", null);
+                   LoadSceneManager.I.LoadScene("GameScene", _ =>
+                   {
+                       TileGameManager.I.GameStartRoute();
+                   });
             });
         }
     }
