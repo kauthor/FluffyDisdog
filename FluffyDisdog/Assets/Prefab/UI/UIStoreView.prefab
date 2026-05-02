@@ -832,6 +832,10 @@ MonoBehaviour:
   - {fileID: 1527982738184581486}
   btnRequestAdd: {fileID: 2294078885653645156}
   btnRequestComplete: {fileID: 465964383895134285}
+  requestCheckImg:
+  - {fileID: 1068281811850095016}
+  - {fileID: 5529915493924575972}
+  - {fileID: 1821633393116736993}
   txtRequestAddPrice: {fileID: 2706035073978955056}
   goldCasher: {fileID: 4133507586884539939}
   btnOption: {fileID: 1146850022427423525}
@@ -4171,6 +4175,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: TxtRequestTitle
       objectReference: {fileID: 0}
+    - target: {fileID: 2619300455029550065, guid: 350c678a047d03c41a2afebe3c82988d,
+        type: 3}
+      propertyPath: m_text
+      value: Request
+      objectReference: {fileID: 0}
+    - target: {fileID: 2679966768226424080, guid: 350c678a047d03c41a2afebe3c82988d,
+        type: 3}
+      propertyPath: m_text
+      value: Request
+      objectReference: {fileID: 0}
     - target: {fileID: 2979412383076610612, guid: 350c678a047d03c41a2afebe3c82988d,
         type: 3}
       propertyPath: m_Pivot.x
@@ -4276,9 +4290,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4052554131970531226, guid: 350c678a047d03c41a2afebe3c82988d,
+        type: 3}
+      propertyPath: m_text
+      value: Request
+      objectReference: {fileID: 0}
+    - target: {fileID: 5510098117747266597, guid: 350c678a047d03c41a2afebe3c82988d,
+        type: 3}
+      propertyPath: m_text
+      value: Request
+      objectReference: {fileID: 0}
     - target: {fileID: 5749119699316268564, guid: 350c678a047d03c41a2afebe3c82988d,
         type: 3}
       propertyPath: text
+      value: Request
+      objectReference: {fileID: 0}
+    - target: {fileID: 7003385713414923214, guid: 350c678a047d03c41a2afebe3c82988d,
+        type: 3}
+      propertyPath: m_text
       value: Request
       objectReference: {fileID: 0}
     m_RemovedComponents: []

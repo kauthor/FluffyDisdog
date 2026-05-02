@@ -16,7 +16,7 @@ namespace FluffyDisdog.RelicCommandData
         protected override void OnExecuteCommand(TurnEventOptionParam param)
         {
             base.OnExecuteCommand(param);
-            TileGameManager.I.AddScore((int)(AccountManager.I.Gold * rawData.Values[0]));
+            //TileGameManager.I.AddScore((int)(AccountManager.I.Gold * rawData.Values[0]));
         }
     }
 }
