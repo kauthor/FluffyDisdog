@@ -61,6 +61,9 @@ namespace FluffyDisdog.UI
         
         [FoldoutGroup("Request")] [SerializeField]
         private Button btnRequestComplete;
+        
+        [FoldoutGroup("Request")] [SerializeField]
+        private GameObject[] requestCheckImg;
 
         private int requestAddPrice;
 
@@ -119,7 +122,11 @@ namespace FluffyDisdog.UI
             if (TileGameManager.I.RequestSystem.IsReqRunning)
             {
                 pnlRequestStart.SetActive(false);
-                pnlRequestAdd.SetActive(true);
+                if(TileGameManager.I.RequestSystem.ReqDegree <3)
+                   pnlRequestAdd.SetActive(true);
+                
+                foreach (var r in requestCheckImg)
+                    r.gameObject.SetActive(true);
                 requestAddPrice = TileGameManager.I.RequestSystem.ReqDegree * 5;
                 txtRequestAddPrice.text = requestAddPrice.ToString();
                 txtRequestAddPrice.gameObject.SetActive(true);

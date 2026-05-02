@@ -1,5 +1,8 @@
 ﻿
 using System;
+using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
+using FluffyDisdog.Data.RelicData;
 using FluffyDisdog.Manager;
 using FluffyDisdog.UI;
 using Script.FluffyDisdog.Managers;
@@ -24,10 +27,13 @@ namespace FluffyDisdog
         }
     }
 
-    public class TileGameManager:CustomSingleton<TileGameManager>
+    public class TileGameManager:SceneRegardableSingleton<TileGameManager>
     {
         [SerializeField] private TileSet _tileSet;
-
+#if UNITY_EDITOR
+        [SerializeField] private bool _debug=false;
+        [SerializeField] private RelicName[] startRelicNames;
+#endif
         public TileSet TileSet => _tileSet;
         private RequestSystem _requestSystem;
         public RequestSystem RequestSystem => _requestSystem;
@@ -55,13 +61,16 @@ namespace FluffyDisdog
             if (!Application.isPlaying)
                 return;
 #endif
+            await UniTask.WaitUntil(() => ExcelManager.I.Initialized);
+            await UniTask.WaitUntil(() => GameManager.I.Initialized);
             PlayerManager.I.Init();
             relicSystem.InitStageRelic();
+            
             var load = UILoadingPopup.NormalLoadStart();
             currentLevel = level;
             
             //임의로 최대레벨 설정
-            if (currentLevel > 2)
+            if (currentLevel > 8)
                 currentLevel = 1;
             await _tileSet.InitGame(currentLevel);
             
@@ -70,7 +79,10 @@ namespace FluffyDisdog
             load.Close();
         }
 
-       
+        private void Start()
+        {
+            GameStartRoute();
+        }
 
         public void GameStartRoute()
         {
@@ -78,6 +90,16 @@ namespace FluffyDisdog
             _requestSystem.Init();
 
             relicSystem = new RelicSystem(PlayerManager.I);
+#if UNITY_EDITOR
+            if (_debug)
+            {
+                if(startRelicNames!=null)
+                    foreach (var relicName in startRelicNames)
+                    {
+                        relicSystem.GainRelic(relicName);
+                    }
+            }
+#endif
             GameStart();
         }
 

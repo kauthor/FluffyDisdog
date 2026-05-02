@@ -141,6 +141,11 @@ namespace FluffyDisdog.UI
             SyncGold();
         }
 
+        private void SyncRelic()
+        {
+            
+        }
+
         private async void CardDraw()
         {
             int i = 0;

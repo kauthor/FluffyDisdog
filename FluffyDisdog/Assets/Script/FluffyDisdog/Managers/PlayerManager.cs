@@ -23,7 +23,7 @@ namespace Script.FluffyDisdog.Managers
     }
     
     
-    public class PlayerManager:CustomSingleton<PlayerManager>
+    public class PlayerManager:SceneRegardableSingleton<PlayerManager>
     {
         [SerializeField] private DeckManager deckManager;
         [SerializeField] private TileGameManager tileGameManager;

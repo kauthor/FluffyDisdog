@@ -72,7 +72,7 @@ namespace Script.FluffyDisdog.Managers
             //todo : 여기서 카드 사용 판정내자
         }
     }
-    public class DeckManager:CustomSingleton<DeckManager>
+    public class DeckManager:SceneRegardableSingleton<DeckManager>
     {
         private ToolType currentType;
 
@@ -90,6 +90,13 @@ namespace Script.FluffyDisdog.Managers
             (ToolType)12,(ToolType)12,(ToolType)13,(ToolType)1,(ToolType)2,(ToolType)1,(ToolType)1,(ToolType)1,
             (ToolType)13,(ToolType)13,(ToolType)2,(ToolType)12,(ToolType)0,(ToolType)0,(ToolType)0,(ToolType)0,
         };
+#if UNITY_EDITOR
+        [SerializeField] private bool debugMod = false;
+        [SerializeField] private ToolType[] startHand = new[]
+        {
+            (ToolType)12,(ToolType)12,(ToolType)13,(ToolType)1,(ToolType)2,(ToolType)1,(ToolType)1,(ToolType)1
+        };
+#endif
 
         private Dictionary<ToolType, int> DeckList;
 
@@ -114,6 +121,15 @@ namespace Script.FluffyDisdog.Managers
                 {
                     trueDeck.Add(new CardInGame(item,usedId++));
                 }
+#if UNITY_EDITOR
+                if (debugMod)
+                {
+                    foreach (var item in startHand)
+                    {
+                        trueDeck.Insert(0, new CardInGame(item,usedId++));
+                    }
+                }
+#endif
                 
             }
 
@@ -195,18 +211,38 @@ namespace Script.FluffyDisdog.Managers
             currentSelected = 0;
             var l = Mathf.Min( handMax, trueDeck.Count); 
             //변경필요
-            for (int i = 0; i < l; i++)
+#if UNITY_EDITOR
+            if (debugMod)
             {
-                PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.Draw, new DrawParam()
+                for (int i = 0; i < startHand.Length; i++)
                 {
-                    toolType = trueDeck[i].ToolType
-                });
-                hand.Add(trueDeck[i]);
+                    PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.Draw, new DrawParam()
+                    {
+                        toolType = startHand[startHand.Length - 1 -i],
+                    });
+                    hand.Add(trueDeck[i]);
+                }
+                cardUseState = new bool[startHand.Length];
+                cardUseState.ForEach(_ => _ = false);
             }
+            else
+            {
+#endif
+                for (int i = 0; i < l; i++)
+                {
+                    PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.Draw, new DrawParam()
+                    {
+                        toolType = trueDeck[i].ToolType
+                    });
+                    hand.Add(trueDeck[i]);
+                }
 
-            cardUseState = new bool[l];
-            cardUseState.ForEach(_ => _ = false);
-
+                cardUseState = new bool[l];
+                cardUseState.ForEach(_ => _ = false);
+#if UNITY_EDITOR
+                
+            }
+#endif
         }
 
         private int currentSelected = 0;

@@ -12,13 +12,6 @@ namespace FluffyDisdog
         [SerializeField] private RelicName name;
         [SerializeField] private float[] values;
 
-#if unity_editor
-        [Button]
-        private void MakeTestRelic()
-        {
-            RelicData data = new RelicData(eventType, name, values);
-            TileGameManager.I.RelicSystem.InitNewCommand(data);
-        }
-#endif
+
     }
 }

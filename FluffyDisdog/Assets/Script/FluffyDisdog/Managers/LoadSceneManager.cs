@@ -10,8 +10,16 @@ namespace Script.FluffyDisdog.Managers
 {
     public class LoadSceneManager:CustomSingleton<LoadSceneManager>
     {
+        private event Action sceneLoadAction;
+
+        public void BindSceneAction(Action cb)
+        {
+            sceneLoadAction += cb;
+        }
         public async void LoadScene(string sceneName, Action<AsyncOperationHandle<SceneInstance>> onComplete=null)
         {
+            sceneLoadAction?.Invoke();
+            sceneLoadAction = null;
             if(UIManager.ExistInstance())
                  UIManager.I.CloseAllView();
             var loading = UILoadingPopup.NormalLoadStart();

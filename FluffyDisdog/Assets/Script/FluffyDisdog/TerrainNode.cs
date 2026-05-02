@@ -342,7 +342,7 @@ namespace FluffyDisdog
             if ((int)currentState >= (int)NodeState.Digged)
                 return false;
             
-            if (rate >= 100 || _substateSystem.Is(NodeSubstate.Crack))
+            if (rate >= 100 || (rate >0 && _substateSystem.Is(NodeSubstate.Crack)))
             {
                 Executer?.Execute();
                 PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.TileDigged, new TileDiggedParam()

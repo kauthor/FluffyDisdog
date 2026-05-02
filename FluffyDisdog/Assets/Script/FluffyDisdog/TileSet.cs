@@ -77,7 +77,7 @@ namespace FluffyDisdog
 
             var rand = new System.Random(seed);
             
-            int obstacleAmount = 5;
+            int obstacleAmount = 5 + level/2;
             int treasureAmount = 3;
 
             var tileLevel = new GameObject();

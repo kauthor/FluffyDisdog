@@ -12,8 +12,11 @@ namespace Script.FluffyDisdog.Managers
     public class GameManager:CustomSingleton<GameManager>
     {
         private List<AsyncOperationHandle<GameObject>> handles;
+        private bool initialized;
+        public bool Initialized => initialized;
         private async void Start()
         {
+            initialized = false;
             //handles=new AsyncOperationHandle<GameObject>();
             handles = new List<AsyncOperationHandle<GameObject>>();
             var uiManager = Addressables.LoadAssetAsync<GameObject>("UIManager");
@@ -45,7 +48,7 @@ namespace Script.FluffyDisdog.Managers
             await resLoader.Task;
             //Addressables.Release(resLoader);
             handles.Add(resLoader);
-            
+            initialized = true;
             //UIManager
         }
 

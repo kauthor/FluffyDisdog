@@ -32,6 +32,12 @@ namespace FluffyDisdog
             relicList.Add(relic);
         }
 
+        public void GainRelicWhileGame(RelicName relic)
+        {
+            relicList.Add(relic);
+            InitNewCommand(ExcelManager.I.GetRelicData(relic));
+        }
+
         public void LoseRelic(RelicName relic)
         {
             if(relicList.Contains(relic))
