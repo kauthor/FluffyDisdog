@@ -75,7 +75,7 @@ namespace FluffyDisdog.UI
         {
             base.Init(param);
             //DeckManager.I.BindHandler(_=> txtCurrentTool.text = _.ToString());
-            txtCurrentScore.text = "0";
+            txtCurrentScore.text = "0 /";
 
             var hand = DeckManager.I.Hand.Count;
             var handList = DeckManager.I.Hand;
@@ -209,7 +209,7 @@ namespace FluffyDisdog.UI
 
         private void RefreshCurrentScore(int sc)
         {
-            txtCurrentScore.text = (sc*100).ToString();
+            txtCurrentScore.text = (sc*100).ToString() + " /";
         }
 
         private void OnCardHovered(int id=0)
