@@ -6,6 +6,7 @@ using FluffyDisdog.Data.RelicData;
 using FluffyDisdog.Manager;
 using FluffyDisdog.UI;
 using Script.FluffyDisdog.Managers;
+using Script.FluffyDisdog.TileClass;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -53,6 +54,9 @@ namespace FluffyDisdog
         public RelicSystem RelicSystem => relicSystem;
 
         public int currentLevel = 1;
+        
+        private TileScoreEmulator scoreEmulator;
+        public TileScoreEmulator ScoreEmulator => scoreEmulator;
 
         [Button]
         private async void GameStart(int level=1)
@@ -65,6 +69,7 @@ namespace FluffyDisdog
             await UniTask.WaitUntil(() => GameManager.I.Initialized);
             PlayerManager.I.Init();
             relicSystem.InitStageRelic();
+            scoreEmulator=new TileScoreEmulator();
             
             var load = UILoadingPopup.NormalLoadStart();
             currentLevel = level;
@@ -75,7 +80,7 @@ namespace FluffyDisdog
             await _tileSet.InitGame(currentLevel);
             
             
-            InitLevel();
+            InitLevel(_levelData, level);
             load.Close();
         }
 
@@ -109,10 +114,13 @@ namespace FluffyDisdog
         public void ResetLevel()
             => GameStart(1);
 
-        private void InitLevel()
+        private void InitLevel(LevelData before, int newLevel)
         {
             //일단 임시 데이터로 만든다.
-            _levelData = new LevelData(10 + currentLevel*2, 8);
+            if(before == null)
+                _levelData = new LevelData(800 , 8);
+            else _levelData = new LevelData(
+                before.Goal + ((newLevel-1)^2/8 + (newLevel%3==1? (newLevel/3)^3:0))*100, 8);
             currentScore = new IntReactiveFluffyProperty();
             
             DeckManager.I.Init(_levelData.MaxHandCard);

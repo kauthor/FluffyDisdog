@@ -48,6 +48,7 @@ namespace FluffyDisdog.UI
                 txtAmount.gameObject.SetActive(false);
             else txtAmount.text = $"x{amount}";
             gameObject.SetActive(true);
+            soldOut.SetActive(false);
 
             var data = ExcelManager.I.GetToolExcelData(type);
             

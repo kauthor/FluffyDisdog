@@ -751,22 +751,22 @@ PrefabInstance:
     - target: {fileID: 4893587050868545362, guid: 5b5f4c18d136b0b45b9ac26843529429,
         type: 3}
       propertyPath: startRelicNames.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4893587050868545362, guid: 5b5f4c18d136b0b45b9ac26843529429,
         type: 3}
       propertyPath: startRelicNames.Array.data[0]
-      value: 102
-      objectReference: {fileID: 0}
-    - target: {fileID: 4893587050868545362, guid: 5b5f4c18d136b0b45b9ac26843529429,
-        type: 3}
-      propertyPath: startRelicNames.Array.data[1]
       value: 103
       objectReference: {fileID: 0}
     - target: {fileID: 4893587050868545362, guid: 5b5f4c18d136b0b45b9ac26843529429,
         type: 3}
-      propertyPath: startRelicNames.Array.data[2]
+      propertyPath: startRelicNames.Array.data[1]
       value: 106
+      objectReference: {fileID: 0}
+    - target: {fileID: 4893587050868545362, guid: 5b5f4c18d136b0b45b9ac26843529429,
+        type: 3}
+      propertyPath: startRelicNames.Array.data[2]
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 4893587050868545362, guid: 5b5f4c18d136b0b45b9ac26843529429,
         type: 3}

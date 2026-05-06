@@ -11,7 +11,7 @@
                 amount = TileGameManager.I.TileSet.ValidNodeCount;
             for (int i = 0; i < amount; i++)
             {
-                var tile = TileGameManager.I.TileSet.GetRandomNode(_=>_.ValidNode());
+                var tile = TileGameManager.I.TileSet.GetRandomNode(_=>_.ValidNode()&&!_.isObstacle);
                 tile.TryDigBlockForce();
             }
         }
