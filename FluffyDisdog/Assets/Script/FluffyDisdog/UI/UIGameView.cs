@@ -44,8 +44,6 @@ namespace FluffyDisdog.UI
         
         private void Awake()
         {
-            
-            
             relicPool = new Queue<UIRelicInfoPart>();
             currentRelic = new Queue<UIRelicInfoPart>();
         }
@@ -113,7 +111,7 @@ namespace FluffyDisdog.UI
             
             CardDraw();
 
-            txtGoalScore.text = (TileGameManager.I.LevelData.Goal * 100).ToString();
+            txtGoalScore.text = (TileGameManager.I.LevelData.Goal).ToString();
             TileGameManager.I.SubscribeCurrentScore(RefreshCurrentScore);
 
             DeckManager.I.BindHandler(DisableCardWhenUsed);
@@ -209,7 +207,7 @@ namespace FluffyDisdog.UI
 
         private void RefreshCurrentScore(int sc)
         {
-            txtCurrentScore.text = (sc*100).ToString() + " /";
+            txtCurrentScore.text = (sc).ToString() + " /";
         }
 
         private void OnCardHovered(int id=0)

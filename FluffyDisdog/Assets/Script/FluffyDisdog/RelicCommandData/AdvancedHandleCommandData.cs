@@ -16,7 +16,7 @@ namespace FluffyDisdog.RelicCommandData
         protected override void OnExecuteCommand(TurnEventOptionParam param)
         {
             base.OnExecuteCommand(param);
-            PlayerManager.I.RuntimeStat.AddScoreMulti(rawData.Values[0]);
+            PlayerManager.I.RuntimeStat.AddScoreMulti(rawData.Values[1]-1);
         }
     }
     

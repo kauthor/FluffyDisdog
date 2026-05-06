@@ -285,7 +285,7 @@ namespace FluffyDisdog
             var coord = node.Coord;
             var num =coord.Item1 + row * coord.Item2;
             nodeConditions[num] = -1;
-            TileGameManager.I.AddScore(1);
+            TileGameManager.I.AddScore((int)(100*PlayerManager.I.RuntimeStat.ScoreMultiplier));
         }
 
         private List<TerrainNode> mouseEffectedNode;
