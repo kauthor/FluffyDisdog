@@ -58,6 +58,8 @@ namespace FluffyDisdog
         private TileScoreEmulator scoreEmulator;
         public TileScoreEmulator ScoreEmulator => scoreEmulator;
 
+        public event Action<bool> OnGameEnd;
+
         [Button]
         private async void GameStart(int level=1)
         {
@@ -70,6 +72,7 @@ namespace FluffyDisdog
             PlayerManager.I.Init();
             relicSystem.InitStageRelic();
             scoreEmulator=new TileScoreEmulator();
+            OnGameEnd = null;
             
             var load = UILoadingPopup.NormalLoadStart();
             currentLevel = level;
@@ -148,7 +151,7 @@ namespace FluffyDisdog
 
         public void EndScore()
         {
-            AccountManager.I.AddGold(currentScore.Value*100);
+            //AccountManager.I.AddGold(currentScore.Value*100);
         }
 
         public ToolType CurrentTool => currentTool;
@@ -169,16 +172,13 @@ namespace FluffyDisdog
 
         public void GameOverProcess(bool clear = false)
         {
+            OnGameEnd?.Invoke(clear);
             if(!clear)
                 UIGameOverResultPopup.OpenPopup();
             else
             {
                 EndScore();
-                UIStageRewardPopup.OpenPopup(() =>
-                {
-                    //TileGameManager.I.GoNextLevel();
-                    UIManager.I.ChangeView(UIType.Store);
-                });
+                UIStageClearPopup.OpenPopup(currentScore.Value/100);
             }
         }
     }

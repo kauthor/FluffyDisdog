@@ -16,6 +16,7 @@ namespace FluffyDisdog.UI
         [SerializeField] private Text txtCurrentTool;
         [SerializeField] private Text txtCurrentScore;
         [SerializeField] private Text txtGoalScore;
+        [SerializeField] private GameObject character;
 
         [SerializeField] private Transform cardArea;
         [SerializeField] private CardPart cardPrefab;
@@ -74,6 +75,7 @@ namespace FluffyDisdog.UI
             base.Init(param);
             //DeckManager.I.BindHandler(_=> txtCurrentTool.text = _.ToString());
             txtCurrentScore.text = "0 /";
+            character.SetActive(true);
 
             var hand = DeckManager.I.Hand.Count;
             var handList = DeckManager.I.Hand;
@@ -137,6 +139,8 @@ namespace FluffyDisdog.UI
                 }
             
             SyncGold();
+            TileGameManager.I.OnGameEnd -= OnGameEnd;
+            TileGameManager.I.OnGameEnd += OnGameEnd;
         }
 
         private void SyncRelic()
@@ -255,6 +259,11 @@ namespace FluffyDisdog.UI
                 relicPool.Enqueue(re);
             }
             currentRelic.Clear();
+        }
+
+        private void OnGameEnd(bool clear = false)
+        {
+            character.SetActive(false);
         }
     }
 }

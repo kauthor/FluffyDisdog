@@ -18,18 +18,19 @@ namespace FluffyDisdog.UI
         GraveyardList=9,
         GameOver=10,
         ScoreBoard=11,
+        StageClear=12,
     }
 
     public class PopupManager:CustomSingleton<PopupManager>
     {
-        private Stack<PopupMonoBehavior> popupStack;
+        private List<PopupMonoBehavior> popupList;
         [SerializeField] private PopupMonoBehavior[] popups;
         private Dictionary<PopupType, PopupMonoBehavior> popupDic;
 
         protected override void Awake()
         {
             base.Awake();
-            popupStack = new Stack<PopupMonoBehavior>();
+            popupList = new List<PopupMonoBehavior>();
             popupDic = new Dictionary<PopupType, PopupMonoBehavior>();
 
             for (int i = 0; i < popups.Length; i++)
@@ -51,7 +52,7 @@ namespace FluffyDisdog.UI
             {
                 Debug.Log(pop==null? "Null!!" : pop.ToString());
                 var newPop = Instantiate(pop);
-                popupStack.Push(newPop);
+                popupList.Add(newPop);
                 newPop.gameObject.SetActive(false);
                 newPop.transform.SetParent(transform);
                 return newPop;
@@ -62,9 +63,18 @@ namespace FluffyDisdog.UI
 
         public void ClosePopup(PopupType type)
         {
-            if (popupStack.Peek().type == type)
+            if (popupList.Exists(_=>_.type==type))
             {
-                var pop = popupStack.Pop();
+                var pop = popupList.Find(_=>_.type==type);
+                Destroy(pop.gameObject);
+            }
+        }
+
+        public void ClosePopup(PopupMonoBehavior pop)
+        {
+            if(popupList.Contains(pop))
+            {
+                popupList.Remove(pop);
                 Destroy(pop.gameObject);
             }
         }
