@@ -122,14 +122,17 @@ namespace FluffyDisdog.UI
             if (TileGameManager.I.RequestSystem.IsReqRunning)
             {
                 pnlRequestStart.SetActive(false);
-                if(TileGameManager.I.RequestSystem.ReqDegree <3)
-                   pnlRequestAdd.SetActive(true);
                 
-                foreach (var r in requestCheckImg)
-                    r.gameObject.SetActive(true);
-                requestAddPrice = TileGameManager.I.RequestSystem.ReqDegree * 5;
+                pnlRequestAdd.SetActive(true);
+
+                for (int i = 0; i < requestCheckImg.Length; i++)
+                {
+                    requestCheckImg[i].SetActive(i <= TileGameManager.I.RequestSystem.ReqRewardLevelAdd);
+                }
+                requestAddPrice = (TileGameManager.I.RequestSystem.ReqRewardLevelAdd+1) * 5;
                 txtRequestAddPrice.text = requestAddPrice.ToString();
                 txtRequestAddPrice.gameObject.SetActive(true);
+                btnRequestAdd.gameObject.SetActive(TileGameManager.I.RequestSystem.ReqRewardLevelAdd<3);
             }
             else
             {
