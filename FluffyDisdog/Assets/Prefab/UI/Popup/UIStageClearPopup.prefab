@@ -247,6 +247,9 @@ MonoBehaviour:
   - {fileID: 8274333820607001009, guid: 1090de768692b71429369cb99cb1f34e, type: 3}
   coinStartTr: {fileID: 333409588644491654}
   coinEndTr: {fileID: 8185193000376205498}
+  easeCases: 050000000600000001000000
+  coinTerm: 0.1
+  coinDuration: 0.5
 --- !u!1 &1449639655920306778
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using DG.Tweening;
 using FluffyDisdog.Manager;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace FluffyDisdog.UI
@@ -15,6 +16,24 @@ namespace FluffyDisdog.UI
         [SerializeField] private GameObject[] CoinAnimPrefabs;
         [SerializeField] private Transform coinStartTr;
         [SerializeField] private Transform coinEndTr;
+
+        /// <summary>
+        /// 이것은 코인의 경로들
+        /// </summary>
+        [FoldoutGroup("To PD")]
+        [SerializeField] private Ease[] easeCases;
+
+        /// <summary>
+        /// 이것은 코인 생성 주기
+        /// </summary>
+        [FoldoutGroup("To PD")]
+        [SerializeField] private float coinTerm=0.1f;
+        
+        /// <summary>
+        /// 이것은 코인 수명
+        /// </summary>
+        [FoldoutGroup("To PD")]
+        [SerializeField] private float coinDuration=0.5f;
 
         private int gainGold;
         private int goalGold;
@@ -51,7 +70,6 @@ namespace FluffyDisdog.UI
             var currentUIGainGold =gainGold;
 
             float temp = 0;
-            float coinTerm = 0.1f;
             float coinTemp = 0;
             while (temp < time)
             {
@@ -65,8 +83,8 @@ namespace FluffyDisdog.UI
                 {
                     coinTemp = 0;
                     var newCoin = GameObject.Instantiate(CoinAnimPrefabs[Random.Range(0,3)], coinStartTr);
-                    newCoin.transform.DOMoveX(coinEndTr.position.x, 0.5f).SetEase(Random.Range(0,2)==0? Ease.OutQuad:Ease.InQuad);
-                    newCoin.transform.DOMoveY(coinEndTr.position.y, 0.5f).SetEase(Random.Range(0,2)==0? Ease.OutQuad:Ease.InQuad).onComplete += ()=>newCoin.gameObject.SetActive(false);
+                    newCoin.transform.DOMoveX(coinEndTr.position.x, coinDuration).SetEase(easeCases[Random.Range(0,easeCases.Length)]);
+                    newCoin.transform.DOMoveY(coinEndTr.position.y, coinDuration).SetEase(easeCases[Random.Range(0,easeCases.Length)]).onComplete += ()=>newCoin.gameObject.SetActive(false);
                 }
             }
             
