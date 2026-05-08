@@ -248,8 +248,8 @@ MonoBehaviour:
   coinStartTr: {fileID: 333409588644491654}
   coinEndTr: {fileID: 8185193000376205498}
   easeCases: 050000000600000001000000
-  coinTerm: 0.1
-  coinDuration: 0.5
+  coinTerm: 0.05
+  coinDuration: 0.8
 --- !u!1 &1449639655920306778
 GameObject:
   m_ObjectHideFlags: 0
