@@ -57,7 +57,7 @@ namespace FluffyDisdog.UI
                 for (int i = 0; i < cards.Length ; i++)
                 {
                     var newTool = (ToolType)(SeedManager.I.GetStoreSeed() % 7);
-                    while (!appeared.Contains(newTool))
+                    while (appeared.Contains(newTool))
                     {
                         newTool = (ToolType)(SeedManager.I.GetStoreSeed() % 7);
                     }
