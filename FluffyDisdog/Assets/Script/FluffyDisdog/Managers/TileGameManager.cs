@@ -28,6 +28,18 @@ namespace FluffyDisdog
         }
     }
 
+    public class GameLog
+    {
+        private int attackedTile=0;
+        private int destroyedTile=0;
+        
+        public int AttackedTile => attackedTile;
+        public int DestroyedTile => destroyedTile;
+        
+        public void AttackTile() => attackedTile++;
+        public void DestroyTile() => destroyedTile++;
+    }
+
     public class TileGameManager:SceneRegardableSingleton<TileGameManager>
     {
         [SerializeField] private TileSet _tileSet;
@@ -57,6 +69,9 @@ namespace FluffyDisdog
         
         private TileScoreEmulator scoreEmulator;
         public TileScoreEmulator ScoreEmulator => scoreEmulator;
+        
+        private GameLog gameLog;
+        public GameLog GameLog => gameLog;
 
         public event Action<bool> OnGameEnd;
 
@@ -89,6 +104,7 @@ namespace FluffyDisdog
 
         private void Start()
         {
+            gameLog=new GameLog();
             GameStartRoute();
         }
 

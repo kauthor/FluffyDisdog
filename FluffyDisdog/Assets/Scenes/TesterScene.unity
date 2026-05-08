@@ -859,6 +859,11 @@ PrefabInstance:
       propertyPath: debugMod
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4162050551056156032, guid: 2a904dd25a04e9f43bf65c7972d8e591,
+        type: 3}
+      propertyPath: startDeck.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6042237236562025748, guid: 2a904dd25a04e9f43bf65c7972d8e591,
         type: 3}
       propertyPath: m_RootOrder

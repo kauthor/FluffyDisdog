@@ -286,6 +286,7 @@ namespace FluffyDisdog
             var num =coord.Item1 + row * coord.Item2;
             nodeConditions[num] = -1;
             TileGameManager.I.AddScore((int)(100*PlayerManager.I.RuntimeStat.ScoreMultiplier));
+            TileGameManager.I.GameLog.DestroyTile();
         }
 
         private List<TerrainNode> mouseEffectedNode;
@@ -415,6 +416,8 @@ namespace FluffyDisdog
             {
                 targetNode = clicked
             });
+            
+            TileGameManager.I.GameLog.AttackTile();
 
             var data = ExcelManager.I.GetToolData(currentType);
             int startCoordCol = coord.Item2 - data.CenterColumn;

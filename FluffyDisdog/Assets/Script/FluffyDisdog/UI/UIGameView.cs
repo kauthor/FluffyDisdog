@@ -52,7 +52,7 @@ namespace FluffyDisdog.UI
         private void Start()
         {
             btnDeckList.onClick.RemoveAllListeners();
-            btnDeckList.onClick.AddListener(UIDeckListPopup.OpenPopup);
+            btnDeckList.onClick.AddListener(()=>UIDeckListPopup.OpenPopup(true));
             btnOption.onClick.RemoveAllListeners();
             btnOption.onClick.AddListener(UIOptionPopup.OpenPopup);
             btnShowGrave.onClick.RemoveAllListeners();

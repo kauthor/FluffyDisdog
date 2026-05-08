@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using FluffyDisdog.Manager;
 using Script.FluffyDisdog.Managers;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,11 +13,16 @@ namespace FluffyDisdog.UI
         public override PopupType type => PopupType.GameOver;
         
         [SerializeField] private Button btnOK;
-        [SerializeField] private Transform relicParent;
-        [SerializeField] private UIRelicInfoPart relicPrefab;
         
-        private Queue<UIRelicInfoPart> relicPool;
-        private Queue<UIRelicInfoPart> currentRelic;
+        [SerializeField] private Button btnDeck;
+
+        [SerializeField] private TextMeshProUGUI txtStage;
+        [SerializeField] private TextMeshProUGUI txtAttackedTile;
+        [SerializeField] private TextMeshProUGUI txtDestroyTIle;
+        [SerializeField] private TextMeshProUGUI txtOwnGold;
+        
+        
+        
 
         public static void OpenPopup()
         {
@@ -31,8 +37,12 @@ namespace FluffyDisdog.UI
         protected override void Awake()
         {
             base.Awake();
-            relicPool = new Queue<UIRelicInfoPart>();
-            currentRelic = new Queue<UIRelicInfoPart>();
+            
+            btnDeck.onClick.RemoveAllListeners();
+            btnDeck.onClick.AddListener(() =>
+            {
+                UIDeckListPopup.OpenPopup();
+            });
         }
 
         private void Start()
@@ -51,25 +61,12 @@ namespace FluffyDisdog.UI
         
         private void Init()
         {
+            txtStage.text = $"{TileGameManager.I.currentLevel}-8";
+            txtAttackedTile.text = TileGameManager.I.GameLog.AttackedTile.ToString();
+            txtDestroyTIle.text = TileGameManager.I.GameLog.DestroyedTile.ToString();
+            txtOwnGold.text = AccountManager.I.Gold.ToString() + " G";
             //todo : 텍스트들이 사라졌다?
-            var relics = TileGameManager.I.RelicSystem.currentRelicDatas;
-            if(relics != null && relics.Length > 0)
-                foreach (var relic in relics)
-                {
-                    if (relicPool.Count > 0)
-                    {
-                        var current = relicPool.Dequeue();
-                        current.gameObject.SetActive(true);
-                        current.InitData(relic.relicName);
-                        currentRelic.Enqueue(current);
-                    }
-                    else
-                    {
-                        var newRelic = GameObject.Instantiate(relicPrefab, relicParent);
-                        newRelic.InitData(relic.relicName);
-                        currentRelic.Enqueue(newRelic);
-                    }
-                }
+            
         }
     }
 }

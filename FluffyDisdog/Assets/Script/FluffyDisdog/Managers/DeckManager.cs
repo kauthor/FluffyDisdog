@@ -84,6 +84,7 @@ namespace Script.FluffyDisdog.Managers
         public List<CardInGame> Graveyard => graveyard;
 
         private List<CardInGame> trueDeck;
+        private List<CardInGame> deckExceptHand;
 
         [SerializeField] private ToolType[] startDeck = new ToolType[]
         {
@@ -210,6 +211,7 @@ namespace Script.FluffyDisdog.Managers
             currentDigged = 0;
             currentSelected = 0;
             var l = Mathf.Min( handMax, trueDeck.Count); 
+            deckExceptHand=new List<CardInGame>();
             //변경필요
 #if UNITY_EDITOR
             if (debugMod)
@@ -223,18 +225,27 @@ namespace Script.FluffyDisdog.Managers
                     hand.Add(trueDeck[i]);
                 }
                 cardUseState = new bool[startHand.Length];
+                foreach (var item in trueDeck)
+                    deckExceptHand.Add(item);
                 cardUseState.ForEach(_ => _ = false);
             }
             else
             {
 #endif
-                for (int i = 0; i < l; i++)
+                for (int i = 0; i < trueDeck.Count; i++)
                 {
-                    PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.Draw, new DrawParam()
+                    if (i < l)
                     {
-                        toolType = trueDeck[i].ToolType
-                    });
-                    hand.Add(trueDeck[i]);
+                        PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.Draw, new DrawParam()
+                        {
+                            toolType = trueDeck[i].ToolType
+                        });
+                        hand.Add(trueDeck[i]);
+                    }
+                    else
+                    {
+                        deckExceptHand.Add(trueDeck[i]);
+                    }
                 }
 
                 cardUseState = new bool[l];
@@ -328,6 +339,7 @@ namespace Script.FluffyDisdog.Managers
                 TileGameManager.I.PrepareTool(currentType);
         }*/
 
-        public Dictionary<ToolType, int> GetDeckList() => DeckList;
+        public List<CardInGame> GetDeckList() => trueDeck;
+        public List<CardInGame> GetDeckExceptHand() => deckExceptHand;
     }
 }

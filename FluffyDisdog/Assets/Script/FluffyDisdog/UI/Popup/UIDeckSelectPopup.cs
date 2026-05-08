@@ -54,7 +54,7 @@ namespace FluffyDisdog.UI
             {
                 var newSlot = GameObject.Instantiate(cardPrefab, cardParent);
                 newSlot.transform.localScale = Vector3.one / 2.0f;
-                newSlot.Init(pair.Key, pair.Value);
+                newSlot.Init(pair.ToolType, 1);
                 newSlot.BindHandler(OnCardSelectedCB);
             }
 
