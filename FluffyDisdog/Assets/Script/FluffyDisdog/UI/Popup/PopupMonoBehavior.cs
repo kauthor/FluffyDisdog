@@ -32,7 +32,7 @@ namespace FluffyDisdog.UI
         protected virtual void OnCloseClick()
         {
             OnCloseCb?.Invoke();
-            PopupManager.GetInstance().ClosePopup(type);
+            PopupManager.GetInstance().ClosePopup(this);
         }
 
         public void Close()
