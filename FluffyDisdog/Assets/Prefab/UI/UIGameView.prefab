@@ -665,6 +665,7 @@ MonoBehaviour:
   txtCurrentTool: {fileID: 6908138397492687075}
   txtCurrentScore: {fileID: 247649951025669834}
   txtGoalScore: {fileID: 4814386000951269618}
+  character: {fileID: 7104327467191206390}
   cardArea: {fileID: 6159606902401156192}
   cardPrefab: {fileID: 3606648058237726793, guid: e11ecf542fed6de42b1b43c7980198ca,
     type: 3}
