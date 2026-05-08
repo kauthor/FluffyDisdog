@@ -1,6 +1,9 @@
-﻿using Script.FluffyDisdog.Managers;
+﻿using System;
+using System.Collections.Generic;
+using Script.FluffyDisdog.Managers;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace FluffyDisdog.UI
 {
@@ -10,10 +13,17 @@ namespace FluffyDisdog.UI
 
 
         [SerializeField] private CardPopupParts[] cards;
-        [SerializeField] private Button[] btnSelect;
-        [SerializeField] private Text[] txtBtns;
+        [SerializeField] private Button btnSkipAndNext;
+        [SerializeField] private Sprite[] skipOrNextSprite;
+        [SerializeField] private OutlinedText cardSelectText;
+
+        [SerializeField] private Button btnDeck;
 
         private ToolType[] packResults;
+
+        private int selectLimit = 1;
+        
+        private List<int> selectedCards = new List<int>();
         
         public static PopupMonoBehavior OpenPopup(int gachaType, int cost)
         {
@@ -28,41 +38,48 @@ namespace FluffyDisdog.UI
             return pop;
         }
 
+        protected override void Awake()
+        {
+            base.Awake();
+            btnSkipAndNext.onClick.RemoveAllListeners();
+            btnSkipAndNext.onClick.AddListener(() =>
+            {
+                foreach (var card in selectedCards)
+                {
+                    DeckManager.I.TryAddDeck(cards[card].ToolType);
+                }
+                Close();
+            });
+            btnDeck.onClick.RemoveAllListeners();
+            btnDeck.onClick.AddListener(() =>
+            {
+                UIDeckListPopup.OpenPopup();
+            });
+        }
+
         private void Init(int gachaType, int cost)
         {
             var result = CutPack(gachaType);
+            selectLimit = 1;
             if (result != null && result.Length > 0)
             {
                 AccountManager.I.GoldConsume(cost);
                 packResults = result;
-                for (int i = 0; i < result.Length; i++)
+                for (int i = 0; i < cards.Length; i++)
                 {
-                    if (i >= cards.Length)
-                        break;
-                    
-                    cards[i].Init(result[i],1);
+                    if (result.Length <= i)
+                    {
+                        cards[i].gameObject.SetActive(false);
+                        continue;
+                    }
+                    cards[i].gameObject.SetActive(true);
+                    cards[i].Init(result[i],0);
+                    cards[i].BindHandler(OnCardClicked);
+                    cards[i].InitAsSelectable(()=>
+                        selectedCards.Count < selectLimit);
                 }
             }
-
-            foreach (var btn in btnSelect)
-            {
-                btn.enabled = true;
-            }
-            
-            btnSelect[0].onClick.RemoveAllListeners();
-            btnSelect[0].onClick.AddListener(()=>OnSelectCard(0));
-            
-            btnSelect[1].onClick.RemoveAllListeners();
-            btnSelect[1].onClick.AddListener(()=>OnSelectCard(1));
-            
-            btnSelect[2].onClick.RemoveAllListeners();
-            btnSelect[2].onClick.AddListener(()=>OnSelectCard(2));
-
-            foreach (var btn in txtBtns)
-            {
-                //todo : localize
-                btn.text = "확정";
-            }
+            cardSelectText.SetText($"(0/{selectLimit})");
         }
 
         private ToolType[] CutPack(int gachaType)
@@ -71,20 +88,28 @@ namespace FluffyDisdog.UI
             var ret = new ToolType[3];
             for (int i = 0; i < 3; i++)
             {
-                var num = Random.Range(0, (int)ToolType.MAX);
+                var num = Random.Range(0, 10);
                 ret[i] = (ToolType)num;
             }
 
             return ret;
         }
 
-        private void OnSelectCard(int num)
+        private void OnCardClicked(ToolType t, CardPopupParts c)
         {
-            var type = cards[num].ToolType;
-            DeckManager.I.TryAddDeck(type);
+            var n = Array.IndexOf(cards, c);
+            if (c.Selected)
+            {
+                if(selectedCards.Count < selectLimit)
+                   selectedCards.Add(n);
+            }
+            else
+            {
+                selectedCards.Remove(n);
+            }
             
-            btnSelect[num].enabled =false;
-            txtBtns[num].text = "수령";
+            cardSelectText.SetText($"({selectedCards.Count}/{selectLimit})");
+            btnSkipAndNext.image.sprite = skipOrNextSprite[selectedCards.Count<=0?0:1];
         }
         
     }

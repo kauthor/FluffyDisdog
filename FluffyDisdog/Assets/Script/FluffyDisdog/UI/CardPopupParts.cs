@@ -70,6 +70,7 @@ namespace FluffyDisdog.UI
                         txtSelect.gameObject.SetActive(!selected);
                         txtCancel.gameObject.SetActive(selected);
                         imgSelected.gameObject.SetActive(selected);
+                        txtSelectTMP.SetColor(selectable() ? Color.white : Color.red);
                     }
                 }
                 OnCLicked?.Invoke(_toolType, this);
