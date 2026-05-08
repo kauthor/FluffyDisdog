@@ -70,8 +70,8 @@ MonoBehaviour:
   - {fileID: 2619300455029550065}
   - {fileID: 7003385713414923214}
   color: {r: 0.7882353, g: 0.45882353, b: 0.21960784, a: 1}
-  text: "\uC751\uC560"
-  fontSize: 28
+  text: "\uC544\uB2C8 \uC774\uAC70 \uAE00\uC528\uD06C\uAE30\uAC00"
+  fontSize: 10
 --- !u!1 &910486886945542455
 GameObject:
   m_ObjectHideFlags: 0
@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 2603199766362451597}
   - component: {fileID: 4052554131970531226}
   m_Layer: 5
-  m_Name: NW
+  m_Name: S
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,7 +107,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -158, y: -26}
+  m_AnchoredPosition: {x: -156, y: -29}
   m_SizeDelta: {x: 312, y: 56}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &2603199766362451597
@@ -138,10 +138,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC751\uC560"
+  m_text: "\uC544\uB2C8 \uC774\uAC70 \uAE00\uC528\uD06C\uAE30\uAC00"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5b0757f93048e8b418ac7f3d524ae838, type: 2}
-  m_sharedMaterial: {fileID: 5339747318763072104, guid: 5b0757f93048e8b418ac7f3d524ae838,
+  m_fontAsset: {fileID: 11400000, guid: 912bfea632bf560478f60b8e433b33c4, type: 2}
+  m_sharedMaterial: {fileID: -4257709563775490399, guid: 912bfea632bf560478f60b8e433b33c4,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -166,8 +166,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
-  m_fontSizeBase: 28
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 8285978753365307475}
   - component: {fileID: 2679966768226424080}
   m_Layer: 5
-  m_Name: SW
+  m_Name: N
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -243,7 +243,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -158, y: -30}
+  m_AnchoredPosition: {x: -156, y: -27}
   m_SizeDelta: {x: 312, y: 56}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &8285978753365307475
@@ -274,10 +274,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC751\uC560"
+  m_text: "\uC544\uB2C8 \uC774\uAC70 \uAE00\uC528\uD06C\uAE30\uAC00"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5b0757f93048e8b418ac7f3d524ae838, type: 2}
-  m_sharedMaterial: {fileID: 5339747318763072104, guid: 5b0757f93048e8b418ac7f3d524ae838,
+  m_fontAsset: {fileID: 11400000, guid: 912bfea632bf560478f60b8e433b33c4, type: 2}
+  m_sharedMaterial: {fileID: -4257709563775490399, guid: 912bfea632bf560478f60b8e433b33c4,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -302,8 +302,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
-  m_fontSizeBase: 28
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -356,7 +356,7 @@ GameObject:
   - component: {fileID: 8727504671360471373}
   - component: {fileID: 2619300455029550065}
   m_Layer: 5
-  m_Name: SE
+  m_Name: E
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -379,7 +379,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -154, y: -30}
+  m_AnchoredPosition: {x: -155, y: -28}
   m_SizeDelta: {x: 312, y: 56}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &8727504671360471373
@@ -410,10 +410,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC751\uC560"
+  m_text: "\uC544\uB2C8 \uC774\uAC70 \uAE00\uC528\uD06C\uAE30\uAC00"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5b0757f93048e8b418ac7f3d524ae838, type: 2}
-  m_sharedMaterial: {fileID: 5339747318763072104, guid: 5b0757f93048e8b418ac7f3d524ae838,
+  m_fontAsset: {fileID: 11400000, guid: 912bfea632bf560478f60b8e433b33c4, type: 2}
+  m_sharedMaterial: {fileID: -4257709563775490399, guid: 912bfea632bf560478f60b8e433b33c4,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -438,8 +438,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
-  m_fontSizeBase: 28
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -492,7 +492,7 @@ GameObject:
   - component: {fileID: 6243141891423812139}
   - component: {fileID: 7003385713414923214}
   m_Layer: 5
-  m_Name: NE
+  m_Name: W
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -515,7 +515,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -154, y: -26}
+  m_AnchoredPosition: {x: -157, y: -28}
   m_SizeDelta: {x: 312, y: 56}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &6243141891423812139
@@ -546,10 +546,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC751\uC560"
+  m_text: "\uC544\uB2C8 \uC774\uAC70 \uAE00\uC528\uD06C\uAE30\uAC00"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5b0757f93048e8b418ac7f3d524ae838, type: 2}
-  m_sharedMaterial: {fileID: 5339747318763072104, guid: 5b0757f93048e8b418ac7f3d524ae838,
+  m_fontAsset: {fileID: 11400000, guid: 912bfea632bf560478f60b8e433b33c4, type: 2}
+  m_sharedMaterial: {fileID: -4257709563775490399, guid: 912bfea632bf560478f60b8e433b33c4,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -574,8 +574,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
-  m_fontSizeBase: 28
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -682,10 +682,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC751\uC560"
+  m_text: "\uC544\uB2C8 \uC774\uAC70 \uAE00\uC528\uD06C\uAE30\uAC00"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5b0757f93048e8b418ac7f3d524ae838, type: 2}
-  m_sharedMaterial: {fileID: 5339747318763072104, guid: 5b0757f93048e8b418ac7f3d524ae838,
+  m_fontAsset: {fileID: 11400000, guid: 912bfea632bf560478f60b8e433b33c4, type: 2}
+  m_sharedMaterial: {fileID: -4257709563775490399, guid: 912bfea632bf560478f60b8e433b33c4,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -710,8 +710,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
-  m_fontSizeBase: 28
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
