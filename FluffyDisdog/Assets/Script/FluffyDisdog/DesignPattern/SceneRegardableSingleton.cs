@@ -1,4 +1,5 @@
-﻿using Script.FluffyDisdog.Managers;
+﻿using System;
+using Script.FluffyDisdog.Managers;
 using UnityEngine;
 
 namespace FluffyDisdog
@@ -15,9 +16,14 @@ namespace FluffyDisdog
         protected virtual void Awake()
         {
             Instance ??= GetComponent<T>();
+            
+        }
+
+        private void Start()
+        {
             LoadSceneManager.I.BindSceneAction(OnSceneEnd);
         }
-        
+
         private void OnSceneEnd()
           => Instance = default(T);
     }

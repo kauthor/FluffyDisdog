@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Script.FluffyDisdog.Managers;
 using Sirenix.Utilities;
@@ -16,16 +17,29 @@ namespace FluffyDisdog.UI
         [SerializeField] private Button btnSelectRemoveFromDeck;
 
         [SerializeField] private Button btnReroll;
+        [SerializeField] private Button btnSkipAndNext;
+        [SerializeField] private Sprite[] skipOrNextSprite;
+
+        [SerializeField] private OutlinedText rerollCountText;
+        [SerializeField] private OutlinedText cardSelectText;
 
         private Action OnClosedCb;
 
-        public static void OpenPopup(Action onClosed)
+        private List<ToolType> currentSelected;
+
+        private int cardLimit;
+
+        private int rerollLimit = 2;
+        private int rerollCount = 0;
+        
+
+        public static void OpenPopup(Action onClosed, int cardLimit=1)
         {
             var pop = PopupManager.I.GetPopup(PopupType.Reward);
             if (pop is UIStageRewardPopup re)
             {
                 re.gameObject.SetActive(true);
-                re.Init(onClosed);
+                re.Init(onClosed, cardLimit);
             }
         }
 
@@ -35,13 +49,25 @@ namespace FluffyDisdog.UI
             btnReroll.onClick.RemoveAllListeners();
             btnReroll.onClick.AddListener(() =>
             {
+                if (rerollCount >= rerollLimit)
+                    return;
+                rerollCount++;
+                rerollCountText.SetText($"({rerollLimit-rerollCount}/{rerollLimit})");
+                List<ToolType> appeared = new List<ToolType>();
                 for (int i = 0; i < cards.Length ; i++)
                 {
-                    cards[i].Init((ToolType) (SeedManager.I.GetStoreSeed() %2), 0);
+                    var newTool = (ToolType)(SeedManager.I.GetStoreSeed() % 7);
+                    while (!appeared.Contains(newTool))
+                    {
+                        newTool = (ToolType)(SeedManager.I.GetStoreSeed() % 7);
+                    }
+                    appeared.Add(newTool);
+                    cards[i].Init(newTool, 0);
                     cards[i].BindHandler((a, b) =>
                     {
-                        OnCardClicked(a);
+                        OnCardClicked(a,b);
                     });
+                    cards[i].InitAsSelectable(()=> currentSelected.Count < cardLimit);
                 }
                 //cards[^1].SetCardData(DeckManager.I.GetRandomCardFromDeck());
             });
@@ -55,20 +81,42 @@ namespace FluffyDisdog.UI
                     Close();
                 });
             });
+            
+            btnSkipAndNext.onClick.RemoveAllListeners();
+            btnSkipAndNext.onClick.AddListener(() =>
+            {
+                foreach (var card in currentSelected)
+                {
+                    DeckManager.I.TryAddDeck(card);
+                }
+                Close();
+            });
         }
 
-        private void Init(Action onclosed)
+        private void Init(Action onclosed, int cardLimit=1)
         {
+            List<ToolType> appeared = new List<ToolType>();
             for (int i = 0; i < cards.Length ; i++)
             {
-                cards[i].Init( (ToolType) (SeedManager.I.GetStoreSeed() %2), 0);
+                var newTool = (ToolType)(SeedManager.I.GetStoreSeed() % 7);
+                while (appeared.Contains(newTool))
+                {
+                    newTool = (ToolType)(SeedManager.I.GetStoreSeed() % 7);
+                }
+                appeared.Add(newTool);
+                cards[i].Init( newTool, 0);
                 cards[i].BindHandler((a, b) =>
                 {
-                    OnCardClicked(a);
+                    OnCardClicked(a,b);
                 });
+                cards[i].InitAsSelectable(()=> currentSelected.Count < cardLimit);
             }
             //cards[^1].InitAsReroll(OnRerollCardClicked, DeckManager.I.GetRandomCardFromDeck());
             OnClosedCb = onclosed;
+            this.cardLimit = cardLimit;
+            currentSelected = new List<ToolType>();
+            cardSelectText.SetText($"(0/{cardLimit})");
+            rerollCountText.SetText($"({rerollLimit}/{rerollLimit})");
         }
 
         protected override void OnCloseClick()
@@ -77,10 +125,22 @@ namespace FluffyDisdog.UI
             OnClosedCb?.Invoke();
         }
 
-        private void OnCardClicked(ToolType tool)
+        private void OnCardClicked(ToolType tool, CardPopupParts card)
         {
-            DeckManager.I.TryAddDeck(tool);
-            Close();
+            //DeckManager.I.TryAddDeck(tool);
+            //Close();
+            if(card.Selected)
+            {
+                if (currentSelected.Count < cardLimit)
+                    currentSelected.Add(tool);
+            }
+            else
+            {
+                currentSelected.Remove(tool);
+            }
+            
+            cardSelectText.SetText($"({currentSelected.Count}/{cardLimit})");
+            btnSkipAndNext.image.sprite = skipOrNextSprite[currentSelected.Count<=0?0:1];
         }
 
         private void OnRerollCardClicked(ToolType tool)

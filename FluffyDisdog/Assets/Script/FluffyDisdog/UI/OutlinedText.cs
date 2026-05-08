@@ -32,5 +32,14 @@ namespace FluffyDisdog.UI
                 outline.fontSize = fontSize;
             }
         }
+        
+        public void SetColor(Color color)
+        => mainText.color = color;
+
+        public void SetText(string text)
+        {
+            this.text = text;
+            Sync();
+        }
     }
 }
