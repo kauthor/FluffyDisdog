@@ -47,7 +47,7 @@ namespace FluffyDisdog.UI
             purchased = false;
             
             var data = ExcelManager.I.GetRelicData(relicType);
-            var nameTxt = ExcelManager.I.GetLocalizeData(data);
+            //var nameTxt = ExcelManager.I.GetLocalizeData(data);
             
             txtRelicName.text = relicType.ToString();
             txtRelicPrice.text = cost.ToString();
