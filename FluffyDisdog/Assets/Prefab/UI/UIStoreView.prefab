@@ -834,6 +834,7 @@ MonoBehaviour:
   - {fileID: 1068281811850095016}
   - {fileID: 5577866908005156934}
   - {fileID: 7026575077201190269}
+  requestDayFlow: {fileID: 6122285558282605346}
   txtRequestAddPrice: {fileID: 2706035073978955056}
   goldCasher: {fileID: 4133507586884539939}
   btnOption: {fileID: 1146850022427423525}
@@ -1736,7 +1737,7 @@ GameObject:
   - component: {fileID: 4406929204332612927}
   - component: {fileID: 6122285558282605346}
   m_Layer: 5
-  m_Name: Text (Legacy) (3)
+  m_Name: TxtDay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
