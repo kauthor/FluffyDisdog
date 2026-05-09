@@ -43,6 +43,8 @@ namespace FluffyDisdog.UI
         [SerializeField] private UIRelicInfoPart relicPrefab;
         [SerializeField] private Transform relicParent;
         [SerializeField] private ScrollRect relicScrollView;
+        [SerializeField] private Button scrollLeftButton;
+        [SerializeField] private Button scrollRightButton;
 
         [SerializeField] private Button btnOption;
 
@@ -62,6 +64,20 @@ namespace FluffyDisdog.UI
             btnOption.onClick.AddListener(UIOptionPopup.OpenPopup);
             btnShowGrave.onClick.RemoveAllListeners();
             btnShowGrave.onClick.AddListener(UIGraveyardList.OpenPopup);
+            
+            scrollRightButton.onClick.RemoveAllListeners();
+            scrollRightButton.onClick.AddListener(() =>
+            {
+                relicScrollView.content.anchoredPosition = relicScrollView.content.anchoredPosition
+                                                           + new Vector2(-40, 0);
+            });
+            
+            scrollLeftButton.onClick.RemoveAllListeners();
+            scrollLeftButton.onClick.AddListener(() =>
+            {
+                relicScrollView.content.anchoredPosition = relicScrollView.content.anchoredPosition
+                                                           + new Vector2(40, 0);
+            });
         }
 
         private void SyncGold()

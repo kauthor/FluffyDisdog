@@ -764,6 +764,8 @@ MonoBehaviour:
     type: 3}
   relicParent: {fileID: 6020680510441576039}
   relicScrollView: {fileID: 7024066472295174355}
+  scrollLeftButton: {fileID: 3900171500343893819}
+  scrollRightButton: {fileID: 8532909902258092679}
   btnOption: {fileID: 8541614069882271719}
   pnlGrave: {fileID: 3886927158565451757}
 --- !u!1 &3530299215661235440
