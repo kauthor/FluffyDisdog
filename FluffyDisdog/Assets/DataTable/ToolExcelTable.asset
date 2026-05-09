@@ -557,20 +557,37 @@ MonoBehaviour:
     sortId: 0
     cardGridId: Card_Effect_101
     cardImgId: Card_Illust_132
-  - cardKeyNew: 0
-    cardKeyString: 
-    cardNameKeyLocal: 
-    cardDescKeyLocal: 
-    cardTypeId: 0
-    charaTypeId: 0
-    upgradeTypeId: 0
-    upgradeKey: 
-    rarityKey: 0
-    carBit: 0
+  - cardKeyNew: 32
+    cardKeyString: Card_RiftStartumAnalysis
+    cardNameKeyLocal: Card_RiftStartumAnalysis_Name
+    cardDescKeyLocal: Card_RiftStartumAnalysis_Des
+    cardTypeId: 1
+    charaTypeId: 2
+    upgradeTypeId: 1
+    upgradeKey: Card_RiftStartumAnalysis_Enhanced
+    rarityKey: 3
+    carBit: 1
     cardTagBit: 0
     manaCost: 0
-    addedOptionIds: 
+    addedOptionIds: 6e0000006f00000070000000
     cardDescId: 0
     sortId: 0
-    cardGridId: 
-    cardImgId: 
+    cardGridId: Card_Effect_133
+    cardImgId: Card_Illust_133
+  - cardKeyNew: 33
+    cardKeyString: Card_RiftStartumAnalysis_Enhanced
+    cardNameKeyLocal: Card_RiftStartumAnalysis_Enhanced_Name
+    cardDescKeyLocal: Card_RiftStartumAnalysis_Enhanced_Des
+    cardTypeId: 1
+    charaTypeId: 2
+    upgradeTypeId: 2
+    upgradeKey: Card_RiftStartumAnalysis
+    rarityKey: 3
+    carBit: 1
+    cardTagBit: 0
+    manaCost: 0
+    addedOptionIds: 710000007200000073000000
+    cardDescId: 0
+    sortId: 0
+    cardGridId: Card_Effect_133
+    cardImgId: Card_Illust_134
