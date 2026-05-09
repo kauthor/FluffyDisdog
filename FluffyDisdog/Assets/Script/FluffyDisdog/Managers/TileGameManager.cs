@@ -58,7 +58,12 @@ namespace FluffyDisdog
         public LevelData LevelData => _levelData;
         private IntReactiveFluffyProperty currentScore;
         public IntReactiveFluffyProperty CurrentScore => currentScore;
-        private bool isGameRunning=false;
+
+        private bool isGameRunning
+        {
+            get;
+            set;
+        }
 
         public bool IsGameRunning => isGameRunning;
         

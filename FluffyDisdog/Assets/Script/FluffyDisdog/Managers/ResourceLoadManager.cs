@@ -100,7 +100,8 @@ namespace Script.FluffyDisdog.Managers
             }
             
             var sprite = ret.GetSprite(key);
-            sprite.texture.filterMode = FilterMode.Point;
+            if(sprite!=null)
+               sprite.texture.filterMode = FilterMode.Point;
             loadEnd?.Invoke(sprite);
         }
 

@@ -15,8 +15,7 @@ namespace FluffyDisdog
 
         protected virtual void Awake()
         {
-            Instance ??= GetComponent<T>();
-            
+            Instance = GetComponent<T>();
         }
 
         private void Start()
