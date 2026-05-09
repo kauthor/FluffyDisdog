@@ -100,11 +100,8 @@ namespace Script.FluffyDisdog.Managers
             }
             
             var sprite = ret.GetSprite(key);
-            if (sprite != null)
-            {
-                sprite.texture.filterMode = FilterMode.Point;
-                sprite.texture.Apply();
-            }
+            if(sprite!=null)
+               sprite.texture.filterMode = FilterMode.Point;
             loadEnd?.Invoke(sprite);
         }
 
@@ -138,7 +135,6 @@ namespace Script.FluffyDisdog.Managers
                     var rawData = ExcelManager.I.GetTagData(bit);
                     var fil = ret.GetSprite(rawData.tagImage);
                     fil.texture.filterMode = FilterMode.Point;
-                    fil.texture.Apply();
                     onEnd.Add(fil);
                 }
             }
