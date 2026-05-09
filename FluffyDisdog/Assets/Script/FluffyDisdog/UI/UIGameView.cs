@@ -231,7 +231,7 @@ namespace FluffyDisdog.UI
             txtCurrentTool.gameObject.SetActive(false);
             if(!pnlGrave.gameObject.activeSelf)
                 pnlGrave.gameObject.SetActive(true);
-            pnlGrave.Init(card.ToolType,0);
+            pnlGrave.Init(card.ToolType,0,false);
             CardSort(true);
         }
 
