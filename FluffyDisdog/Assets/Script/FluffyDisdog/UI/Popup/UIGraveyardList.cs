@@ -30,6 +30,7 @@ namespace FluffyDisdog.UI
             foreach (var data in list)
             {
                 var card = GameObject.Instantiate(cardPrefab, cardHolder) as CardPopupParts;
+                card.transform.localScale = Vector3.one / 2.0f;
                 card.Init(data.ToolType, 1);
             }
         }

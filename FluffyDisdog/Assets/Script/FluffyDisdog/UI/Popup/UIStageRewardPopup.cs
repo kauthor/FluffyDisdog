@@ -80,7 +80,8 @@ namespace FluffyDisdog.UI
             {
                 UIDeckSelectPopup.OpenPopup(_ =>
                 {
-                    DeckManager.I.RemoveCard(_);
+                    if(_ != ToolType.None)
+                       DeckManager.I.RemoveCard(_);
                     Close();
                 });
             });

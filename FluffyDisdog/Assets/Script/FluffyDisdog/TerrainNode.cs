@@ -528,13 +528,18 @@ namespace FluffyDisdog
             string txt = rate.ToString();
             if (rate > 0)
             {
-                txtRate.SetText(txt);
-                txtRateOutlines.ForEach(_ => _.SetText(txt));
+                txtRate.SetText(txt+ "%");
+                txtRate.gameObject.SetActive(true);
+                txtRateOutlines.ForEach(_ =>
+                {
+                    _.gameObject.SetActive(true);
+                    _.SetText(txt + "%");
+                });
             }
             else if(on)
             {
                 txtRate.gameObject.SetActive(false);
-                txtRateOutlines.ForEach(_ => _.SetText(txt));
+                txtRateOutlines.ForEach(_ => _.gameObject.SetActive(false));
             }
         }
 
