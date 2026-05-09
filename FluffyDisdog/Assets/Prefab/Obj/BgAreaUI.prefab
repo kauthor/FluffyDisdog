@@ -387,6 +387,8 @@ MonoBehaviour:
   initialColume: 8
   testSeed: -1
   shakeAnim: {fileID: 4122182140840803225}
+  fontPartPrefab: {fileID: 4145711590806245604, guid: 6ee253113363b2d4aa4b83e49a2bfbd4,
+    type: 3}
 --- !u!111 &4122182140840803225
 Animation:
   m_ObjectHideFlags: 0

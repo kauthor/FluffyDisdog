@@ -4,6 +4,7 @@ using System.Linq;
 using Cysharp.Threading.Tasks;
 using FluffyDisdog.CardOptionExecuter;
 using FluffyDisdog.RelicCommandData;
+using FluffyDisdog.UI;
 using Script.FluffyDisdog.Managers;
 using Sirenix.Utilities;
 using UnityEngine;
@@ -52,6 +53,10 @@ namespace FluffyDisdog
         private TurnEventSystem _eventSystem;
         public TurnEventSystem EventSystem=>_eventSystem;
 
+        [SerializeField] private DamageFontPart fontPartPrefab;
+
+        private Stack<DamageFontPart> fontPool;
+
         public void BindTileClickedHandler(Action cb)
         {
             OnNodeClickedCB -= cb;
@@ -62,6 +67,7 @@ namespace FluffyDisdog
         {
             //nodes = nodesParent.GetComponentsInChildren<TerrainNode>();
             OnNodeClickedCB = null;
+            fontPool = new Stack<DamageFontPart>();
         }
 
         public async UniTask InitGame(int level =1)
@@ -285,7 +291,25 @@ namespace FluffyDisdog
             var coord = node.Coord;
             var num =coord.Item1 + row * coord.Item2;
             nodeConditions[num] = -1;
-            TileGameManager.I.AddScore((int)(100*PlayerManager.I.RuntimeStat.ScoreMultiplier));
+            var score = (int)(100 * PlayerManager.I.RuntimeStat.ScoreMultiplier);
+
+            DamageFontPart parameter=null;
+            
+            if(fontPool.Count>0)
+                parameter = fontPool.Pop();
+            else
+            {
+                parameter = GameObject.Instantiate(fontPartPrefab, transform);
+            }
+            
+            parameter.gameObject.SetActive(true);
+            parameter.Show(score, node.transform, _ =>
+            {
+                _.gameObject.SetActive(false);
+                fontPool.Push(_);
+            }).Forget();
+            
+            TileGameManager.I.AddScore(score);
             TileGameManager.I.GameLog.DestroyTile();
         }
 
