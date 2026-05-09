@@ -1,6 +1,7 @@
 ﻿using System;
 using Script.FluffyDisdog.Managers;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -84,7 +85,7 @@ namespace FluffyDisdog.UI
             soldOut.SetActive(false);
         }
 
-        public void Init(ToolType type, int amount)
+        public void Init(ToolType type, int amount, bool showTag=true)
         {
             txtType.text = type.ToString();
             txtShadow.text = type.ToString();
@@ -117,19 +118,27 @@ namespace FluffyDisdog.UI
                     {
                         cardRarityIcon.sprite = _;
                     }).Forget();
-                ResourceLoadManager.I.LoadTagIcon(data.CarBit, _ =>
+                
+                if (showTag)
                 {
-                    for (int i = 0; i < tagIcons.Length; i++)
+                    ResourceLoadManager.I.LoadTagIcon(data.CarBit, _ =>
                     {
-                        if (i >= _.Count)
+                        for (int i = 0; i < tagIcons.Length; i++)
                         {
-                            tags[i].gameObject.SetActive(false);
-                            continue;
+                            if (i >= _.Count)
+                            {
+                                tags[i].gameObject.SetActive(false);
+                                continue;
+                            }
+                            tags[i].gameObject.SetActive(true);
+                            tagIcons[i].sprite = _[i];
                         }
-                        tags[i].gameObject.SetActive(true);
-                        tagIcons[i].sprite = _[i];
-                    }
-                }).Forget();
+                    }).Forget();
+                }
+                else
+                {
+                    tags.ForEach(_=>_.gameObject.SetActive(false));
+                }
             }
             hoverArea.SetActive(false);
             imgSelected.SetActive(false);

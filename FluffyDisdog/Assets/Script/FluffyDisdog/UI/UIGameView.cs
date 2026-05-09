@@ -8,6 +8,8 @@ using DG.Tweening;
 using Script.FluffyDisdog.Managers;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
+using Button = UnityEngine.UI.Button;
 
 namespace FluffyDisdog.UI
 {
@@ -40,6 +42,7 @@ namespace FluffyDisdog.UI
         
         [SerializeField] private UIRelicInfoPart relicPrefab;
         [SerializeField] private Transform relicParent;
+        [SerializeField] private ScrollRect relicScrollView;
 
         [SerializeField] private Button btnOption;
 
@@ -111,7 +114,7 @@ namespace FluffyDisdog.UI
                 current.gameObject.SetActive(false);
             }
             
-            
+            //relicScrollView.
             
             CardDraw();
 

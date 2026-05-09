@@ -133,7 +133,9 @@ namespace Script.FluffyDisdog.Managers
                 if (bit > 0)
                 {
                     var rawData = ExcelManager.I.GetTagData(bit);
-                    onEnd.Add(ret.GetSprite(rawData.tagImage));
+                    var fil = ret.GetSprite(rawData.tagImage);
+                    fil.texture.filterMode = FilterMode.Point;
+                    onEnd.Add(fil);
                 }
             }
             loadEnd?.Invoke(onEnd);
