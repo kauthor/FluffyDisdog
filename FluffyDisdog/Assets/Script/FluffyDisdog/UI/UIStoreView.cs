@@ -215,11 +215,37 @@ namespace FluffyDisdog.UI
         {
             if (AccountManager.I.Gold < 5)
                 return;
-            foreach (var r in relics)
+            /*foreach (var r in relics)
             {
                 if(!r.Purchased)
                     r.Reroll(20, (int)Random.Range(101, (int)RelicName.HorizontalVerticalStabilizer +1), OnClickRelicPack);
+            }*/
+            
+            
+            List<int> usedRelic=new List<int>();
+            var curRelic = TileGameManager.I.RelicSystem.currentRelicDatas;
+            for (int i = 0; i < curRelic.Length; i++)
+            {
+                usedRelic.Add((int)curRelic[i].relicName);
             }
+            foreach (var r in relics)
+            {
+                int rel = -1;
+                if (usedRelic.Count >= 22)
+                {
+                    r.gameObject.SetActive(false);
+                    continue;
+                }
+                for (;usedRelic.Contains(rel)||rel<0;)
+                {
+                    rel = Random.Range(101, (int)RelicName.HorizontalVerticalStabilizer + 1);
+                }
+                usedRelic.Add(rel);
+                 
+                r.Reroll(20, rel, OnClickRelicPack);
+                r.gameObject.SetActive(true);
+            }
+            
 
             foreach (var p in packs)
             {
