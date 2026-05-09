@@ -33,7 +33,7 @@ namespace FluffyDisdog.UI
             this.onCardPackOpen += onCardPackOpen;
             purchased=false;
             pnlPurchase.SetActive(false);
-            txtCardPackPrice.SetText(cost.ToString());
+            txtCardPackPrice.SetText(cost.ToString() +" G");
         }
 
         public void Reroll(int cost, int gachaType, Action<int, int, UICardPackSelectPart> onCardPackOpen)
