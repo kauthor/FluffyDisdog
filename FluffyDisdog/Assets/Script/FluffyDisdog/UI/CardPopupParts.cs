@@ -88,6 +88,7 @@ namespace FluffyDisdog.UI
 
         public void Init(ToolType type, int amount, bool showTag=true)
         {
+            selected = false;
             txtType.text = type.ToString();
             txtShadow.text = type.ToString();
             _toolType = type;

@@ -72,6 +72,7 @@ namespace FluffyDisdog.UI
                     });
                     cards[i].InitAsSelectable(()=> currentSelected.Count < cardLimit);
                 }
+                btnSkipAndNext.image.sprite = skipOrNextSprite[0];
                 //cards[^1].SetCardData(DeckManager.I.GetRandomCardFromDeck());
             });
             
