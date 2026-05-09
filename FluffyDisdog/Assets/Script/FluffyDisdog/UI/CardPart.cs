@@ -1,6 +1,8 @@
 ﻿using System;
 using FluffyDisdog.Data;
 using Script.FluffyDisdog.Managers;
+using Sirenix.OdinInspector;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -23,6 +25,10 @@ namespace FluffyDisdog.UI
 
         [SerializeField] private Image[] tagIcons;
         [SerializeField] private GameObject[] tags;
+        
+        [FoldoutGroup("local")] [SerializeField]
+        private TextMeshProUGUI txtDesc;
+        
         private int ID;
         private ToolType _toolType;
         public ToolType ToolType => _toolType;
@@ -68,6 +74,16 @@ namespace FluffyDisdog.UI
             onClickCanceledCb = onCancelCb;
             Select(false);
             Flip(false);
+
+            if (data != null)
+            {
+                var localDesc = ExcelManager.I.GetLocalizeData(data.CardDescKeyLocal);
+                var localName = ExcelManager.I.GetLocalizeData(data.CardNameKeyLocal);
+                txtType.text = localName.kor;
+                txtNameShadow.text = localName.kor;
+                txtDesc.SetText(localDesc.kor);
+            }
+            
 
             if (data != null)
             {

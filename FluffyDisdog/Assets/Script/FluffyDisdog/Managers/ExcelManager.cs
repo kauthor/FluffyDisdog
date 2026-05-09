@@ -18,6 +18,7 @@ namespace Script.FluffyDisdog.Managers
         private GachaTable _gachaTable;
         
         private TagTable _tagTable;
+        private LocalizeTable _localizeTable;
 
         private Dictionary<ToolType, ToolData> toolDataDic;
         private Dictionary<RelicName, RelicData> relicDataDic;
@@ -25,6 +26,8 @@ namespace Script.FluffyDisdog.Managers
         private Dictionary<int, ToolCardOpData> toolCardOpDataDic;
         private Dictionary<int, GacheInGameData> gacheInGameDataDic;
         private Dictionary<int, TagData> tagDataDic;
+        private Dictionary<string, LocalizeData> localizeDataDic;
+        
         
         private bool initialized=false;
         public bool Initialized => initialized;
@@ -99,12 +102,23 @@ namespace Script.FluffyDisdog.Managers
             await tagHandle;
             Addressables.Release(tagHandle);
             
+            AsyncOperationHandle localizeHandle =
+                Addressables.LoadAssetAsync<LocalizeTable>("LocalizeTable");
+            localizeHandle.Completed += op =>
+            {
+                var res = op.Result as LocalizeTable;
+                _localizeTable = res;
+            };
+            await localizeHandle;
+            Addressables.Release(localizeHandle);
+            
             toolDataDic = _toolTable.TryCache();
             relicDataDic = _relicDataTable.TryCache();
             toolExcelDataDic = _toolExcelDatas.TryCache();
             toolCardOpDataDic = _toolCardOptionTable.TryCache();
             gacheInGameDataDic = _gachaTable.TryCache();
             tagDataDic = _tagTable.TryCache();
+            localizeDataDic = _localizeTable.TryCache();
             
             initialized=true;
         }
@@ -141,6 +155,12 @@ namespace Script.FluffyDisdog.Managers
         public TagData GetTagData(int id)
         {
             tagDataDic.TryGetValue(id, out var ret);
+            return ret;
+        }
+
+        public LocalizeData GetLocalizeData(string name)
+        {
+            localizeDataDic.TryGetValue(name, out var ret);
             return ret;
         }
     }

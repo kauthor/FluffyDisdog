@@ -7,6 +7,8 @@ using FluffyDisdog.RelicCommandData;
 using Script.FluffyDisdog.Managers;
 using Script.FluffyDisdog.TileClass;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -206,6 +208,8 @@ namespace FluffyDisdog
         [SerializeField] private Sprite[] obstaclePool;
         [SerializeField] private Sprite afterImageSprite;
         [SerializeField] private Transform mouseOverEffect;
+        [SerializeField] private TextMeshProUGUI txtRate;
+        [SerializeField] private TextMeshProUGUI[] txtRateOutlines;
 
         [SerializeField] private NodeSubstate[] substatesKey;
         [SerializeField] private Sprite[] substatesValueSprite;
@@ -516,10 +520,22 @@ namespace FluffyDisdog
 
         
         
-        public void MouseOverOnOff(bool on)
+        public void MouseOverOnOff(bool on, int rate=0)
         {
             if(mouseOverEffect!=null)
                 mouseOverEffect.gameObject.SetActive(on);
+
+            string txt = rate.ToString();
+            if (rate > 0)
+            {
+                txtRate.SetText(txt);
+                txtRateOutlines.ForEach(_ => _.SetText(txt));
+            }
+            else if(on)
+            {
+                txtRate.gameObject.SetActive(false);
+                txtRateOutlines.ForEach(_ => _.SetText(txt));
+            }
         }
 
         

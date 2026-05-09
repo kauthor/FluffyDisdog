@@ -161,7 +161,7 @@ namespace FluffyDisdog.UI
                 card.transform.position = //new Vector3(cardSpace * i, 0, 0);
                     deckPosition.transform.position;
                 card.gameObject.SetActive(true);
-                var target = cardArea.transform.position + new Vector3(cardSpace * (i+1), -250, 0);
+                var target = cardArea.transform.position + new Vector3(cardSpace * (i), -250, 0);
                 card.transform.SetAsLastSibling();
                 card.transform.DOMove(target, 0.5f);
                 card.transform.DOScaleX(0, 0.125f)
@@ -246,7 +246,7 @@ namespace FluffyDisdog.UI
                 currentCard[i].transform.SetSiblingIndex(trId);
                 
                 currentCard[i].transform.localPosition = 
-                    new Vector3(cardSpace * (trId+1),currentCard[i].IsSelected? 200 :-250, 0);
+                    new Vector3(cardSpace * (trId),currentCard[i].IsSelected? 200 :-250, 0);
                 trId++;
             }
 

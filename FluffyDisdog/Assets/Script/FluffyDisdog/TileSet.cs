@@ -351,7 +351,7 @@ namespace FluffyDisdog
                     //여기서 활성화여부 체크
                     if(currentNode.ValidNode())
                     {
-                        currentNode.MouseOverOnOff(true);
+                        currentNode.MouseOverOnOff(true, data.ratio[j+i*data.cellWidth]);
                         mouseEffectedNode.Add(currentNode);
                     }
                 }

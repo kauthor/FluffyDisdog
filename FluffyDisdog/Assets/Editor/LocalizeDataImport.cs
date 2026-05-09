@@ -1,24 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
-using UnityEditor;
-using UnityEngine;
+﻿using System.IO;
 using ExcelDataReader;
-using FluffyDisdog.Data.RelicData;
+using FluffyDisdog.Data;
+using UnityEditor;
 using UnityEditor.AddressableAssets;
+using UnityEngine;
 
 namespace Editor
 {
-    public class RelicDataImport : EditorWindow
+    public class LocalizeDataImport : EditorWindow
     {
-        //private BaseTable scrip=null;
-        
-        [MenuItem("Window/Excel Importer/Relic Data")]
+        [MenuItem("Window/Excel Importer/Localize Data")]
         public static void ShowWindow()
         {
             //Show existing window instance. If one doesn't exist, make one.
-            EditorWindow.GetWindow(typeof(RelicDataImport));
+            EditorWindow.GetWindow(typeof(LocalizeDataImport));
         }
 
         private void OnGUI()
@@ -31,23 +26,23 @@ namespace Editor
             
              //1.base Table
              
-            if (GUILayout.Button("Relic Table Export"))
+            if (GUILayout.Button("Localize Table Export"))
             {
-                string assetPath = "Assets/DataTable/RelicTable.asset";
+                string assetPath = "Assets/DataTable/LocalizeTable.asset";
                 string pathProj = Application.dataPath.Replace("FluffyDisdog/Assets", ""); // 너의 환경에 따라 조정 가능
-                string excelPath = "/Plan/Table/LiveData/03.RelicData.xlsx";
+                string excelPath = "/Plan/Table/LiveData/00.LocaleData.xlsx";
 
-                RelicDataTable tableAsset = AssetDatabase.LoadAssetAtPath<RelicDataTable>(assetPath);
+                LocalizeTable tableAsset = AssetDatabase.LoadAssetAtPath<LocalizeTable>(assetPath);
 
                 if (tableAsset == null)
                 {
-                    tableAsset = ScriptableObject.CreateInstance<RelicDataTable>();
+                    tableAsset = ScriptableObject.CreateInstance<LocalizeTable>();
                     AssetDatabase.CreateAsset(tableAsset, assetPath);
-                    Debug.Log("새 RelicTable.asset 생성됨");
+                    Debug.Log("새 LocalizeTable.asset 생성됨");
                 }
                 else
                 {
-                    Debug.Log("기존 RelicTable.asset 불러와 덮어씀");
+                    Debug.Log("기존 LocalizeTable.asset 불러와 덮어씀");
                 }
 
                 // 엑셀 파일 읽기
@@ -58,30 +53,24 @@ namespace Editor
                     for (int i = 0; i < result.Tables.Count; i++)
                     {
                         var rows = result.Tables[i].Rows;
-                        RelicData[] baseArr = new RelicData[rows.Count - 1];
+                        LocalizeData[] baseArr = new LocalizeData[rows.Count - 1];
 
                         for (int j = 1; j < rows.Count; j++)
                         {
                             string data1 = rows[j][0].ToString();
-                            string key1 = rows[j][1].ToString();
-                            string key2 = rows[j][2].ToString();
-                            string rare = rows[j][4].ToString();
-                            float[] values = new float[10];
-
-                            for (int k = 0; k < 10; k++)
-                            {
-                                var par = rows[j][5+k].ToString();
-                                var val = float.Parse(par);
-                                values[k] = val;
-                            }
-
-                            int relicId = int.Parse(data1.Remove(0, 5));
+                            string data2 = rows[j][1].ToString();
+                            string data3 = rows[j][2].ToString();
                             
 
-                            baseArr[j - 1] = new RelicData(relicId, values, key1, key2, int.Parse(rare));
+                            baseArr[j - 1] = new LocalizeData()
+                            {
+                                key = data1,
+                                kor = data2,
+                                eng = data3,
+                            };
                         }
 
-                        tableAsset.SetRelicData(baseArr);
+                        tableAsset.SetData(baseArr);
                     }
                 }
 
@@ -89,7 +78,7 @@ namespace Editor
                 EditorUtility.SetDirty(tableAsset);
                 AssetDatabase.SaveAssets();
 
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
                 // Addressables 자동 등록 (중복 확인 포함)
                 var settings = AddressableAssetSettingsDefaultObject.Settings;
                 var group = settings.DefaultGroup;
@@ -99,8 +88,8 @@ namespace Editor
                 if (entry == null)
                 {
                     entry = settings.CreateOrMoveEntry(guid, group);
-                    entry.address = "RelicTable";
-                    Debug.Log("Addressables에 RelicTable 등록됨");
+                    entry.address = "LocalizeTable";
+                    Debug.Log("Addressables에 LocalizeTable 등록됨");
                 }
                 else
                 {
@@ -109,9 +98,9 @@ namespace Editor
 
                 AssetDatabase.SaveAssets();
                 AssetDatabase.Refresh();
-        #endif
+#endif
 
-                Debug.Log("RelicTable 임포트 완료");
+                Debug.Log("LocalizeTable 임포트 완료");
             }
         }
     }

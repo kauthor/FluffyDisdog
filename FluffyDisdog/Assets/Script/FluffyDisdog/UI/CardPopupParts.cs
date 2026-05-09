@@ -1,6 +1,7 @@
 ﻿using System;
 using Script.FluffyDisdog.Managers;
 using Sirenix.OdinInspector;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -45,6 +46,9 @@ namespace FluffyDisdog.UI
         private OutlinedText txtSelectTMP;
 
         private Func<bool> selectable;
+
+        [FoldoutGroup("local")] [SerializeField]
+        private TextMeshProUGUI txtDesc;
 
         private bool selected = false;
         public bool Selected => selected;
@@ -92,6 +96,11 @@ namespace FluffyDisdog.UI
             soldOut.SetActive(false);
 
             var data = ExcelManager.I.GetToolExcelData(type);
+            var localDesc = ExcelManager.I.GetLocalizeData(data.CardDescKeyLocal);
+            var localName = ExcelManager.I.GetLocalizeData(data.CardNameKeyLocal);
+            txtType.text = localName.kor;
+            txtShadow.text = localName.kor;
+            txtDesc.SetText(localDesc.kor);
             
             if (data != null)
             {

@@ -15,6 +15,8 @@ namespace FluffyDisdog.UI
         [SerializeField] private Text txtRelicPrice;
         [SerializeField] private Text txtRelicName;
 
+        [SerializeField] private Text txtRelicDesc;
+
         private event Action<int, RelicName, UIRelicSelectPart> onCardPackOpen;
 
         private void Start()
@@ -43,6 +45,10 @@ namespace FluffyDisdog.UI
             this.onCardPackOpen += onCardPackOpen;
             pnlPurchase.SetActive(false);
             purchased = false;
+            
+            var data = ExcelManager.I.GetRelicData(relicType);
+            var nameTxt = ExcelManager.I.GetLocalizeData(data);
+            
             txtRelicName.text = relicType.ToString();
             txtRelicPrice.text = cost.ToString();
         }

@@ -1,0 +1,1278 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0525c309757243d1bf1d5f3092b7154d, type: 3}
+  m_Name: LocalizeTable
+  m_EditorClassIdentifier: 
+  localizeDatas:
+  - key: Card_Shovel_Name
+    kor: "\uC0BD"
+    eng: Shovel
+  - key: Card_Rake_Name
+    kor: "\uAC08\uD034"
+    eng: Rake
+  - key: Card_Shovel_Enhanced_Name
+    kor: "\uC0BD+"
+    eng: Shovel+
+  - key: Card_Rake_Enhanced_Name
+    kor: "\uAC08\uD034+"
+    eng: Rake+
+  - key: Card_GoldenShovel_Name
+    kor: "\uD669\uAE08 \uC0BD"
+    eng: Golden Shovel
+  - key: Card_GoldenShovel_Enhanced_Name
+    kor: "\uD669\uAE08 \uC0BD+"
+    eng: Golden Shovel+
+  - key: Card_Axe_Name
+    kor: "\uB3C4\uB07C"
+    eng: Axe
+  - key: Card_Axe_Enhanced_Name
+    kor: "\uB3C4\uB07C+"
+    eng: Axe+
+  - key: Card_Cross Chisel_Name
+    kor: "\uB098\uBB34 \uB9DD\uCE58"
+    eng: "\uB098\uBB34 \uB9DD\uCE58"
+  - key: Card_Cross Chisel_Enhanced_Name
+    kor: "\uB098\uBB34 \uB9DD\uCE58+"
+    eng: "\uB098\uBB34 \uB9DD\uCE58+"
+  - key: Card_Pickaxe_Name
+    kor: "\uACE1\uAD2D\uC774"
+    eng: Pickaxe
+  - key: Card_Pickaxe_Enhanced_Name
+    kor: "\uACE1\uAD2D\uC774+"
+    eng: Pickaxe+
+  - key: Card_Slingshot_Name
+    kor: "\uC0C8\uCD1D"
+    eng: Slingshot
+  - key: Card_Slingshot_Enhanced_Name
+    kor: "\uC0C8\uCD1D+"
+    eng: Slingshot+
+  - key: Card_CornerCrushingHammer_Name
+    kor: "\uBAA8\uC11C\uB9AC \uD30C\uC1C4 \uD574\uBA38"
+    eng: Corner Crushing Hammer
+  - key: Card_CornerCrushingHammer_Enhanced_Name
+    kor: "\uBAA8\uC11C\uB9AC \uD30C\uC1C4 \uD574\uBA38+"
+    eng: Corner Crushing Hammer+
+  - key: Card_ConcentratedCrossDrill_Name
+    kor: "\uC9D1\uC911\uD615 \uC2ED\uC790 \uB4DC\uB9B4"
+    eng: Concentrated Cross Drill
+  - key: Card_ConcentratedCrossDrill_Enhanced_Name
+    kor: "\uC9D1\uC911\uD615 \uC2ED\uC790 \uB4DC\uB9B4+"
+    eng: Concentrated Cross Drill+
+  - key: Card_GoldenAxe_Name
+    kor: "\uD669\uAE08 \uB3C4\uB07C"
+    eng: Golden Axe
+  - key: Card_GoldenAxe_Enhanced_Name
+    kor: "\uD669\uAE08 \uB3C4\uB07C+"
+    eng: Golden Axe+
+  - key: Card_Large Scissors_Name
+    kor: "\uB300\uD615 \uAC00\uC704"
+    eng: Large Scissors
+  - key: Card_Large Scissors_Enhanced_Name
+    kor: "\uB300\uD615 \uAC00\uC704+"
+    eng: Large Scissors+
+  - key: Card_WeakeningNormal_Name
+    kor: "\uC57D\uD654 \uCE74\uB4DC - \uC77C\uBC18"
+    eng: Weakening Normal
+  - key: Card_WeakeningRare_Name
+    kor: "\uC57D\uD654 \uCE74\uB4DC - \uB808\uC5B4"
+    eng: Weakening Rare
+  - key: Card_WeakeningUnique_Name
+    kor: "\uC57D\uD654 \uCE74\uB4DC - \uC720\uB2C8\uD06C"
+    eng: Weakening Unique
+  - key: Card_Bag_Name
+    kor: "\uAC00\uBC29"
+    eng: Bag
+  - key: Card_ToolTransformation_Name
+    kor: "\uB3C4\uAD6C \uBCC0\uD615"
+    eng: Too lTransformation
+  - key: Card_ToolEnhancement_Name
+    kor: "\uB3C4\uAD6C \uAC15\uD654"
+    eng: Tool Enhancement
+  - key: Card_AdventurerTorch_Name
+    kor: "\uBAA8\uD5D8\uAC00\uC758 \uD683\uBD88"
+    eng: Adventurer Torch
+  - key: Card_AdventurerTorch_Enhanced_Name
+    kor: "\uBAA8\uD5D8\uAC00\uC758 \uD683\uBD88+"
+    eng: Adventurer Torch+
+  - key: Card_HammerOfMemory_Name
+    kor: "\uAE30\uC5B5\uC758 \uB9DD\uCE58"
+    eng: Hammer of Memory
+  - key: Card_HammerOfMemory_Enhanced_Name
+    kor: "\uAE30\uC5B5\uC758 \uB9DD\uCE58+"
+    eng: Hammer of Memory+
+  - key: Card_RiftStartumAnalysis_Name
+    kor: "\uADE0\uC5F4 \uC9C0\uCE35 \uBD84\uC11D"
+    eng: Rift Startum Analysis
+  - key: Card_RiftStartumAnalysis_Enhanced_Name
+    kor: "\uADE0\uC5F4 \uC9C0\uCE35 \uBD84\uC11D+"
+    eng: Rift Startum Analysis+
+  - key: Card_Novice_Wand_Name
+    kor: "\uACAC\uC2B5 \uC9C0\uD321\uC774"
+    eng: Novice Wand
+  - key: Card_Novice_Wand_Enhanced_Name
+    kor: "\uACAC\uC2B5 \uC9C0\uD321\uC774+"
+    eng: Novice_Wand+
+  - key: Card_Mana_Arrow_Name
+    kor: "\uB9C8\uB825 \uD654\uC0B4"
+    eng: Mana Arrow
+  - key: Card_Mana_Arrow_Enhanced_Name
+    kor: "\uB9C8\uB825 \uD654\uC0B4+"
+    eng: Mana Arrow+
+  - key: Card_Sparkle_Name
+    kor: "\uBC88\uB729\uC784"
+    eng: Sparkle
+  - key: Card_Sparkle_Enhanced_Name
+    kor: "\uBC88\uB729\uC784+"
+    eng: Sparkle+
+  - key: Card_Mana_Pierce_Name
+    kor: "\uB9C8\uB825 \uCC0C\uB974\uAE30"
+    eng: Mana Pierce
+  - key: Card_Mana_Pierce_Enhanced_Name
+    kor: "\uB9C8\uB825 \uCC0C\uB974\uAE30+"
+    eng: Mana Pierce+
+  - key: Card_Magic_Spear_Name
+    kor: "\uB9C8\uB825\uC758 \uCC3D"
+    eng: Magic Spear
+  - key: Card_Magic_Spear_Enhanced_Name
+    kor: "\uB9C8\uB825\uC758 \uCC3D+"
+    eng: Magic Spear+
+  - key: Card_Magic_Slash_Name
+    kor: "\uB9C8\uB825 \uBCA0\uAE30"
+    eng: Magic Slash
+  - key: Card_Magic_Slash_Enhanced_Name
+    kor: "\uB9C8\uB825 \uBCA0\uAE30+"
+    eng: Magic Slash+
+  - key: Card_Magic_Sword_Name
+    kor: "\uB9C8\uB825\uC758 \uAC80"
+    eng: Magic Sword
+  - key: Card_Magic_Sword_Enhanced_Name
+    kor: "\uB9C8\uB825\uC758 \uAC80+"
+    eng: Magic Sword+
+  - key: Card_Magic_Claw_Name
+    kor: "\uB9C8\uB825\uC758 \uBC1C\uD1B1"
+    eng: Magic Claw
+  - key: Card_Magic_Claw_Enhanced_Name
+    kor: "\uB9C8\uB825\uC758 \uBC1C\uD1B1+"
+    eng: Magic Claw+
+  - key: Card_Magic_Cannon_Name
+    kor: "\uB9C8\uB825 \uD3EC\uD0C4"
+    eng: Magic Cannon
+  - key: Card_Magic_Cannon_Enhanced_Name
+    kor: "\uB9C8\uB825 \uD3EC\uD0C4+"
+    eng: Magic Cannon+
+  - key: Card_Frog_Name
+    kor: "\uAC1C\uAD6C\uB9AC"
+    eng: Frog
+  - key: Card_Frog_Enhanced_Name
+    kor: "\uAC1C\uAD6C\uB9AC+"
+    eng: Frog+
+  - key: Card_Inchant_Magic_Name
+    kor: "\uB9C8\uB825 \uBD80\uC5EC"
+    eng: Inchant Magic
+  - key: Card_Inchant_Magic_Enhanced_Name
+    kor: "\uB9C8\uB825 \uBD80\uC5EC+"
+    eng: Inchant Magic+
+  - key: Card_Ignite_Name
+    kor: "\uBC1C\uD654"
+    eng: Ignite
+  - key: Card_Ignite_Enhanced_Name
+    kor: "\uBC1C\uD654+"
+    eng: Ignite+
+  - key: Card_Flame_Explosion_Name
+    kor: "\uD654\uC5FC \uD3ED\uBC1C"
+    eng: Flame Explosion
+  - key: Card_Flame_Explosion_Enhanced_Name
+    kor: "\uD654\uC5FC \uD3ED\uBC1C+"
+    eng: Flame Explosion+
+  - key: Card_Ember_Name
+    kor: "\uC794\uBD88"
+    eng: Ember
+  - key: Card_Ember_Enhanced_Name
+    kor: "\uC794\uBD88+"
+    eng: Ember+
+  - key: Card_Flame_Wall_Name
+    kor: "\uD654\uC5FC \uBCBD"
+    eng: Flame Wall
+  - key: Card_Flame_Wall_Enhanced_Name
+    kor: "\uD654\uC5FC \uBCBD+"
+    eng: Flame Wall+
+  - key: Card_Chain_Ignition_Name
+    kor: "\uC5F0\uC1C4 \uBC1C\uD654"
+    eng: Chain Ignition
+  - key: Card_Chain_Ignition_Enhanced_Name
+    kor: "\uC5F0\uC1C4 \uBC1C\uD654+"
+    eng: Chain Ignition+
+  - key: Card_Volcano_Name
+    kor: "\uBCFC\uCF00\uC774\uB178"
+    eng: Volcano
+  - key: Card_Volcano_Enhanced_Name
+    kor: "\uBCFC\uCF00\uC774\uB178+"
+    eng: Volcano+
+  - key: Card_Freeze_Name
+    kor: "\uB0C9\uAC01"
+    eng: Freeze
+  - key: Card_Freeze_Enhanced_Name
+    kor: "\uB0C9\uAC01+"
+    eng: Freeze+
+  - key: Card_Frost_Blast_Name
+    kor: "\uB0C9\uAE30 \uD3ED\uBC1C"
+    eng: Frost Blast
+  - key: Card_Frost_Blast_Enhanced_Name
+    kor: "\uB0C9\uAE30 \uD3ED\uBC1C+"
+    eng: Frost Blast+
+  - key: Card_Spreading_Frost_Name
+    kor: "\uD37C\uC838\uB098\uAC00\uB294 \uB0C9\uAE30"
+    eng: Spreading Frost
+  - key: Card_Spreading_Frost_Enhanced_Name
+    kor: "\uD37C\uC838\uB098\uAC00\uB294 \uB0C9\uAE30+"
+    eng: Spreading Frost+
+  - key: Card_Ice_Sword_Name
+    kor: "\uC5BC\uC74C \uAC80"
+    eng: Ice Sword
+  - key: Card_Ice_Sword_Enhanced_Name
+    kor: "\uC5BC\uC74C \uAC80+"
+    eng: Ice Sword+
+  - key: Card_Ice_Spear_Name
+    kor: "\uC5BC\uC74C \uCC3D"
+    eng: Ice Spear
+  - key: Card_Ice_Spear_Enhanced_Name
+    kor: "\uC5BC\uC74C \uCC3D+"
+    eng: Ice Spear+
+  - key: Card_Ice_Arrow_Name
+    kor: "\uC5BC\uC74C \uD654\uC0B4"
+    eng: Ice Arrow
+  - key: Card_Ice_Arrow_Enhanced_Name
+    kor: "\uC5BC\uC74C \uD654\uC0B4+"
+    eng: Ice Arrow+
+  - key: Card_Current_Name
+    kor: "\uC804\uB958"
+    eng: Current
+  - key: Card_Current_Enhanced_Name
+    kor: "\uC804\uB958+"
+    eng: Current+
+  - key: Card_Lightning_Storm_Name
+    kor: "\uC804\uAE30 \uD3ED\uD48D"
+    eng: Lightning Storm
+  - key: Card_Lightning_Storm_Enhanced_Name
+    kor: "\uC804\uAE30 \uD3ED\uD48D+"
+    eng: Lightning Storm+
+  - key: Card_Overcurrent_Name
+    kor: "\uACFC\uC804\uB958"
+    eng: Overcurrent
+  - key: Card_Overcurrent_Enhanced_Name
+    kor: "\uACFC\uC804\uB958+"
+    eng: Overcurrent+
+  - key: Card_Lightning_Spear_Name
+    kor: "\uB1CC\uCC3D"
+    eng: Lightning Spear
+  - key: Card_Lightning_Spear_Enhanced_Name
+    kor: "\uB1CC\uCC3D+"
+    eng: Lightning Spear+
+  - key: Card_Spark_Name
+    kor: "\uC2A4\uD30C\uD06C"
+    eng: Spark
+  - key: Card_Spark_Enhanced_Name
+    kor: "\uC2A4\uD30C\uD06C+"
+    eng: Spark+
+  - key: Card_Thunderbolt_Name
+    kor: "\uBCBC\uB77D"
+    eng: Thunderbolt
+  - key: Card_Thunderbolt_Enhanced_Name
+    kor: "\uBCBC\uB77D+"
+    eng: Thunderbolt+
+  - key: Card_Shovel_Des
+    kor: "\uC0BD_\uC124\uBA85"
+    eng: Shovel Des
+  - key: Card_Rake_Des
+    kor: "\uAC08\uD034_\uC124\uBA85"
+    eng: Rake Des
+  - key: Card_Shovel_Enhanced_Des
+    kor: "\uC0BD+_\uC124\uBA85"
+    eng: Shovel+ Des
+  - key: Card_Rake_Enhanced_Des
+    kor: "\uAC08\uD034+_\uC124\uBA85"
+    eng: Rake+ Des
+  - key: Card_GoldenShovel_Des
+    kor: "\uD669\uAE08 \uC0BD_\uC124\uBA85"
+    eng: Golden Shovel Des
+  - key: Card_GoldenShovel_Enhanced_Des
+    kor: "\uD669\uAE08 \uC0BD+_\uC124\uBA85"
+    eng: Golden Shovel+ Des
+  - key: Card_Axe_Des
+    kor: "\uB3C4\uB07C_\uC124\uBA85"
+    eng: Axe Des
+  - key: Card_Axe_Enhanced_Des
+    kor: "\uB3C4\uB07C+_\uC124\uBA85"
+    eng: Axe+ Des
+  - key: Card_Cross Chisel_Des
+    kor: "\uC2ED\uC790 \uB04C_\uC124\uBA85"
+    eng: Cross Chisel Des
+  - key: Card_Cross Chisel_Enhanced_Des
+    kor: "\uC2ED\uC790 \uB04C+_\uC124\uBA85"
+    eng: Cross Chisel+ Des
+  - key: Card_Pickaxe_Des
+    kor: "\uACE1\uAD2D\uC774_\uC124\uBA85"
+    eng: Pickaxe Des
+  - key: Card_Pickaxe_Enhanced_Des
+    kor: "\uACE1\uAD2D\uC774+_\uC124\uBA85"
+    eng: Pickaxe+ Des
+  - key: Card_Slingshot_Des
+    kor: "\uC0C8\uCD1D_\uC124\uBA85"
+    eng: Slingshot Des
+  - key: Card_Slingshot_Enhanced_Des
+    kor: "\uC0C8\uCD1D+_\uC124\uBA85"
+    eng: Slingshot+ Des
+  - key: Card_CornerCrushingHammer_Des
+    kor: "\uBAA8\uC11C\uB9AC \uD30C\uC1C4 \uD574\uBA38_\uC124\uBA85"
+    eng: Corner CrushingHammer Des
+  - key: Card_CornerCrushingHammer_Enhanced_Des
+    kor: "\uBAA8\uC11C\uB9AC \uD30C\uC1C4 \uD574\uBA38+_\uC124\uBA85"
+    eng: Corner CrushingHammer+ Des
+  - key: Card_ConcentratedCrossDrill_Des
+    kor: "\uC9D1\uC911\uD615 \uC2ED\uC790 \uB4DC\uB9B4_\uC124\uBA85"
+    eng: Concentrated CrossDrill Des
+  - key: Card_ConcentratedCrossDrill_Enhanced_Des
+    kor: "\uC9D1\uC911\uD615 \uC2ED\uC790 \uB4DC\uB9B4+_\uC124\uBA85"
+    eng: Concentrated CrossDrill+ Des
+  - key: Card_GoldenAxe_Des
+    kor: "\uD669\uAE08 \uB3C4\uB07C_\uC124\uBA85"
+    eng: Golden Axe Des
+  - key: Card_GoldenAxe_Enhanced_Des
+    kor: "\uD669\uAE08 \uB3C4\uB07C+_\uC124\uBA85"
+    eng: Golden Axe+ Des
+  - key: Card_Large Scissors_Des
+    kor: "\uB300\uD615 \uAC00\uC704_\uC124\uBA85"
+    eng: Large Scissors Des
+  - key: Card_Large Scissors_Enhanced_Des
+    kor: "\uB300\uD615 \uAC00\uC704+_\uC124\uBA85"
+    eng: Large Scissors+ Des
+  - key: Card_WeakeningNormal_Des
+    kor: "\uC57D\uD654 \uCE74\uB4DC - \uC77C\uBC18_\uC124\uBA85"
+    eng: Weakening Normal Des
+  - key: Card_WeakeningRare_Des
+    kor: "\uC57D\uD654 \uCE74\uB4DC - \uB808\uC5B4_\uC124\uBA85"
+    eng: Weakening Rare Des
+  - key: Card_WeakeningUnique_Des
+    kor: "\uC57D\uD654 \uCE74\uB4DC - \uC720\uB2C8\uD06C_\uC124\uBA85"
+    eng: Weakening Unique Des
+  - key: Card_Bag_Des
+    kor: "\uAC00\uBC29_\uC124\uBA85"
+    eng: Bag Des
+  - key: Card_ToolTransformation_Des
+    kor: "\uB3C4\uAD6C \uBCC0\uD615_\uC124\uBA85"
+    eng: Tool Transformation Des
+  - key: Card_ToolEnhancement_Des
+    kor: "\uB3C4\uAD6C \uAC15\uD654_\uC124\uBA85"
+    eng: Tool Enhancement Des
+  - key: Card_AdventurerTorch_Des
+    kor: "\uBAA8\uD5D8\uAC00\uC758 \uD683\uBD88_\uC124\uBA85"
+    eng: Adventurer Torch Des
+  - key: Card_AdventurerTorch_Enhanced_Des
+    kor: "\uBAA8\uD5D8\uAC00\uC758 \uD683\uBD88+_\uC124\uBA85"
+    eng: Adventurer Torch+ Des
+  - key: Card_HammerOfMemory_Des
+    kor: "\uAE30\uC5B5\uC758 \uB9DD\uCE58_\uC124\uBA85"
+    eng: Hammer OfMemory Des
+  - key: Card_HammerOfMemory_Enhanced_Des
+    kor: "\uAE30\uC5B5\uC758 \uB9DD\uCE58+_\uC124\uBA85"
+    eng: Hammer OfMemory+ Des
+  - key: Card_RiftStartumAnalysis_Des
+    kor: "\uADE0\uC5F4 \uC9C0\uCE35 \uBD84\uC11D_\uC124\uBA85"
+    eng: Rift StartumAnalysis Des
+  - key: Card_RiftStartumAnalysis_Enhanced_Des
+    kor: "\uADE0\uC5F4 \uC9C0\uCE35 \uBD84\uC11D+_\uC124\uBA85"
+    eng: Rift StartumAnalysis+ Des
+  - key: Card_Novice_Wand_Des
+    kor: "\uACAC\uC2B5 \uC9C0\uD321\uC774_\uC124\uBA85"
+    eng: Novice Wand Des
+  - key: Card_Novice_Wand_Enhanced_Des
+    kor: "\uACAC\uC2B5 \uC9C0\uD321\uC774+_\uC124\uBA85"
+    eng: Novice Wand+ Des
+  - key: Card_Mana_Arrow_Des
+    kor: "\uB9C8\uB825 \uD654\uC0B4_\uC124\uBA85"
+    eng: Mana Arrow Des
+  - key: Card_Mana_Arrow_Enhanced_Des
+    kor: "\uB9C8\uB825 \uD654\uC0B4+_\uC124\uBA85"
+    eng: Mana Arrow+ Des
+  - key: Card_Sparkle_Des
+    kor: "\uBC88\uB729\uC784_\uC124\uBA85"
+    eng: Sparkle Des
+  - key: Card_Sparkle_Enhanced_Des
+    kor: "\uBC88\uB729\uC784+_\uC124\uBA85"
+    eng: Sparkle+ Des
+  - key: Card_Mana_Pierce_Des
+    kor: "\uB9C8\uB825 \uCC0C\uB974\uAE30_\uC124\uBA85"
+    eng: Mana Pierce Des
+  - key: Card_Mana_Pierce_Enhanced_Des
+    kor: "\uB9C8\uB825 \uCC0C\uB974\uAE30+_\uC124\uBA85"
+    eng: Mana Pierce+ Des
+  - key: Card_Magic_Spear_Des
+    kor: "\uB9C8\uB825\uC758 \uCC3D_\uC124\uBA85"
+    eng: Magic Spear Des
+  - key: Card_Magic_Spear_Enhanced_Des
+    kor: "\uB9C8\uB825\uC758 \uCC3D+_\uC124\uBA85"
+    eng: Magic Spear+ Des
+  - key: Card_Magic_Slash_Des
+    kor: "\uB9C8\uB825 \uBCA0\uAE30_\uC124\uBA85"
+    eng: Magic Slash Des
+  - key: Card_Magic_Slash_Enhanced_Des
+    kor: "\uB9C8\uB825 \uBCA0\uAE30+_\uC124\uBA85"
+    eng: Magic Slash+ Des
+  - key: Card_Magic_Sword_Des
+    kor: "\uB9C8\uB825\uC758 \uAC80_\uC124\uBA85"
+    eng: Magic Sword Des
+  - key: Card_Magic_Sword_Enhanced_Des
+    kor: "\uB9C8\uB825\uC758 \uAC80+_\uC124\uBA85"
+    eng: Magic Sword+ Des
+  - key: Card_Magic_Claw_Des
+    kor: "\uB9C8\uB825\uC758 \uBC1C\uD1B1_\uC124\uBA85"
+    eng: Magic Claw Des
+  - key: Card_Magic_Claw_Enhanced_Des
+    kor: "\uB9C8\uB825\uC758 \uBC1C\uD1B1+_\uC124\uBA85"
+    eng: Magic Claw+ Des
+  - key: Card_Magic_Cannon_Des
+    kor: "\uB9C8\uB825 \uD3EC\uD0C4_\uC124\uBA85"
+    eng: Magic Cannon Des
+  - key: Card_Magic_Cannon_Enhanced_Des
+    kor: "\uB9C8\uB825 \uD3EC\uD0C4+_\uC124\uBA85"
+    eng: Magic Cannon+ Des
+  - key: Card_Frog_Des
+    kor: "\uAC1C\uAD6C\uB9AC_\uC124\uBA85"
+    eng: Frog Des
+  - key: Card_Frog_Enhanced_Des
+    kor: "\uAC1C\uAD6C\uB9AC+_\uC124\uBA85"
+    eng: Frog+ Des
+  - key: Card_Inchant_Magic_Des
+    kor: "\uB9C8\uB825 \uBD80\uC5EC_\uC124\uBA85"
+    eng: Inchant Magic Des
+  - key: Card_Inchant_Magic_Enhanced_Des
+    kor: "\uB9C8\uB825 \uBD80\uC5EC+_\uC124\uBA85"
+    eng: Inchant Magic+ Des
+  - key: Card_Ignite_Des
+    kor: "\uBC1C\uD654_\uC124\uBA85"
+    eng: Ignite Des
+  - key: Card_Ignite_Enhanced_Des
+    kor: "\uBC1C\uD654+_\uC124\uBA85"
+    eng: Ignite+ Des
+  - key: Card_Flame_Explosion_Des
+    kor: "\uD654\uC5FC \uD3ED\uBC1C_\uC124\uBA85"
+    eng: Flame Explosion Des
+  - key: Card_Flame_Explosion_Enhanced_Des
+    kor: "\uD654\uC5FC \uD3ED\uBC1C+_\uC124\uBA85"
+    eng: Flame Explosion+ Des
+  - key: Card_Ember_Des
+    kor: "\uC794\uBD88_\uC124\uBA85"
+    eng: Ember Des
+  - key: Card_Ember_Enhanced_Des
+    kor: "\uC794\uBD88+_\uC124\uBA85"
+    eng: Ember+ Des
+  - key: Card_Flame_Wall_Des
+    kor: "\uD654\uC5FC \uBCBD_\uC124\uBA85"
+    eng: Flame Wall Des
+  - key: Card_Flame_Wall_Enhanced_Des
+    kor: "\uD654\uC5FC \uBCBD+_\uC124\uBA85"
+    eng: Flame Wall+ Des
+  - key: Card_Chain_Ignition_Des
+    kor: "\uC5F0\uC1C4 \uBC1C\uD654_\uC124\uBA85"
+    eng: Chain Ignition Des
+  - key: Card_Chain_Ignition_Enhanced_Des
+    kor: "\uC5F0\uC1C4 \uBC1C\uD654+_\uC124\uBA85"
+    eng: Chain Ignition+ Des
+  - key: Card_Volcano_Des
+    kor: "\uBCFC\uCF00\uC774\uB178_\uC124\uBA85"
+    eng: Volcano Des
+  - key: Card_Volcano_Enhanced_Des
+    kor: "\uBCFC\uCF00\uC774\uB178+_\uC124\uBA85"
+    eng: Volcano+ Des
+  - key: Card_Freeze_Des
+    kor: "\uB0C9\uAC01_\uC124\uBA85"
+    eng: Freeze Des
+  - key: Card_Freeze_Enhanced_Des
+    kor: "\uB0C9\uAC01+_\uC124\uBA85"
+    eng: Freeze+ Des
+  - key: Card_Frost_Blast_Des
+    kor: "\uB0C9\uAE30 \uD3ED\uBC1C_\uC124\uBA85"
+    eng: Frost Blast Des
+  - key: Card_Frost_Blast_Enhanced_Des
+    kor: "\uB0C9\uAE30 \uD3ED\uBC1C+_\uC124\uBA85"
+    eng: Frost Blast+ Des
+  - key: Card_Spreading_Frost_Des
+    kor: "\uD37C\uC838\uB098\uAC00\uB294 \uB0C9\uAE30_\uC124\uBA85"
+    eng: Spreading Frost Des
+  - key: Card_Spreading_Frost_Enhanced_Des
+    kor: "\uD37C\uC838\uB098\uAC00\uB294 \uB0C9\uAE30+_\uC124\uBA85"
+    eng: Spreading Frost+ Des
+  - key: Card_Ice_Sword_Des
+    kor: "\uC5BC\uC74C \uAC80_\uC124\uBA85"
+    eng: Ice Sword Des
+  - key: Card_Ice_Sword_Enhanced_Des
+    kor: "\uC5BC\uC74C \uAC80+_\uC124\uBA85"
+    eng: Ice Sword+ Des
+  - key: Card_Ice_Spear_Des
+    kor: "\uC5BC\uC74C \uCC3D_\uC124\uBA85"
+    eng: Ice Spear Des
+  - key: Card_Ice_Spear_Enhanced_Des
+    kor: "\uC5BC\uC74C \uCC3D+_\uC124\uBA85"
+    eng: Ice Spear+ Des
+  - key: Card_Ice_Arrow_Des
+    kor: "\uC5BC\uC74C \uD654\uC0B4_\uC124\uBA85"
+    eng: Ice Arrow Des
+  - key: Card_Ice_Arrow_Enhanced_Des
+    kor: "\uC5BC\uC74C \uD654\uC0B4+_\uC124\uBA85"
+    eng: Ice Arrow+ Des
+  - key: Card_Current_Des
+    kor: "\uC804\uB958_\uC124\uBA85"
+    eng: Current Des
+  - key: Card_Current_Enhanced_Des
+    kor: "\uC804\uB958+_\uC124\uBA85"
+    eng: Current+ Des
+  - key: Card_Lightning_Storm_Des
+    kor: "\uC804\uAE30 \uD3ED\uD48D_\uC124\uBA85"
+    eng: Lightning Storm Des
+  - key: Card_Lightning_Storm_Enhanced_Des
+    kor: "\uC804\uAE30 \uD3ED\uD48D+_\uC124\uBA85"
+    eng: Lightning Storm+ Des
+  - key: Card_Overcurrent_Des
+    kor: "\uACFC\uC804\uB958_\uC124\uBA85"
+    eng: Overcurrent Des
+  - key: Card_Overcurrent_Enhanced_Des
+    kor: "\uACFC\uC804\uB958+_\uC124\uBA85"
+    eng: Overcurrent+ Des
+  - key: Card_Lightning_Spear_Des
+    kor: "\uB1CC\uCC3D_\uC124\uBA85"
+    eng: Lightning Spear Des
+  - key: Card_Lightning_Spear_Enhanced_Des
+    kor: "\uB1CC\uCC3D+_\uC124\uBA85"
+    eng: Lightning Spear+ Des
+  - key: Card_Spark_Des
+    kor: "\uC2A4\uD30C\uD06C_\uC124\uBA85"
+    eng: Spark Des
+  - key: Card_Spark_Enhanced_Des
+    kor: "\uC2A4\uD30C\uD06C+_\uC124\uBA85"
+    eng: Spark+ Des
+  - key: Card_Thunderbolt_Des
+    kor: "\uBCBC\uB77D_\uC124\uBA85"
+    eng: Thunderbolt Des
+  - key: Card_Thunderbolt_Enhanced_Des
+    kor: "\uBCBC\uB77D+_\uC124\uBA85"
+    eng: Thunderbolt+ Des
+  - key: relic101_Name
+    kor: "\uC815\uBC00 \uD0C0\uACA9 \uC624\uC77C"
+    eng: Precision Strike Oil
+  - key: relic102_Name
+    kor: "\uAC15\uD654 \uC190\uC7A1\uC774"
+    eng: Reinforced Grip
+  - key: relic103_Name
+    kor: "\uC219\uB828\uACF5\uC758 \uC22B\uB3CC"
+    eng: Artisan's Whetstone
+  - key: relic104_Name
+    kor: "\uBD80\uC11C\uC9C4 \uB3C4\uAD6C\uC758 \uAE30\uC5B5"
+    eng: Memory of Broken Tools
+  - key: relic105_Name
+    kor: "\uC2A4\uD504\uB808\uC774 \uB9C8\uAC10\uC81C"
+    eng: Spray Finish
+  - key: relic106_Name
+    kor: "\uC791\uC740 \uAE08\uAD34"
+    eng: Small Gold Bar
+  - key: relic107_Name
+    kor: "\uD655\uC7A5 \uBC30\uB0AD"
+    eng: Expanded Backpack
+  - key: relic108_Name
+    kor: "\uACF5\uAD6C \uC8FC\uBA38\uB2C8"
+    eng: Tool Pouch
+  - key: relic109_Name
+    kor: "\uC815\uBC00 \uD0C0\uACA9 \uB808\uC774\uC800"
+    eng: Precision Strike Laser
+  - key: relic110_Name
+    kor: "\uAD11\uC5ED \uACF5\uACA9 \uB9DD\uCE58"
+    eng: Area Attack Hammer
+  - key: relic111_Name
+    kor: "\uAE34\uAE09 \uC218\uB9AC \uD14C\uC774\uD504"
+    eng: "\uAE34\uAE09 \uC218\uB9AC \uD14C\uC774\uD504"
+  - key: relic112_Name
+    kor: "\uACE0\uB300\uC758 \uB098\uCE68\uBC18"
+    eng: Ancient Compass
+  - key: relic113_Name
+    kor: "\uC190\uC804\uB4F1"
+    eng: Flashlight
+  - key: relic114_Name
+    kor: "\uC720\uC801 \uC870\uC0AC \uB178\uD2B8"
+    eng: Ruins Investigation Notes
+  - key: relic115_Name
+    kor: "\uAC70\uB798\uAE30\uB85D \uC7A5\uBD80"
+    eng: Transaction Ledger
+  - key: relic116_Name
+    kor: "\uB300\uBABB"
+    eng: Rift Generator
+  - key: relic117_Name
+    kor: "\uADE0\uC5F4 \uD30C\uD3B8 \uAC15\uD654*"
+    eng: Rift Fragment Reinforcement
+  - key: relic118_Name
+    kor: "\uC644\uBCBD\uD55C \uB3C4\uAD6C\uD568"
+    eng: Perfect Tool Box
+  - key: relic119_Name
+    kor: "\uC794\uC0C1 \uCD94\uC801\uC790*"
+    eng: Afterimage Tracer
+  - key: relic120_Name
+    kor: "\uC794\uC0C1 \uAC01\uC778*"
+    eng: Afterimage Engraving
+  - key: relic121_Name
+    kor: "\uC815\uBC00 \uC870\uC900\uACBD"
+    eng: Precision Scope
+  - key: relic122_Name
+    kor: "\uC218\uD3C9\uACC4"
+    eng: "\uC218\uD3C9\uACC4"
+  - key: relic123_Name
+    kor: "\uC138\uB85C\uCD94"
+    eng: "\uC138\uB85C\uCD94"
+  - key: relic201_Name
+    kor: "\uB9C8\uB825 \uBD80\uC0B0\uBB3C"
+    eng: Magical Byproduct
+  - key: relic202_Name
+    kor: "\uB9C8\uBC95\uC0AC\uC758 \uB2E8\uAC80"
+    eng: Wizard's Dagger
+  - key: relic203_Name
+    kor: "\uB9C8\uBC95 \uC8FC\uBA38\uB2C8"
+    eng: Magic Pouch
+  - key: relic204_Name
+    kor: "\uB9C8\uB825 \uC790\uC11D"
+    eng: Mana Magnet
+  - key: relic205_Name
+    kor: "\uC751\uCD95\uB41C \uC624\uBE0C"
+    eng: Condensed Orb
+  - key: relic206_Name
+    kor: "\uD63C\uB3C8\uC758 \uC8FC\uBB38\uC11C"
+    eng: Chaos Scroll
+  - key: relic207_Name
+    kor: "\uB9C8\uBC95 \uB80C\uC988"
+    eng: Magic Lens
+  - key: relic208_Name
+    kor: "\uB9C8\uB825 \uC1A5"
+    eng: Mana Cauldron
+  - key: relic209_Name
+    kor: "\uB9C8\uB098 \uC11C\uD0743"
+    eng: Mana Circle 3
+  - key: relic210_Name
+    kor: "\uB9C8\uB098 \uC11C\uD0745"
+    eng: Mana Circle 5
+  - key: relic211_Name
+    kor: "\uB9C8\uB098 \uC11C\uD0747"
+    eng: Mana Circle 7
+  - key: relic212_Name
+    kor: "\uB9C8\uB098 \uC11C\uD07411"
+    eng: Mana Circle 11
+  - key: relic213_Name
+    kor: "\uB9C8\uBC95 \uD3EC\uC158"
+    eng: Magic Potion
+  - key: relic214_Name
+    kor: "\uB9C8\uBC95\uC0AC\uC758 \uBD89\uC740 \uB3CC"
+    eng: Wizard's Red Stone
+  - key: relic215_Name
+    kor: "\uB9C8\uBC95\uC0AC\uC758 \uD478\uB978 \uB3CC"
+    eng: Wizard's Blue Stone
+  - key: relic216_Name
+    kor: "\uB9C8\uBC95\uC0AC\uC758 \uBCF4\uB78F\uBE5B \uB3CC"
+    eng: Wizard's Purple Stone
+  - key: relic217_Name
+    kor: "\uB9C8\uBC95\uC0AC\uC758 \uBB34\uC9C0\uAC1C\uC11D"
+    eng: Wizard's Rainbow Stone
+  - key: relic218_Name
+    kor: "\uBD88\uD0C0\uB294 \uB9C8\uBC95 \uC2A4\uD06C\uB864 "
+    eng: Flaming Magic Scroll
+  - key: relic219_Name
+    kor: "\uC5BC\uC5B4\uBD99\uC740 \uB9C8\uBC95 \uC2A4\uD06C\uB864"
+    eng: Frozen Magic Scrol
+  - key: relic220_Name
+    kor: "\uBC88\uCA4D\uC774\uB294 \uB9C8\uBC95 \uC2A4\uD06C\uB864"
+    eng: Sparking Magic Scroll
+  - key: relic221_Name
+    kor: "\uBD88\uC0AC\uC870\uC758 \uAE43\uD138"
+    eng: Phoenix Feather
+  - key: relic222_Name
+    kor: "\uB2E4\uC6A9\uB3C4 \uD683\uBD88\uAE30\uB984"
+    eng: Multi-purpose Torch Oil
+  - key: relic223_Name
+    kor: "\uB418\uC0B4\uC544\uB09C \uBD88\uC528"
+    eng: Revived Ember
+  - key: relic224_Name
+    kor: "\uBC84\uB824\uC9C4 \uC131\uB0E5\uAC11"
+    eng: Discarded Matchbox
+  - key: relic225_Name
+    kor: "\uBD88\uC0AC\uC870\uC758 \uC54C"
+    eng: Phoenix Egg
+  - key: relic226_Name
+    kor: "\uCD1B\uBD88"
+    eng: Candle
+  - key: relic227_Name
+    kor: "\uBAA9\uD0C4"
+    eng: Charcoal
+  - key: relic228_Name
+    kor: "\uADF8\uC744\uB9B0 \uB9DD\uD1A0"
+    eng: Singed Cloak
+  - key: relic229_Name
+    kor: "\uADF8\uC744\uB9B0 \uC655\uAD00"
+    eng: Singed Crown
+  - key: relic230_Name
+    kor: "\uADF8\uC744\uB9B0 \uAC11\uC637"
+    eng: Singed Armor
+  - key: relic231_Name
+    kor: "\uADF8\uC744\uB9B0 \uC7A5\uAC80"
+    eng: Singed Longsword
+  - key: relic232_Name
+    kor: "\uB208 \uC624\uB9AC"
+    eng: Snow Duck
+  - key: relic233_Name
+    kor: "\uB179\uC9C0\uC54A\uB294 \uC5BC\uC74C"
+    eng: Never Melt Ice
+  - key: relic234_Name
+    kor: "\uC5BC\uC5B4\uBD99\uC740 \uBFCC\uB9AC"
+    eng: Frozen Root
+  - key: relic235_Name
+    kor: "\uC5BC\uC74C \uD3ED\uC8FD"
+    eng: Icework
+  - key: relic236_Name
+    kor: "\uC5BC\uC74C \uB3C4\uBBF8\uB178"
+    eng: Ice Domino
+  - key: relic237_Name
+    kor: "\uC2A4\uCF00\uC774\uD2B8"
+    eng: Skates
+  - key: relic238_Name
+    kor: "\uC544\uC774\uC2A4\uD06C\uB9BC"
+    eng: Ice Cream
+  - key: relic239_Name
+    kor: "\uB5A8\uC5B4\uC9C4 \uACE0\uB4DC\uB984"
+    eng: Fallen Icicle
+  - key: relic240_Name
+    kor: "\uC5BC\uC5B4\uBD99\uC740 \uB300\uAC80"
+    eng: Frozen Greatsword
+  - key: relic241_Name
+    kor: "\uC804\uAE30\uC11D"
+    eng: Tourmaline
+  - key: relic242_Name
+    kor: "\uBC30\uD130\uB9AC"
+    eng: Battery
+  - key: relic243_Name
+    kor: "\uC2A4\uC704\uCE58"
+    eng: Switch
+  - key: relic244_Name
+    kor: "\uACE0\uBB34 \uC7A5\uAC11"
+    eng: Rubber Gloves
+  - key: relic245_Name
+    kor: "\uD50C\uB77C\uC988\uB9C8 \uAE00\uB85C\uBE0C"
+    eng: Plasma Globe
+  - key: relic246_Name
+    kor: "\uD4E8\uC988"
+    eng: Fuse
+  - key: relic247_Name
+    kor: "\uC804\uC120"
+    eng: Electrical Wire
+  - key: relic248_Name
+    kor: "\uD06C\uACE0 \uBE68\uAC04 \uBC84\uD2BC"
+    eng: Big Red Button
+  - key: relic249_Name
+    kor: "\uBA39\uAD6C\uB984 \uD50C\uB77C\uC2A4\uD06C"
+    eng: Dark Cloud Flask
+  - key: relic250_Name
+    kor: "\uD53C\uB8B0\uCE68 \uC790\uAC80"
+    eng: Lightning Rod Rapier
+  - key: relic251_Name
+    kor: "\uC18D\uC131\uC81C\uC5B4\uC7A5\uCE58"
+    eng: Elemental Controller
+  - key: relic252_Name
+    kor: "\uC18D\uC131\uC99D\uD3ED\uC7A5\uCE58"
+    eng: Elemental Amplifier
+  - key: relic253_Name
+    kor: "\uB0C9\uAC01\uC18C\uD654\uAE30"
+    eng: Cooling Fire Extinguisher
+  - key: relic254_Name
+    kor: "\uCD08\uC804\uB3C4\uCCB4"
+    eng: Superconductor
+  - key: relic255_Name
+    kor: "\uACFC\uC5F4\uD68C\uB85C"
+    eng: Overheated Circuit
+  - key: relic256_Name
+    kor: "\uC0BC\uC704\uC77C\uCCB4"
+    eng: Trinity
+  - key: relic101_Des
+    kor: "\uB3C4\uAD6C \uD0DC\uADF8 \uCE74\uB4DC\uB97C \uC0AC\uC6A9\uD558\uC5EC \uD0C0\uC77C\uC744
+      \uD30C\uAD34\uD560 \uB54C, \uD30C\uAD34\uB41C \uD0C0\uC77C \uD558\uB098\uB2F9
+      +3\uC810\uC744 \uCD94\uAC00\uB85C \uC5BB\uC2B5\uB2C8\uB2E4."
+    eng: When destroying tiles using a Tool tag card, gain +3 additional points for
+      each destroyed tile.
+  - key: relic102_Des
+    kor: "\uB3C4\uAD6C \uD0DC\uADF8 \uCE74\uB4DC\uB85C \uD0C0\uC77C\uC744 \uD30C\uAD34\uD560
+      \uB54C, \uD574\uB2F9 \uD0C0\uC77C \uD30C\uAD34 \uC810\uC218 \uCD1D\uD569\uC5D0
+      1.25\uBC30\uC218\uB97C \uC801\uC6A9\uD569\uB2C8\uB2E4."
+    eng: When destroying tiles with a Tool tag card, apply a 1.25x multiplier to
+      the total destruction score of those tiles.
+  - key: relic103_Des
+    kor: "\uB3C4\uAD6C \uD0DC\uADF8\uAC00 \uBD99\uC740 \uCE74\uB4DC\uC758 \uD30C\uAD34
+      \uD655\uB960\uC774 30% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+    eng: Destruction probability of cards with the Tool tag increases by 30%.
+  - key: relic104_Des
+    kor: "\uC720\uBB3C\uC744 \uAC00\uC9C4 \uC2DC\uC810\uC744 \uAE30\uC900\uC73C\uB85C
+      \uB3C4\uAD6C \uD0DC\uADF8 \uCE74\uB4DC\uAC00 \uD30C\uAD34\uB418\uC5C8\uC744
+      \uACBD\uC6B0 1\uC2A4\uD0DD \uC99D\uAC00. \uC2A4\uD14C\uC774\uC9C0 \uD074\uB9AC\uC5B4
+      \uC2DC \uC2A4\uD0DD\uC758 \uB530\uB978 \uACE8\uB4DC\uB97C \uC81C\uACF5\uD55C\uB2E4."
+    eng: Gain 1 stack if a Tool tag card is destroyed while possessing this relic.
+      Provides gold based on stacks upon clearing the stage.
+  - key: relic105_Des
+    kor: "\uAC15\uD654\uB418\uC9C0 \uC54A\uC740 \uB3C4\uAD6C \uD0DC\uADF8 \uCE74\uB4DC\uC758
+      \uD30C\uAD34\uB97C \uBC29\uC9C0\uD569\uB2C8\uB2E4."
+    eng: Prevents the destruction of unenhanced Tool tag cards.
+  - key: relic106_Des
+    kor: "\uC2A4\uD14C\uC774\uC9C0 \uC2DC\uC791 \uC2DC \uBCF4\uC720\uD55C \uACE8\uB4DC
+      10G\uB2F9 \uC810\uC218 +5\uC810\uC744 \uCD94\uAC00\uD569\uB2C8\uB2E4. (\uCD5C\uB300
+      50G\uAE4C\uC9C0)"
+    eng: At the start of the stage, add +5 points for every 10G held. (Up to 50G)
+  - key: relic107_Des
+    kor: "\uC2A4\uD14C\uC774\uC9C0 \uC2DC\uC791 \uC2DC \uB4DC\uB85C\uC6B0 +1"
+    eng: Draw +1 at the start of the stage.
+  - key: relic108_Des
+    kor: "\uC720\uBB3C \uD68D\uB4DD \uC2DC \uB371\uC5D0 \uC788\uB294 \uB3C4\uAD6C
+      \uD0DC\uADF8 \uCE74\uB4DC\uB97C \uC120\uD0DD, \uC120\uD0DD\uB41C \uCE74\uB4DC\uB294
+      \uC720\uBB3C\uC5D0 \uADC0\uC18D\uB418\uBA70 \uD574\uB2F9 \uCE74\uB4DC\uB294
+      \uB9E4 \uC2A4\uD14C\uC774\uC9C0 \uC2DC\uC791 \uC2DC \uCD94\uAC00\uB85C \uC81C\uACF5"
+    eng: Upon acquiring the relic, select a Tool tag card in your deck; the selected
+      card becomes bound to the relic and is provided additionally at the start of
+      each stage.
+  - key: relic109_Des
+    kor: "1x1 \uB2E8\uC77C \uD0C0\uC77C \uD30C\uAD34 \uCE74\uB4DC\uB85C \uD0C0\uC77C\uC744
+      \uD30C\uAD34\uD560 \uB54C, 3\uBC30\uC218\uC758 \uC810\uC218\uB97C \uD68D\uB4DD\uD55C\uB2E4."
+    eng: When destroying a tile with a 1x1 single-tile destruction card, gain 3x
+      the score.
+  - key: relic110_Des
+    kor: "\uCE74\uB4DC \uD55C\uC7A5\uC73C\uB85C 8\uCE78 \uC774\uC0C1 \uD30C\uAD34
+      \uD560 \uACBD\uC6B0, 1.5\uBC30\uC218\uC758 \uC810\uC218\uB97C \uD68D\uB4DD\uD55C\uB2E4."
+    eng: If 8 or more tiles are destroyed with a single card, gain 1.5x the score.
+  - key: relic111_Des
+    kor: "\uB3C4\uAD6C \uCE74\uB4DC\uAC00 \uD30C\uAD34\uB420 \uB54C, 30% \uD655\uB960\uB85C
+      \uD30C\uAD34\uB418\uC9C0 \uC54A\uACE0 \uC190\uD328\uB85C \uB3CC\uC544\uAC11\uB2C8\uB2E4."
+    eng: When a Tool card is destroyed, there is a 30% chance it returns to your
+      hand instead of being destroyed.
+  - key: relic112_Des
+    kor: "\uB9E4 \uC2A4\uD14C\uC774\uC9C0 \uCC98\uC74C\uC73C\uB85C \uC0AC\uC6A9\uB418\uB294
+      \uB3C4\uAD6C \uCE74\uB4DC\uB294 \uC778\uC811\uD55C \uD0C0\uC77C \uD558\uB098\uB97C
+      \uCD94\uAC00\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4. (\uBB34\uC791\uC704 \uBC29\uD5A5
+      \uC0C1\uD558\uC88C\uC6B0)"
+    eng: 'The first Tool card used in each stage destroys one additional adjacent
+      tile. (Random direction: Up, Down, Left, Right)'
+  - key: relic113_Des
+    kor: "\uC554\uD751 \uD0C0\uC77C\uC744 \uD30C\uAD34\uD558\uAC70\uB098 \uBC1D\uD790
+      \uB54C, 2.25\uBC30\uC218\uC758 \uC810\uC218\uB97C \uD68D\uB4DD\uD55C\uB2E4."
+    eng: Gain 2.25x the score when destroying or revealing Dark tiles.
+  - key: relic114_Des
+    kor: "\uBAA8\uB4E0 \uC810\uC218\uC758 1\uBC30\uC218\uC758 \uCD94\uAC00 \uC810\uC218\uB97C
+      \uBD80\uC5EC\uD55C\uB2E4. \uC2A4\uD14C\uC774\uC9C0 \uD074\uB9AC\uC5B4 \uC2DC
+      0.1\uBC30\uC218 \uC529 \uBC30\uC218\uAC00 \uB298\uC5B4\uB09C\uB2E4."
+    eng: Grants additional points equal to 1x the score. The multiplier increases
+      by 0.1x upon clearing each stage.
+  - key: relic115_Des
+    kor: "\uC0C1\uC810 \uC758\uB8B0\uC2DC \uC2E4\uD328 \uD655\uB960 30% \uAC10\uC18C"
+    eng: Decreases shop request failure probability by 30%.
+  - key: relic116_Des
+    kor: "\uD0C0\uC77C \uD30C\uAD34 \uC2E4\uD328 \uC2DC, \uD574\uB2F9 \uD0C0\uC77C\uC774
+      30% \uD655\uB960\uB85C \uADE0\uC5F4 \uD0C0\uC77C\uB85C \uBCC0\uACBD\uB41C\uB2E4."
+    eng: Upon failing to destroy a tile, there is a 30% chance the tile changes into
+      a Rift tile.
+  - key: relic117_Des
+    kor: "\uADE0\uC5F4 \uD0C0\uC77C \uD30C\uAD34 \uC2DC, +5 \uC810\uC218 \uCD94\uAC00"
+    eng: Gain +5 additional points when destroying a Rift tile.
+  - key: relic118_Des
+    kor: "\uB4DC\uB85C\uC6B0 \uC2DC \uAC15\uD654\uB41C \uB3C4\uAD6C \uCE74\uB4DC
+      1\uAC1C\uB2F9 +3 \uACE8\uB4DC"
+    eng: Gain +3 gold for each enhanced Tool card upon drawing.
+  - key: relic119_Des
+    kor: "\uC794\uC0C1 \uD0C0\uC77C\uC744 \uD0C0\uACA9 \uC9C0\uC810\uC73C\uB85C \uC120\uD0DD\uD558\uC5EC
+      \uD0C0\uC77C \uD30C\uAD34\uC2DC, +2.5\uBC30\uC218\uC758 \uC810\uC218\uB97C
+      \uC81C\uACF5"
+    eng: Gain 2.5x the score when destroying tiles by selecting an Afterimage tile
+      as the impact point.
+  - key: relic120_Des
+    kor: "\uC2A4\uD14C\uC774\uC9C0 \uC2DC\uC791 \uC2DC 7\uAC1C\uC758 \uC77C\uBC18
+      \uD0C0\uC77C\uC744 \uC794\uC0C1 \uD0C0\uC77C\uB85C \uBCC0\uACBD"
+    eng: Changes 7 normal tiles into Afterimage tiles at the start of the stage.
+  - key: relic121_Des
+    kor: "\uD0C0\uACA9 \uC9C0\uC810\uC5D0\uC11C \uBA40\uB9AC \uB5A8\uC5B4\uC9C4 \uD0C0\uC77C\uC758
+      \uD30C\uAD34 \uD655\uB960\uC744 \uC810\uC9C4\uC801\uC73C\uB85C \uC99D\uAC00
+      \uC2DC\uD0A8\uB2E4."
+    eng: Gradually increases the destruction probability of tiles located far from
+      the impact point.
+  - key: relic122_Des
+    kor: "\uD0C0\uACA9\uC810\uC744 \uAE30\uC900\uC73C\uB85C \uAC00\uB85C \uBC29\uD5A5\uC73C\uB85C
+      \uD30C\uAD34 \uC2DC, \uD574\uB2F9 \uBC29\uD5A5 \uD0C0\uC77C\uC758 \uD30C\uAD34
+      \uD655\uB960\uC774 20% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+    eng: When destroying tiles horizontally from the impact point, the destruction
+      probability of tiles in that direction increases by 20%.
+  - key: relic123_Des
+    kor: "\uD0C0\uACA9\uC810\uC744 \uAE30\uC900\uC73C\uB85C \uC138\uB85C \uBC29\uD5A5\uC73C\uB85C
+      \uD30C\uAD34 \uC2DC, \uD574\uB2F9 \uBC29\uD5A5 \uD0C0\uC77C\uC758 \uD30C\uAD34
+      \uD655\uB960\uC774 20% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+    eng: When destroying tiles vertically from the impact point, the destruction
+      probability of tiles in that direction increases by 20%.
+  - key: relic201_Des
+    kor: "\uB9C8\uB098 \uD0DC\uADF8 \uCE74\uB4DC\uB97C \uC0AC\uC6A9\uD560 \uB54C,
+      x% \uD655\uB960\uB85C \uB9C8\uB098\uB97C x \uD68D\uB4DD\uD569\uB2C8\uB2E4."
+    eng: When using a Mana tag card, there is an x% chance to gain x Mana.
+  - key: relic202_Des
+    kor: "\uB9C8\uB098\uAC00 x\uC774\uD558\uC77C \uB54C, \uB9C8\uB098 \uD0DC\uADF8
+      \uCE74\uB4DC\uB85C \uD30C\uAD34\uD55C \uD0C0\uC77C\uC758 \uC810\uC218\uAC00
+      x\uBC30\uC218\uAC00 \uB429\uB2C8\uB2E4."
+    eng: When Mana is x or below, the score for tiles destroyed by Mana tag cards
+      is multiplied by x.
+  - key: relic203_Des
+    kor: "\uB204\uC801 \uD30C\uAD34 \uD0C0\uC77C x\uAC1C\uB9C8\uB2E4, \uB9C8\uB098\uB97C
+      x \uD68D\uB4DD\uD569\uB2C8\uB2E4."
+    eng: Gain x Mana for every x cumulative tiles destroyed.
+  - key: relic204_Des
+    kor: "\uC2A4\uD14C\uC774\uC9C0 \uC885\uB8CC\uC2DC \uB0A8\uC740 \uB9C8\uB098 x
+      \uB9C8\uB2E4, \uACE8\uB4DC\uB97C x \uD68D\uB4DD\uD569\uB2C8\uB2E4."
+    eng: Gain x Gold for every x Mana remaining at the end of the stage.
+  - key: relic205_Des
+    kor: "\uB9C8\uBC95 \uCE74\uB4DC\uC758 \uC694\uAD6C \uB9C8\uB098\uAC00 x\uBC30,
+      \uD30C\uAD34 \uD655\uB960\uC774 x\uBC30\uAC00 \uB429\uB2C8\uB2E4. \uB9C8\uBC95
+      \uCE74\uB4DC\uB85C \uD30C\uAD34\uD55C \uD0C0\uC77C\uC758 \uC810\uC218\uAC00
+      x\uBC30\uC218\uAC00 \uB429\uB2C8\uB2E4."
+    eng: Magic card Mana cost becomes x times, and destruction probability becomes
+      x times. Scores for tiles destroyed by Magic cards are multiplied by x.
+  - key: relic206_Des
+    kor: "\uB9E4 \uC2A4\uD14C\uC774\uC9C0\uB9C8\uB2E4 \uB9C8\uBC95 \uCE74\uB4DC\uC758
+      \uC694\uAD6C \uB9C8\uB098\uAC00 x\uBD80\uD130 x\uC0AC\uC774\uC758 \uC218\uCE58\uB85C
+      \uBB34\uC791\uC704 \uBCC0\uACBD\uB429\uB2C8\uB2E4. \uB9C8\uBC95 \uCE74\uB4DC\uB85C
+      \uD30C\uAD34\uD55C \uD0C0\uC77C\uC758 \uC810\uC218\uAC00 x\uBC30\uC218\uAC00
+      \uB429\uB2C8\uB2E4."
+    eng: Every stage, the Mana cost of Magic cards randomly changes between x and
+      x. Scores for tiles destroyed by Magic cards are multiplied by x.
+  - key: relic207_Des
+    kor: "\uB9C8\uBC95 \uD0DC\uADF8 \uCE74\uB4DC\uB85C \uD30C\uAD34\uD55C \uD0C0\uC77C\uC5D0
+      +x \uBC30\uC218\uC758 \uC810\uC218\uB97C \uCD94\uAC00\uD569\uB2C8\uB2E4. \uB9C8\uBC95
+      \uD0DC\uADF8 \uCE74\uB4DC\uC758 \uC694\uAD6C \uB9C8\uB098 x\uB9C8\uB2E4 \uD6A8\uACFC\uAC00
+      x\uB9CC\uD07C \uC904\uC5B4\uB4ED\uB2C8\uB2E4."
+    eng: Adds an x multiplier to the score of tiles destroyed by Magic tag cards.
+      The effect decreases by x for every x Mana required by the Magic tag card.
+  - key: relic208_Des
+    kor: "\uB9C8\uBC95 \uD0DC\uADF8 \uCE74\uB4DC\uB97C \uC0AC\uC6A9\uD560 \uB54C,
+      x% \uD655\uB960\uB85C \uC774\uBC88 \uC2A4\uD14C\uC774\uC9C0\uC5D0\uC11C \uB3D9\uC77C\uD55C
+      \uCE74\uB4DC\uB97C \uC0DD\uC131\uD569\uB2C8\uB2E4. x%\uD655\uB960\uB85C \uC0AC\uC6A9\uD55C
+      \uCE74\uB4DC\uAC00 \uC601\uAD6C\uC801\uC73C\uB85C \uAC1C\uAD6C\uB9AC\uAC00
+      \uB429\uB2C8\uB2E4."
+    eng: When using a Magic tag card, there is an x% chance to create a duplicate
+      card for this stage. There is an x% chance the used card permanently turns
+      into a Frog.
+  - key: relic209_Des
+    kor: "\uB204\uC801 x\uBC88\uC9F8\uB85C \uC0AC\uC6A9\uD558\uB294 \uB9C8\uBC95
+      \uCE74\uB4DC\uC758 \uC694\uAD6C \uB9C8\uB098\uAC00 x \uAC10\uC18C\uD569\uB2C8\uB2E4."
+    eng: The Mana cost of the cumulative x-th Magic card used is reduced by x.
+  - key: relic210_Des
+    kor: "\uB204\uC801 x\uBC88\uC9F8\uB85C \uC0AC\uC6A9\uD558\uB294 \uB9C8\uBC95
+      \uCE74\uB4DC\uC758 \uC694\uAD6C \uB9C8\uB098\uAC00 x \uAC10\uC18C\uD569\uB2C8\uB2E4."
+    eng: The Mana cost of the cumulative x-th Magic card used is reduced by x.
+  - key: relic211_Des
+    kor: "\uB204\uC801 x\uBC88\uC9F8\uB85C \uC0AC\uC6A9\uD558\uB294 \uB9C8\uBC95
+      \uCE74\uB4DC\uC758 \uC694\uAD6C \uB9C8\uB098\uAC00 x \uAC10\uC18C\uD569\uB2C8\uB2E4."
+    eng: The Mana cost of the cumulative x-th Magic card used is reduced by x.
+  - key: relic212_Des
+    kor: "\uB204\uC801 x\uBC88\uC9F8\uB85C \uC0AC\uC6A9\uD558\uB294 \uB9C8\uBC95
+      \uCE74\uB4DC\uC758 \uC694\uAD6C \uB9C8\uB098\uAC00 x \uAC10\uC18C\uD569\uB2C8\uB2E4."
+    eng: The Mana cost of the cumulative x-th Magic card used is reduced by x.
+  - key: relic213_Des
+    kor: "\uC0AC\uC6A9 \uC2DC \uB2E4\uC74C\uC5D0 \uC0AC\uC6A9\uD558\uB294 \uB9C8\uBC95
+      \uD0DC\uADF8 \uCE74\uB4DC\uC758 \uC694\uAD6C \uB9C8\uB098\uAC00 x\uB85C \uACE0\uC815\uB429\uB2C8\uB2E4."
+    eng: Upon use, the Mana cost of the next Magic tag card is fixed at x.
+  - key: relic214_Des
+    kor: "\uBCF8\uB798 #\uC5BC\uC74C,#\uC804\uAE30 \uD0DC\uADF8\uAC00 \uC5C6\uB294
+      #\uB9C8\uBC95 \uCE74\uB4DC\uC5D0 #\uD654\uC5FC \uD0DC\uADF8 \uCD94\uAC00"
+    eng: Adds #Fire tag to #Magic cards that originally do not have #Ice or #Electric
+      tags.
+  - key: relic215_Des
+    kor: "\uBCF8\uB798 #\uD654\uC5FC,#\uC804\uAE30 \uD0DC\uADF8\uAC00 \uC5C6\uB294
+      #\uB9C8\uBC95 \uCE74\uB4DC\uC5D0 #\uC5BC\uC74C \uD0DC\uADF8 \uCD94\uAC00"
+    eng: Adds #Ice tag to #Magic cards that originally do not have #Fire or #Electric
+      tags.
+  - key: relic216_Des
+    kor: "\uBCF8\uB798 #\uD654\uC5FC,#\uC5BC\uC74C \uD0DC\uADF8\uAC00 \uC5C6\uB294
+      #\uB9C8\uBC95 \uCE74\uB4DC\uC5D0 #\uC804\uAE30 \uD0DC\uADF8 \uCD94\uAC00"
+    eng: Adds #Electric tag to #Magic cards that originally do not have #Fire or
+      #Ice tags.
+  - key: relic217_Des
+    kor: "#\uD654\uC5FC#\uC5BC\uC74C#\uC804\uAE30\uAC00 \uC5C6\uB294 #\uB9C8\uBC95
+      \uCE74\uB4DC\uC5D0 \uB9E4 \uD134 #\uD654\uC5FC, #\uC5BC\uC74C, #\uC804\uAE30
+      \uC911 \uD558\uB098\uB97C \uC21C\uCC28\uC801\uC73C\uB85C \uBD80\uC5EC"
+    eng: Every turn, sequentially grants either #Fire, #Ice, or #Electric to #Magic
+      cards without those tags.
+  - key: relic218_Des
+    kor: "#\uD654\uC5FC,#\uB9C8\uBC95 \uD0DC\uADF8\uAC00 \uC788\uB294 \uCE74\uB4DC\uC758
+      #\uB9C8\uBC95 \uD0DC\uADF8 \uC81C\uAC70, \uD30C\uAD34\uD655\uB960/\uD6A8\uACFC\uD655\uB960
+      (Value1)\uBC30"
+    eng: Removes #Magic tag from cards with #Fire and #Magic tags; increases destruction/effect
+      probability by (Value1)x.
+  - key: relic219_Des
+    kor: "#\uC5BC\uC74C,#\uB9C8\uBC95 \uD0DC\uADF8\uAC00 \uC788\uB294 \uCE74\uB4DC\uC758
+      #\uB9C8\uBC95 \uD0DC\uADF8 \uC81C\uAC70, \uD30C\uAD34\uD655\uB960/\uD6A8\uACFC\uD655\uB960
+      (Value1)\uBC30"
+    eng: Removes #Magic tag from cards with #Ice and #Magic tags; increases destruction/effect
+      probability by (Value1)x.
+  - key: relic220_Des
+    kor: "#\uC804\uAE30,#\uB9C8\uBC95 \uD0DC\uADF8\uAC00 \uC788\uB294 \uCE74\uB4DC\uC758
+      #\uB9C8\uBC95 \uD0DC\uADF8 \uC81C\uAC70, \uD30C\uAD34\uD655\uB960/\uD6A8\uACFC\uD655\uB960
+      (Value1)\uBC30"
+    eng: Removes #Magic tag from cards with #Electric and #Magic tags; increases
+      destruction/effect probability by (Value1)x.
+  - key: relic221_Des
+    kor: "#\uD654\uC5FC \uD0DC\uADF8 \uCE74\uB4DC \uC0AC\uC6A9\uC2DC, (Value1)%\uD655\uB960\uB85C
+      \uC190\uD328\uC5D0 \uC0AC\uC6A9\uD55C \uCE74\uB4DC \uC0DD\uC131"
+    eng: When using a #Fire tag card, there is a (Value1)% chance to create a copy
+      of the card in hand.
+  - key: relic222_Des
+    kor: "#\uB3C4\uAD6C \uCE74\uB4DC\uC5D0 #\uD654\uC5FC \uD0DC\uADF8 \uCD94\uAC00,
+      \uB3C4\uAD6C \uCE74\uB4DC \uD30C\uAD34 \uACE0\uC815\uD655\uB960 +(Value1)%"
+    eng: Adds #Fire tag to #Tool cards; adds +(Value1)% to the fixed destruction
+      probability of Tool cards.
+  - key: relic223_Des
+    kor: "\uB9E4 \uD134 \uAC01 #\uC5F0\uC18C \uD0C0\uC77C\uC774 (Value1)%\uD655\uB960\uB85C
+      \uC5F0\uC18C\uB97C \uACE0\uB824\uD558\uC9C0\uC54A\uC740 \uD30C\uAD34 \uC810\uC218\uB97C
+      \uB2E4\uC2DC \uC5BB\uC74C"
+    eng: Each turn, each #Burn tile has a (Value1)% chance to regain its destruction
+      score (excluding the burn bonus).
+  - key: relic224_Des
+    kor: "#\uC5F0\uC18C \uD0C0\uC77C \uD30C\uAD34\uC2DC (Value1)% \uD655\uB960\uB85C
+      \uC190\uD328\uC5D0 \uB79C\uB364\uD55C #\uD654\uC5FC \uCE74\uB4DC \uC784\uC2DC(\uC774\uBC88
+      \uC2A4\uD14C\uC774\uC9C0) \uC0DD\uC131"
+    eng: When a #Burn tile is destroyed, there is a (Value1)% chance to create a
+      temporary random #Fire card in hand for this stage.
+  - key: relic225_Des
+    kor: "#\uC5F0\uC18C \uD0C0\uC77C \uD30C\uAD34\uC2DC (Value1)% \uD655\uB960\uB85C
+      \uC0C8 \uD0C0\uC77C \uC0DD\uC131"
+    eng: When a #Burn tile is destroyed, there is a (Value1)% chance to generate
+      a new tile.
+  - key: relic226_Des
+    kor: "#\uC5F0\uC18C \uBD80\uC5EC\uC2DC \uC5BB\uB294 \uC810\uC218 \uBC30\uC728
+      +(value1)"
+    eng: Increases score multiplier when applying #Burn by +(Value1).
+  - key: relic227_Des
+    kor: "\uC874\uC7AC\uD558\uB294 #\uC5F0\uC18C \uD0C0\uC77C 1\uAC1C\uB2F9 \uD0C0\uC77C
+      \uAE30\uBCF8 \uD30C\uAD34 \uC810\uC218 +(Value1)"
+    eng: Adds +(Value1) to the base tile destruction score for each existing #Burn
+      tile.
+  - key: relic228_Des
+    kor: "#\uC5F0\uC18C \uD0C0\uC77C\uC758 \uD30C\uAD34 \uC810\uC218\uAC00 +(Value1)\uAC00
+      \uB41C\uB2E4. #\uC5F0\uC18C \uD0C0\uC77C \uC810\uC218 \uBC30\uC728 +0.25"
+    eng: '#Burn tile destruction score becomes +(Value1). Increases #Burn tile score
+      multiplier by +0.25.'
+  - key: relic229_Des
+    kor: "#\uC5F0\uC18C \uD0C0\uC77C\uC758 \uD30C\uAD34 \uC810\uC218\uAC00 +(Value1)\uAC00
+      \uB41C\uB2E4. #\uC5F0\uC18C \uD0C0\uC77C \uC810\uC218 \uBC30\uC728 +0.25"
+    eng: '#Burn tile destruction score becomes +(Value1). Increases #Burn tile score
+      multiplier by +0.25.'
+  - key: relic230_Des
+    kor: "#\uC5F0\uC18C \uD0C0\uC77C\uC758 \uD30C\uAD34 \uC810\uC218\uAC00 +(Value1)\uAC00
+      \uB41C\uB2E4."
+    eng: '#Burn tile destruction score becomes +(Value1).'
+  - key: relic231_Des
+    kor: "#\uC5F0\uC18C \uD0C0\uC77C \uC810\uC218 \uBC30\uC728 +(Value1)"
+    eng: Increases #Burn tile score multiplier by +(Value1).
+  - key: relic232_Des
+    kor: "#\uC5BC\uC74C \uD0DC\uADF8 \uCE74\uB4DC\uC758 \uD30C\uAD34 \uD655\uB960\uC774
+      (Value1)%\uAE4C\uC9C0 \uAC10\uC18C, \uAC10\uC18C\uD55C \uD655\uB960\uB9CC\uD07C
+      #\uBE59\uACB0 \uBD80\uC5EC \uD655\uB960 \uC0C1\uC2B9"
+    eng: '#Ice tag card destruction probability decreases to (Value1)%; #Freeze application
+      probability increases by the amount reduced.'
+  - key: relic233_Des
+    kor: "#\uC5BC\uC74C \uD0DC\uADF8 \uCE74\uB4DC \uC0AC\uC6A9\uC2DC, (Value1)%\uD655\uB960\uB85C
+      \uC190\uD328\uC5D0 \uC0AC\uC6A9\uD55C \uCE74\uB4DC \uC0DD\uC131"
+    eng: When using an #Ice tag card, there is a (Value1)% chance to create a copy
+      of the card in hand.
+  - key: relic234_Des
+    kor: "\uB9E4 \uD134 \uAC01 #\uBE59\uACB0 \uD0C0\uC77C\uC774 (V1)%\uD655\uB960\uB85C
+      \uC778\uC811\uD55C \uD0C0\uC77C \uD55C \uCE78\uC5D0 #\uBE59\uACB0 \uBD80\uC5EC"
+    eng: Each turn, each #Freeze tile has a (V1)% chance to apply #Freeze to one
+      adjacent tile.
+  - key: relic235_Des
+    kor: "#\uBE59\uACB0 \uD0C0\uC77C \uD30C\uAD34 \uC5F0\uC1C4\uC2DC #\uBE59\uACB0
+      \uD0C0\uC77C \uD30C\uAD34 \uC810\uC218 \uBC30\uC728 +(V1), \uD134 \uC2DC\uC791\uC2DC
+      \uBC30\uC728 \uCD08\uAE30\uD654"
+    eng: When #Freeze tiles are destroyed in a chain, #Freeze tile destruction score
+      multiplier increases by +(V1); multiplier resets at the start of the turn.
+  - key: relic236_Des
+    kor: "#\uBE59\uACB0 \uD0C0\uC77C \uD30C\uAD34 \uC5F0\uC1C4\uC2DC #\uBE59\uACB0
+      \uD0C0\uC77C \uD30C\uAD34 \uC810\uC218\uAC00 +(V1)\uC774 \uB41C\uB2E4. \uD134
+      \uC2DC\uC791\uC2DC \uD30C\uAD34 \uC810\uC218 \uCD08\uAE30\uD654"
+    eng: When #Freeze tiles are destroyed in a chain, #Freeze tile destruction score
+      becomes +(V1); destruction score resets at the start of the turn.
+  - key: relic237_Des
+    kor: "#\uBE59\uACB0 \uD0C0\uC77C\uC744 \uC9C1\uC120 8\uCE78\uC73C\uB85C \uC774\uC744
+      \uB54C\uB9C8\uB2E4 #\uBE59\uACB0 \uD0C0\uC77C \uD30C\uAD34 \uC810\uC218 \uBC30\uC728
+      +(V1) (\uCD5C\uB300 +(V2))"
+    eng: Gain +#Freeze tile destruction score multiplier of +(V1) for every 8 #Freeze
+      tiles connected in a straight line (Up to +(V2)).
+  - key: relic238_Des
+    kor: "#\uBE59\uACB0 \uD0C0\uC77C \uD30C\uAD34 \uC810\uC218 \uBC30\uC728 +(V1)"
+    eng: Increases #Freeze tile destruction score multiplier by +(V1).
+  - key: relic239_Des
+    kor: "\uB9C8\uC9C0\uB9C9 \uCE74\uB4DC \uC0AC\uC6A9 \uD6C4 \uBB34\uC791\uC704
+      \uD0C0\uC77C 1\uCE78 \uD30C\uAD34, #\uBE59\uACB0 \uD0C0\uC77C\uC5D0 \uC6B0\uC120
+      \uC801\uC6A9"
+    eng: After using the last card, destroy one random tile; prioritizes #Freeze
+      tiles.
+  - key: relic240_Des
+    kor: "#\uBE59\uACB0 \uD0C0\uC77C\uC758 \uD30C\uAD34 \uC810\uC218\uAC00 +(V1)\uAC00
+      \uB41C\uB2E4. #\uBE59\uACB0 \uD0C0\uC77C \uC810\uC218 \uBC30\uC728 +(V2)"
+    eng: '#Freeze tile destruction score becomes +(V1). Increases #Freeze tile score
+      multiplier by +(V2).'
+  - key: relic241_Des
+    kor: "#\uC804\uAE30 \uD0DC\uADF8 \uCE74\uB4DC \uC0AC\uC6A9\uC2DC (V1)% \uD655\uB960\uB85C
+      \uB9C8\uB098 (V2) \uD68D\uB4DD"
+    eng: When using an #Electric tag card, there is a (V1)% chance to gain (V2) Mana.
+  - key: relic242_Des
+    kor: "#\uC804\uAE30 \uD0DC\uADF8 \uCE74\uB4DC (V1)\uC7A5 \uC0AC\uC6A9\uC2DC \uC190\uD328\uC5D0
+      #\uC804\uAE30 \uCE74\uB4DC \uC0DD\uC131"
+    eng: After using (V1) #Electric tag cards, create an #Electric card in hand.
+  - key: relic243_Des
+    kor: "\uB9E4 \uD134 \uAC01 #\uAC10\uC804 \uD0C0\uC77C\uC774 \uC810\uC218\uB97C
+      \uC5BB\uC744 \uB54C (V1)%\uD655\uB960\uB85C \uD55C \uBC88 \uB354 \uBC1C\uB3D9"
+    eng: Each turn, when an #Electrified tile gains points, there is a (V1)% chance
+      it triggers once more.
+  - key: relic244_Des
+    kor: "#\uAC10\uC804 \uD0C0\uC77C \uD30C\uAD34 \uC2DC \uC810\uC218\uB97C \uC5BB\uC9C0\uB3C4
+      \uC783\uC9C0\uB3C4 \uC54A\uC74C"
+    eng: Neither gain nor lose points when an #Electrified tile is destroyed.
+  - key: relic245_Des
+    kor: "#\uAC10\uC804 \uD0C0\uC77C\uC758 \uD30C\uAD34 \uC810\uC218 +(V1)"
+    eng: Adds +(V1) to the destruction score of #Electrified tiles.
+  - key: relic246_Des
+    kor: "#\uAC10\uC804 \uD0C0\uC77C \uD6A8\uACFC \uBC30\uC728 +(V1)"
+    eng: Increases #Electrified tile effect multiplier by +(V1).
+  - key: relic247_Des
+    kor: "#\uAC10\uC804 \uD0C0\uC77C\uC774 \uC778\uC811\uD55C \uAC10\uC804 \uD0C0\uC77C
+      \uD558\uB098\uB9C8\uB2E4 #\uAC10\uC804 \uD0C0\uC77C \uD6A8\uACFC \uBC30\uC728+(V1)(\uC0C1\uD558\uC88C\uC6B0
+      \uCD5C\uB300 4\uBC88)"
+    eng: 'Each #Electrified tile increases its effect multiplier by +(V1) for every
+      adjacent electrified tile (Max 4 times: Up, Down, Left, Right).'
+  - key: relic248_Des
+    kor: "\uB9C8\uC9C0\uB9C9 \uCE74\uB4DC\uB97C \uC0AC\uC6A9\uD588\uC744 \uB54C #\uAC10\uC804
+      \uD0C0\uC77C \uD6A8\uACFC\uAC00 (V1)\uBC88 \uB354 \uBC1C\uB3D9"
+    eng: Trigger #Electrified tile effect (V1) additional times when the last card
+      is used.
+  - key: relic249_Des
+    kor: "\uB9E4 \uD134 \uB79C\uB364 \uD0C0\uC77C 1\uAC1C\uC5D0 #\uAC10\uC804 \uBD80\uC5EC,
+      #\uAC10\uC804, \uD568\uC815 \uD0C0\uC77C\uC5D0 \uBC1C\uB3D9\uD558\uC9C0 \uC54A\uC74C"
+    eng: Every turn, apply #Electrified to one random tile; does not apply to already
+      electrified or trap tiles.
+  - key: relic250_Des
+    kor: "#\uAC10\uC804 \uD0C0\uC77C\uC758 \uD30C\uAD34 \uC810\uC218\uAC00 +(V1)\uAC00
+      \uB41C\uB2E4. #\uAC10\uC804 \uD0C0\uC77C \uD6A8\uACFC \uBC30\uC728 +(V2)"
+    eng: '#Electrified tile destruction score becomes +(V1). Increases #Electrified
+      tile effect multiplier by +(V2).'
+  - key: relic251_Des
+    kor: "#\uB9C8\uBC95 \uCE74\uB4DC\uC758 \uC18C\uBAA8 \uB9C8\uB098 (V1)\uC99D\uAC00,
+      #\uD654\uC5FC,#\uC5BC\uC74C,#\uC804\uAE30 \uCE74\uB4DC \uC0AC\uC6A9\uC2DC \uAC01\uAC01
+      \uB2E4\uC74C\uC5D0 \uC0AC\uC6A9\uD558\uB294 #\uC5BC\uC74C,#\uC804\uAE30,#\uD654\uC5FC
+      \uCE74\uB4DC\uC758 \uC18C\uBAA8 \uB9C8\uB098 (V2) \uAC10\uC18C"
+    eng: Increase #Magic card Mana cost by (V1). Using #Fire, #Ice, or #Electric
+      cards reduces the Mana cost of the next #Ice, #Electric, or #Fire card used
+      by (V2), respectively.
+  - key: relic252_Des
+    kor: "#\uD654\uC5FC #\uC5BC\uC74C #\uC804\uAE30 \uC21C\uC73C\uB85C \uCE74\uB4DC
+      (V1)\uC7A5 \uC0AC\uC6A9\uC2DC \uC190 \uD328\uC5D0 #\uD654\uC5FC,#\uC5BC\uC74C,#\uC804\uAE30
+      \uCE74\uB4DC \uC911 1\uC7A5 \uB79C\uB364 (\uC774\uBC88 \uC2A4\uD14C\uC774\uC9C0)
+      \uC0DD\uC131"
+    eng: After using (V1) cards in the order of #Fire, #Ice, and #Electric, create
+      one random #Fire, #Ice, or #Electric card in hand (Temporary for this stage).
+  - key: relic253_Des
+    kor: "#\uC5F0\uC18C \uBD80\uC5EC \uC810\uC218 \uC81C\uAC70, #\uC5F0\uC18C \uD0C0\uC77C\uC5D0
+      #\uBE59\uACB0\uC774 \uBD80\uC5EC\uB418\uC5C8\uC744 \uB54C #\uC5F0\uC18C \uBD80\uC5EC
+      \uC810\uC218(\uD30C\uAD34 \uC810\uC218)\uC758 (V1)\uBC30\uB97C \uC5BB\uC74C"
+    eng: Removes score for applying #Burn. When #Freeze is applied to a #Burn tile,
+      gain (V1)x the burn application score (destruction score).
+  - key: relic254_Des
+    kor: "#\uBE59\uACB0\uC758 \uC5F0\uC1C4 \uD30C\uAD34 \uD6A8\uACFC \uC81C\uAC70,
+      #\uBE59\uACB0 \uD0C0\uC77C\uC5D0 #\uAC10\uC804\uC774 \uBD80\uC5EC\uB418\uC5C8\uC744
+      \uB54C \uC778\uC811\uD55C #\uBE59\uACB0 \uD0C0\uC77C\uC5D0 \uBAA8\uB450 #\uAC10\uC804\uC744
+      \uBD80\uC5EC"
+    eng: Removes the chain destruction effect of #Freeze. When #Electrified is applied
+      to a #Freeze tile, apply #Electrified to all adjacent #Freeze tiles.
+  - key: relic255_Des
+    kor: "#\uAC10\uC804\uC758 \uC810\uC218 \uBC30\uC728 (V1)\uBC30, #\uAC10\uC804
+      \uD30C\uAD34 \uB9AC\uC2A4\uD06C \uC81C\uAC70, #\uAC10\uC804 \uD0C0\uC77C\uC5D0
+      #\uC5F0\uC18C\uAC00 \uBD80\uC5EC\uB418\uC5B4 \uC788\uC744 \uB54C #\uAC10\uC804\uC758
+      \uC810\uC218 \uBC30\uC728 (V2)\uBC30\uB85C \uBCC0\uACBD"
+    eng: '#Electrified score multiplier becomes (V1)x and removes electrification
+      destruction risk. If #Burn is applied to an #Electrified tile, the score multiplier
+      changes to (V2)x.'
+  - key: relic256_Des
+    kor: "#\uC5F0\uC18C, #\uBE59\uACB0, #\uAC10\uC804\uC774 \uBAA8\uB450 \uBD80\uC5EC\uB41C
+      \uD0C0\uC77C\uC758 \uD30C\uAD34 \uC810\uC218 +(V1), \uADF8\uC744\uB9B0 \uC7A5\uAC80/\uC5BC\uC5B4\uBD99\uC740
+      \uB300\uAC80/\uD53C\uB8B0\uCE68 \uC790\uAC80\uC744 \uBAA8\uB450 \uC18C\uC9C0
+      \uC2DC \uD6A8\uACFC\uAC00 (V2)\uBC30 \uC99D\uAC00"
+    eng: 'Destruction score +(V1) for tiles with all three tags: #Burn, #Freeze,
+      and #Electrified. Effect increases (V2)x if possessing Singed Longsword, Frozen
+      Greatsword, and Lightning Rod Rapier simultaneously.'
+  - key: Tag_Name_1
+    kor: "\uBB34\uAE30"
+    eng: Weapon
+  - key: Tag_Name_2
+    kor: 0
+    eng: Name
+  - key: Tag_Name_3
+    kor: "\uD654\uC5FC"
+    eng: Flame
+  - key: Tag_Name_4
+    kor: "\uC5BC\uC74C"
+    eng: Ice
+  - key: Tag_Name_5
+    kor: "\uC804\uAE30"
+    eng: Lightning
+  - key: Tag_Name_6
+    kor: "\uB3C4\uAD6C"
+    eng: Tool
+  - key: Tag_Name_7
+    kor: "\uD669\uAE08"
+    eng: Golden
+  - key: Tag_Name_8
+    kor: "\uC77C\uD68C\uC131"
+    eng: One-time
+  - key: Tag_Name_9
+    kor: "\uB9C8\uB098"
+    eng: Mana
+  - key: Tag_Name_10
+    kor: "\uB9C8\uBC95"
+    eng: Magic
+  - key: Tag_Des_1
+    kor: "\uBB34\uAE30_\uC124\uBA85"
+    eng: Des
+  - key: Tag_Des_2
+    kor: "0_\uC124\uBA85"
+    eng: Des
+  - key: Tag_Des_3
+    kor: "\uD654\uC5FC_\uC124\uBA85"
+    eng: Des
+  - key: Tag_Des_4
+    kor: "\uC5BC\uC74C_\uC124\uBA85"
+    eng: Des
+  - key: Tag_Des_5
+    kor: "\uC804\uAE30_\uC124\uBA85"
+    eng: Des
+  - key: Tag_Des_6
+    kor: "\uB3C4\uAD6C_\uC124\uBA85"
+    eng: Des
+  - key: Tag_Des_7
+    kor: "\uD669\uAE08_\uC124\uBA85"
+    eng: Des
+  - key: Tag_Des_8
+    kor: "\uC77C\uD68C\uC131_\uC124\uBA85"
+    eng: Des
+  - key: Tag_Des_9
+    kor: "\uB9C8\uB098_\uC124\uBA85"
+    eng: Des
+  - key: Tag_Des_10
+    kor: "\uB9C8\uBC95_\uC124\uBA85"
+    eng: Des

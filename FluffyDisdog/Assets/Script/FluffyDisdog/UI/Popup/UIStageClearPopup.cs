@@ -1,7 +1,9 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using DG.Tweening;
 using FluffyDisdog.Manager;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using UnityEngine;
 
 namespace FluffyDisdog.UI
@@ -40,6 +42,7 @@ namespace FluffyDisdog.UI
         private int startCasherGold;
         
         private Coroutine GoldGainCoroutine;
+        private List<Sequence> seqs = new List<Sequence>();
         
         public static void OpenPopup(int gold)
         {
@@ -83,8 +86,15 @@ namespace FluffyDisdog.UI
                 {
                     coinTemp = 0;
                     var newCoin = GameObject.Instantiate(CoinAnimPrefabs[Random.Range(0,3)], coinStartTr);
-                    newCoin.transform.DOMoveX(coinEndTr.position.x, coinDuration).SetEase(easeCases[Random.Range(0,easeCases.Length)]);
-                    newCoin.transform.DOMoveY(coinEndTr.position.y, coinDuration).SetEase(easeCases[Random.Range(0,easeCases.Length)]).onComplete += ()=>newCoin.gameObject.SetActive(false);
+                    var seq1 = DOTween.Sequence().Append(newCoin.transform.DOMoveX(coinEndTr.position.x, coinDuration)
+                        .SetEase(easeCases[Random.Range(0, easeCases.Length)]));
+                    var seq2 = DOTween.Sequence()
+                        .Append(newCoin.transform.DOMoveY(coinEndTr.position.y, coinDuration)
+                            .SetEase(easeCases[Random.Range(0, easeCases.Length)]));
+                    seq2.onComplete += () => newCoin.gameObject.SetActive(false);
+                    
+                    seqs.Add(seq1);
+                    seqs.Add(seq2);
                 }
             }
             
@@ -97,6 +107,12 @@ namespace FluffyDisdog.UI
             base.OnCloseClick();
             if(GoldGainCoroutine!=null)
                 StopCoroutine(GoldGainCoroutine);
+
+            seqs.ForEach(_ =>
+            {
+                if(!_.IsComplete())
+                   _.Pause();
+            });
 
             GoldGainCoroutine = null;
             UIStageRewardPopup.OpenPopup(() =>
