@@ -2,6 +2,7 @@
 using FluffyDisdog.Data.RelicData;
 using Script.FluffyDisdog.Managers;
 using Sirenix.OdinInspector;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -64,6 +65,9 @@ namespace FluffyDisdog.UI
         
         [FoldoutGroup("Request")] [SerializeField]
         private GameObject[] requestCheckImg;
+        
+        [FoldoutGroup("Request")] [SerializeField]
+        private Text requestDayFlow;
 
         private int requestAddPrice;
 
@@ -84,6 +88,8 @@ namespace FluffyDisdog.UI
             {
                 UIDeckListPopup.OpenPopup();
             });
+            
+            requestDayFlow.text = ($"DAY - {TileGameManager.I.RequestSystem.ReqRewardLevelAdd+1}");
             
             
             foreach (var p in packs)
