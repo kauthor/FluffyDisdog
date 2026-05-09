@@ -15,6 +15,7 @@ namespace FluffyDisdog.UI
         
         [SerializeField] private Text txtRelicPrice;
         [SerializeField] private Text txtRelicName;
+        [SerializeField] private Text txtRelicNameShadow;
 
         [SerializeField] private TextMeshProUGUI txtRelicDesc;
 
