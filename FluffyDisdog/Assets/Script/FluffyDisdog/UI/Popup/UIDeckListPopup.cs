@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Script.FluffyDisdog.Managers;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -25,14 +26,20 @@ namespace FluffyDisdog.UI
         
         private Queue<UIRelicInfoPart> relicPool;
         private Queue<UIRelicInfoPart> currentRelic;
-        public static void OpenPopup(bool showExceptHand=false)
+        public static void OpenPopup(bool showExceptHand=false,Action onclose=null)
         {
             var pop = PopupManager.I.GetPopup(PopupType.DeckList);
             if (pop is UIDeckListPopup de)
             {
                 de.gameObject.SetActive(true);
-                de.Init(showExceptHand);
+                de.Init(showExceptHand, onclose);
             }
+        }
+
+        protected override void OnCloseClick()
+        {
+            base.OnCloseClick();
+            OnCloseCB?.Invoke();
         }
 
         protected override void Awake()
@@ -59,8 +66,10 @@ namespace FluffyDisdog.UI
             });
         }
 
-        private void Init(bool showExceptHand=false)
+        private Action OnCloseCB;
+        private void Init(bool showExceptHand=false, Action onclose=null)
         {
+            OnCloseCB = onclose;
             var list = DeckManager.I.GetDeckList();
             includeHandArea.SetActive(!showExceptHand);
             excludeHandArea.SetActive(showExceptHand);
@@ -87,21 +96,21 @@ namespace FluffyDisdog.UI
                 }
             }
             
-            var relics = TileGameManager.I.RelicSystem.currentRelicDatas;
-            if(relics != null && relics.Length > 0)
+            var relics = TileGameManager.I.RelicSystem.RelicList;
+            if(relics != null && relics.Count > 0)
                 foreach (var relic in relics)
                 {
                     if (relicPool.Count > 0)
                     {
                         var current = relicPool.Dequeue();
                         current.gameObject.SetActive(true);
-                        current.InitData(relic.relicName);
+                        current.InitData(relic);
                         currentRelic.Enqueue(current);
                     }
                     else
                     {
                         var newRelic = GameObject.Instantiate(relicPrefab, relicParent);
-                        newRelic.InitData(relic.relicName);
+                        newRelic.InitData(relic);
                         currentRelic.Enqueue(newRelic);
                     }
                 }

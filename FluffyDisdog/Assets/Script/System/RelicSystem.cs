@@ -19,6 +19,7 @@ namespace FluffyDisdog
         private List<RelicCommandData.RelicCommandData> commands;
 
         private List<RelicName> relicList;
+        public List<RelicName> RelicList => relicList;
 
         public RelicSystem(PlayerManager player)
         {

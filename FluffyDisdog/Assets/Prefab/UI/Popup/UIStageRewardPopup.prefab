@@ -1464,6 +1464,7 @@ GameObject:
   - component: {fileID: 3272342868301971679}
   - component: {fileID: 3272342868301971672}
   - component: {fileID: 1339340348567870300}
+  - component: {fileID: 8784854686434603285}
   m_Layer: 5
   m_Name: UIStageRewardPopup
   m_TagString: Untagged
@@ -1584,6 +1585,19 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 314e93f732f147041b4b8c78bb93616e, type: 3}
   rerollCountText: {fileID: 1669308134490524634}
   cardSelectText: {fileID: 2331539831105341231}
+  canvasGroup: {fileID: 8784854686434603285}
+--- !u!225 &8784854686434603285
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3272342868301971674}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &3272342868923417111
 GameObject:
   m_ObjectHideFlags: 0

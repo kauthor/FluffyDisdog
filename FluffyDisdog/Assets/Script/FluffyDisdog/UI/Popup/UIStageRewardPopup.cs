@@ -22,6 +22,8 @@ namespace FluffyDisdog.UI
 
         [SerializeField] private OutlinedText rerollCountText;
         [SerializeField] private OutlinedText cardSelectText;
+        
+        [SerializeField] private CanvasGroup canvasGroup;
 
         private Action OnClosedCb;
 
@@ -79,7 +81,11 @@ namespace FluffyDisdog.UI
             btnSelectRemoveFromDeck.onClick.RemoveAllListeners();
             btnSelectRemoveFromDeck.onClick.AddListener(() =>
             {
-                UIDeckListPopup.OpenPopup();
+                canvasGroup.alpha = 0;
+                UIDeckListPopup.OpenPopup(false, ()=>
+                {
+                    canvasGroup.alpha = 1;
+                });
             });
             
             btnSkipAndNext.onClick.RemoveAllListeners();
