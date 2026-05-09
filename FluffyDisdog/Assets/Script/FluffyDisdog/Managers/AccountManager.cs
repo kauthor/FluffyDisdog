@@ -11,6 +11,8 @@
             base.Awake();
             gold = 1000; //임시
         }
+        
+        public void ResetGoldOnGameStart() => gold = 1000;
 
         public bool GoldConsume(int amount)
         {

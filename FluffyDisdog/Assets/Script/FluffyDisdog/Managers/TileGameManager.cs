@@ -117,6 +117,7 @@ namespace FluffyDisdog
         {
             _requestSystem = new RequestSystem();
             _requestSystem.Init();
+            AccountManager.I.ResetGoldOnGameStart();
 
             relicSystem = new RelicSystem(PlayerManager.I);
 #if UNITY_EDITOR
