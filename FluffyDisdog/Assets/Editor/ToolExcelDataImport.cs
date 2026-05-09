@@ -57,7 +57,7 @@ namespace Editor
                         var rows = result.Tables[i].Rows;
                         ToolExcelData[] baseArr = new ToolExcelData[Mathf.Min(rows.Count - 1, (int)ToolType.MAX -1) ];
 
-                        for (int j = 1; j < rows.Count; j++)
+                        for (int j = 1; j < baseArr.Length; j++)
                         {
                             /*string data1 = rows[j][1].ToString();
                             string data2 = rows[j][2].ToString();
