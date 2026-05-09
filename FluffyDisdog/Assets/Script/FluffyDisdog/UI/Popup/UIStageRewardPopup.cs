@@ -79,12 +79,7 @@ namespace FluffyDisdog.UI
             btnSelectRemoveFromDeck.onClick.RemoveAllListeners();
             btnSelectRemoveFromDeck.onClick.AddListener(() =>
             {
-                UIDeckSelectPopup.OpenPopup(_ =>
-                {
-                    if(_ != ToolType.None)
-                       DeckManager.I.RemoveCard(_);
-                    Close();
-                });
+                UIDeckListPopup.OpenPopup();
             });
             
             btnSkipAndNext.onClick.RemoveAllListeners();
