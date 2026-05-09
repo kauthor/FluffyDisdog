@@ -294,9 +294,13 @@ namespace FluffyDisdog
             var score = (int)(100 * PlayerManager.I.RuntimeStat.ScoreMultiplier);
 
             DamageFontPart parameter=null;
-            
-            if(fontPool.Count>0)
+
+            if (fontPool.Count > 0)
+            {
                 parameter = fontPool.Pop();
+                if(parameter==null)
+                    parameter = GameObject.Instantiate(fontPartPrefab, transform);
+            }
             else
             {
                 parameter = GameObject.Instantiate(fontPartPrefab, transform);
