@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Script.FluffyDisdog.Managers;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -13,9 +14,16 @@ namespace FluffyDisdog.UI
 
 
         [SerializeField] private CardPopupParts[] cards;
-        [SerializeField] private Button btnSkipAndNext;
-        [SerializeField] private Sprite[] skipOrNextSprite;
-        [SerializeField] private OutlinedText cardSelectText;
+        [FormerlySerializedAs("btnSkipAndNext")] [SerializeField] private Button btnSkip;
+        [SerializeField] private Button btnNext;
+
+        [SerializeField] private Button pnlSkipArea;
+        [SerializeField] private Button pnlNextArea;
+        //[SerializeField] private Sprite[] skipOrNextSprite;
+        [SerializeField] private OutlinedText cardSelectTextSkip;
+        [SerializeField] private OutlinedText cardSelectTextNext;
+        [SerializeField] private GameObject skipLine;
+        [SerializeField] private GameObject nextLine;
 
         [SerializeField] private Button btnDeck;
 
@@ -41,8 +49,17 @@ namespace FluffyDisdog.UI
         protected override void Awake()
         {
             base.Awake();
-            btnSkipAndNext.onClick.RemoveAllListeners();
-            btnSkipAndNext.onClick.AddListener(() =>
+            btnSkip.onClick.RemoveAllListeners();
+            btnSkip.onClick.AddListener(() =>
+            {
+                foreach (var card in selectedCards)
+                {
+                    DeckManager.I.TryAddDeck(cards[card].ToolType);
+                }
+                Close();
+            });
+            btnNext.onClick.RemoveAllListeners();
+            btnNext.onClick.AddListener(() =>
             {
                 foreach (var card in selectedCards)
                 {
@@ -79,7 +96,8 @@ namespace FluffyDisdog.UI
                         selectedCards.Count < selectLimit);
                 }
             }
-            cardSelectText.SetText($"(0/{selectLimit})");
+            cardSelectTextSkip.SetText($"(0/{selectLimit})");
+            cardSelectTextNext.SetText($"(0/{selectLimit})");
         }
 
         private ToolType[] CutPack(int gachaType)
@@ -108,8 +126,20 @@ namespace FluffyDisdog.UI
                 selectedCards.Remove(n);
             }
             
-            cardSelectText.SetText($"({selectedCards.Count}/{selectLimit})");
-            btnSkipAndNext.image.sprite = skipOrNextSprite[selectedCards.Count<=0?0:1];
+            cardSelectTextSkip.SetText($"({selectedCards.Count}/{selectLimit})");
+            cardSelectTextNext.SetText($"({selectedCards.Count}/{selectLimit})");
+            bool activeSkip = selectedCards.Count <= 0;
+            pnlSkipArea.gameObject.SetActive(activeSkip);
+            pnlNextArea.gameObject.SetActive(!activeSkip);
+        }
+
+        public void MouseHoverSkip(bool hover)
+        {
+            skipLine.SetActive(hover);
+        }
+        public void MouseHoverNext(bool hover)
+        {
+            nextLine.SetActive(hover);
         }
         
     }

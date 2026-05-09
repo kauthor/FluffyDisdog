@@ -279,6 +279,7 @@ GameObject:
   - component: {fileID: 3246719415460061322}
   - component: {fileID: 1943129638638778043}
   - component: {fileID: 3395384407541295480}
+  - component: {fileID: 4830925926615897048}
   m_Layer: 5
   m_Name: BtnNext
   m_TagString: Untagged
@@ -390,6 +391,51 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4830925926615897048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797775530844650451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3377480808284057413}
+          m_TargetAssemblyTypeName: FluffyDisdog.UI.UICardPackResultPopup, Assembly-CSharp
+          m_MethodName: MouseHoverNext
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3377480808284057413}
+          m_TargetAssemblyTypeName: FluffyDisdog.UI.UICardPackResultPopup, Assembly-CSharp
+          m_MethodName: MouseHoverNext
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &2040791395987630736
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,7 +499,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -808,6 +854,7 @@ GameObject:
   - component: {fileID: 1897066722637092748}
   - component: {fileID: 6061198310893304931}
   - component: {fileID: 1065985123387803248}
+  - component: {fileID: 8510078057899405368}
   m_Layer: 5
   m_Name: BtnSkip
   m_TagString: Untagged
@@ -919,6 +966,51 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8510078057899405368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3510564408339788655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3377480808284057413}
+          m_TargetAssemblyTypeName: FluffyDisdog.UI.UICardPackResultPopup, Assembly-CSharp
+          m_MethodName: MouseHoverSkip
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3377480808284057413}
+          m_TargetAssemblyTypeName: FluffyDisdog.UI.UICardPackResultPopup, Assembly-CSharp
+          m_MethodName: MouseHoverSkip
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &4061975972732426059
 GameObject:
   m_ObjectHideFlags: 0
@@ -1642,11 +1734,14 @@ MonoBehaviour:
   - {fileID: 1197742773331068279}
   - {fileID: 3917342885590045703}
   - {fileID: 3488647536869658184}
-  btnSkipAndNext: {fileID: 1065985123387803248}
-  skipOrNextSprite:
-  - {fileID: 21300000, guid: 8b07c82292b01414d987fa82db3d7350, type: 3}
-  - {fileID: 21300000, guid: 314e93f732f147041b4b8c78bb93616e, type: 3}
-  cardSelectText: {fileID: 6917393315310461405}
+  btnSkip: {fileID: 1065985123387803248}
+  btnNext: {fileID: 3395384407541295480}
+  pnlSkipArea: {fileID: 1065985123387803248}
+  pnlNextArea: {fileID: 3395384407541295480}
+  cardSelectTextSkip: {fileID: 6917393315310461405}
+  cardSelectTextNext: {fileID: 8816934956526050489}
+  skipLine: {fileID: 852514574316383492}
+  nextLine: {fileID: 7907873638560241441}
   btnDeck: {fileID: 8299250986501409044}
 --- !u!1 &7758371552160459689
 GameObject:
@@ -2993,6 +3088,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 3860977175700685485}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8816934956526050489 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5749119699316268564, guid: fab4520522dc0134b91bc121fb362d8b,
+    type: 3}
+  m_PrefabInstance: {fileID: 3860977175700685485}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11355c3446614d7783cbe8e700ebfb2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5977343061493119441
 PrefabInstance:
   m_ObjectHideFlags: 0
