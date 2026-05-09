@@ -51,6 +51,8 @@ namespace FluffyDisdog.Data.RelicData
             relicName = (RelicName)relicId;
             values = val;
             localKey = nameKey;
+            localDesc = descKey;
+            relicRarity = rarity;
         }
         
         

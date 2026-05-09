@@ -1,6 +1,7 @@
 ﻿using System;
 using FluffyDisdog.Data.RelicData;
 using Script.FluffyDisdog.Managers;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +16,7 @@ namespace FluffyDisdog.UI
         [SerializeField] private Text txtRelicPrice;
         [SerializeField] private Text txtRelicName;
 
-        [SerializeField] private Text txtRelicDesc;
+        [SerializeField] private TextMeshProUGUI txtRelicDesc;
 
         private event Action<int, RelicName, UIRelicSelectPart> onCardPackOpen;
 
@@ -47,9 +48,11 @@ namespace FluffyDisdog.UI
             purchased = false;
             
             var data = ExcelManager.I.GetRelicData(relicType);
-            //var nameTxt = ExcelManager.I.GetLocalizeData(data);
+            var nameTxt = ExcelManager.I.GetLocalizeData(data.localKey).kor;
+            var descTxt = ExcelManager.I.GetLocalizeData(data.localDesc).kor;
             
-            txtRelicName.text = relicType.ToString();
+            txtRelicName.text = nameTxt;
+            txtRelicDesc.SetText(descTxt);
             txtRelicPrice.text = cost.ToString();
         }
 

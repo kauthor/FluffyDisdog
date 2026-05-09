@@ -213,6 +213,7 @@ MonoBehaviour:
   pnlPurchase: {fileID: 6611539708286157611}
   txtRelicPrice: {fileID: 4826776805568362196}
   txtRelicName: {fileID: 367571505215030641}
+  txtRelicDesc: {fileID: 3609657774404281438}
 --- !u!1 &2902479693443519865
 GameObject:
   m_ObjectHideFlags: 0

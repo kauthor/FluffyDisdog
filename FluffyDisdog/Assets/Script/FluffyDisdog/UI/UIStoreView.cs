@@ -24,7 +24,7 @@ namespace FluffyDisdog.UI
         [SerializeField] private CardPopupParts[] specialCardSlot;
         
         [FoldoutGroup("Store")]
-        [SerializeField] private Text[] txtSpecialPrice;
+        [SerializeField] private OutlinedText[] txtSpecialPrice;
 
         [FoldoutGroup("Store")] [SerializeField]
         private Button btnReroll;
@@ -113,7 +113,7 @@ namespace FluffyDisdog.UI
                 c.Init((ToolType)Random.Range(0, (int)ToolType.MAX),0);
                 c.BindHandler(OnBuySpecialCard);
                 c.gameObject.SetActive(true);
-                txtSpecialPrice[special++].text = $"10 G"; //todo 가격 임시
+                txtSpecialPrice[special++].SetText($"10 G"); //todo 가격 임시
             }
             
             btnReroll.onClick.RemoveAllListeners();

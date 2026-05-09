@@ -13,393 +13,1188 @@ MonoBehaviour:
   m_Name: RelicTable
   m_EditorClassIdentifier: 
   _relicDatas:
-  - localKey: relic101
+  - localKey: relic101_Name
+    localDesc: relic101_Des
+    relicRarity: 1
     relicName: 101
     values:
-    - 1
     - 3
-  - localKey: relic102
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic102_Name
+    localDesc: relic102_Des
+    relicRarity: 1
     relicName: 102
     values:
-    - 1
     - 1.25
-  - localKey: relic103
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic103_Name
+    localDesc: relic103_Des
+    relicRarity: 1
     relicName: 103
     values:
-    - 1
     - 3000
-  - localKey: relic104
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic104_Name
+    localDesc: relic104_Des
+    relicRarity: 1
     relicName: 104
     values:
     - 1
-    - 1
-  - localKey: relic105
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic105_Name
+    localDesc: relic105_Des
+    relicRarity: 1
     relicName: 105
     values:
-    - 1
     - 0
-  - localKey: relic106
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic106_Name
+    localDesc: relic106_Des
+    relicRarity: 1
     relicName: 106
     values:
-    - 1
     - 10
-  - localKey: relic107
+    - 5
+    - 50
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic107_Name
+    localDesc: relic107_Des
+    relicRarity: 1
     relicName: 107
     values:
     - 1
-    - 1
-  - localKey: relic108
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic108_Name
+    localDesc: relic108_Des
+    relicRarity: 1
     relicName: 108
     values:
-    - 1
     - 0
-  - localKey: relic109
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic109_Name
+    localDesc: relic109_Des
+    relicRarity: 1
     relicName: 109
     values:
-    - 1
     - 3
-  - localKey: relic110
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic110_Name
+    localDesc: relic110_Des
+    relicRarity: 1
     relicName: 110
     values:
-    - 1
     - 1.5
-  - localKey: relic111
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic111_Name
+    localDesc: relic111_Des
+    relicRarity: 1
     relicName: 111
     values:
-    - 1
     - 3000
-  - localKey: relic112
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic112_Name
+    localDesc: relic112_Des
+    relicRarity: 1
     relicName: 112
     values:
-    - 1
     - 0
-  - localKey: relic113
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic113_Name
+    localDesc: relic113_Des
+    relicRarity: 1
     relicName: 113
     values:
-    - 1
     - 2.25
-  - localKey: relic114
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic114_Name
+    localDesc: relic114_Des
+    relicRarity: 1
     relicName: 114
     values:
-    - 1
     - 0.1
-  - localKey: relic115
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic115_Name
+    localDesc: relic115_Des
+    relicRarity: 1
     relicName: 115
     values:
-    - 1
     - 3000
-  - localKey: relic116
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic116_Name
+    localDesc: relic116_Des
+    relicRarity: 1
     relicName: 116
     values:
-    - 1
     - 3000
-  - localKey: relic117
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic117_Name
+    localDesc: relic117_Des
+    relicRarity: 1
     relicName: 117
     values:
-    - 1
     - 5
-  - localKey: relic118
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic118_Name
+    localDesc: relic118_Des
+    relicRarity: 1
     relicName: 118
     values:
-    - 1
     - 3
-  - localKey: relic119
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic119_Name
+    localDesc: relic119_Des
+    relicRarity: 1
     relicName: 119
     values:
-    - 1
     - 2.5
-  - localKey: relic120
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic120_Name
+    localDesc: relic120_Des
+    relicRarity: 1
     relicName: 120
     values:
-    - 1
     - 7
-  - localKey: relic121
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic121_Name
+    localDesc: relic121_Des
+    relicRarity: 1
     relicName: 121
     values:
-    - 1
     - 2500
-  - localKey: relic122
+    - 2000
+    - 1500
+    - 1300
+    - 1100
+    - 1000
+    - 700
+    - 500
+    - 300
+    - 100
+  - localKey: relic122_Name
+    localDesc: relic122_Des
+    relicRarity: 1
     relicName: 122
     values:
-    - 1
     - 2000
-  - localKey: relic201
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic123_Name
+    localDesc: relic123_Des
+    relicRarity: 1
+    relicName: 123
+    values:
+    - 2000
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic201_Name
+    localDesc: relic201_Des
+    relicRarity: 1
     relicName: 201
     values:
-    - 1
     - 500
-  - localKey: relic202
-    relicName: 202
-    values:
     - 1
     - 0
-  - localKey: relic203
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic202_Name
+    localDesc: relic202_Des
+    relicRarity: 1
+    relicName: 202
+    values:
+    - 0
+    - 2
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic203_Name
+    localDesc: relic203_Des
+    relicRarity: 1
     relicName: 203
     values:
-    - 1
     - 30
-  - localKey: relic204
+    - 1
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic204_Name
+    localDesc: relic204_Des
+    relicRarity: 1
     relicName: 204
     values:
     - 1
-    - 1
-  - localKey: relic205
+    - 2
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic205_Name
+    localDesc: relic205_Des
+    relicRarity: 1
     relicName: 205
     values:
-    - 1
     - 2
-  - localKey: relic206
+    - 2
+    - 1.2
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic206_Name
+    localDesc: relic206_Des
+    relicRarity: 1
     relicName: 206
     values:
     - 1
-    - 1
-  - localKey: relic207
+    - 10
+    - 1.2
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic207_Name
+    localDesc: relic207_Des
+    relicRarity: 1
     relicName: 207
     values:
     - 1
     - 1
-  - localKey: relic208
+    - 0.1
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic208_Name
+    localDesc: relic208_Des
+    relicRarity: 1
     relicName: 208
     values:
-    - 1
     - 1000
-  - localKey: relic209
+    - 100
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic209_Name
+    localDesc: relic209_Des
+    relicRarity: 3
     relicName: 209
     values:
     - 3
-    - 3
-  - localKey: relic210
+    - 1
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic210_Name
+    localDesc: relic210_Des
+    relicRarity: 2
     relicName: 210
     values:
-    - 2
     - 5
-  - localKey: relic211
+    - 1
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic211_Name
+    localDesc: relic211_Des
+    relicRarity: 2
     relicName: 211
     values:
-    - 2
     - 7
-  - localKey: relic212
+    - 1
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic212_Name
+    localDesc: relic212_Des
+    relicRarity: 1
     relicName: 212
     values:
-    - 1
     - 11
-  - localKey: relic213
+    - 1
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic213_Name
+    localDesc: relic213_Des
+    relicRarity: 1
     relicName: 213
     values:
-    - 1
     - 0
-  - localKey: relic214
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic214_Name
+    localDesc: relic214_Des
+    relicRarity: 2
     relicName: 214
     values:
-    - 2
     - 0
-  - localKey: relic215
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic215_Name
+    localDesc: relic215_Des
+    relicRarity: 2
     relicName: 215
     values:
-    - 2
     - 0
-  - localKey: relic216
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic216_Name
+    localDesc: relic216_Des
+    relicRarity: 2
     relicName: 216
     values:
-    - 2
     - 0
-  - localKey: relic217
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic217_Name
+    localDesc: relic217_Des
+    relicRarity: 2
     relicName: 217
     values:
-    - 2
     - 0
-  - localKey: relic218
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic218_Name
+    localDesc: relic218_Des
+    relicRarity: 1
     relicName: 218
     values:
-    - 1
     - 0.75
-  - localKey: relic219
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic219_Name
+    localDesc: relic219_Des
+    relicRarity: 1
     relicName: 219
     values:
-    - 1
     - 0.75
-  - localKey: relic220
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic220_Name
+    localDesc: relic220_Des
+    relicRarity: 1
     relicName: 220
     values:
-    - 1
     - 0.75
-  - localKey: relic221
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic221_Name
+    localDesc: relic221_Des
+    relicRarity: 2
     relicName: 221
     values:
-    - 2
     - 1250
-  - localKey: relic222
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic222_Name
+    localDesc: relic222_Des
+    relicRarity: 1
     relicName: 222
     values:
-    - 1
     - 500
-  - localKey: relic223
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic223_Name
+    localDesc: relic223_Des
+    relicRarity: 1
     relicName: 223
     values:
-    - 1
     - 500
-  - localKey: relic224
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic224_Name
+    localDesc: relic224_Des
+    relicRarity: 2
     relicName: 224
     values:
-    - 2
     - 500
-  - localKey: relic225
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic225_Name
+    localDesc: relic225_Des
+    relicRarity: 2
     relicName: 225
     values:
-    - 2
     - 1000
-  - localKey: relic226
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic226_Name
+    localDesc: relic226_Des
+    relicRarity: 1
     relicName: 226
     values:
     - 1
-    - 1
-  - localKey: relic227
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic227_Name
+    localDesc: relic227_Des
+    relicRarity: 1
     relicName: 227
     values:
-    - 1
     - 5
-  - localKey: relic228
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic228_Name
+    localDesc: relic228_Des
+    relicRarity: 2
     relicName: 228
     values:
-    - 2
     - 25
-  - localKey: relic229
+    - 0.25
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic229_Name
+    localDesc: relic229_Des
+    relicRarity: 2
     relicName: 229
     values:
-    - 2
     - 25
-  - localKey: relic230
+    - 0.25
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic230_Name
+    localDesc: relic230_Des
+    relicRarity: 2
     relicName: 230
     values:
-    - 2
     - 50
-  - localKey: relic231
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic231_Name
+    localDesc: relic231_Des
+    relicRarity: 2
     relicName: 231
     values:
-    - 2
     - 0.5
-  - localKey: relic232
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic232_Name
+    localDesc: relic232_Des
+    relicRarity: 2
     relicName: 232
     values:
-    - 2
     - 0
-  - localKey: relic233
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic233_Name
+    localDesc: relic233_Des
+    relicRarity: 2
     relicName: 233
     values:
-    - 2
     - 1250
-  - localKey: relic234
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic234_Name
+    localDesc: relic234_Des
+    relicRarity: 1
     relicName: 234
     values:
-    - 1
     - 500
-  - localKey: relic235
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic235_Name
+    localDesc: relic235_Des
+    relicRarity: 1
     relicName: 235
     values:
-    - 1
     - 0.1
-  - localKey: relic236
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic236_Name
+    localDesc: relic236_Des
+    relicRarity: 1
     relicName: 236
     values:
-    - 1
     - 10
-  - localKey: relic237
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic237_Name
+    localDesc: relic237_Des
+    relicRarity: 1
     relicName: 237
     values:
-    - 1
     - 0.05
-  - localKey: relic238
+    - 2
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic238_Name
+    localDesc: relic238_Des
+    relicRarity: 1
     relicName: 238
     values:
-    - 1
     - 0.5
-  - localKey: relic239
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic239_Name
+    localDesc: relic239_Des
+    relicRarity: 2
     relicName: 239
     values:
-    - 2
     - 0
-  - localKey: relic240
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic240_Name
+    localDesc: relic240_Des
+    relicRarity: 2
     relicName: 240
     values:
-    - 2
     - 50
-  - localKey: relic241
+    - 0.5
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic241_Name
+    localDesc: relic241_Des
+    relicRarity: 1
     relicName: 241
     values:
-    - 1
     - 1250
-  - localKey: relic242
+    - 1
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic242_Name
+    localDesc: relic242_Des
+    relicRarity: 2
     relicName: 242
     values:
-    - 2
     - 8
-  - localKey: relic243
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic243_Name
+    localDesc: relic243_Des
+    relicRarity: 2
     relicName: 243
     values:
-    - 2
     - 1000
-  - localKey: relic244
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic244_Name
+    localDesc: relic244_Des
+    relicRarity: 2
     relicName: 244
     values:
-    - 2
     - 0
-  - localKey: relic245
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic245_Name
+    localDesc: relic245_Des
+    relicRarity: 1
     relicName: 245
     values:
-    - 1
     - 100
-  - localKey: relic246
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic246_Name
+    localDesc: relic246_Des
+    relicRarity: 1
     relicName: 246
     values:
-    - 1
     - 0.2
-  - localKey: relic247
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic247_Name
+    localDesc: relic247_Des
+    relicRarity: 1
     relicName: 247
     values:
-    - 1
     - 0.1
-  - localKey: relic248
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic248_Name
+    localDesc: relic248_Des
+    relicRarity: 2
     relicName: 248
     values:
     - 2
-    - 2
-  - localKey: relic249
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic249_Name
+    localDesc: relic249_Des
+    relicRarity: 2
     relicName: 249
     values:
-    - 2
     - 0
-  - localKey: relic250
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic250_Name
+    localDesc: relic250_Des
+    relicRarity: 2
     relicName: 250
     values:
-    - 2
     - 50
-  - localKey: relic251
+    - 0.5
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic251_Name
+    localDesc: relic251_Des
+    relicRarity: 2
     relicName: 251
     values:
-    - 2
     - 1
-  - localKey: relic252
+    - 2
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic252_Name
+    localDesc: relic252_Des
+    relicRarity: 2
     relicName: 252
     values:
-    - 2
     - 3
-  - localKey: relic253
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic253_Name
+    localDesc: relic253_Des
+    relicRarity: 1
     relicName: 253
     values:
-    - 1
     - 3
-  - localKey: relic254
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic254_Name
+    localDesc: relic254_Des
+    relicRarity: 1
     relicName: 254
     values:
-    - 1
     - 0
-  - localKey: relic255
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic255_Name
+    localDesc: relic255_Des
+    relicRarity: 1
     relicName: 255
     values:
-    - 1
     - 0
-  - localKey: relic256
+    - 3
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  - localKey: relic256_Name
+    localDesc: relic256_Des
+    relicRarity: 3
     relicName: 256
     values:
-    - 3
     - 300
+    - 2
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0

@@ -54,7 +54,7 @@ MonoBehaviour:
   cardPackImage: {fileID: 6051635643613523239}
   btnPackOpen: {fileID: 1338508241925264066}
   pnlPurchase: {fileID: 5071331391757680978}
-  txtCardPackPrice: {fileID: 0}
+  txtCardPackPrice: {fileID: 5692855957927004832}
 --- !u!1 &3776631552353689058
 GameObject:
   m_ObjectHideFlags: 0
@@ -1003,3 +1003,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 56840064831247540}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5692855957927004832 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5749119699316268564, guid: e86a8dc0dce40e44fa2bd24bdaf1974d,
+    type: 3}
+  m_PrefabInstance: {fileID: 56840064831247540}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11355c3446614d7783cbe8e700ebfb2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
