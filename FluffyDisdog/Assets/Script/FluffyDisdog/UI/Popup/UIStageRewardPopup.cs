@@ -52,8 +52,11 @@ namespace FluffyDisdog.UI
                 if (rerollCount >= rerollLimit)
                     return;
                 rerollCount++;
+                currentSelected.Clear();
                 rerollCountText.SetText($"({rerollLimit-rerollCount}/{rerollLimit})");
+                cardSelectText.SetText($"(0/{cardLimit})");
                 List<ToolType> appeared = new List<ToolType>();
+                
                 for (int i = 0; i < cards.Length ; i++)
                 {
                     var newTool = (ToolType)(SeedManager.I.GetStoreSeed() % 7);

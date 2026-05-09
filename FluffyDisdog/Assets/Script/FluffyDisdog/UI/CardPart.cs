@@ -25,6 +25,7 @@ namespace FluffyDisdog.UI
         [SerializeField] private GameObject[] tags;
         private int ID;
         private ToolType _toolType;
+        public ToolType ToolType => _toolType;
         private Action<int, ToolType> onClickedCb;
         private Action onClickCanceledCb;
         private Action<int> onHoverCb;

@@ -42,6 +42,8 @@ namespace FluffyDisdog.UI
         [SerializeField] private Transform relicParent;
 
         [SerializeField] private Button btnOption;
+
+        [SerializeField] private CardPopupParts pnlGrave;
         
         private void Awake()
         {
@@ -141,6 +143,8 @@ namespace FluffyDisdog.UI
             SyncGold();
             TileGameManager.I.OnGameEnd -= OnGameEnd;
             TileGameManager.I.OnGameEnd += OnGameEnd;
+            
+            pnlGrave.gameObject.SetActive(false);
         }
 
         private void SyncRelic()
@@ -206,6 +210,9 @@ namespace FluffyDisdog.UI
             
             currentSelected = -1;
             txtCurrentTool.gameObject.SetActive(false);
+            if(!pnlGrave.gameObject.activeSelf)
+                pnlGrave.gameObject.SetActive(true);
+            pnlGrave.Init(card.ToolType,0);
             CardSort(true);
         }
 

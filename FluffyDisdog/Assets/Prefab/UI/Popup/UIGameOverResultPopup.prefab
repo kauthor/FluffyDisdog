@@ -1938,7 +1938,7 @@ MonoBehaviour:
   BtnClose: {fileID: 0}
   BtnOutClose: {fileID: 0}
   btnOK: {fileID: 149786148736199986}
-  btnDeck: {fileID: 0}
+  btnDeck: {fileID: 1538803960769040109}
   txtStage: {fileID: 669257832932074916}
   txtAttackedTile: {fileID: 1514143914860342671}
   txtDestroyTIle: {fileID: 8811931652296787943}

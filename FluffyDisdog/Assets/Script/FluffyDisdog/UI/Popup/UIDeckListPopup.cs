@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Script.FluffyDisdog.Managers;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace FluffyDisdog.UI
@@ -20,7 +21,7 @@ namespace FluffyDisdog.UI
         [SerializeField] private GameObject includeHandArea;
         [SerializeField] private GameObject excludeHandArea;
         [SerializeField] private Button btnShowExceptHand;
-        [SerializeField] private Button btnReturn;
+        [FormerlySerializedAs("btnReturn")] [SerializeField] private Button btnShowIncludeHand;
         
         private Queue<UIRelicInfoPart> relicPool;
         private Queue<UIRelicInfoPart> currentRelic;
@@ -44,15 +45,15 @@ namespace FluffyDisdog.UI
             btnShowExceptHand.onClick.AddListener(() =>
             {
                 btnShowExceptHand.gameObject.SetActive(false);
-                btnReturn.gameObject.SetActive(true);
+                btnShowIncludeHand.gameObject.SetActive(true);
                 includeHandArea.gameObject.SetActive(false);
                 excludeHandArea.gameObject.SetActive(true);
             });
-            btnReturn.onClick.RemoveAllListeners();
-            btnReturn.onClick.AddListener(() =>
+            btnShowIncludeHand.onClick.RemoveAllListeners();
+            btnShowIncludeHand.onClick.AddListener(() =>
             {
                 btnShowExceptHand.gameObject.SetActive(true);
-                btnReturn.gameObject.SetActive(false);
+                btnShowIncludeHand.gameObject.SetActive(false);
                 includeHandArea.gameObject.SetActive(true);
                 excludeHandArea.gameObject.SetActive(false);
             });
@@ -61,11 +62,11 @@ namespace FluffyDisdog.UI
         private void Init(bool showExceptHand=false)
         {
             var list = DeckManager.I.GetDeckList();
-            includeHandArea.SetActive(true);
-            excludeHandArea.SetActive(false);
+            includeHandArea.SetActive(!showExceptHand);
+            excludeHandArea.SetActive(showExceptHand);
             
-            btnShowExceptHand.gameObject.SetActive(showExceptHand);
-            btnReturn.gameObject.SetActive(false);
+            btnShowExceptHand.gameObject.SetActive(false);
+            btnShowIncludeHand.gameObject.SetActive(showExceptHand);
 
             int loop = 0;
             foreach (var keypair in list)
