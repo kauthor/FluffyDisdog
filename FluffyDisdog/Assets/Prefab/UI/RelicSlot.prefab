@@ -211,7 +211,7 @@ MonoBehaviour:
   relicImage: {fileID: 5302259905821839379}
   btnRelicBuy: {fileID: 1338508241925264066}
   pnlPurchase: {fileID: 6611539708286157611}
-  txtRelicPrice: {fileID: 4826776805568362196}
+  txtRelicPrice: {fileID: 4258052483905235213}
   txtRelicName: {fileID: 367571505215030641}
   txtRelicNameShadow: {fileID: 1051611289923095352}
   txtRelicDesc: {fileID: 3609657774404281438}
@@ -1538,6 +1538,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e86a8dc0dce40e44fa2bd24bdaf1974d, type: 3}
+--- !u!114 &4258052483905235213 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5749119699316268564, guid: e86a8dc0dce40e44fa2bd24bdaf1974d,
+    type: 3}
+  m_PrefabInstance: {fileID: 8421552926796183321}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11355c3446614d7783cbe8e700ebfb2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6739533498441794861 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2979412383076610612, guid: e86a8dc0dce40e44fa2bd24bdaf1974d,

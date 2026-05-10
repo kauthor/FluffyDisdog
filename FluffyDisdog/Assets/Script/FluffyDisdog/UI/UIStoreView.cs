@@ -78,6 +78,9 @@ namespace FluffyDisdog.UI
 
         [SerializeField] private Button btnOption;
 
+        private int limit1Cost = 10;
+        private int limit2Cost = 10;
+
         public override void Init(UIViewParam param)
         {
             base.Init(param);
@@ -106,22 +109,26 @@ namespace FluffyDisdog.UI
             var limit1 = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(6).gachaId);
             var limit2 = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(7).gachaId);
             //var relic1 = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(6).gachaId);
-            RelicName relic1Name = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(4).gachaId).rewardValue
+            string relic1Key = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(4).gachaId).rewardValue;
+            RelicName relic1Name = relic1Key
                 .StringToRelicName();
             while (usedRelic.Contains((int)relic1Name) && usedRelic.Count <19 )
             {
-                relic1Name = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(4).gachaId).rewardValue
+                relic1Key = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(4).gachaId).rewardValue;
+                relic1Name = relic1Key
                     .StringToRelicName();
             }
 
             bool disableRelic1 = usedRelic.Count >= 19;
             usedRelic.Add((int)relic1Name);
             
-            RelicName relic2Name = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(5).gachaId).rewardValue
+            string relic2Key = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(5).gachaId).rewardValue;
+            RelicName relic2Name = relic2Key
                 .StringToRelicName();
             while (usedRelic.Contains((int)relic2Name) && usedRelic.Count <19 )
             {
-                relic2Name = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(5).gachaId).rewardValue
+                relic2Key = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(5).gachaId).rewardValue;
+                relic2Name = relic2Key
                     .StringToRelicName();
             }
             bool disableRelic2 = usedRelic.Count >= 19;
@@ -162,7 +169,7 @@ namespace FluffyDisdog.UI
             if (!disableRelic1)
             {
                 relics[0].gameObject.SetActive(true);
-                relics[0].Init(20, (int)relic1Name, OnClickRelicPack);
+                relics[0].Init(ExcelManager.I.GetShopCost(relic1Key), (int)relic1Name, OnClickRelicPack);
             }
             else
             {
@@ -172,7 +179,7 @@ namespace FluffyDisdog.UI
             if (!disableRelic2)
             {
                 relics[1].gameObject.SetActive(true);
-                relics[1].Init(20, (int)relic2Name, OnClickRelicPack);
+                relics[1].Init(ExcelManager.I.GetShopCost(relic2Key), (int)relic2Name, OnClickRelicPack);
             }
             else
             {
@@ -195,12 +202,14 @@ namespace FluffyDisdog.UI
             specialCardSlot[0].Init(limit1Tool, 0);
             specialCardSlot[0].BindHandler(OnBuySpecialCard);
             specialCardSlot[0].gameObject.SetActive(true);
-            txtSpecialPrice[0].SetText($"10 G");
+            limit1Cost = ExcelManager.I.GetShopCost(limit1.rewardValue);
+            txtSpecialPrice[0].SetText($"{limit1Cost} G");
             
             specialCardSlot[1].Init(limit2Tool, 0);
             specialCardSlot[1].BindHandler(OnBuySpecialCard);
             specialCardSlot[1].gameObject.SetActive(true);
-            txtSpecialPrice[1].SetText($"10 G");
+            limit2Cost = ExcelManager.I.GetShopCost(limit2.rewardValue);
+            txtSpecialPrice[1].SetText($"{limit2Cost} G");
             
             btnReroll.onClick.RemoveAllListeners();
             btnReroll.onClick.AddListener(Reroll);
@@ -311,22 +320,26 @@ namespace FluffyDisdog.UI
             var pack3 = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(3).gachaId);
             
             //var relic1 = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(6).gachaId);
-            RelicName relic1Name = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(4).gachaId).rewardValue
+            string relic1Key = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(4).gachaId).rewardValue;
+            RelicName relic1Name = relic1Key
                 .StringToRelicName();
             while (usedRelic.Contains((int)relic1Name) && usedRelic.Count <19 )
             {
-                relic1Name = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(4).gachaId).rewardValue
+                relic1Key = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(4).gachaId).rewardValue;
+                relic1Name = relic1Key
                     .StringToRelicName();
             }
 
             bool disableRelic1 = usedRelic.Count >= 19;
             usedRelic.Add((int)relic1Name);
             
-            RelicName relic2Name = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(5).gachaId).rewardValue
+            string relic2Key = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(5).gachaId).rewardValue;
+            RelicName relic2Name = relic2Key
                 .StringToRelicName();
             while (usedRelic.Contains((int)relic2Name) && usedRelic.Count <19 )
             {
-                relic2Name = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(5).gachaId).rewardValue
+                relic2Key = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(5).gachaId).rewardValue;
+                relic2Name = relic2Key
                     .StringToRelicName();
             }
             bool disableRelic2 = usedRelic.Count >= 19;
@@ -343,7 +356,7 @@ namespace FluffyDisdog.UI
             if (!disableRelic1&&!relics[0].Purchased)
             {
                 //relics[0].gameObject.SetActive(true);
-                relics[0].Reroll(20, (int)relic1Name, OnClickRelicPack);
+                relics[0].Reroll(ExcelManager.I.GetShopCost(relic1Key), (int)relic1Name, OnClickRelicPack);
             }
             else
             {
@@ -353,7 +366,7 @@ namespace FluffyDisdog.UI
             if (!disableRelic2 && !relics[1].Purchased)
             {
                 //relics[1].gameObject.SetActive(true);
-                relics[1].Reroll(20, (int)relic2Name, OnClickRelicPack);
+                relics[1].Reroll(ExcelManager.I.GetShopCost(relic2Key), (int)relic2Name, OnClickRelicPack);
             }
             else
             {
@@ -414,7 +427,11 @@ namespace FluffyDisdog.UI
             if (AccountManager.I.Gold < 10) //todo : 임시비용 
                 return;
 
-            AccountManager.I.GoldConsume(10);
+            int cost = 10;
+            if (slot == specialCardSlot[0])
+                cost = limit1Cost;
+            else cost = limit2Cost;
+            AccountManager.I.GoldConsume(cost);
             //slot.gameObject.SetActive(false);
             //slot.
             DeckManager.I.TryAddDeck(tool);
