@@ -66,12 +66,13 @@ namespace FluffyDisdog
         private void Awake()
         {
             //nodes = nodesParent.GetComponentsInChildren<TerrainNode>();
-            OnNodeClickedCB = null;
+            
             fontPool = new Stack<DamageFontPart>();
         }
 
         public async UniTask InitGame(int level =1)
         {
+            OnNodeClickedCB = null;
             if (levelParent.childCount>0)
             {
                 Destroy(levelParent.GetChild(0).gameObject);

@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BtnClose: {fileID: 0}
-  BtnOutClose: {fileID: 2351069481762268343}
+  BtnOutClose: {fileID: 0}
   casher: {fileID: 8349512983740771035}
   txtGainedGold: {fileID: 5939974568923634170}
   CoinAnimPrefabs:
@@ -248,6 +248,8 @@ MonoBehaviour:
   - {fileID: 8274333820607001009, guid: 1090de768692b71429369cb99cb1f34e, type: 3}
   coinStartTr: {fileID: 333409588644491654}
   coinEndTr: {fileID: 8185193000376205498}
+  coinShineAnim: {fileID: 3634389996036572287}
+  btnOut: {fileID: 2351069481762268343}
   easeCases: 050000000600000001000000
   coinTerm: 0.05
   coinDuration: 0.8

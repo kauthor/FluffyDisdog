@@ -5,9 +5,18 @@ using FluffyDisdog.Manager;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace FluffyDisdog.UI
 {
+
+    public enum Phase
+    {
+        Phase1=0,
+        Phase2=1,
+        Phase3=2,
+        Phase4=3,
+    }
     public class UIStageClearPopup:PopupMonoBehavior
     {
         public override PopupType type => PopupType.StageClear;
@@ -18,7 +27,10 @@ namespace FluffyDisdog.UI
         [SerializeField] private GameObject[] CoinAnimPrefabs;
         [SerializeField] private Transform coinStartTr;
         [SerializeField] private Transform coinEndTr;
+        [SerializeField] private GameObject coinShineAnim;
+        [SerializeField] private Button btnOut;
 
+        private Phase currentPhase;
         /// <summary>
         /// 이것은 코인의 경로들
         /// </summary>
@@ -53,24 +65,66 @@ namespace FluffyDisdog.UI
             }
         }
 
+        protected override void Awake()
+        {
+            base.Awake();
+            btnOut.onClick.RemoveAllListeners();
+            btnOut.onClick.AddListener(OnOutClick);
+        }
+
+        private void DoPhaseFlow(Phase phase)
+        {
+            currentPhase = phase;
+            switch (phase)
+            {
+                case Phase.Phase1:
+                    coinShineAnim.gameObject.SetActive(true);
+                    GoldGainCoroutine = StartCoroutine(Ph1Routine());
+                    break;
+                case Phase.Phase3:
+                    GoldGainCoroutine = StartCoroutine(GoldRoutine());
+                    break;
+            }
+        }
+
+        private IEnumerator Ph1Routine()
+        {
+            float temp = 0;
+            float dura = 1.0f;
+            while (dura > temp)
+            {
+                temp +=  Time.fixedDeltaTime;
+                int curGold = (int)(gainGold * temp/dura);
+                txtGainedGold.SetText($"{curGold} G");
+                
+                yield return new WaitForFixedUpdate();
+            }
+            txtGainedGold.SetText($"{gainGold} G");
+            currentPhase = Phase.Phase2;
+            coinShineAnim.gameObject.SetActive(false);
+        }
+
         private void Init(int gold)
         {
             casher.SyncGold(AccountManager.I.Gold);
             startCasherGold = AccountManager.I.Gold;
             gainGold = gold;
-            txtGainedGold.SetText(gainGold.ToString()+" G");
+            txtGainedGold.SetText("0 G");
             goalGold = AccountManager.I.Gold + gold;
             GoldGainCoroutine = null;
             
             AccountManager.I.AddGold(gainGold);
             this.gameObject.SetActive(true);
-            GoldGainCoroutine = StartCoroutine(GoldRoutine());
+            DoPhaseFlow(Phase.Phase1);
+            //GoldGainCoroutine = StartCoroutine(GoldRoutine());
         }
-        
+
+        private List<GameObject> currentcoins;
         private IEnumerator GoldRoutine(float time=2.0f)
         {
             var startGold = startCasherGold;
             var currentUIGainGold =gainGold;
+            currentcoins = new List<GameObject>();
 
             float temp = 0;
             float coinTemp = 0;
@@ -93,6 +147,7 @@ namespace FluffyDisdog.UI
                             .SetEase(easeCases[Random.Range(0, easeCases.Length)]));
                     seq2.onComplete += () => newCoin.gameObject.SetActive(false);
                     
+                    currentcoins.Add(newCoin);
                     seqs.Add(seq1);
                     seqs.Add(seq2);
                 }
@@ -100,26 +155,45 @@ namespace FluffyDisdog.UI
             
             casher.SyncGold(goalGold);
             txtGainedGold.SetText("0 G");
+            currentPhase = Phase.Phase4;
         }
 
         protected override void OnCloseClick()
         {
             base.OnCloseClick();
-            if(GoldGainCoroutine!=null)
-                StopCoroutine(GoldGainCoroutine);
-
-            seqs.ForEach(_ =>
-            {
-                if(!_.IsComplete())
-                   _.Pause();
-            });
-
-            GoldGainCoroutine = null;
+            
             UIStageRewardPopup.OpenPopup(() =>
             {
                 //TileGameManager.I.GoNextLevel();
                 UIManager.I.ChangeView(UIType.Store);
             });
+        }
+
+        private void OnOutClick()
+        {
+            switch (currentPhase)
+            {
+                case Phase.Phase1:
+                    StopCoroutine(GoldGainCoroutine);
+                    txtGainedGold.SetText($"{gainGold} G");
+                    currentPhase = Phase.Phase2;
+                    coinShineAnim.gameObject.SetActive(false);
+                    break;
+                case Phase.Phase2:
+                    DoPhaseFlow(Phase.Phase3);
+                    break;
+                case Phase.Phase3:
+                    StopCoroutine(GoldGainCoroutine);
+                    if(currentcoins !=null)
+                        currentcoins.ForEach(x=>x.SetActive(false));
+                    txtGainedGold.SetText("0 G");
+                    casher.SyncGold(goalGold);
+                    currentPhase=Phase.Phase4;
+                    break;
+                case Phase.Phase4:
+                    Close();
+                    break;
+            }
         }
     }
 }

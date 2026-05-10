@@ -71,6 +71,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: dac2dad5fc1fb1d44875618494d249e4, type: 3}
   - {fileID: 21300000, guid: 283690b6c871f334185db6cc755cb6ed, type: 3}
   - {fileID: 21300000, guid: 4143fab7ecad28948bb515a2a9501ecc, type: 3}
+  - {fileID: 21300000, guid: ed4dc7c7802ed5d4c9107e10328c268a, type: 3}
   - {fileID: 21300000, guid: b4a1a43976735cd45b383349eef36f6a, type: 3}
   - {fileID: 21300000, guid: 126a7369181c3d94f9c29b38af9d2dfb, type: 3}
   - {fileID: 21300000, guid: 7615d089af16a514eb25dd3b57b196db, type: 3}
@@ -94,6 +95,7 @@ SpriteAtlas:
   - Relic115
   - Relic105
   - Relic106
+  - Relic109
   - Relic116
   - Relic107
   - Relic112
