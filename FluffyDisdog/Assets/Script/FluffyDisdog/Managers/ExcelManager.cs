@@ -25,6 +25,7 @@ namespace Script.FluffyDisdog.Managers
         private Dictionary<ToolType, ToolExcelData> toolExcelDataDic;
         private Dictionary<int, ToolCardOpData> toolCardOpDataDic;
         private Dictionary<int, GacheInGameData> gacheInGameDataDic;
+        private Dictionary<int, GachaData> gachaDataDic;
         private Dictionary<int, TagData> tagDataDic;
         private Dictionary<string, LocalizeData> localizeDataDic;
         
@@ -116,9 +117,10 @@ namespace Script.FluffyDisdog.Managers
             relicDataDic = _relicDataTable.TryCache();
             toolExcelDataDic = _toolExcelDatas.TryCache();
             toolCardOpDataDic = _toolCardOptionTable.TryCache();
-            gacheInGameDataDic = _gachaTable.TryCache();
+            gacheInGameDataDic = _gachaTable.TryCacheGachaGroup();
             tagDataDic = _tagTable.TryCache();
             localizeDataDic = _localizeTable.TryCache();
+            gachaDataDic = _gachaTable.TryCacheData();
             
             initialized=true;
         }
@@ -162,6 +164,25 @@ namespace Script.FluffyDisdog.Managers
         {
             localizeDataDic.TryGetValue(name, out var ret);
             return ret;
+        }
+
+        public GachaData ExecuteGacha(int gachaId)
+        {
+            if (gacheInGameDataDic.TryGetValue(gachaId, out var gacha))
+            {
+                int gachaPoint = Random.Range(0, gacha.rateSum);
+                int result = 0;
+                for (int i = gachaPoint; i > 0;)
+                {
+                    i -= gacha.rateArray[i];
+                    result=i;
+                }
+                int key = gacha.key[result];
+
+                var ret = gachaDataDic[key];
+                return ret;
+            }
+            return null;
         }
     }
 }

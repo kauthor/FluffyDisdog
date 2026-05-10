@@ -85,6 +85,34 @@ MonoBehaviour:
     m_Address: LocalizeTable
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 183f80e2b98681647af61f232a00c0bd
+    m_Address: BoxTable
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c586b9d6f77b7754fb2dbc6a4593e5b3
+    m_Address: BoxItemTable
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5fb7bb5dcb62299478bff84480c115b0
+    m_Address: MapTable
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 674d687131ef52b4aa87357b47995f6d
+    m_Address: PackTable
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 305eb29567898e74c98a5e6977997bb4
+    m_Address: RequestTable
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7308d4d84d7dc0b42b60abea56e4f1b1
+    m_Address: ShopTable
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: db04f719df3704a419b7a98727a5d5cb
+    m_Address: ShopItemTable
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c4b4aea7e916bf6448fc92af0dc0baf0, type: 2}
   m_SchemaSet:

@@ -1,0 +1,280 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb75f1799baa4571810e374e65df8d1a, type: 3}
+  m_Name: ShopItemTable
+  m_EditorClassIdentifier: 
+  data:
+  - id: 1
+    itemType: 1
+    itemId: Card_Shovel
+    costMin: 6
+    costMax: 8
+  - id: 2
+    itemType: 1
+    itemId: Card_Rake
+    costMin: 6
+    costMax: 8
+  - id: 3
+    itemType: 1
+    itemId: Card_Shovel_Enhanced
+    costMin: 11
+    costMax: 13
+  - id: 4
+    itemType: 1
+    itemId: Card_Rake_Enhanced
+    costMin: 11
+    costMax: 13
+  - id: 5
+    itemType: 1
+    itemId: Card_GoldenShovel
+    costMin: 6
+    costMax: 8
+  - id: 6
+    itemType: 1
+    itemId: Card_GoldenShovel_Enhanced
+    costMin: 11
+    costMax: 13
+  - id: 7
+    itemType: 1
+    itemId: Card_Axe
+    costMin: 6
+    costMax: 8
+  - id: 8
+    itemType: 1
+    itemId: Card_Axe_Enhanced
+    costMin: 11
+    costMax: 13
+  - id: 9
+    itemType: 1
+    itemId: Card_CrossChisel
+    costMin: 8
+    costMax: 12
+  - id: 10
+    itemType: 1
+    itemId: Card_CrossChisel_Enhanced
+    costMin: 13
+    costMax: 17
+  - id: 11
+    itemType: 1
+    itemId: Card_Pickaxe
+    costMin: 8
+    costMax: 12
+  - id: 12
+    itemType: 1
+    itemId: Card_Pickaxe_Enhanced
+    costMin: 13
+    costMax: 17
+  - id: 13
+    itemType: 1
+    itemId: Card_Slingshot
+    costMin: 8
+    costMax: 12
+  - id: 14
+    itemType: 1
+    itemId: Card_Slingshot_Enhanced
+    costMin: 13
+    costMax: 17
+  - id: 15
+    itemType: 1
+    itemId: Card_CornerCrushingHammer
+    costMin: 8
+    costMax: 12
+  - id: 16
+    itemType: 1
+    itemId: Card_CornerCrushingHammer_Enhanced
+    costMin: 13
+    costMax: 17
+  - id: 17
+    itemType: 1
+    itemId: Card_ConcentratedCrossDrill
+    costMin: 8
+    costMax: 12
+  - id: 18
+    itemType: 1
+    itemId: Card_ConcentratedCrossDrill_Enhanced
+    costMin: 13
+    costMax: 17
+  - id: 19
+    itemType: 1
+    itemId: Card_GoldenAxe
+    costMin: 8
+    costMax: 12
+  - id: 20
+    itemType: 1
+    itemId: Card_GoldenAxe_Enhanced
+    costMin: 13
+    costMax: 17
+  - id: 21
+    itemType: 1
+    itemId: Card_LargeScissors
+    costMin: 8
+    costMax: 12
+  - id: 22
+    itemType: 1
+    itemId: Card_LargeScissors_Enhanced
+    costMin: 13
+    costMax: 17
+  - id: 23
+    itemType: 1
+    itemId: Card_AdventurerTorch
+    costMin: 15
+    costMax: 20
+  - id: 24
+    itemType: 1
+    itemId: Card_AdventurerTorch_Enhanced
+    costMin: 20
+    costMax: 25
+  - id: 25
+    itemType: 1
+    itemId: Card_HammerOfMemory
+    costMin: 15
+    costMax: 20
+  - id: 26
+    itemType: 1
+    itemId: Card_HammerOfMemory_Enhanced
+    costMin: 20
+    costMax: 25
+  - id: 27
+    itemType: 1
+    itemId: Card_RiftStartumAnalysis
+    costMin: 15
+    costMax: 20
+  - id: 28
+    itemType: 1
+    itemId: Card_RiftStartumAnalysis_Enhanced
+    costMin: 20
+    costMax: 25
+  - id: 29
+    itemType: 2
+    itemId: relic101
+    costMin: 14
+    costMax: 20
+  - id: 30
+    itemType: 2
+    itemId: relic102
+    costMin: 14
+    costMax: 20
+  - id: 31
+    itemType: 2
+    itemId: relic103
+    costMin: 14
+    costMax: 20
+  - id: 32
+    itemType: 2
+    itemId: relic104
+    costMin: 14
+    costMax: 20
+  - id: 33
+    itemType: 2
+    itemId: relic105
+    costMin: 14
+    costMax: 20
+  - id: 34
+    itemType: 2
+    itemId: relic106
+    costMin: 14
+    costMax: 20
+  - id: 35
+    itemType: 2
+    itemId: relic107
+    costMin: 14
+    costMax: 20
+  - id: 36
+    itemType: 2
+    itemId: relic108
+    costMin: 14
+    costMax: 20
+  - id: 37
+    itemType: 2
+    itemId: relic109
+    costMin: 14
+    costMax: 20
+  - id: 38
+    itemType: 2
+    itemId: relic110
+    costMin: 14
+    costMax: 20
+  - id: 39
+    itemType: 2
+    itemId: relic111
+    costMin: 14
+    costMax: 20
+  - id: 40
+    itemType: 2
+    itemId: relic112
+    costMin: 14
+    costMax: 20
+  - id: 41
+    itemType: 2
+    itemId: relic113
+    costMin: 14
+    costMax: 20
+  - id: 42
+    itemType: 2
+    itemId: relic114
+    costMin: 14
+    costMax: 20
+  - id: 43
+    itemType: 2
+    itemId: relic115
+    costMin: 14
+    costMax: 20
+  - id: 44
+    itemType: 2
+    itemId: relic116
+    costMin: 14
+    costMax: 20
+  - id: 45
+    itemType: 2
+    itemId: relic117
+    costMin: 14
+    costMax: 20
+  - id: 46
+    itemType: 2
+    itemId: relic118
+    costMin: 14
+    costMax: 20
+  - id: 47
+    itemType: 2
+    itemId: relic119
+    costMin: 14
+    costMax: 20
+  - id: 48
+    itemType: 2
+    itemId: relic120
+    costMin: 14
+    costMax: 20
+  - id: 49
+    itemType: 2
+    itemId: relic121
+    costMin: 14
+    costMax: 20
+  - id: 50
+    itemType: 2
+    itemId: relic122
+    costMin: 14
+    costMax: 20
+  - id: 51
+    itemType: 2
+    itemId: relic123
+    costMin: 14
+    costMax: 20
+  - id: 52
+    itemType: 3
+    itemId: tra01
+    costMin: 10
+    costMax: 20
+  - id: 53
+    itemType: 3
+    itemId: tra02
+    costMin: 15
+    costMax: 25

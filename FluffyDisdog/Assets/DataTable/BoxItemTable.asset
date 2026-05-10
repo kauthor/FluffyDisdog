@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 630a250521634ed6a2010ff28b346082, type: 3}
+  m_Name: BoxItemTable
+  m_EditorClassIdentifier: 
+  data:
+  - id: 1
+    boxId: 101
+    rewardType: 1
+    rewardValue: 15
+    rewardCount: 0
+  - id: 2
+    boxId: 101
+    rewardType: 6
+    rewardValue: 10101
+    rewardCount: 1
+  - id: 3
+    boxId: 102
+    rewardType: 1
+    rewardValue: 45
+    rewardCount: 0
+  - id: 4
+    boxId: 102
+    rewardType: 6
+    rewardValue: 10201
+    rewardCount: 1
+  - id: 5
+    boxId: 103
+    rewardType: 1
+    rewardValue: 90
+    rewardCount: 0
+  - id: 6
+    boxId: 103
+    rewardType: 6
+    rewardValue: 10301
+    rewardCount: 1
+  - id: 7
+    boxId: 103
+    rewardType: 6
+    rewardValue: 10302
+    rewardCount: 1

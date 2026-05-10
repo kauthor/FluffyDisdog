@@ -7,34 +7,34 @@ using UnityEngine;
 
 namespace Editor
 {
-    public class LocalizeDataImport : EditorWindow
+    public class ShopItemDataImport:EditorWindow
     {
-        [MenuItem("Window/Excel Importer/Localize Data")]
+        [MenuItem("Window/Excel Importer/Shop Item Data")]
         public static void ShowWindow()
         {
             //Show existing window instance. If one doesn't exist, make one.
-            EditorWindow.GetWindow(typeof(LocalizeDataImport));
+            EditorWindow.GetWindow(typeof(ShopItemDataImport));
         }
 
         private void OnGUI()
         {
-            if (GUILayout.Button("Localize Table Export"))
+            if (GUILayout.Button("ShopItem Table Export"))
             {
-                string assetPath = "Assets/DataTable/LocalizeTable.asset";
+                string assetPath = "Assets/DataTable/ShopItemTable.asset";
                 string pathProj = Application.dataPath.Replace("FluffyDisdog/Assets", ""); // 너의 환경에 따라 조정 가능
-                string excelPath = "/Plan/Table/LiveData/00.LocaleData.xlsx";
+                string excelPath = "/Plan/Table/LiveData/08.ShopItemData.xlsx";
 
-                LocalizeTable tableAsset = AssetDatabase.LoadAssetAtPath<LocalizeTable>(assetPath);
+                ShopItemTable tableAsset = AssetDatabase.LoadAssetAtPath<ShopItemTable>(assetPath);
 
                 if (tableAsset == null)
                 {
-                    tableAsset = ScriptableObject.CreateInstance<LocalizeTable>();
+                    tableAsset = ScriptableObject.CreateInstance<ShopItemTable>();
                     AssetDatabase.CreateAsset(tableAsset, assetPath);
-                    Debug.Log("새 LocalizeTable.asset 생성됨");
+                    Debug.Log("새 ShopItemTable.asset 생성됨");
                 }
                 else
                 {
-                    Debug.Log("기존 LocalizeTable.asset 불러와 덮어씀");
+                    Debug.Log("기존 ShopItemTable.asset 불러와 덮어씀");
                 }
 
                 // 엑셀 파일 읽기
@@ -45,20 +45,23 @@ namespace Editor
                     for (int i = 0; i < result.Tables.Count; i++)
                     {
                         var rows = result.Tables[i].Rows;
-                        LocalizeData[] baseArr = new LocalizeData[rows.Count - 1];
+                        ShopItemData[] baseArr = new ShopItemData[rows.Count - 1];
 
                         for (int j = 1; j < rows.Count; j++)
                         {
-                            string data1 = rows[j][0].ToString();
-                            string data2 = rows[j][1].ToString();
+                            int data1 =  int.Parse(rows[j][0].ToString());
+                            int data2 = int.Parse(rows[j][1].ToString());
                             string data3 = rows[j][2].ToString();
-                            
+                            int data4 = int.Parse( rows[j][3].ToString());
+                            int data5 = int.Parse( rows[j][4].ToString());
 
-                            baseArr[j - 1] = new LocalizeData()
+                            baseArr[j - 1] = new ShopItemData()
                             {
-                                key = data1,
-                                kor = data2,
-                                eng = data3,
+                                id = data1,
+                                itemType = data2,
+                                itemId = data3,
+                                costMin = data4,
+                                costMax = data5,
                             };
                         }
 
@@ -80,8 +83,8 @@ namespace Editor
                 if (entry == null)
                 {
                     entry = settings.CreateOrMoveEntry(guid, group);
-                    entry.address = "LocalizeTable";
-                    Debug.Log("Addressables에 LocalizeTable 등록됨");
+                    entry.address = "ShopItemTable";
+                    Debug.Log("Addressables에 ShopItemTable 등록됨");
                 }
                 else
                 {
@@ -92,7 +95,7 @@ namespace Editor
                 AssetDatabase.Refresh();
 #endif
 
-                Debug.Log("LocalizeTable 임포트 완료");
+                Debug.Log("ShopItemTable 임포트 완료");
             }
         }
     }

@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96340511d3514ae6a232340bf39eb488, type: 3}
+  m_Name: ShopTable
+  m_EditorClassIdentifier: 
+  data:
+  - id: 1
+    mapKey: 1
+    slotIndex: 1
+    gachaId: 1011
+  - id: 2
+    mapKey: 1
+    slotIndex: 2
+    gachaId: 1011
+  - id: 3
+    mapKey: 1
+    slotIndex: 3
+    gachaId: 1011
+  - id: 4
+    mapKey: 1
+    slotIndex: 4
+    gachaId: 1012
+  - id: 5
+    mapKey: 1
+    slotIndex: 5
+    gachaId: 1012
+  - id: 6
+    mapKey: 1
+    slotIndex: 6
+    gachaId: 1013
+  - id: 7
+    mapKey: 1
+    slotIndex: 7
+    gachaId: 1013

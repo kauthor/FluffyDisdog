@@ -7,34 +7,34 @@ using UnityEngine;
 
 namespace Editor
 {
-    public class LocalizeDataImport : EditorWindow
+    public class BoxDataImport:EditorWindow
     {
-        [MenuItem("Window/Excel Importer/Localize Data")]
+        [MenuItem("Window/Excel Importer/Box Data")]
         public static void ShowWindow()
         {
             //Show existing window instance. If one doesn't exist, make one.
-            EditorWindow.GetWindow(typeof(LocalizeDataImport));
+            EditorWindow.GetWindow(typeof(BoxDataImport));
         }
 
         private void OnGUI()
         {
-            if (GUILayout.Button("Localize Table Export"))
+            if (GUILayout.Button("Box Table Export"))
             {
-                string assetPath = "Assets/DataTable/LocalizeTable.asset";
+                string assetPath = "Assets/DataTable/BoxTable.asset";
                 string pathProj = Application.dataPath.Replace("FluffyDisdog/Assets", ""); // 너의 환경에 따라 조정 가능
-                string excelPath = "/Plan/Table/LiveData/00.LocaleData.xlsx";
+                string excelPath = "/Plan/Table/LiveData/13.BoxData.xlsx";
 
-                LocalizeTable tableAsset = AssetDatabase.LoadAssetAtPath<LocalizeTable>(assetPath);
+                BoxTable tableAsset = AssetDatabase.LoadAssetAtPath<BoxTable>(assetPath);
 
                 if (tableAsset == null)
                 {
-                    tableAsset = ScriptableObject.CreateInstance<LocalizeTable>();
+                    tableAsset = ScriptableObject.CreateInstance<BoxTable>();
                     AssetDatabase.CreateAsset(tableAsset, assetPath);
-                    Debug.Log("새 LocalizeTable.asset 생성됨");
+                    Debug.Log("새 BoxTable.asset 생성됨");
                 }
                 else
                 {
-                    Debug.Log("기존 LocalizeTable.asset 불러와 덮어씀");
+                    Debug.Log("기존 BoxTable.asset 불러와 덮어씀");
                 }
 
                 // 엑셀 파일 읽기
@@ -45,20 +45,20 @@ namespace Editor
                     for (int i = 0; i < result.Tables.Count; i++)
                     {
                         var rows = result.Tables[i].Rows;
-                        LocalizeData[] baseArr = new LocalizeData[rows.Count - 1];
+                        BoxData[] baseArr = new BoxData[rows.Count - 1];
 
                         for (int j = 1; j < rows.Count; j++)
                         {
-                            string data1 = rows[j][0].ToString();
-                            string data2 = rows[j][1].ToString();
-                            string data3 = rows[j][2].ToString();
+                            int data3 = int.Parse( rows[j][0].ToString());
+                            int data4 = int.Parse( rows[j][1].ToString());
+                            int data5 = int.Parse( rows[j][2].ToString());
                             
 
-                            baseArr[j - 1] = new LocalizeData()
+                            baseArr[j - 1] = new BoxData()
                             {
-                                key = data1,
-                                kor = data2,
-                                eng = data3,
+                                id=data3,
+                                boxId=data4,
+                                pickCount = data5
                             };
                         }
 
@@ -80,8 +80,8 @@ namespace Editor
                 if (entry == null)
                 {
                     entry = settings.CreateOrMoveEntry(guid, group);
-                    entry.address = "LocalizeTable";
-                    Debug.Log("Addressables에 LocalizeTable 등록됨");
+                    entry.address = "BoxTable";
+                    Debug.Log("Addressables에 BoxTable 등록됨");
                 }
                 else
                 {
@@ -92,7 +92,7 @@ namespace Editor
                 AssetDatabase.Refresh();
 #endif
 
-                Debug.Log("LocalizeTable 임포트 완료");
+                Debug.Log("BoxTable 임포트 완료");
             }
         }
     }

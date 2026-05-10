@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 854ec1959f084600ac89b67ac9d3deac, type: 3}
+  m_Name: RequestTable
+  m_EditorClassIdentifier: 
+  datas:
+  - id: 1
+    requestGrade: 1
+    cost: 5
+    maxInvest: 3
+    successRate: 10000
+    successRatePerVisit: 1000
+    successRateInvest: 1000
+    jackpotRate: 0
+    jackpotRateInvest: 0
+    failBoxId: 0
+    successBoxId: 101
+  - id: 2
+    requestGrade: 2
+    cost: 15
+    maxInvest: 3
+    successRate: 10000
+    successRatePerVisit: 1000
+    successRateInvest: 1000
+    jackpotRate: 0
+    jackpotRateInvest: 0
+    failBoxId: 0
+    successBoxId: 102
+  - id: 3
+    requestGrade: 3
+    cost: 30
+    maxInvest: 3
+    successRate: 10000
+    successRatePerVisit: 1000
+    successRateInvest: 1000
+    jackpotRate: 0
+    jackpotRateInvest: 0
+    failBoxId: 0
+    successBoxId: 103

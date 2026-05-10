@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7795048927c41d4a2284b30711059a8, type: 3}
+  m_Name: PackTable
+  m_EditorClassIdentifier: 
+  data:
+  - id: tra00
+    nameId: tra00_name
+    gachaKey: 100
+    cardShow: 3
+    cardPick: 1
+    packResource: 0
+  - id: tra01
+    nameId: tra01_name
+    gachaKey: 101
+    cardShow: 3
+    cardPick: 1
+    packResource: Store_ToolPack_Reg.png
+  - id: tra02
+    nameId: tra02_name
+    gachaKey: 102
+    cardShow: 3
+    cardPick: 1
+    packResource: Store_ToolPack_Bronze.png

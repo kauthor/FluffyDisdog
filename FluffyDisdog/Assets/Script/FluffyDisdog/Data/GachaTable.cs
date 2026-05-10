@@ -38,7 +38,18 @@ namespace FluffyDisdog.Data
         }
 #endif
 
-        public Dictionary<int, GacheInGameData> TryCache()
+        public Dictionary<int, GachaData> TryCacheData()
+        {
+            var ret = new Dictionary<int, GachaData>();
+            foreach (var d in datas)
+            {
+                ret.Add(d.id, d);
+            }
+
+            return ret;
+        }
+
+        public Dictionary<int, GacheInGameData> TryCacheGachaGroup()
         {
             var ret = new Dictionary<int, GacheInGameData>();
 
@@ -64,7 +75,7 @@ namespace FluffyDisdog.Data
                     {
                         sum += datas[j+startInd].rate;
                         valueArr[j] = sum;
-                        keyArr[j] = curdata.id-1;
+                        keyArr[j] = curdata.id;
                     }
 
                     GacheInGameData target = new GacheInGameData()
