@@ -41,5 +41,11 @@ namespace FluffyDisdog.UI
             this.text = text;
             Sync();
         }
+
+        public void SetOutlineColor(Color color)
+        {
+            foreach (var outline in outlines)
+                outline.color = color;
+        }
     }
 }

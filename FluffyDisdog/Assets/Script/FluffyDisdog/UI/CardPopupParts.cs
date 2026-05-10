@@ -46,6 +46,18 @@ namespace FluffyDisdog.UI
         [FoldoutGroup("Selectable")] [SerializeField]
         private OutlinedText txtSelectTMP;
 
+        [FoldoutGroup("Color Field")] [SerializeField]
+        private Color selectableColor;
+        
+        [FoldoutGroup("Color Field")] [SerializeField]
+        private Color selectableOutlineColor;
+        
+        [FoldoutGroup("Color Field")] [SerializeField]
+        private Color unselectableColor;
+        
+        [FoldoutGroup("Color Field")] [SerializeField]
+        private Color unselectableOutlineColor;
+
         private Func<bool> selectable;
 
         [FoldoutGroup("local")] [SerializeField]
@@ -79,7 +91,11 @@ namespace FluffyDisdog.UI
                     }
                 }
                 OnCLicked?.Invoke(_toolType, this);
-                txtSelectTMP?.SetColor(selectable() ? Color.white : Color.red);
+                if (selectable != null)
+                {
+                    txtSelectTMP?.SetColor(selectable() ? selectableColor : unselectableColor);
+                    txtSelectTMP?.SetOutlineColor(selectable() ? selectableOutlineColor : unselectableOutlineColor);
+                }
                 //imgSelected?.gameObject.SetActive(true);
                 //imgUnselected?.gameObject.SetActive(false);
             });
