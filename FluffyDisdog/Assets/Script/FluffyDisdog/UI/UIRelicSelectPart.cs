@@ -13,7 +13,7 @@ namespace FluffyDisdog.UI
         [SerializeField] private Button btnRelicBuy;
         [SerializeField] private GameObject pnlPurchase;
         
-        [SerializeField] private Text txtRelicPrice;
+        [SerializeField] private OutlinedText txtRelicPrice;
         [SerializeField] private Text txtRelicName;
         [SerializeField] private Text txtRelicNameShadow;
 
@@ -54,7 +54,7 @@ namespace FluffyDisdog.UI
             
             txtRelicName.text = nameTxt;
             txtRelicDesc.SetText(descTxt);
-            txtRelicPrice.text = cost.ToString();
+            txtRelicPrice.SetText(cost.ToString() + " G");
         }
 
         public void Reroll(int cost, int relicN, Action<int, RelicName, UIRelicSelectPart> onCardPackOpen)

@@ -276,6 +276,12 @@ namespace Script.FluffyDisdog.Managers
             return ret;
         }
 
+        public int GetShopCost(string name)
+        {
+            var shopitem = GetShopItemData(name);
+            return Random.Range(shopitem.costMin, shopitem.costMax+1);
+        }
+
         public ShopData GetShopData(int key)
         {
             shopDataDic.TryGetValue(key, out var ret);
