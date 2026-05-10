@@ -6,6 +6,7 @@ namespace Script.FluffyDisdog.TileClass
     {
         public override void Execute()
         {
+            parentTileSet.TryAddExecutedNode(node);
             node.EnableNode(false);
         }
     }
@@ -13,6 +14,7 @@ namespace Script.FluffyDisdog.TileClass
     {
         public override void Execute()
         {
+            parentTileSet.TryAddExecutedNode(node);
             node.EnableNode(false);
         }
     }
@@ -20,6 +22,7 @@ namespace Script.FluffyDisdog.TileClass
     {
         public override void Execute()
         {
+            parentTileSet.TryAddExecutedNode(node);
             node.EnableNode(false);
         }
     }
@@ -27,6 +30,7 @@ namespace Script.FluffyDisdog.TileClass
     {
         public override void Execute()
         {
+            parentTileSet.TryAddExecutedNode(node);
             node.EnableNode(false);
         }
     }
@@ -34,6 +38,7 @@ namespace Script.FluffyDisdog.TileClass
     {
         public override void Execute()
         {
+            parentTileSet.TryAddExecutedNode(node);
             node.EnableNode(false);
         }
     }
