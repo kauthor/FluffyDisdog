@@ -122,11 +122,14 @@ namespace FluffyDisdog.UI
         }
 
         private List<GameObject> currentcoins;
+        
+        private List<GameObject> currentSparkles;
         private IEnumerator GoldRoutine(float time=2.0f)
         {
             var startGold = startCasherGold;
             var currentUIGainGold =gainGold;
             currentcoins = new List<GameObject>();
+            currentSparkles = new List<GameObject>();
 
             float temp = 0;
             float coinTemp = 0;
@@ -152,6 +155,7 @@ namespace FluffyDisdog.UI
                         newCoin.gameObject.SetActive(false);
                         var newSparkle = GameObject.Instantiate(coinSparklePrefab,coinEndTr);
                         newSparkle.transform.position = coinEndTr.position + new Vector3(Random.Range(-40.0f,40.0f),Random.Range(-40.0f,40.0f));
+                        currentSparkles.Add(newSparkle);
                         //.transform.do
                     };
                     
@@ -197,6 +201,8 @@ namespace FluffyDisdog.UI
                     txtGainedGold.SetText("0 G");
                     casher.SyncGold(goalGold);
                     currentPhase=Phase.Phase4;
+                    if(currentSparkles != null)
+                        currentSparkles.ForEach(x=>x.SetActive(false));
                     break;
                 case Phase.Phase4:
                     Close();
