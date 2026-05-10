@@ -54,7 +54,8 @@ namespace FluffyDisdog
         public TurnEventSystem EventSystem=>_eventSystem;
 
         [SerializeField] private DamageFontPart fontPartPrefab;
-
+        [SerializeField] private GameObject hitPrefab;
+        [SerializeField] private GameObject hitfailPrefab; 
         private Stack<DamageFontPart> fontPool;
 
         public void BindTileClickedHandler(Action cb)
@@ -307,6 +308,9 @@ namespace FluffyDisdog
                 parameter = GameObject.Instantiate(fontPartPrefab, damageParent);
             }
             
+            var hit = GameObject.Instantiate(hitPrefab, damageParent);
+            hit.transform.position = node.transform.position;
+            
             parameter.gameObject.SetActive(true);
             parameter.Show(score, node.transform, _ =>
             {
@@ -493,6 +497,8 @@ namespace FluffyDisdog
                                 {
                                     target = currentNode,
                                 });
+                                var hitfail = GameObject.Instantiate(hitfailPrefab, damageParent);
+                                hitfail.transform.position = currentNode.transform.position;
                             }
                         }
                     }
