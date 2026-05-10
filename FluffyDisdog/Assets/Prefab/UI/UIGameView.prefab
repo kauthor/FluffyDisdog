@@ -745,6 +745,7 @@ MonoBehaviour:
   txtGoalScore: {fileID: 4814386000951269618}
   character: {fileID: 7104327467191206390}
   txtStage: {fileID: 4884067047705514746}
+  txtStageShadow: {fileID: 6354305283888450579}
   cardArea: {fileID: 6159606902401156192}
   cardPrefab: {fileID: 3606648058237726793, guid: e11ecf542fed6de42b1b43c7980198ca,
     type: 3}
