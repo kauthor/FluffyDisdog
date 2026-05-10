@@ -1,0 +1,131 @@
+카드 설명
+
+Card_Shovel | 삽
+노란색 타격범위에 타일을 100% 확률로 파괴합니다.\\n(도구) 카드를 사용하면 카드가 파괴될 수 있습니다.\\n카드 강화시 카드 파괴 효과는 사라집니다.
+
+Destroys tiles in the yellow attack range with 100% chance.\\n(Tool) This card may be destroyed upon use.\\nUpgrading this card removes the destruction effect.
+
+Card_Shovel_Enhanced | 삽+
+노란색 타격범위에 타일을 100% 확률로 파괴합니다.\\n(강화) 방해 블록을 무시하고 파괴합니다.
+
+Destroys tiles in the yellow attack range with 100% chance.\\n(Enhanced) Destroys tiles ignoring obstacle blocks.
+
+Card_Rake | 갈퀴
+노란색 타격범위에 타일을 100% 확률로 파괴합니다.\\n흰색 타격 범위에 타일을 66% 확률로 파괴합니다.\\n(도구) 카드를 사용하면 카드가 파괴될 수 있습니다.\\n카드 강화시 카드 파괴 효과는 사라집니다.
+
+Destroys tiles in the yellow attack range with 100% chance.\\nDestroys tiles in the white attack range with 66% chance.\\n(Tool) This card may be destroyed upon use.\\nUpgrading this card removes the destruction effect.
+
+Card_Rake_Enhanced | 갈퀴+
+노란색과 흰색 타격범위에 타일을 100% 확률로 파괴합니다.
+
+Destroys tiles in both yellow and white attack ranges with 100% chance.
+
+Card_GoldenShovel | 황금 삽
+노란색 타격범위에 타일을 100% 확률로 파괴합니다.\\n(도구) 카드를 사용하면 카드가 파괴될 수 있습니다.\\n(황금) 카드 사용시 1골드를 획득합니다.
+
+Destroys tiles in the yellow attack range with 100% chance.\\n(Tool) This card may be destroyed upon use.\\n(Golden) Grants 1 Gold upon use.
+
+Card_GoldenShovel_Enhanced | 황금 삽+
+노란색 타격범위에 타일을 100% 확률로 파괴합니다.\\n(황금) 카드 사용시 1골드를 획득합니다.
+
+Destroys tiles in the yellow attack range with 100% chance.\\n(Golden) Grants 1 Gold upon use.
+
+Card_Axe | 도끼
+노란색 타격범위에 타일을 100% 확률로 파괴합니다.\\n흰색 타격 범위에 타일을 66% 확률로 파괴합니다.\\n(도구) 카드를 사용하면 카드가 파괴될 수 있습니다.\\n카드 강화시 카드 파괴 효과는 사라집니다.
+
+Destroys tiles in the yellow attack range with 100% chance.\\nDestroys tiles in the white attack range with 66% chance.\\n(Tool) This card may be destroyed upon use.\\nUpgrading this card removes the destruction effect.
+
+Card_Axe_Enhanced | 도끼+
+노란색과 흰색 타격범위에 타일을 100% 확률로 파괴합니다.
+
+Destroys tiles in both yellow and white attack ranges with 100% chance.
+
+Card_CrossChisel | 나무 망치
+노란색 타격범위에 타일을 100% 확률로 파괴합니다.\\n흰색 타격 범위에 타일을 50% 확률로 파괴합니다.\\n(도구) 카드를 사용하면 카드가 파괴될 수 있습니다.\\n카드 강화시 카드 파괴 효과는 사라집니다.
+
+Destroys tiles in the yellow attack range with 100% chance.\\nDestroys tiles in the white attack range with 50% chance.\\n(Tool) This card may be destroyed upon use.\\nUpgrading this card removes the destruction effect.
+
+Card_CrossChisel_Enhanced | 나무 망치+
+노란색 타격범위에 타일을 100% 확률로 파괴합니다.\\n흰색 타격 범위에 타일을 75% 확률로 파괴합니다.
+
+Destroys tiles in the yellow attack range with 100% chance.\\nDestroys tiles in the white attack range with 75% chance.
+
+Card_Pickaxe | 곡괭이
+노란색 타격범위에 타일을 100% 확률로 파괴합니다.\\n흰색 타격 범위에 타일을 50% 확률로 파괴합니다.\\n(도구) 카드를 사용하면 카드가 파괴될 수 있습니다.\\n카드 강화시 카드 파괴 효과는 사라집니다.
+
+Destroys tiles in the yellow attack range with 100% chance.\\nDestroys tiles in the white attack range with 50% chance.\\n(Tool) This card may be destroyed upon use.\\nUpgrading this card removes the destruction effect.
+
+Card_Pickaxe_Enhanced | 곡괭이+
+노란색 타격범위에 타일을 100% 확률로 파괴합니다.\\n흰색 타격 범위에 타일을 75% 확률로 파괴합니다.
+
+Destroys tiles in the yellow attack range with 100% chance.\\nDestroys tiles in the white attack range with 75% chance.
+
+Card_Slingshot | 새총
+카드 사용시 랜덤한 일반 타일을 5군데 타격합니다.\\n타격시 33% 확률로 타일이 파괴됩니다.\\n(도구) 카드를 사용하면 카드가 파괴될 수 있습니다.
+
+Strikes 5 random normal tiles upon use.\\nEach strike has a 33% chance to destroy the tile.\\n(Tool) This card may be destroyed upon use.
+
+Card_Slingshot_Enhanced | 새총+
+카드 사용시 랜덤한 일반 타일을 7군데 타격합니다.\\n타격시 50% 확률로 타일이 파괴됩니다.
+
+Strikes 7 random normal tiles upon use.\\nEach strike has a 50% chance to destroy the tile.
+
+Card_CornerCrushingHammer | 모서리 파쇄 해머
+노란색 타격범위에 타일을 100% 확률로 파괴합니다.\\n노란색을 기준으로 상하좌우에 있는 흰색 타격 범위에 타일을 66% 확률로 파괴합니다.\\n노란색을 기준으로 대각선에 있는 흰색 타격 범위에 타일을 33% 확률로 파괴합니다.\\n(도구) 카드를 사용하면 카드가 파괴될 수 있습니다.\\n카드 강화시 카드 파괴 효과는 사라집니다.
+
+Destroys tiles in the yellow attack range with 100% chance.\\nDestroys tiles in the white attack range adjacent to the yellow tile with 66% chance.\\nDestroys tiles in the white attack range diagonal to the yellow tile with 33% chance.\\n(Tool) This card may be destroyed upon use.\\nUpgrading this card removes the destruction effect.
+
+Card_CornerCrushingHammer_Enhanced | 모서리 파쇄 해머+
+노란색 타격범위에 타일을 100% 확률로 파괴합니다.\\n노란색을 기준으로 상하좌우에 있는 흰색 타격 범위에 타일을 75% 확률로 파괴합니다.\\n노란색을 기준으로 대각선에 있는 흰색 타격 범위에 타일을 50% 확률로 파괴합니다.
+
+Destroys tiles in the yellow attack range with 100% chance.\\nDestroys tiles in the white attack range adjacent to the yellow tile with 75% chance.\\nDestroys tiles in the white attack range diagonal to the yellow tile with 50% chance.
+
+Card_ConcentratedCrossDrill | 집중형 십자 드릴
+노란색 타격범위에 타일을 100% 확률로 파괴합니다.\\n노란색을 기준으로 대각선에 있는 흰색 타격 범위에 타일을 66% 확률로 파괴합니다.\\n노란색을 기준으로 상하좌우에 있는 흰색 타격 범위에 타일을 33% 확률로 파괴합니다.\\n(도구) 카드를 사용하면 카드가 파괴될 수 있습니다.\\n카드 강화시 카드 파괴 효과는 사라집니다.
+
+Destroys tiles in the yellow attack range with 100% chance.\\nDestroys tiles in the white attack range diagonal to the yellow tile with 66% chance.\\nDestroys tiles in the white attack range adjacent to the yellow tile with 33% chance.\\n(Tool) This card may be destroyed upon use.\\nUpgrading this card removes the destruction effect.
+
+Card_ConcentratedCrossDrill_Enhanced | 집중형 십자 드릴+
+노란색 타격범위에 타일을 100% 확률로 파괴합니다.\\n노란색을 기준으로 대각선에 있는 흰색 타격 범위에 타일을 75% 확률로 파괴합니다.\\n노란색을 기준으로 상하좌우에 있는 흰색 타격 범위에 타일을 50% 확률로 파괴합니다.
+
+Destroys tiles in the yellow attack range with 100% chance.\\nDestroys tiles in the white attack range diagonal to the yellow tile with 75% chance.\\nDestroys tiles in the white attack range adjacent to the yellow tile with 50% chance.
+
+Card_GoldenAxe | 황금 도끼
+노란색 타격범위에 타일을 100% 확률로 파괴합니다.\\n흰색 타격 범위에 타일을 66% 확률로 파괴합니다.\\n(도구) 카드를 사용하면 카드가 파괴될 수 있습니다.\\n(황금) 카드 사용시 1골드를 획득합니다.
+
+Destroys tiles in the yellow attack range with 100% chance.\\nDestroys tiles in the white attack range with 66% chance.\\n(Tool) This card may be destroyed upon use.\\n(Golden) Grants 1 Gold upon use.
+
+Card_GoldenAxe_Enhanced | 황금 도끼+
+노란색과 흰색 타격범위에 타일을 100% 확률로 파괴합니다.\\n(황금) 카드 사용시 1골드를 획득합니다.
+
+Destroys tiles in both yellow and white attack ranges with 100% chance.\\n(Golden) Grants 1 Gold upon use.
+
+Card_LargeScissors | 대형 가위
+노란색 타격범위에 타일을 100% 확률로 파괴합니다.\\n흰색 타격 범위에 타일을 75% 확률로 파괴합니다.\\n(도구) 카드를 사용하면 카드가 파괴될 수 있습니다.\\n카드 강화시 카드 파괴 효과는 사라집니다.
+
+Destroys tiles in the yellow attack range with 100% chance.\\nDestroys tiles in the white attack range with 75% chance.\\n(Tool) This card may be destroyed upon use.\\nUpgrading this card removes the destruction effect.
+
+Card_LargeScissors_Enhanced | 대형 가위+
+노란색과 흰색 타격범위에 타일을 100% 확률로 파괴합니다.
+
+Destroys tiles in both yellow and white attack ranges with 100% chance.
+
+Card_RiftStartumAnalysis | 균열 지층 분석
+노란색 타격범위에 타일을 100% 확률로 파괴합니다.\\n흰색 타격 범위에 타일을 0% 확률로 파괴할 수 있다.\\n이 카드로 타일을 3개 이상 부술 경우, 타격 범위에 있는 모든 일반 타일을 파괴합니다.\\n파괴된 타일 중 균열 타일 1개당 2 Gold를 지급합니다.\\n이 카드로 타일을 5칸 부술 경우 덱에 존재하는 황금 태그 카드 1장을 드로우합니다.\\n(도구) 카드를 사용하면 카드가 파괴될 수 있습니다.\\n카드 강화시 카드 파괴 효과는 사라집니다.
+
+Destroys tiles in the yellow attack range with 100% chance.\\nTiles in the white attack range cannot be destroyed.\\nIf 3 or more tiles are destroyed with this card, all normal tiles in the attack range are destroyed.\\nGrants 2 Gold for each Cracked tile destroyed.\\nIf 5 tiles are destroyed with this card, draw 1 Golden-tag card from your deck.\\n(Tool) This card may be destroyed upon use.\\nUpgrading this card removes the destruction effect.
+
+Card_RiftStartumAnalysis_Enhanced | 균열 지층 분석+
+노란색 타격범위에 타일을 100% 확률로 파괴합니다.\\n흰색 타격 범위에 타일을 0% 확률로 파괴할 수 있다.\\n이 카드로 타일을 3개 이상 부술 경우, 타격 범위에 있는 모든 일반 타일을 파괴합니다.\\n파괴된 타일 중 균열 타일 1개당 5 Gold를 지급합니다.\\n이 카드로 타일을 5칸 부술 경우 덱에 존재하는 황금 태그 카드 2장을 드로우합니다.
+
+Destroys tiles in the yellow attack range with 100% chance.\\nTiles in the white attack range cannot be destroyed.\\nIf 3 or more tiles are destroyed with this card, all normal tiles in the attack range are destroyed.\\nGrants 5 Gold for each Cracked tile destroyed.\\nIf 5 tiles are destroyed with this card, draw 2 Golden-tag cards from your deck.
+
+Card_WeakeningNormal | 약화 카드 - 일반 | 시작 카드로 등장
+노란색과 하늘색 타격범위에 일반 타일을 100% 확률로 균열 상태로 만듭니다.\\n균열된 타일은 다음 턴에 타격 시 타격 확률을 무시하고 파괴됩니다.
+
+Inflicts Cracked status on normal tiles in the yellow and sky-blue attack ranges with 100% chance.\\nCracked tiles are destroyed on the next turn when struck, ignoring hit chance.
+
+Card_WeakeningRare | 약화 카드 - 레어 | 시작 카드로 등장
+노란색과 하늘색 타격범위에 일반 타일을 100% 확률로 균열 상태로 만듭니다.\\n균열된 타일은 다음 턴에 타격 시 타격 확률을 무시하고 파괴됩니다.
+
+Inflicts Cracked status on normal tiles in the yellow and sky-blue attack ranges with 100% chance.\\nCracked tiles are destroyed on the next turn when struck, ignoring hit chance.
