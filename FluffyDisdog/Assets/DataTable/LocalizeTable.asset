@@ -80,13 +80,13 @@ MonoBehaviour:
     kor: "\uB300\uD615 \uAC00\uC704+"
     eng: Large Scissors+
   - key: Card_WeakeningNormal_Name
-    kor: "\uC57D\uD654 \uCE74\uB4DC - \uC77C\uBC18"
+    kor: "\uADE0\uC5F4 \uCE74\uB4DC - \uC77C\uBC18"
     eng: Weakening Normal
   - key: Card_WeakeningRare_Name
-    kor: "\uC57D\uD654 \uCE74\uB4DC - \uB808\uC5B4"
+    kor: "\uADE0\uC5F4 \uCE74\uB4DC - \uB808\uC5B4"
     eng: Weakening Rare
   - key: Card_WeakeningUnique_Name
-    kor: "\uC57D\uD654 \uCE74\uB4DC - \uC720\uB2C8\uD06C"
+    kor: "\uADE0\uC5F4 \uCE74\uB4DC - \uC720\uB2C8\uD06C"
     eng: Weakening Unique
   - key: Card_Bag_Name
     kor: "\uAC00\uBC29"
@@ -290,79 +290,205 @@ MonoBehaviour:
     kor: "\uBCBC\uB77D+"
     eng: Thunderbolt+
   - key: Card_Shovel_Des
-    kor: "\uC0BD_\uC124\uBA85"
-    eng: Shovel Des
+    kor: "\uB178\uB780\uC0C9 \uD0C0\uACA9\uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 100%
+      \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4.\\\\n(\uB3C4\uAD6C) \uCE74\uB4DC\uB97C
+      \uC0AC\uC6A9\uD558\uBA74 \uCE74\uB4DC\uAC00 \uD30C\uAD34\uB420 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\\\\n\uCE74\uB4DC
+      \uAC15\uD654\uC2DC \uCE74\uB4DC \uD30C\uAD34 \uD6A8\uACFC\uB294 \uC0AC\uB77C\uC9D1\uB2C8\uB2E4."
+    eng: Destroys tiles in the yellow attack range with 100% chance.\\n(Tool) This
+      card may be destroyed upon use.\\nUpgrading this card removes the destruction
+      effect.
   - key: Card_Rake_Des
-    kor: "\uAC08\uD034_\uC124\uBA85"
-    eng: Rake Des
+    kor: "\uB178\uB780\uC0C9 \uD0C0\uACA9\uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 100%
+      \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4.\\\\n\uD770\uC0C9 \uD0C0\uACA9
+      \uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 66% \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4.\\\\n(\uB3C4\uAD6C)
+      \uCE74\uB4DC\uB97C \uC0AC\uC6A9\uD558\uBA74 \uCE74\uB4DC\uAC00 \uD30C\uAD34\uB420
+      \uC218 \uC788\uC2B5\uB2C8\uB2E4.\\\\n\uCE74\uB4DC \uAC15\uD654\uC2DC \uCE74\uB4DC
+      \uD30C\uAD34 \uD6A8\uACFC\uB294 \uC0AC\uB77C\uC9D1\uB2C8\uB2E4."
+    eng: Destroys tiles in the yellow attack range with 100% chance.\\nDestroys tiles
+      in the white attack range with 66% chance.\\n(Tool) This card may be destroyed
+      upon use.\\nUpgrading this card removes the destruction effect.
   - key: Card_Shovel_Enhanced_Des
-    kor: "\uC0BD+_\uC124\uBA85"
-    eng: Shovel+ Des
+    kor: "\uB178\uB780\uC0C9 \uD0C0\uACA9\uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 100%
+      \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4.\\\\n(\uAC15\uD654) \uBC29\uD574
+      \uBE14\uB85D\uC744 \uBB34\uC2DC\uD558\uACE0 \uD30C\uAD34\uD569\uB2C8\uB2E4."
+    eng: Destroys tiles in the yellow attack range with 100% chance.\\n(Enhanced)
+      Destroys tiles ignoring obstacle blocks.
   - key: Card_Rake_Enhanced_Des
-    kor: "\uAC08\uD034+_\uC124\uBA85"
-    eng: Rake+ Des
+    kor: "\uB178\uB780\uC0C9\uACFC \uD770\uC0C9 \uD0C0\uACA9\uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744
+      100% \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4."
+    eng: Destroys tiles in both yellow and white attack ranges with 100% chance.
   - key: Card_GoldenShovel_Des
-    kor: "\uD669\uAE08 \uC0BD_\uC124\uBA85"
-    eng: Golden Shovel Des
+    kor: "\uB178\uB780\uC0C9 \uD0C0\uACA9\uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 100%
+      \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4.\\\\n(\uB3C4\uAD6C) \uCE74\uB4DC\uB97C
+      \uC0AC\uC6A9\uD558\uBA74 \uCE74\uB4DC\uAC00 \uD30C\uAD34\uB420 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\\\\n(\uD669\uAE08)
+      \uCE74\uB4DC \uC0AC\uC6A9\uC2DC 1\uACE8\uB4DC\uB97C \uD68D\uB4DD\uD569\uB2C8\uB2E4."
+    eng: Destroys tiles in the yellow attack range with 100% chance.\\n(Tool) This
+      card may be destroyed upon use.\\n(Golden) Grants 1 Gold upon use.
   - key: Card_GoldenShovel_Enhanced_Des
-    kor: "\uD669\uAE08 \uC0BD+_\uC124\uBA85"
-    eng: Golden Shovel+ Des
+    kor: "\uB178\uB780\uC0C9 \uD0C0\uACA9\uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 100%
+      \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4.\\\\n(\uD669\uAE08) \uCE74\uB4DC
+      \uC0AC\uC6A9\uC2DC 1\uACE8\uB4DC\uB97C \uD68D\uB4DD\uD569\uB2C8\uB2E4."
+    eng: Destroys tiles in the yellow attack range with 100% chance.\\n(Golden) Grants
+      1 Gold upon use.
   - key: Card_Axe_Des
-    kor: "\uB3C4\uB07C_\uC124\uBA85"
-    eng: Axe Des
+    kor: "\uB178\uB780\uC0C9 \uD0C0\uACA9\uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 100%
+      \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4.\\\\n\uD770\uC0C9 \uD0C0\uACA9
+      \uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 66% \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4.\\\\n(\uB3C4\uAD6C)
+      \uCE74\uB4DC\uB97C \uC0AC\uC6A9\uD558\uBA74 \uCE74\uB4DC\uAC00 \uD30C\uAD34\uB420
+      \uC218 \uC788\uC2B5\uB2C8\uB2E4.\\\\n\uCE74\uB4DC \uAC15\uD654\uC2DC \uCE74\uB4DC
+      \uD30C\uAD34 \uD6A8\uACFC\uB294 \uC0AC\uB77C\uC9D1\uB2C8\uB2E4."
+    eng: Destroys tiles in the yellow attack range with 100% chance.\\nDestroys tiles
+      in the white attack range with 66% chance.\\n(Tool) This card may be destroyed
+      upon use.\\nUpgrading this card removes the destruction effect.
   - key: Card_Axe_Enhanced_Des
-    kor: "\uB3C4\uB07C+_\uC124\uBA85"
-    eng: Axe+ Des
-  - key: Card_Cross Chisel_Des
-    kor: "\uC2ED\uC790 \uB04C_\uC124\uBA85"
-    eng: Cross Chisel Des
-  - key: Card_Cross Chisel_Enhanced_Des
-    kor: "\uC2ED\uC790 \uB04C+_\uC124\uBA85"
-    eng: Cross Chisel+ Des
+    kor: "\uB178\uB780\uC0C9\uACFC \uD770\uC0C9 \uD0C0\uACA9\uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744
+      100% \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4."
+    eng: Destroys tiles in both yellow and white attack ranges with 100% chance.
+  - key: Card_Cross_Chisel_Des
+    kor: "\uB178\uB780\uC0C9 \uD0C0\uACA9\uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 100%
+      \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4.\\\\n\uD770\uC0C9 \uD0C0\uACA9
+      \uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 50% \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4.\\\\n(\uB3C4\uAD6C)
+      \uCE74\uB4DC\uB97C \uC0AC\uC6A9\uD558\uBA74 \uCE74\uB4DC\uAC00 \uD30C\uAD34\uB420
+      \uC218 \uC788\uC2B5\uB2C8\uB2E4.\\\\n\uCE74\uB4DC \uAC15\uD654\uC2DC \uCE74\uB4DC
+      \uD30C\uAD34 \uD6A8\uACFC\uB294 \uC0AC\uB77C\uC9D1\uB2C8\uB2E4."
+    eng: Destroys tiles in the yellow attack range with 100% chance.\\nDestroys tiles
+      in the white attack range with 50% chance.\\n(Tool) This card may be destroyed
+      upon use.\\nUpgrading this card removes the destruction effect.
+  - key: Card_Cross_Chisel_Enhanced_Des
+    kor: "\uB178\uB780\uC0C9 \uD0C0\uACA9\uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 100%
+      \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4.\\\\n\uD770\uC0C9 \uD0C0\uACA9
+      \uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 75% \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4."
+    eng: Destroys tiles in the yellow attack range with 100% chance.\\nDestroys tiles
+      in the white attack range with 75% chance.
   - key: Card_Pickaxe_Des
-    kor: "\uACE1\uAD2D\uC774_\uC124\uBA85"
-    eng: Pickaxe Des
+    kor: "\uB178\uB780\uC0C9 \uD0C0\uACA9\uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 100%
+      \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4.\\\\n\uD770\uC0C9 \uD0C0\uACA9
+      \uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 50% \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4.\\\\n(\uB3C4\uAD6C)
+      \uCE74\uB4DC\uB97C \uC0AC\uC6A9\uD558\uBA74 \uCE74\uB4DC\uAC00 \uD30C\uAD34\uB420
+      \uC218 \uC788\uC2B5\uB2C8\uB2E4.\\\\n\uCE74\uB4DC \uAC15\uD654\uC2DC \uCE74\uB4DC
+      \uD30C\uAD34 \uD6A8\uACFC\uB294 \uC0AC\uB77C\uC9D1\uB2C8\uB2E4."
+    eng: Destroys tiles in the yellow attack range with 100% chance.\\nDestroys tiles
+      in the white attack range with 50% chance.\\n(Tool) This card may be destroyed
+      upon use.\\nUpgrading this card removes the destruction effect.
   - key: Card_Pickaxe_Enhanced_Des
-    kor: "\uACE1\uAD2D\uC774+_\uC124\uBA85"
-    eng: Pickaxe+ Des
+    kor: "\uB178\uB780\uC0C9 \uD0C0\uACA9\uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 100%
+      \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4.\\\\n\uD770\uC0C9 \uD0C0\uACA9
+      \uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 75% \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4."
+    eng: Destroys tiles in the yellow attack range with 100% chance.\\nDestroys tiles
+      in the white attack range with 75% chance.
   - key: Card_Slingshot_Des
-    kor: "\uC0C8\uCD1D_\uC124\uBA85"
-    eng: Slingshot Des
+    kor: "\uCE74\uB4DC \uC0AC\uC6A9\uC2DC \uB79C\uB364\uD55C \uC77C\uBC18 \uD0C0\uC77C\uC744
+      5\uAD70\uB370 \uD0C0\uACA9\uD569\uB2C8\uB2E4.\\\\n\uD0C0\uACA9\uC2DC 33% \uD655\uB960\uB85C
+      \uD0C0\uC77C\uC774 \uD30C\uAD34\uB429\uB2C8\uB2E4.\\\\n(\uB3C4\uAD6C) \uCE74\uB4DC\uB97C
+      \uC0AC\uC6A9\uD558\uBA74 \uCE74\uB4DC\uAC00 \uD30C\uAD34\uB420 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    eng: Strikes 5 random normal tiles upon use.\\nEach strike has a 33% chance to
+      destroy the tile.\\n(Tool) This card may be destroyed upon use.
   - key: Card_Slingshot_Enhanced_Des
-    kor: "\uC0C8\uCD1D+_\uC124\uBA85"
-    eng: Slingshot+ Des
+    kor: "\uCE74\uB4DC \uC0AC\uC6A9\uC2DC \uB79C\uB364\uD55C \uC77C\uBC18 \uD0C0\uC77C\uC744
+      7\uAD70\uB370 \uD0C0\uACA9\uD569\uB2C8\uB2E4.\\\\n\uD0C0\uACA9\uC2DC 50% \uD655\uB960\uB85C
+      \uD0C0\uC77C\uC774 \uD30C\uAD34\uB429\uB2C8\uB2E4."
+    eng: Strikes 7 random normal tiles upon use.\\nEach strike has a 50% chance to
+      destroy the tile.
   - key: Card_CornerCrushingHammer_Des
-    kor: "\uBAA8\uC11C\uB9AC \uD30C\uC1C4 \uD574\uBA38_\uC124\uBA85"
-    eng: Corner CrushingHammer Des
+    kor: "\uB178\uB780\uC0C9 \uD0C0\uACA9\uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 100%
+      \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4.\\\\n\uB178\uB780\uC0C9\uC744
+      \uAE30\uC900\uC73C\uB85C \uC0C1\uD558\uC88C\uC6B0\uC5D0 \uC788\uB294 \uD770\uC0C9
+      \uD0C0\uACA9 \uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 66% \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4.\\\\n\uB178\uB780\uC0C9\uC744
+      \uAE30\uC900\uC73C\uB85C \uB300\uAC01\uC120\uC5D0 \uC788\uB294 \uD770\uC0C9
+      \uD0C0\uACA9 \uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 33% \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4.\\\\n(\uB3C4\uAD6C)
+      \uCE74\uB4DC\uB97C \uC0AC\uC6A9\uD558\uBA74 \uCE74\uB4DC\uAC00 \uD30C\uAD34\uB420
+      \uC218 \uC788\uC2B5\uB2C8\uB2E4.\\\\n\uCE74\uB4DC \uAC15\uD654\uC2DC \uCE74\uB4DC
+      \uD30C\uAD34 \uD6A8\uACFC\uB294 \uC0AC\uB77C\uC9D1\uB2C8\uB2E4."
+    eng: Destroys tiles in the yellow attack range with 100% chance.\\nDestroys tiles
+      in the white attack range adjacent to the yellow tile with 66% chance.\\nDestroys
+      tiles in the white attack range diagonal to the yellow tile with 33% chance.\\n(Tool)
+      This card may be destroyed upon use.\\nUpgrading this card removes the destruction
+      effect.
   - key: Card_CornerCrushingHammer_Enhanced_Des
-    kor: "\uBAA8\uC11C\uB9AC \uD30C\uC1C4 \uD574\uBA38+_\uC124\uBA85"
-    eng: Corner CrushingHammer+ Des
+    kor: "\uB178\uB780\uC0C9 \uD0C0\uACA9\uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 100%
+      \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4.\\\\n\uB178\uB780\uC0C9\uC744
+      \uAE30\uC900\uC73C\uB85C \uC0C1\uD558\uC88C\uC6B0\uC5D0 \uC788\uB294 \uD770\uC0C9
+      \uD0C0\uACA9 \uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 75% \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4.\\\\n\uB178\uB780\uC0C9\uC744
+      \uAE30\uC900\uC73C\uB85C \uB300\uAC01\uC120\uC5D0 \uC788\uB294 \uD770\uC0C9
+      \uD0C0\uACA9 \uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 50% \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4."
+    eng: Destroys tiles in the yellow attack range with 100% chance.\\nDestroys tiles
+      in the white attack range adjacent to the yellow tile with 75% chance.\\nDestroys
+      tiles in the white attack range diagonal to the yellow tile with 50% chance.
   - key: Card_ConcentratedCrossDrill_Des
-    kor: "\uC9D1\uC911\uD615 \uC2ED\uC790 \uB4DC\uB9B4_\uC124\uBA85"
-    eng: Concentrated CrossDrill Des
+    kor: "\uB178\uB780\uC0C9 \uD0C0\uACA9\uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 100%
+      \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4.\\\\n\uB178\uB780\uC0C9\uC744
+      \uAE30\uC900\uC73C\uB85C \uB300\uAC01\uC120\uC5D0 \uC788\uB294 \uD770\uC0C9
+      \uD0C0\uACA9 \uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 66% \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4.\\\\n\uB178\uB780\uC0C9\uC744
+      \uAE30\uC900\uC73C\uB85C \uC0C1\uD558\uC88C\uC6B0\uC5D0 \uC788\uB294 \uD770\uC0C9
+      \uD0C0\uACA9 \uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 33% \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4.\\\\n(\uB3C4\uAD6C)
+      \uCE74\uB4DC\uB97C \uC0AC\uC6A9\uD558\uBA74 \uCE74\uB4DC\uAC00 \uD30C\uAD34\uB420
+      \uC218 \uC788\uC2B5\uB2C8\uB2E4.\\\\n\uCE74\uB4DC \uAC15\uD654\uC2DC \uCE74\uB4DC
+      \uD30C\uAD34 \uD6A8\uACFC\uB294 \uC0AC\uB77C\uC9D1\uB2C8\uB2E4."
+    eng: Destroys tiles in the yellow attack range with 100% chance.\\nDestroys tiles
+      in the white attack range diagonal to the yellow tile with 66% chance.\\nDestroys
+      tiles in the white attack range adjacent to the yellow tile with 33% chance.\\n(Tool)
+      This card may be destroyed upon use.\\nUpgrading this card removes the destruction
+      effect.
   - key: Card_ConcentratedCrossDrill_Enhanced_Des
-    kor: "\uC9D1\uC911\uD615 \uC2ED\uC790 \uB4DC\uB9B4+_\uC124\uBA85"
-    eng: Concentrated CrossDrill+ Des
+    kor: "\uB178\uB780\uC0C9 \uD0C0\uACA9\uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 100%
+      \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4.\\\\n\uB178\uB780\uC0C9\uC744
+      \uAE30\uC900\uC73C\uB85C \uB300\uAC01\uC120\uC5D0 \uC788\uB294 \uD770\uC0C9
+      \uD0C0\uACA9 \uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 75% \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4.\\\\n\uB178\uB780\uC0C9\uC744
+      \uAE30\uC900\uC73C\uB85C \uC0C1\uD558\uC88C\uC6B0\uC5D0 \uC788\uB294 \uD770\uC0C9
+      \uD0C0\uACA9 \uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 50% \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4."
+    eng: Destroys tiles in the yellow attack range with 100% chance.\\nDestroys tiles
+      in the white attack range diagonal to the yellow tile with 75% chance.\\nDestroys
+      tiles in the white attack range adjacent to the yellow tile with 50% chance.
   - key: Card_GoldenAxe_Des
-    kor: "\uD669\uAE08 \uB3C4\uB07C_\uC124\uBA85"
-    eng: Golden Axe Des
+    kor: "\uB178\uB780\uC0C9 \uD0C0\uACA9\uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 100%
+      \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4.\\\\n\uD770\uC0C9 \uD0C0\uACA9
+      \uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 66% \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4.\\\\n(\uB3C4\uAD6C)
+      \uCE74\uB4DC\uB97C \uC0AC\uC6A9\uD558\uBA74 \uCE74\uB4DC\uAC00 \uD30C\uAD34\uB420
+      \uC218 \uC788\uC2B5\uB2C8\uB2E4.\\\\n(\uD669\uAE08) \uCE74\uB4DC \uC0AC\uC6A9\uC2DC
+      1\uACE8\uB4DC\uB97C \uD68D\uB4DD\uD569\uB2C8\uB2E4."
+    eng: Destroys tiles in the yellow attack range with 100% chance.\\nDestroys tiles
+      in the white attack range with 66% chance.\\n(Tool) This card may be destroyed
+      upon use.\\n(Golden) Grants 1 Gold upon use.
   - key: Card_GoldenAxe_Enhanced_Des
-    kor: "\uD669\uAE08 \uB3C4\uB07C+_\uC124\uBA85"
-    eng: Golden Axe+ Des
-  - key: Card_Large Scissors_Des
-    kor: "\uB300\uD615 \uAC00\uC704_\uC124\uBA85"
-    eng: Large Scissors Des
-  - key: Card_Large Scissors_Enhanced_Des
-    kor: "\uB300\uD615 \uAC00\uC704+_\uC124\uBA85"
-    eng: Large Scissors+ Des
+    kor: "\uB178\uB780\uC0C9\uACFC \uD770\uC0C9 \uD0C0\uACA9\uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744
+      100% \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4.\\\\n(\uD669\uAE08)
+      \uCE74\uB4DC \uC0AC\uC6A9\uC2DC 1\uACE8\uB4DC\uB97C \uD68D\uB4DD\uD569\uB2C8\uB2E4."
+    eng: Destroys tiles in both yellow and white attack ranges with 100% chance.\\n(Golden)
+      Grants 1 Gold upon use.
+  - key: Card_Large_Scissors_Des
+    kor: "\uB178\uB780\uC0C9 \uD0C0\uACA9\uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 100%
+      \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4.\\\\n\uD770\uC0C9 \uD0C0\uACA9
+      \uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 75% \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4.\\\\n(\uB3C4\uAD6C)
+      \uCE74\uB4DC\uB97C \uC0AC\uC6A9\uD558\uBA74 \uCE74\uB4DC\uAC00 \uD30C\uAD34\uB420
+      \uC218 \uC788\uC2B5\uB2C8\uB2E4.\\\\n\uCE74\uB4DC \uAC15\uD654\uC2DC \uCE74\uB4DC
+      \uD30C\uAD34 \uD6A8\uACFC\uB294 \uC0AC\uB77C\uC9D1\uB2C8\uB2E4."
+    eng: Destroys tiles in the yellow attack range with 100% chance.\\nDestroys tiles
+      in the white attack range with 75% chance.\\n(Tool) This card may be destroyed
+      upon use.\\nUpgrading this card removes the destruction effect.
+  - key: Card_Large_Scissors_Enhanced_Des
+    kor: "\uB178\uB780\uC0C9\uACFC \uD770\uC0C9 \uD0C0\uACA9\uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744
+      100% \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4."
+    eng: Destroys tiles in both yellow and white attack ranges with 100% chance.
   - key: Card_WeakeningNormal_Des
-    kor: "\uC57D\uD654 \uCE74\uB4DC - \uC77C\uBC18_\uC124\uBA85"
-    eng: Weakening Normal Des
+    kor: "\uB178\uB780\uC0C9\uACFC \uD558\uB298\uC0C9 \uD0C0\uACA9\uBC94\uC704\uC5D0
+      \uC77C\uBC18 \uD0C0\uC77C\uC744 100% \uD655\uB960\uB85C \uADE0\uC5F4 \uC0C1\uD0DC\uB85C
+      \uB9CC\uB4ED\uB2C8\uB2E4.\\\\n\uADE0\uC5F4\uB41C \uD0C0\uC77C\uC740 \uB2E4\uC74C
+      \uD134\uC5D0 \uD0C0\uACA9 \uC2DC \uD0C0\uACA9 \uD655\uB960\uC744 \uBB34\uC2DC\uD558\uACE0
+      \uD30C\uAD34\uB429\uB2C8\uB2E4."
+    eng: Inflicts Cracked status on normal tiles in the yellow and sky-blue attack
+      ranges with 100% chance.\\nCracked tiles are destroyed on the next turn when
+      struck, ignoring hit chance.
   - key: Card_WeakeningRare_Des
-    kor: "\uC57D\uD654 \uCE74\uB4DC - \uB808\uC5B4_\uC124\uBA85"
-    eng: Weakening Rare Des
+    kor: "\uB178\uB780\uC0C9\uACFC \uD558\uB298\uC0C9 \uD0C0\uACA9\uBC94\uC704\uC5D0
+      \uC77C\uBC18 \uD0C0\uC77C\uC744 100% \uD655\uB960\uB85C \uADE0\uC5F4 \uC0C1\uD0DC\uB85C
+      \uB9CC\uB4ED\uB2C8\uB2E4.\\\\n\uADE0\uC5F4\uB41C \uD0C0\uC77C\uC740 \uB2E4\uC74C
+      \uD134\uC5D0 \uD0C0\uACA9 \uC2DC \uD0C0\uACA9 \uD655\uB960\uC744 \uBB34\uC2DC\uD558\uACE0
+      \uD30C\uAD34\uB429\uB2C8\uB2E4."
+    eng: Inflicts Cracked status on normal tiles in the yellow and sky-blue attack
+      ranges with 100% chance.\\nCracked tiles are destroyed on the next turn when
+      struck, ignoring hit chance.
   - key: Card_WeakeningUnique_Des
-    kor: "\uC57D\uD654 \uCE74\uB4DC - \uC720\uB2C8\uD06C_\uC124\uBA85"
+    kor: "\uADE0\uC5F4 \uCE74\uB4DC - \uC720\uB2C8\uD06C_\uC124\uBA85"
     eng: Weakening Unique Des
   - key: Card_Bag_Des
     kor: "\uAC00\uBC29_\uC124\uBA85"
@@ -386,11 +512,40 @@ MonoBehaviour:
     kor: "\uAE30\uC5B5\uC758 \uB9DD\uCE58+_\uC124\uBA85"
     eng: Hammer OfMemory+ Des
   - key: Card_RiftStartumAnalysis_Des
-    kor: "\uADE0\uC5F4 \uC9C0\uCE35 \uBD84\uC11D_\uC124\uBA85"
-    eng: Rift StartumAnalysis Des
+    kor: "\uB178\uB780\uC0C9 \uD0C0\uACA9\uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 100%
+      \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4.\\\\n\uD770\uC0C9 \uD0C0\uACA9
+      \uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 0% \uD655\uB960\uB85C \uD30C\uAD34\uD560
+      \uC218 \uC788\uB2E4.\\\\n\uC774 \uCE74\uB4DC\uB85C \uD0C0\uC77C\uC744 3\uAC1C
+      \uC774\uC0C1 \uBD80\uC220 \uACBD\uC6B0, \uD0C0\uACA9 \uBC94\uC704\uC5D0 \uC788\uB294
+      \uBAA8\uB4E0 \uC77C\uBC18 \uD0C0\uC77C\uC744 \uD30C\uAD34\uD569\uB2C8\uB2E4.\\\\n\uD30C\uAD34\uB41C
+      \uD0C0\uC77C \uC911 \uADE0\uC5F4 \uD0C0\uC77C 1\uAC1C\uB2F9 2 Gold\uB97C \uC9C0\uAE09\uD569\uB2C8\uB2E4.\\\\n\uC774
+      \uCE74\uB4DC\uB85C \uD0C0\uC77C\uC744 5\uCE78 \uBD80\uC220 \uACBD\uC6B0 \uB371\uC5D0
+      \uC874\uC7AC\uD558\uB294 \uD669\uAE08 \uD0DC\uADF8 \uCE74\uB4DC 1\uC7A5\uC744
+      \uB4DC\uB85C\uC6B0\uD569\uB2C8\uB2E4.\\\\n(\uB3C4\uAD6C) \uCE74\uB4DC\uB97C
+      \uC0AC\uC6A9\uD558\uBA74 \uCE74\uB4DC\uAC00 \uD30C\uAD34\uB420 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\\\\n\uCE74\uB4DC
+      \uAC15\uD654\uC2DC \uCE74\uB4DC \uD30C\uAD34 \uD6A8\uACFC\uB294 \uC0AC\uB77C\uC9D1\uB2C8\uB2E4."
+    eng: Destroys tiles in the yellow attack range with 100% chance.\\nTiles in the
+      white attack range cannot be destroyed.\\nIf 3 or more tiles are destroyed
+      with this card, all normal tiles in the attack range are destroyed.\\nGrants
+      2 Gold for each Cracked tile destroyed.\\nIf 5 tiles are destroyed with this
+      card, draw 1 Golden-tag card from your deck.\\n(Tool) This card may be destroyed
+      upon use.\\nUpgrading this card removes the destruction effect.
   - key: Card_RiftStartumAnalysis_Enhanced_Des
-    kor: "\uADE0\uC5F4 \uC9C0\uCE35 \uBD84\uC11D+_\uC124\uBA85"
-    eng: Rift StartumAnalysis+ Des
+    kor: "\uB178\uB780\uC0C9 \uD0C0\uACA9\uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 100%
+      \uD655\uB960\uB85C \uD30C\uAD34\uD569\uB2C8\uB2E4.\\\\n\uD770\uC0C9 \uD0C0\uACA9
+      \uBC94\uC704\uC5D0 \uD0C0\uC77C\uC744 0% \uD655\uB960\uB85C \uD30C\uAD34\uD560
+      \uC218 \uC788\uB2E4.\\\\n\uC774 \uCE74\uB4DC\uB85C \uD0C0\uC77C\uC744 3\uAC1C
+      \uC774\uC0C1 \uBD80\uC220 \uACBD\uC6B0, \uD0C0\uACA9 \uBC94\uC704\uC5D0 \uC788\uB294
+      \uBAA8\uB4E0 \uC77C\uBC18 \uD0C0\uC77C\uC744 \uD30C\uAD34\uD569\uB2C8\uB2E4.\\\\n\uD30C\uAD34\uB41C
+      \uD0C0\uC77C \uC911 \uADE0\uC5F4 \uD0C0\uC77C 1\uAC1C\uB2F9 5 Gold\uB97C \uC9C0\uAE09\uD569\uB2C8\uB2E4.\\\\n\uC774
+      \uCE74\uB4DC\uB85C \uD0C0\uC77C\uC744 5\uCE78 \uBD80\uC220 \uACBD\uC6B0 \uB371\uC5D0
+      \uC874\uC7AC\uD558\uB294 \uD669\uAE08 \uD0DC\uADF8 \uCE74\uB4DC 2\uC7A5\uC744
+      \uB4DC\uB85C\uC6B0\uD569\uB2C8\uB2E4."
+    eng: Destroys tiles in the yellow attack range with 100% chance.\\nTiles in the
+      white attack range cannot be destroyed.\\nIf 3 or more tiles are destroyed
+      with this card, all normal tiles in the attack range are destroyed.\\nGrants
+      5 Gold for each Cracked tile destroyed.\\nIf 5 tiles are destroyed with this
+      card, draw 2 Golden-tag cards from your deck.
   - key: Card_Novice_Wand_Des
     kor: "\uACAC\uC2B5 \uC9C0\uD321\uC774_\uC124\uBA85"
     eng: Novice Wand Des

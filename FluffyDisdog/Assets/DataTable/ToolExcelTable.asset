@@ -76,7 +76,7 @@ MonoBehaviour:
     carBit: 1
     cardTagBit: 0
     manaCost: 0
-    addedOptionIds: 000000000000000000000000
+    addedOptionIds: 7b0000000000000000000000
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_102
@@ -93,7 +93,7 @@ MonoBehaviour:
     carBit: 1
     cardTagBit: 0
     manaCost: 0
-    addedOptionIds: 000000000000000000000000
+    addedOptionIds: 7b0000007c00000000000000
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_101
@@ -110,7 +110,7 @@ MonoBehaviour:
     carBit: 1
     cardTagBit: 0
     manaCost: 0
-    addedOptionIds: 000000000000000000000000
+    addedOptionIds: 7b0000007c00000000000000
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_101
@@ -331,7 +331,7 @@ MonoBehaviour:
     carBit: 1
     cardTagBit: 0
     manaCost: 0
-    addedOptionIds: 000000000000000000000000
+    addedOptionIds: 7c0000000000000000000000
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_107
@@ -348,7 +348,7 @@ MonoBehaviour:
     carBit: 1
     cardTagBit: 0
     manaCost: 0
-    addedOptionIds: 000000000000000000000000
+    addedOptionIds: 7c0000000000000000000000
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_107
