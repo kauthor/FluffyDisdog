@@ -30,6 +30,8 @@ namespace FluffyDisdog.UI
         [SerializeField] private GameObject coinShineAnim;
         [SerializeField] private Button btnOut;
 
+        [SerializeField] private GameObject coinSparklePrefab;
+        
         private Phase currentPhase;
         /// <summary>
         /// 이것은 코인의 경로들
@@ -145,7 +147,13 @@ namespace FluffyDisdog.UI
                     var seq2 = DOTween.Sequence()
                         .Append(newCoin.transform.DOMoveY(coinEndTr.position.y, coinDuration)
                             .SetEase(easeCases[Random.Range(0, easeCases.Length)]));
-                    seq2.onComplete += () => newCoin.gameObject.SetActive(false);
+                    seq2.onComplete += () =>
+                    {
+                        newCoin.gameObject.SetActive(false);
+                        var newSparkle = GameObject.Instantiate(coinSparklePrefab,coinEndTr);
+                        newSparkle.transform.position = coinEndTr.position + new Vector3(Random.Range(-40.0f,40.0f),Random.Range(-40.0f,40.0f));
+                        //.transform.do
+                    };
                     
                     currentcoins.Add(newCoin);
                     seqs.Add(seq1);

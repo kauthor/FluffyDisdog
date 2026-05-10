@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3484744886218570229}
   - component: {fileID: 5027676640930092510}
   - component: {fileID: 9092335337787169386}
+  - component: {fileID: 6440040650638016861}
   m_Layer: 5
   m_Name: sparkle
   m_TagString: Untagged
@@ -98,3 +99,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6440040650638016861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4521755935579971303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eef74992498240d088b1233de96d3cc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

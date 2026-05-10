@@ -250,6 +250,8 @@ MonoBehaviour:
   coinEndTr: {fileID: 8185193000376205498}
   coinShineAnim: {fileID: 3634389996036572287}
   btnOut: {fileID: 2351069481762268343}
+  coinSparklePrefab: {fileID: 4521755935579971303, guid: 441300907f5a56849af6a0ef89e0d686,
+    type: 3}
   easeCases: 050000000600000001000000
   coinTerm: 0.05
   coinDuration: 0.8
