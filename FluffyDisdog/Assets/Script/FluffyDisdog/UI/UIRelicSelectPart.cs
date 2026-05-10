@@ -53,6 +53,7 @@ namespace FluffyDisdog.UI
             var descTxt = ExcelManager.I.GetLocalizeData(data.localDesc).kor;
             
             txtRelicName.text = nameTxt;
+            txtRelicNameShadow.text = nameTxt;
             txtRelicDesc.SetText(descTxt);
             txtRelicPrice.SetText(cost.ToString() + " G");
         }
