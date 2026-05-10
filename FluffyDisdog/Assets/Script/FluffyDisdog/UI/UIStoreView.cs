@@ -139,13 +139,16 @@ namespace FluffyDisdog.UI
                 p.gameObject.SetActive(true);
             }*/
             
-            packs[0].Init(20,ExcelManager.I.GetPackData(pack1.rewardValue).gachaKey, OnClickGachaPack);
+            packs[0].Init(ExcelManager.I.GetShopCost(pack1.rewardValue),ExcelManager.I.GetPackData(pack1.rewardValue).gachaKey, OnClickGachaPack);
+            packs[0].SetPackResource(ExcelManager.I.GetPackData(pack1.rewardValue).gachaKey-100);
             packs[0].gameObject.SetActive(true);
             
-            packs[1].Init(20,ExcelManager.I.GetPackData(pack2.rewardValue).gachaKey, OnClickGachaPack);
+            packs[1].Init(ExcelManager.I.GetShopCost(pack2.rewardValue),ExcelManager.I.GetPackData(pack2.rewardValue).gachaKey, OnClickGachaPack);
+            packs[1].SetPackResource(ExcelManager.I.GetPackData(pack2.rewardValue).gachaKey-100);
             packs[1].gameObject.SetActive(true);
             
-            packs[2].Init(20,ExcelManager.I.GetPackData(pack3.rewardValue).gachaKey, OnClickGachaPack);
+            packs[2].Init(ExcelManager.I.GetShopCost(pack3.rewardValue),ExcelManager.I.GetPackData(pack3.rewardValue).gachaKey, OnClickGachaPack);
+            packs[2].SetPackResource(ExcelManager.I.GetPackData(pack3.rewardValue).gachaKey-100);
             packs[2].gameObject.SetActive(true);
             
             /*foreach (var r in relics)
@@ -376,15 +379,18 @@ namespace FluffyDisdog.UI
 
             if (!packs[0].Purchased)
             {
-                packs[0].Reroll(20,ExcelManager.I.GetPackData(pack1.rewardValue).gachaKey, OnClickGachaPack);
+                packs[0].Reroll(ExcelManager.I.GetShopCost(pack1.rewardValue),ExcelManager.I.GetPackData(pack1.rewardValue).gachaKey, OnClickGachaPack);
+                packs[0].SetPackResource(ExcelManager.I.GetPackData(pack1.rewardValue).gachaKey-100);
             }
             if (!packs[1].Purchased)
             {
-                packs[1].Reroll(20,ExcelManager.I.GetPackData(pack2.rewardValue).gachaKey, OnClickGachaPack);
+                packs[1].Reroll(ExcelManager.I.GetShopCost(pack2.rewardValue),ExcelManager.I.GetPackData(pack2.rewardValue).gachaKey, OnClickGachaPack);
+                packs[1].SetPackResource(ExcelManager.I.GetPackData(pack2.rewardValue).gachaKey-100);
             }
             if (!packs[2].Purchased)
             {
-                packs[2].Reroll(20,ExcelManager.I.GetPackData(pack3.rewardValue).gachaKey, OnClickGachaPack);
+                packs[2].Reroll(ExcelManager.I.GetShopCost(pack3.rewardValue),ExcelManager.I.GetPackData(pack3.rewardValue).gachaKey, OnClickGachaPack);
+                packs[2].SetPackResource(ExcelManager.I.GetPackData(pack3.rewardValue).gachaKey-100);
             }
             
             AccountManager.I.GoldConsume(5);

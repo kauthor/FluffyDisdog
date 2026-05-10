@@ -11,6 +11,8 @@ namespace FluffyDisdog.UI
         [SerializeField] private GameObject pnlPurchase;
 
         [SerializeField] private OutlinedText txtCardPackPrice;
+
+        [SerializeField] private Sprite[] packResources;
         //[SerializeField] private Text txtRelicName;
         
         private event Action<int, int, UICardPackSelectPart> onCardPackOpen;
@@ -55,6 +57,11 @@ namespace FluffyDisdog.UI
         {
             pnlPurchase.SetActive(true);
             purchased = true;
+        }
+
+        public void SetPackResource(int num)
+        {
+            cardPackImage.sprite = packResources[num];
         }
         
     }

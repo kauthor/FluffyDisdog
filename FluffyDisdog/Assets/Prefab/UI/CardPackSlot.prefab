@@ -55,6 +55,10 @@ MonoBehaviour:
   btnPackOpen: {fileID: 1338508241925264066}
   pnlPurchase: {fileID: 5071331391757680978}
   txtCardPackPrice: {fileID: 5692855957927004832}
+  packResources:
+  - {fileID: 21300000, guid: f42fd53af2994db4e81c7ba8cb10545c, type: 3}
+  - {fileID: 21300000, guid: 70e7ad25db5004d448da11d23f762008, type: 3}
+  - {fileID: 21300000, guid: f42fd53af2994db4e81c7ba8cb10545c, type: 3}
 --- !u!1 &3776631552353689058
 GameObject:
   m_ObjectHideFlags: 0
