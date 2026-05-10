@@ -1,4 +1,7 @@
-﻿namespace FluffyDisdog.CardOptionExecuter
+﻿using System;
+using Random = UnityEngine.Random;
+
+namespace FluffyDisdog.CardOptionExecuter
 {
     public class RandomExecuter:CardOptionExecuter
     {
@@ -11,8 +14,12 @@
                 amount = TileGameManager.I.TileSet.ValidNodeCount;
             for (int i = 0; i < amount; i++)
             {
-                var tile = TileGameManager.I.TileSet.GetRandomNode(_=>_.ValidNode()&&!_.isObstacle);
-                tile.TryDigBlockForce();
+                if (Random.Range(0, 10000) < rawData.Values[0])
+                {
+                    var tile = TileGameManager.I.TileSet.GetRandomNode(_=>_.ValidNode()&&!_.isObstacle);
+                    tile.TryDigBlockForce();
+                }
+                
             }
         }
     }
