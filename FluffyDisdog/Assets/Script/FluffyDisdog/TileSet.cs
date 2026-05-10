@@ -27,7 +27,7 @@ namespace FluffyDisdog
         [SerializeField] private int initialRow=8;
         [SerializeField] private int initialColume=8;
         [SerializeField] private int testSeed=-1;
-
+        [SerializeField] private Transform damageParent;
         [SerializeField] private Animation shakeAnim;
         private TerrainNode[] nodes => currentLevelSet.Nodes;
         private int row => currentLevelSet.Row;
@@ -300,11 +300,11 @@ namespace FluffyDisdog
             {
                 parameter = fontPool.Pop();
                 if(parameter==null)
-                    parameter = GameObject.Instantiate(fontPartPrefab, transform);
+                    parameter = GameObject.Instantiate(fontPartPrefab, damageParent);
             }
             else
             {
-                parameter = GameObject.Instantiate(fontPartPrefab, transform);
+                parameter = GameObject.Instantiate(fontPartPrefab, damageParent);
             }
             
             parameter.gameObject.SetActive(true);
