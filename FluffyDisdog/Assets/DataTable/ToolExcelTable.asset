@@ -151,8 +151,8 @@ MonoBehaviour:
     cardImgId: Card_Illust_108
   - cardKeyNew: 8
     cardKeyString: Card_CrossChisel
-    cardNameKeyLocal: Card_Cross Chisel_Name
-    cardDescKeyLocal: Card_Cross Chisel_Des
+    cardNameKeyLocal: Card_Cross_Chisel_Name
+    cardDescKeyLocal: Card_Cross_Chisel_Des
     cardTypeId: 1
     charaTypeId: 2
     upgradeTypeId: 1
@@ -168,8 +168,8 @@ MonoBehaviour:
     cardImgId: Card_Illust_109
   - cardKeyNew: 9
     cardKeyString: Card_CrossChisel_Enhanced
-    cardNameKeyLocal: Card_Cross Chisel_Enhanced_Name
-    cardDescKeyLocal: Card_Cross Chisel_Enhanced_Des
+    cardNameKeyLocal: Card_Cross_Chisel_Enhanced_Name
+    cardDescKeyLocal: Card_Cross_Chisel_Enhanced_Des
     cardTypeId: 1
     charaTypeId: 2
     upgradeTypeId: 2
@@ -355,8 +355,8 @@ MonoBehaviour:
     cardImgId: Card_Illust_120
   - cardKeyNew: 20
     cardKeyString: Card_LargeScissors
-    cardNameKeyLocal: Card_Large Scissors_Name
-    cardDescKeyLocal: Card_Large Scissors_Des
+    cardNameKeyLocal: Card_Large_Scissors_Name
+    cardDescKeyLocal: Card_Large_Scissors_Des
     cardTypeId: 1
     charaTypeId: 2
     upgradeTypeId: 1
@@ -372,8 +372,8 @@ MonoBehaviour:
     cardImgId: Card_Illust_121
   - cardKeyNew: 21
     cardKeyString: Card_LargeScissors_Enhanced
-    cardNameKeyLocal: Card_Large Scissors_Enhanced_Name
-    cardDescKeyLocal: Card_Large Scissors_Enhanced_Des
+    cardNameKeyLocal: Card_Large_Scissors_Enhanced_Name
+    cardDescKeyLocal: Card_Large_Scissors_Enhanced_Des
     cardTypeId: 1
     charaTypeId: 2
     upgradeTypeId: 2
