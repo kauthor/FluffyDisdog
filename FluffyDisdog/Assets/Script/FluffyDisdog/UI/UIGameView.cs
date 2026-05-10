@@ -20,6 +20,7 @@ namespace FluffyDisdog.UI
         [SerializeField] private Text txtGoalScore;
         [SerializeField] private GameObject character;
         [SerializeField] private Text txtStage;
+        [SerializeField] private Text txtStageShadow;
 
         [SerializeField] private Transform cardArea;
         [SerializeField] private CardPart cardPrefab;
@@ -99,6 +100,7 @@ namespace FluffyDisdog.UI
             txtCurrentScore.text = "0 /";
             character.SetActive(true);
             txtStage.text = $"Stage 1-{TileGameManager.I.currentLevel}";
+            txtStageShadow.text = $"Stage 1-{TileGameManager.I.currentLevel}";
 
             var hand = DeckManager.I.Hand.Count;
             var handList = DeckManager.I.Hand;
