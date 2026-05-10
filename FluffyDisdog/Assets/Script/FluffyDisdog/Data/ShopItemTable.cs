@@ -25,11 +25,11 @@ namespace FluffyDisdog.Data
         }
 #endif
         
-        public Dictionary<int, ShopItemData> TryCache()
+        public Dictionary<string, ShopItemData> TryCache()
         {
-            Dictionary<int, ShopItemData> ret = new Dictionary<int, ShopItemData>();
+            Dictionary<string, ShopItemData> ret = new Dictionary<string, ShopItemData>();
             foreach (var d in data)
-                ret.Add(d.id,d);
+                ret.Add(d.itemId,d);
             
             return ret;
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace FluffyDisdog.Data
@@ -24,13 +25,9 @@ namespace FluffyDisdog.Data
         }
 #endif
         
-        public Dictionary<int, BoxItemData> TryCache()
+        public List<BoxItemData> TryCache()
         {
-            Dictionary<int, BoxItemData> ret = new Dictionary<int, BoxItemData>();
-            foreach (var d in data)
-                ret.Add(d.boxId,d);
-            
-            return ret;
+            return data.ToList();
         }
     }
 }

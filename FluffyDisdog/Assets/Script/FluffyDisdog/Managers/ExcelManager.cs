@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Cysharp.Threading.Tasks;
 using FluffyDisdog;
 using FluffyDisdog.Data;
@@ -29,6 +30,25 @@ namespace Script.FluffyDisdog.Managers
         private Dictionary<int, TagData> tagDataDic;
         private Dictionary<string, LocalizeData> localizeDataDic;
         
+        /// <summary>
+        /// 26.05.10
+        /// </summary>
+        
+        private PackTable _packTable;
+        private ShopItemTable _shopItemTable;
+        private ShopTable _shopTable;
+        private MapTable _mapTable;
+        private RequestTable _requestTable;
+        private BoxTable _boxTable;
+        private BoxItemTable _boxItemTable;
+        
+        private Dictionary<string, PackData> packDataDic;
+        private Dictionary<string, ShopItemData> shopItemDataDic;
+        private Dictionary<int, ShopData> shopDataDic;
+        private Dictionary<int, MapData> mapDataDic;
+        private Dictionary<int, RequestData> requestDataDic;
+        private Dictionary<int, BoxData> boxDataDic;
+        private List<BoxItemData> boxItemDataDic;
         
         private bool initialized=false;
         public bool Initialized => initialized;
@@ -113,6 +133,76 @@ namespace Script.FluffyDisdog.Managers
             await localizeHandle;
             Addressables.Release(localizeHandle);
             
+            AsyncOperationHandle packHandle =
+                Addressables.LoadAssetAsync<PackTable>("PackTable");
+            packHandle.Completed += op =>
+            {
+                var res = op.Result as PackTable;
+                _packTable = res;
+            };
+            await packHandle;
+            Addressables.Release(packHandle);
+            
+            AsyncOperationHandle shopItemHandle =
+                Addressables.LoadAssetAsync<ShopItemTable>("ShopItemTable");
+            shopItemHandle.Completed += op =>
+            {
+                var res = op.Result as ShopItemTable;
+                _shopItemTable = res;
+            };
+            await shopItemHandle;
+            Addressables.Release(shopItemHandle);
+            
+            AsyncOperationHandle shopHandle =
+                Addressables.LoadAssetAsync<ShopTable>("ShopTable");
+            shopHandle.Completed += op =>
+            {
+                var res = op.Result as ShopTable;
+                _shopTable = res;
+            };
+            await shopHandle;
+            Addressables.Release(shopHandle);
+            
+            AsyncOperationHandle maphandle =
+                Addressables.LoadAssetAsync<MapTable>("MapTable");
+            maphandle.Completed += op =>
+            {
+                var res = op.Result as MapTable;
+                _mapTable = res;
+            };
+            await maphandle;
+            Addressables.Release(maphandle);
+            
+            AsyncOperationHandle requestHandle =
+                Addressables.LoadAssetAsync<RequestTable>("RequestTable");
+            requestHandle.Completed += op =>
+            {
+                var res = op.Result as RequestTable;
+                _requestTable = res;
+            };
+            await requestHandle;
+            Addressables.Release(requestHandle);
+            
+            AsyncOperationHandle boxhandle =
+                Addressables.LoadAssetAsync<BoxTable>("BoxTable");
+            boxhandle.Completed += op =>
+            {
+                var res = op.Result as BoxTable;
+                _boxTable = res;
+            };
+            await boxhandle;
+            Addressables.Release(boxhandle);
+            
+            AsyncOperationHandle boxItemHandle =
+                Addressables.LoadAssetAsync<BoxItemTable>("BoxItemTable");
+            boxItemHandle.Completed += op =>
+            {
+                var res = op.Result as BoxItemTable;
+                _boxItemTable = res;
+            };
+            await boxItemHandle;
+            Addressables.Release(boxItemHandle);
+            
             toolDataDic = _toolTable.TryCache();
             relicDataDic = _relicDataTable.TryCache();
             toolExcelDataDic = _toolExcelDatas.TryCache();
@@ -121,6 +211,14 @@ namespace Script.FluffyDisdog.Managers
             tagDataDic = _tagTable.TryCache();
             localizeDataDic = _localizeTable.TryCache();
             gachaDataDic = _gachaTable.TryCacheData();
+            
+            packDataDic = _packTable.TryCache();
+            shopDataDic = _shopTable.TryCache();
+            shopItemDataDic = _shopItemTable.TryCache();
+            mapDataDic = _mapTable.TryCache();
+            requestDataDic = _requestTable.TryCache();
+            boxDataDic = _boxTable.TryCache();
+            boxItemDataDic = _boxItemTable.TryCache();
             
             initialized=true;
         }
@@ -164,6 +262,48 @@ namespace Script.FluffyDisdog.Managers
         {
             localizeDataDic.TryGetValue(name, out var ret);
             return ret;
+        }
+
+        public PackData GetPackData(string name)
+        {
+            packDataDic.TryGetValue(name, out var ret);
+            return ret;
+        }
+
+        public ShopItemData GetShopItemData(string name)
+        {
+            shopItemDataDic.TryGetValue(name, out var ret);
+            return ret;
+        }
+
+        public ShopData GetShopData(int key)
+        {
+            shopDataDic.TryGetValue(key, out var ret);
+            return ret;
+        }
+
+        public MapData GetMapData(int key)
+        {
+            mapDataDic.TryGetValue(key, out var ret);
+            return ret;
+        }
+
+        public RequestData GetRequestData(int key)
+        {
+            requestDataDic.TryGetValue(key, out var ret);
+            return ret;
+        }
+
+        public BoxData GetBoxData(int key)
+        {
+            boxDataDic.TryGetValue(key, out var ret);
+            return ret;
+        }
+
+        public BoxItemData[] GetBoxItemData(int key)
+        {
+            var ret = boxItemDataDic.Where(_=>_.boxId ==key);
+            return ret.ToArray();
         }
 
         public GachaData ExecuteGacha(int gachaId)
