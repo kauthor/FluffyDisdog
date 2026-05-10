@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using FluffyDisdog.Data.RelicData;
 using Script.FluffyDisdog.Managers;
 using Sirenix.OdinInspector;
@@ -90,22 +91,57 @@ namespace FluffyDisdog.UI
             });
             
             requestDayFlow.text = ($"DAY - {TileGameManager.I.RequestSystem.ReqRewardLevelAdd+1}");
-            
-            
-            foreach (var p in packs)
-            {
-                p.Init(Random.Range(20,31),0, OnClickGachaPack); //todo : 가챠타입, 비용 임시
-                p.gameObject.SetActive(true);
-            }
 
             List<int> usedRelic=new List<int>();
             var curRelic = TileGameManager.I.RelicSystem.currentRelicDatas;
             if(curRelic != null)
-            for (int i = 0; i < curRelic.Length; i++)
+                for (int i = 0; i < curRelic.Length; i++)
+                {
+                    usedRelic.Add((int)curRelic[i].relicName);
+                }
+            
+            var pack1 = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(1).gachaId);
+            var pack2 = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(2).gachaId);
+            var pack3 = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(3).gachaId);
+            var limit1 = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(6).gachaId);
+            var limit2 = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(7).gachaId);
+            //var relic1 = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(6).gachaId);
+            RelicName relic1Name = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(4).gachaId).rewardValue
+                .StringToRelicName();
+            while (usedRelic.Contains((int)relic1Name) && usedRelic.Count <19 )
             {
-                usedRelic.Add((int)curRelic[i].relicName);
+                relic1Name = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(4).gachaId).rewardValue
+                    .StringToRelicName();
             }
-            foreach (var r in relics)
+
+            bool disableRelic1 = usedRelic.Count >= 19;
+            usedRelic.Add((int)relic1Name);
+            
+            RelicName relic2Name = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(5).gachaId).rewardValue
+                .StringToRelicName();
+            while (usedRelic.Contains((int)relic2Name) && usedRelic.Count <19 )
+            {
+                relic2Name = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(5).gachaId).rewardValue
+                    .StringToRelicName();
+            }
+            bool disableRelic2 = usedRelic.Count >= 19;
+            
+            /*foreach (var p in packs)
+            {
+                p.Init(Random.Range(20,31),0, OnClickGachaPack); //todo : 가챠타입, 비용 임시
+                p.gameObject.SetActive(true);
+            }*/
+            
+            packs[0].Init(20,ExcelManager.I.GetPackData(pack1.rewardValue).gachaKey, OnClickGachaPack);
+            packs[0].gameObject.SetActive(true);
+            
+            packs[1].Init(20,ExcelManager.I.GetPackData(pack2.rewardValue).gachaKey, OnClickGachaPack);
+            packs[1].gameObject.SetActive(true);
+            
+            packs[2].Init(20,ExcelManager.I.GetPackData(pack3.rewardValue).gachaKey, OnClickGachaPack);
+            packs[2].gameObject.SetActive(true);
+            
+            /*foreach (var r in relics)
             {
                 int rel = -1;
                 if (usedRelic.Count >= 22)
@@ -121,17 +157,50 @@ namespace FluffyDisdog.UI
                  
                 r.Init(20, rel, OnClickRelicPack);
                 r.gameObject.SetActive(true);
+            }*/
+
+            if (!disableRelic1)
+            {
+                relics[0].gameObject.SetActive(true);
+                relics[0].Init(20, (int)relic1Name, OnClickRelicPack);
+            }
+            else
+            {
+                relics[0].gameObject.SetActive(false);
+            }
+            
+            if (!disableRelic2)
+            {
+                relics[1].gameObject.SetActive(true);
+                relics[1].Init(20, (int)relic2Name, OnClickRelicPack);
+            }
+            else
+            {
+                relics[1].gameObject.SetActive(false);
             }
 
 
-            int special = 0;
+            /*int special = 0;
             foreach (var c in specialCardSlot)
             {
                 c.Init((ToolType)Random.Range(0, (int)ToolType.MAX),0);
                 c.BindHandler(OnBuySpecialCard);
                 c.gameObject.SetActive(true);
                 txtSpecialPrice[special++].SetText($"10 G"); //todo 가격 임시
-            }
+            }*/
+
+            ToolType limit1Tool = (ToolType)System.Enum.Parse(typeof(ToolType), limit1.rewardValue);
+            ToolType limit2Tool = (ToolType)System.Enum.Parse(typeof(ToolType), limit2.rewardValue);
+            
+            specialCardSlot[0].Init(limit1Tool, 0);
+            specialCardSlot[0].BindHandler(OnBuySpecialCard);
+            specialCardSlot[0].gameObject.SetActive(true);
+            txtSpecialPrice[0].SetText($"10 G");
+            
+            specialCardSlot[1].Init(limit2Tool, 0);
+            specialCardSlot[1].BindHandler(OnBuySpecialCard);
+            specialCardSlot[1].gameObject.SetActive(true);
+            txtSpecialPrice[1].SetText($"10 G");
             
             btnReroll.onClick.RemoveAllListeners();
             btnReroll.onClick.AddListener(Reroll);
@@ -232,34 +301,79 @@ namespace FluffyDisdog.UI
             List<int> usedRelic=new List<int>();
             var curRelic = TileGameManager.I.RelicSystem.currentRelicDatas;
             if(curRelic != null)
-            for (int i = 0; i < curRelic.Length; i++)
-            {
-                usedRelic.Add((int)curRelic[i].relicName);
-            }
-            foreach (var r in relics)
-            {
-                int rel = -1;
-                if (usedRelic.Count >= 22)
+                for (int i = 0; i < curRelic.Length; i++)
                 {
-                    r.gameObject.SetActive(false);
-                    continue;
+                    usedRelic.Add((int)curRelic[i].relicName);
                 }
-                for (;usedRelic.Contains(rel)||rel<0;)
-                {
-                    rel = Random.Range(101, (int)RelicName.HorizontalVerticalStabilizer + 1);
-                }
-                usedRelic.Add(rel);
-                 
-                r.Reroll(20, rel, OnClickRelicPack);
-                r.gameObject.SetActive(true);
+            
+            var pack1 = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(1).gachaId);
+            var pack2 = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(2).gachaId);
+            var pack3 = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(3).gachaId);
+            
+            //var relic1 = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(6).gachaId);
+            RelicName relic1Name = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(4).gachaId).rewardValue
+                .StringToRelicName();
+            while (usedRelic.Contains((int)relic1Name) && usedRelic.Count <19 )
+            {
+                relic1Name = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(4).gachaId).rewardValue
+                    .StringToRelicName();
             }
+
+            bool disableRelic1 = usedRelic.Count >= 19;
+            usedRelic.Add((int)relic1Name);
+            
+            RelicName relic2Name = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(5).gachaId).rewardValue
+                .StringToRelicName();
+            while (usedRelic.Contains((int)relic2Name) && usedRelic.Count <19 )
+            {
+                relic2Name = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(5).gachaId).rewardValue
+                    .StringToRelicName();
+            }
+            bool disableRelic2 = usedRelic.Count >= 19;
+            
+            /*foreach (var p in packs)
+            {
+                p.Init(Random.Range(20,31),0, OnClickGachaPack); //todo : 가챠타입, 비용 임시
+                p.gameObject.SetActive(true);
+            }*/
+            
+            
             
 
-            foreach (var p in packs)
+            if (!disableRelic1&&!relics[0].Purchased)
             {
-                if(!p.Purchased)
-                    p.Reroll(Random.Range(20,31),0, OnClickGachaPack);
+                //relics[0].gameObject.SetActive(true);
+                relics[0].Reroll(20, (int)relic1Name, OnClickRelicPack);
             }
+            else
+            {
+                //relics[0].gameObject.SetActive(false);
+            }
+            
+            if (!disableRelic2 && !relics[1].Purchased)
+            {
+                //relics[1].gameObject.SetActive(true);
+                relics[1].Reroll(20, (int)relic2Name, OnClickRelicPack);
+            }
+            else
+            {
+                //relics[1].gameObject.SetActive(false);
+            }
+
+
+            if (!packs[0].Purchased)
+            {
+                packs[0].Reroll(20,ExcelManager.I.GetPackData(pack1.rewardValue).gachaKey, OnClickGachaPack);
+            }
+            if (!packs[1].Purchased)
+            {
+                packs[1].Reroll(20,ExcelManager.I.GetPackData(pack2.rewardValue).gachaKey, OnClickGachaPack);
+            }
+            if (!packs[2].Purchased)
+            {
+                packs[2].Reroll(20,ExcelManager.I.GetPackData(pack3.rewardValue).gachaKey, OnClickGachaPack);
+            }
+            
             AccountManager.I.GoldConsume(5);
             SyncGold();
         }

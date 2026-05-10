@@ -103,12 +103,13 @@ namespace FluffyDisdog.UI
         private ToolType[] CutPack(int gachaType)
         {
             //todo:임시
-            var ret = new ToolType[3];
+            ToolType[] ret = new ToolType[3];
             for (int i = 0; i < 3; i++)
             {
-                var num = Random.Range(0, 10);
-                ret[i] = (ToolType)num;
+                var gacha= ExcelManager.I.ExecuteGacha(gachaType).rewardValue;
+                ret[i] = (ToolType)System.Enum.Parse(typeof(ToolType), gacha);
             }
+            
 
             return ret;
         }

@@ -31,6 +31,16 @@ namespace FluffyDisdog.Data.RelicData
         PrecisionScope=121,
         HorizontalVerticalStabilizer=122
     }
+
+    public static class RelicNameExtension
+    {
+        public static RelicName StringToRelicName(this string relicName)
+        {
+            var newStr = relicName.Replace("relic","");
+            int toInt = int.Parse(newStr);
+            return (RelicName)toInt;
+        }
+    }
     [Serializable]
     public class RelicData
     {
