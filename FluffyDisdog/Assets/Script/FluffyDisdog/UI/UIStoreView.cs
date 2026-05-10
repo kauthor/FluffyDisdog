@@ -227,7 +227,8 @@ namespace FluffyDisdog.UI
                 {
                     requestCheckImg[i].SetActive(i <= TileGameManager.I.RequestSystem.ReqRewardLevelAdd);
                 }
-                requestAddPrice = (TileGameManager.I.RequestSystem.ReqRewardLevelAdd+1) * 5;
+
+                requestAddPrice = ExcelManager.I.GetRequestData(TileGameManager.I.RequestSystem.ReqDegree).cost;
                 txtRequestAddPrice.text = requestAddPrice.ToString();
                 txtRequestAddPrice.gameObject.SetActive(true);
                 btnRequestAdd.gameObject.SetActive(TileGameManager.I.RequestSystem.ReqRewardLevelAdd<3);
