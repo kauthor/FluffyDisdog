@@ -75,7 +75,7 @@ namespace FluffyDisdog.Data
                     {
                         sum += datas[j+startInd].rate;
                         valueArr[j] = sum;
-                        keyArr[j] = curdata.id;
+                        keyArr[j] = datas[j+startInd].id;
                     }
 
                     GacheInGameData target = new GacheInGameData()

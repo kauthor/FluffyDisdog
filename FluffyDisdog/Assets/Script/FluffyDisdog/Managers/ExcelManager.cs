@@ -312,10 +312,14 @@ namespace Script.FluffyDisdog.Managers
             {
                 int gachaPoint = Random.Range(0, gacha.rateSum);
                 int result = 0;
-                for (int i = gachaPoint; i > 0;)
+
+                for (int i = 0; i < gacha.rateArray.Length; i++)
                 {
-                    i -= gacha.rateArray[i];
-                    result=i;
+                    if (gacha.rateArray[i] >= gachaPoint)
+                    {
+                        result = i;
+                        break;
+                    }
                 }
                 int key = gacha.key[result];
 
