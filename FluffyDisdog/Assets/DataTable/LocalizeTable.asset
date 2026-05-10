@@ -37,10 +37,10 @@ MonoBehaviour:
   - key: Card_Axe_Enhanced_Name
     kor: "\uB3C4\uB07C+"
     eng: Axe+
-  - key: Card_Cross Chisel_Name
+  - key: Card_Cross_Chisel_Name
     kor: "\uB098\uBB34 \uB9DD\uCE58"
     eng: "\uB098\uBB34 \uB9DD\uCE58"
-  - key: Card_Cross Chisel_Enhanced_Name
+  - key: Card_Cross_Chisel_Enhanced_Name
     kor: "\uB098\uBB34 \uB9DD\uCE58+"
     eng: "\uB098\uBB34 \uB9DD\uCE58+"
   - key: Card_Pickaxe_Name
@@ -73,10 +73,10 @@ MonoBehaviour:
   - key: Card_GoldenAxe_Enhanced_Name
     kor: "\uD669\uAE08 \uB3C4\uB07C+"
     eng: Golden Axe+
-  - key: Card_Large Scissors_Name
+  - key: Card_Large_Scissors_Name
     kor: "\uB300\uD615 \uAC00\uC704"
     eng: Large Scissors
-  - key: Card_Large Scissors_Enhanced_Name
+  - key: Card_Large_Scissors_Enhanced_Name
     kor: "\uB300\uD615 \uAC00\uC704+"
     eng: Large Scissors+
   - key: Card_WeakeningNormal_Name
