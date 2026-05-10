@@ -152,11 +152,15 @@ namespace FluffyDisdog.UI
                             .SetEase(easeCases[Random.Range(0, easeCases.Length)]));
                     seq2.onComplete += () =>
                     {
-                        newCoin.gameObject.SetActive(false);
-                        var newSparkle = GameObject.Instantiate(coinSparklePrefab,coinEndTr);
-                        newSparkle.transform.position = coinEndTr.position + new Vector3(Random.Range(-40.0f,40.0f),Random.Range(-40.0f,40.0f));
-                        currentSparkles.Add(newSparkle);
-                        //.transform.do
+                        if (currentPhase == Phase.Phase3)
+                        {
+                            newCoin.gameObject.SetActive(false);
+                            var newSparkle = GameObject.Instantiate(coinSparklePrefab,coinEndTr);
+                            newSparkle.transform.position = coinEndTr.position + new Vector3(Random.Range(-40.0f,40.0f),Random.Range(-40.0f,40.0f));
+                            currentSparkles.Add(newSparkle);
+                            //.transform.do
+                        }
+                        
                     };
                     
                     currentcoins.Add(newCoin);
