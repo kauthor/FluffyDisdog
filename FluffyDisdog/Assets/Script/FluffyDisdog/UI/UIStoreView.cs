@@ -240,6 +240,7 @@ namespace FluffyDisdog.UI
                 txtRequestAddPrice.gameObject.SetActive(false);
             }
             
+            
             pnlRequestStartAccept.gameObject.SetActive(false);
             pnlRequestAddComplete.gameObject.SetActive(false);
             pnlRequestReceiveComplete.gameObject.SetActive(false);
@@ -274,7 +275,8 @@ namespace FluffyDisdog.UI
         private void StartRequest(int deg)
         {
             TileGameManager.I.RequestSystem.StartRequest(TileGameManager.I.currentLevel,deg);
-            AccountManager.I.GoldConsume(deg*5);
+            var cost = ExcelManager.I.GetRequestData(deg).cost;
+            AccountManager.I.GoldConsume(cost);
             pnlRequestStartAccept.gameObject.SetActive(true);
             
             SyncGold();
