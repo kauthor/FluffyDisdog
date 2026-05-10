@@ -62,22 +62,41 @@ namespace FluffyDisdog.UI
             {
                 if (rerollCount >= rerollLimit)
                     return;
+
+                var mapData = ExcelManager.I.GetMapData(1);
+            
+            
+                ToolType[] rewards = new ToolType[5];
+                for (int i = 0; i < rewards.Length; i++)
+                {
+                    rewards[i] = (ToolType)System.Enum.Parse(typeof(ToolType), (ExcelManager.I.ExecuteGacha(mapData.stageCardRewardGachaId).rewardValue));
+                }
+                
                 rerollCount++;
                 currentSelected.Clear();
                 rerollCountText.SetText($"({rerollLimit-rerollCount}/{rerollLimit})");
                 cardSelectTextNext.SetText($"(0/{cardLimit})");
                 cardSelectTextSkip.SetText($"(0/{cardLimit})");
-                List<ToolType> appeared = new List<ToolType>();
+                //List<ToolType> appeared = new List<ToolType>();
                 
                 for (int i = 0; i < cards.Length ; i++)
                 {
-                    var newTool = (ToolType)(SeedManager.I.GetStoreSeed() % 7);
+                    /*var newTool = (ToolType)(SeedManager.I.GetStoreSeed() % 7);
                     while (appeared.Contains(newTool))
                     {
                         newTool = (ToolType)(SeedManager.I.GetStoreSeed() % 7);
+                    }*/
+                    //appeared.Add(newTool);
+                    //cards[i].Init(newTool, 0);
+
+                    if (i >= rewards.Length)
+                    {
+                        cards[i].gameObject.SetActive(false);
+                        continue;
                     }
-                    appeared.Add(newTool);
-                    cards[i].Init(newTool, 0);
+                    
+                    cards[i].gameObject.SetActive(true);
+                    cards[i].Init(rewards[i],0);
                     cards[i].BindHandler((a, b) =>
                     {
                         OnCardClicked(a,b);
@@ -121,16 +140,33 @@ namespace FluffyDisdog.UI
 
         private void Init(Action onclosed, int cardLimit=1)
         {
-            List<ToolType> appeared = new List<ToolType>();
+            //List<ToolType> appeared = new List<ToolType>();
+            var mapData = ExcelManager.I.GetMapData(1);
+            
+            
+            ToolType[] rewards = new ToolType[5];
+            for (int i = 0; i < rewards.Length; i++)
+            {
+                rewards[i] = (ToolType)System.Enum.Parse(typeof(ToolType), (ExcelManager.I.ExecuteGacha(mapData.stageCardRewardGachaId).rewardValue));
+            }
             for (int i = 0; i < cards.Length ; i++)
             {
-                var newTool = (ToolType)(SeedManager.I.GetStoreSeed() % 7);
+                /*var newTool = (ToolType)(SeedManager.I.GetStoreSeed() % 7);
                 while (appeared.Contains(newTool))
                 {
                     newTool = (ToolType)(SeedManager.I.GetStoreSeed() % 7);
                 }
                 appeared.Add(newTool);
-                cards[i].Init( newTool, 0);
+                cards[i].Init( newTool, 0);*/
+                
+                if (i >= rewards.Length)
+                {
+                    cards[i].gameObject.SetActive(false);
+                    continue;
+                }
+                    
+                cards[i].gameObject.SetActive(true);
+                cards[i].Init(rewards[i],0);
                 cards[i].BindHandler((a, b) =>
                 {
                     OnCardClicked(a,b);
