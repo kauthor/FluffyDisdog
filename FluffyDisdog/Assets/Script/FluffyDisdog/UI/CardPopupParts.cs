@@ -119,7 +119,12 @@ namespace FluffyDisdog.UI
             var localName = ExcelManager.I.GetLocalizeData(data.CardNameKeyLocal);
             txtType.text = localName.kor;
             txtShadow.text = localName.kor;
-            txtDesc.SetText(localDesc.kor);
+            if (localDesc == null)
+            {
+                Debug.LogError($"{type} 의 로컬라이제이션 설명이 없습니다.");
+            }
+            else
+               txtDesc.SetText(localDesc.kor);
             
             if (data != null)
             {
