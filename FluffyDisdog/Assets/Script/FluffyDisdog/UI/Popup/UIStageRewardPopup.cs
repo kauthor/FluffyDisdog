@@ -171,7 +171,10 @@ namespace FluffyDisdog.UI
                 {
                     OnCardClicked(a,b);
                 });
-                cards[i].InitAsSelectable(()=> currentSelected.Count < cardLimit);
+                cards[i].InitAsSelectable(()=>
+                {
+                    return currentSelected !=null && currentSelected.Count < cardLimit;
+                });
             }
             //cards[^1].InitAsReroll(OnRerollCardClicked, DeckManager.I.GetRandomCardFromDeck());
             OnClosedCb = onclosed;
