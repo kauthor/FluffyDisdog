@@ -513,6 +513,11 @@ namespace FluffyDisdog
             {
                 _renderer.sprite = substates[state];
             }
+
+            if (state == NodeSubstate.Crack)
+            {
+                runeArea.gameObject.SetActive(false);
+            }
         }
 
         public bool ValidNode() => (int)currentState != (int)NodeState.Digged;
