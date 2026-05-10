@@ -500,7 +500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1171,6 +1171,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2619300455029550065, guid: fab4520522dc0134b91bc121fb362d8b,
         type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2619300455029550065, guid: fab4520522dc0134b91bc121fb362d8b,
+        type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 6261632519333188098, guid: f7a90ea6c8a27cf4495cd7cb17965a66,
@@ -1225,6 +1230,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontSizeBase
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2679966768226424080, guid: fab4520522dc0134b91bc121fb362d8b,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2679966768226424080, guid: fab4520522dc0134b91bc121fb362d8b,
         type: 3}
@@ -1420,6 +1430,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4052554131970531226, guid: fab4520522dc0134b91bc121fb362d8b,
         type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4052554131970531226, guid: fab4520522dc0134b91bc121fb362d8b,
+        type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 6261632519333188098, guid: f7a90ea6c8a27cf4495cd7cb17965a66,
@@ -1494,6 +1509,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontSizeBase
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5510098117747266597, guid: fab4520522dc0134b91bc121fb362d8b,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5510098117747266597, guid: fab4520522dc0134b91bc121fb362d8b,
         type: 3}
@@ -1596,6 +1616,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontSizeBase
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7003385713414923214, guid: fab4520522dc0134b91bc121fb362d8b,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7003385713414923214, guid: fab4520522dc0134b91bc121fb362d8b,
         type: 3}
@@ -1716,6 +1741,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2619300455029550065, guid: fab4520522dc0134b91bc121fb362d8b,
         type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2619300455029550065, guid: fab4520522dc0134b91bc121fb362d8b,
+        type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -4257709563775490399, guid: 912bfea632bf560478f60b8e433b33c4,
@@ -1775,6 +1805,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontSizeBase
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2679966768226424080, guid: fab4520522dc0134b91bc121fb362d8b,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2679966768226424080, guid: fab4520522dc0134b91bc121fb362d8b,
         type: 3}
@@ -1975,6 +2010,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4052554131970531226, guid: fab4520522dc0134b91bc121fb362d8b,
         type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4052554131970531226, guid: fab4520522dc0134b91bc121fb362d8b,
+        type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -4257709563775490399, guid: 912bfea632bf560478f60b8e433b33c4,
@@ -2054,6 +2094,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontSizeBase
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5510098117747266597, guid: fab4520522dc0134b91bc121fb362d8b,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5510098117747266597, guid: fab4520522dc0134b91bc121fb362d8b,
         type: 3}
@@ -2161,6 +2206,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontSizeBase
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7003385713414923214, guid: fab4520522dc0134b91bc121fb362d8b,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7003385713414923214, guid: fab4520522dc0134b91bc121fb362d8b,
         type: 3}
