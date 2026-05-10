@@ -229,7 +229,7 @@ namespace FluffyDisdog.UI
                 }
 
                 requestAddPrice = ExcelManager.I.GetRequestData(TileGameManager.I.RequestSystem.ReqDegree).cost;
-                txtRequestAddPrice.text = requestAddPrice.ToString();
+                txtRequestAddPrice.text = $"Pay More {requestAddPrice} G";
                 txtRequestAddPrice.gameObject.SetActive(true);
                 btnRequestAdd.gameObject.SetActive(TileGameManager.I.RequestSystem.ReqRewardLevelAdd<3);
             }
