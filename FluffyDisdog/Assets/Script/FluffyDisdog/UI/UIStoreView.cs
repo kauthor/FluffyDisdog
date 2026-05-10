@@ -231,6 +231,7 @@ namespace FluffyDisdog.UI
             
             List<int> usedRelic=new List<int>();
             var curRelic = TileGameManager.I.RelicSystem.currentRelicDatas;
+            if(curRelic != null)
             for (int i = 0; i < curRelic.Length; i++)
             {
                 usedRelic.Add((int)curRelic[i].relicName);

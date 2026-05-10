@@ -1538,8 +1538,8 @@ MonoBehaviour:
   btnNext: {fileID: 537166133532852055}
   pnlSkipArea: {fileID: 8246946114371589930}
   pnlNextArea: {fileID: 537166133532852055}
-  cardSelectTextSkip: {fileID: 0}
-  cardSelectTextNext: {fileID: 0}
+  cardSelectTextSkip: {fileID: 5629038588993328350}
+  cardSelectTextNext: {fileID: 8115841310355847099}
   skipLine: {fileID: 3715559421149790596}
   nextLine: {fileID: 1193407639316357741}
   rerollCountText: {fileID: 1669308134490524634}
@@ -4536,6 +4536,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 132474855422134986}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5629038588993328350 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5749119699316268564, guid: fab4520522dc0134b91bc121fb362d8b,
+    type: 3}
+  m_PrefabInstance: {fileID: 132474855422134986}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11355c3446614d7783cbe8e700ebfb2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &175909017779365066
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5879,6 +5891,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 4569389198175447471}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8115841310355847099 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5749119699316268564, guid: fab4520522dc0134b91bc121fb362d8b,
+    type: 3}
+  m_PrefabInstance: {fileID: 4569389198175447471}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11355c3446614d7783cbe8e700ebfb2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6404799333854090702
 PrefabInstance:
   m_ObjectHideFlags: 0

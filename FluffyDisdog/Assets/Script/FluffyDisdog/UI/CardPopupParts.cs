@@ -79,7 +79,7 @@ namespace FluffyDisdog.UI
                     }
                 }
                 OnCLicked?.Invoke(_toolType, this);
-                txtSelectTMP.SetColor(selectable() ? Color.white : Color.red);
+                txtSelectTMP?.SetColor(selectable() ? Color.white : Color.red);
                 //imgSelected?.gameObject.SetActive(true);
                 //imgUnselected?.gameObject.SetActive(false);
             });
