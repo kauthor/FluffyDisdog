@@ -61,7 +61,7 @@ namespace FluffyDisdog.UI
         
         private void Init()
         {
-            txtStage.text = $"{TileGameManager.I.currentLevel}-8";
+            txtStage.text = $"1 - {TileGameManager.I.currentLevel}";
             txtAttackedTile.text = TileGameManager.I.GameLog.AttackedTile.ToString();
             txtDestroyTIle.text = TileGameManager.I.GameLog.DestroyedTile.ToString();
             txtOwnGold.text = AccountManager.I.Gold.ToString() + " G";
