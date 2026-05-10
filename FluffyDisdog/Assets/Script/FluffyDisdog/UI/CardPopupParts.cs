@@ -188,7 +188,8 @@ namespace FluffyDisdog.UI
                 txtSelect.gameObject.SetActive(!selected);
                 txtCancel.gameObject.SetActive(selected);
                 
-                txtSelectTMP.SetColor(selectable() ? Color.white : Color.red);
+                txtSelectTMP?.SetColor(selectable() ? selectableColor : unselectableColor);
+                txtSelectTMP?.SetOutlineColor(selectable() ? selectableOutlineColor : unselectableOutlineColor);
             }
         }
 
