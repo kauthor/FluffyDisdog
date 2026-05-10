@@ -6,6 +6,7 @@
         {
             base.OnExecuteTileEffect(param);
             param.target.SubstateSystem.SetState(NodeSubstate.Crack);
+            TileGameManager.I.TileSet.HitFail(param.target);
         }
     }
 }

@@ -578,5 +578,11 @@ namespace FluffyDisdog
             }
             validNodeCount = valid;
         }
+
+        public void HitFail(TerrainNode node)
+        {
+           var eff=  GameObject.Instantiate(hitfailPrefab, damageParent);
+           eff.transform.position = node.transform.position;
+        }
     }
 }
