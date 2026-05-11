@@ -37,7 +37,14 @@ public enum ToolType
     Card_HammerOfMemory_Enhanced = 31 ,
     Card_RiftStartumAnalysis = 32 ,
     Card_RiftStartumAnalysis_Enhanced = 33 ,
-    //NewValue = 34 ,
-    MAX = 34,
+    Card_Dummy_100 = 34 ,
+    Card_Dummy_101 = 35 ,
+    Card_Dummy_200 = 36 ,
+    Card_Dummy_201 = 37 ,
+    Card_Dummy_300 = 38 ,
+    Card_Dummy_301 = 39 ,
+    Card_Dummy_400 = 40 ,
+    Card_Dummy_401 = 41 ,
+    MAX = 42,
 }
 }
