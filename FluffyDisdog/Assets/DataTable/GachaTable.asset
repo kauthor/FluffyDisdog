@@ -282,924 +282,973 @@ MonoBehaviour:
   - id: 39
     gachaType: 1
     gachaId: 101
-    rate: 429
+    rate: 375
     rewardType: 2
     rewardValue: Card_CrossChisel
     rewardCount: 1
   - id: 40
     gachaType: 1
     gachaId: 101
-    rate: 429
+    rate: 375
     rewardType: 2
     rewardValue: Card_Pickaxe
     rewardCount: 1
   - id: 41
     gachaType: 1
     gachaId: 101
-    rate: 429
+    rate: 375
     rewardType: 2
     rewardValue: Card_Slingshot
     rewardCount: 1
   - id: 42
     gachaType: 1
     gachaId: 101
-    rate: 429
+    rate: 375
     rewardType: 2
     rewardValue: Card_CornerCrushingHammer
     rewardCount: 1
   - id: 43
     gachaType: 1
     gachaId: 101
-    rate: 428
+    rate: 375
     rewardType: 2
     rewardValue: Card_ConcentratedCrossDrill
     rewardCount: 1
   - id: 44
     gachaType: 1
     gachaId: 101
-    rate: 428
+    rate: 375
     rewardType: 2
     rewardValue: Card_GoldenAxe
     rewardCount: 1
   - id: 45
     gachaType: 1
     gachaId: 101
-    rate: 428
+    rate: 375
     rewardType: 2
     rewardValue: Card_LargeScissors
     rewardCount: 1
   - id: 46
     gachaType: 1
     gachaId: 101
-    rate: 1000
+    rate: 375
     rewardType: 2
-    rewardValue: Card_RiftStartumAnalysis
+    rewardValue: Card_Dummy_200
     rewardCount: 1
   - id: 47
     gachaType: 1
-    gachaId: 102
-    rate: 750
+    gachaId: 101
+    rate: 333
     rewardType: 2
-    rewardValue: Card_Shovel
+    rewardValue: Card_Dummy_100
     rewardCount: 1
   - id: 48
     gachaType: 1
-    gachaId: 102
-    rate: 750
+    gachaId: 101
+    rate: 333
     rewardType: 2
-    rewardValue: Card_Rake
+    rewardValue: Card_Dummy_300
     rewardCount: 1
   - id: 49
     gachaType: 1
-    gachaId: 102
-    rate: 750
+    gachaId: 101
+    rate: 333
     rewardType: 2
-    rewardValue: Card_GoldenShovel
+    rewardValue: Card_Dummy_400
     rewardCount: 1
   - id: 50
     gachaType: 1
     gachaId: 102
     rate: 750
     rewardType: 2
-    rewardValue: Card_Axe
+    rewardValue: Card_Shovel
     rewardCount: 1
   - id: 51
     gachaType: 1
     gachaId: 102
-    rate: 215
+    rate: 750
     rewardType: 2
-    rewardValue: Card_CrossChisel
+    rewardValue: Card_Rake
     rewardCount: 1
   - id: 52
     gachaType: 1
     gachaId: 102
-    rate: 215
+    rate: 750
     rewardType: 2
-    rewardValue: Card_Pickaxe
+    rewardValue: Card_GoldenShovel
     rewardCount: 1
   - id: 53
     gachaType: 1
     gachaId: 102
-    rate: 214
+    rate: 750
     rewardType: 2
-    rewardValue: Card_Slingshot
+    rewardValue: Card_Axe
     rewardCount: 1
   - id: 54
     gachaType: 1
     gachaId: 102
-    rate: 214
+    rate: 187
     rewardType: 2
-    rewardValue: Card_CornerCrushingHammer
+    rewardValue: Card_CrossChisel
     rewardCount: 1
   - id: 55
     gachaType: 1
     gachaId: 102
-    rate: 214
+    rate: 187
     rewardType: 2
-    rewardValue: Card_ConcentratedCrossDrill
+    rewardValue: Card_Pickaxe
     rewardCount: 1
   - id: 56
     gachaType: 1
     gachaId: 102
-    rate: 214
+    rate: 187
     rewardType: 2
-    rewardValue: Card_GoldenAxe
+    rewardValue: Card_Slingshot
     rewardCount: 1
   - id: 57
     gachaType: 1
     gachaId: 102
-    rate: 214
+    rate: 187
     rewardType: 2
-    rewardValue: Card_LargeScissors
+    rewardValue: Card_CornerCrushingHammer
     rewardCount: 1
   - id: 58
     gachaType: 1
     gachaId: 102
-    rate: 500
+    rate: 187
     rewardType: 2
-    rewardValue: Card_RiftStartumAnalysis
+    rewardValue: Card_ConcentratedCrossDrill
     rewardCount: 1
   - id: 59
+    gachaType: 1
+    gachaId: 102
+    rate: 187
+    rewardType: 2
+    rewardValue: Card_GoldenAxe
+    rewardCount: 1
+  - id: 60
+    gachaType: 1
+    gachaId: 102
+    rate: 187
+    rewardType: 2
+    rewardValue: Card_LargeScissors
+    rewardCount: 1
+  - id: 61
+    gachaType: 1
+    gachaId: 102
+    rate: 187
+    rewardType: 2
+    rewardValue: Card_Dummy_200
+    rewardCount: 1
+  - id: 62
+    gachaType: 1
+    gachaId: 102
+    rate: 166
+    rewardType: 2
+    rewardValue: Card_Dummy_100
+    rewardCount: 1
+  - id: 63
+    gachaType: 1
+    gachaId: 102
+    rate: 167
+    rewardType: 2
+    rewardValue: Card_Dummy_300
+    rewardCount: 1
+  - id: 64
+    gachaType: 1
+    gachaId: 102
+    rate: 167
+    rewardType: 2
+    rewardValue: Card_Dummy_400
+    rewardCount: 1
+  - id: 65
     gachaType: 1
     gachaId: 102
     rate: 750
     rewardType: 2
     rewardValue: Card_Shovel_Enhanced
     rewardCount: 1
-  - id: 60
+  - id: 66
     gachaType: 1
     gachaId: 102
     rate: 750
     rewardType: 2
     rewardValue: Card_Rake_Enhanced
     rewardCount: 1
-  - id: 61
+  - id: 67
     gachaType: 1
     gachaId: 102
     rate: 750
     rewardType: 2
     rewardValue: Card_GoldenShovel_Enhanced
     rewardCount: 1
-  - id: 62
+  - id: 68
     gachaType: 1
     gachaId: 102
     rate: 750
     rewardType: 2
     rewardValue: Card_Axe_Enhanced
     rewardCount: 1
-  - id: 63
-    gachaType: 1
-    gachaId: 102
-    rate: 215
-    rewardType: 2
-    rewardValue: Card_CrossChisel_Enhanced
-    rewardCount: 1
-  - id: 64
-    gachaType: 1
-    gachaId: 102
-    rate: 215
-    rewardType: 2
-    rewardValue: Card_Pickaxe_Enhanced
-    rewardCount: 1
-  - id: 65
-    gachaType: 1
-    gachaId: 102
-    rate: 214
-    rewardType: 2
-    rewardValue: Card_Slingshot_Enhanced
-    rewardCount: 1
-  - id: 66
-    gachaType: 1
-    gachaId: 102
-    rate: 214
-    rewardType: 2
-    rewardValue: Card_CornerCrushingHammer_Enhanced
-    rewardCount: 1
-  - id: 67
-    gachaType: 1
-    gachaId: 102
-    rate: 214
-    rewardType: 2
-    rewardValue: Card_ConcentratedCrossDrill_Enhanced
-    rewardCount: 1
-  - id: 68
-    gachaType: 1
-    gachaId: 102
-    rate: 214
-    rewardType: 2
-    rewardValue: Card_GoldenAxe_Enhanced
-    rewardCount: 1
   - id: 69
     gachaType: 1
     gachaId: 102
-    rate: 214
+    rate: 187
     rewardType: 2
-    rewardValue: Card_LargeScissors_Enhanced
+    rewardValue: Card_CrossChisel_Enhanced
     rewardCount: 1
   - id: 70
     gachaType: 1
     gachaId: 102
-    rate: 500
+    rate: 187
     rewardType: 2
-    rewardValue: Card_RiftStartumAnalysis_Enhanced
+    rewardValue: Card_Pickaxe_Enhanced
     rewardCount: 1
   - id: 71
+    gachaType: 1
+    gachaId: 102
+    rate: 187
+    rewardType: 2
+    rewardValue: Card_Slingshot_Enhanced
+    rewardCount: 1
+  - id: 72
+    gachaType: 1
+    gachaId: 102
+    rate: 187
+    rewardType: 2
+    rewardValue: Card_CornerCrushingHammer_Enhanced
+    rewardCount: 1
+  - id: 73
+    gachaType: 1
+    gachaId: 102
+    rate: 187
+    rewardType: 2
+    rewardValue: Card_ConcentratedCrossDrill_Enhanced
+    rewardCount: 1
+  - id: 74
+    gachaType: 1
+    gachaId: 102
+    rate: 187
+    rewardType: 2
+    rewardValue: Card_GoldenAxe_Enhanced
+    rewardCount: 1
+  - id: 75
+    gachaType: 1
+    gachaId: 102
+    rate: 187
+    rewardType: 2
+    rewardValue: Card_LargeScissors_Enhanced
+    rewardCount: 1
+  - id: 76
+    gachaType: 1
+    gachaId: 102
+    rate: 187
+    rewardType: 2
+    rewardValue: Card_Dummy_201
+    rewardCount: 1
+  - id: 77
+    gachaType: 1
+    gachaId: 102
+    rate: 166
+    rewardType: 2
+    rewardValue: Card_Dummy_101
+    rewardCount: 1
+  - id: 78
+    gachaType: 1
+    gachaId: 102
+    rate: 167
+    rewardType: 2
+    rewardValue: Card_Dummy_301
+    rewardCount: 1
+  - id: 79
+    gachaType: 1
+    gachaId: 102
+    rate: 167
+    rewardType: 2
+    rewardValue: Card_Dummy_401
+    rewardCount: 1
+  - id: 80
     gachaType: 2
     gachaId: 1011
     rate: 6500
     rewardType: 4
     rewardValue: tra01
     rewardCount: 1
-  - id: 72
+  - id: 81
     gachaType: 2
     gachaId: 1011
     rate: 3500
     rewardType: 4
     rewardValue: tra02
     rewardCount: 1
-  - id: 73
-    gachaType: 2
-    gachaId: 1012
-    rate: 1
-    rewardType: 3
-    rewardValue: relic101
-    rewardCount: 1
-  - id: 74
-    gachaType: 2
-    gachaId: 1012
-    rate: 1
-    rewardType: 3
-    rewardValue: relic102
-    rewardCount: 1
-  - id: 75
-    gachaType: 2
-    gachaId: 1012
-    rate: 1
-    rewardType: 3
-    rewardValue: relic103
-    rewardCount: 1
-  - id: 76
-    gachaType: 2
-    gachaId: 1012
-    rate: 1
-    rewardType: 3
-    rewardValue: relic104
-    rewardCount: 1
-  - id: 77
-    gachaType: 2
-    gachaId: 1012
-    rate: 1
-    rewardType: 3
-    rewardValue: relic105
-    rewardCount: 1
-  - id: 78
-    gachaType: 2
-    gachaId: 1012
-    rate: 1
-    rewardType: 3
-    rewardValue: relic106
-    rewardCount: 1
-  - id: 79
-    gachaType: 2
-    gachaId: 1012
-    rate: 1
-    rewardType: 3
-    rewardValue: relic107
-    rewardCount: 1
-  - id: 80
-    gachaType: 2
-    gachaId: 1012
-    rate: 1
-    rewardType: 3
-    rewardValue: relic109
-    rewardCount: 1
-  - id: 81
-    gachaType: 2
-    gachaId: 1012
-    rate: 1
-    rewardType: 3
-    rewardValue: relic110
-    rewardCount: 1
   - id: 82
     gachaType: 2
     gachaId: 1012
     rate: 1
     rewardType: 3
-    rewardValue: relic111
+    rewardValue: relic101
     rewardCount: 1
   - id: 83
     gachaType: 2
     gachaId: 1012
     rate: 1
     rewardType: 3
-    rewardValue: relic112
+    rewardValue: relic102
     rewardCount: 1
   - id: 84
     gachaType: 2
     gachaId: 1012
     rate: 1
     rewardType: 3
-    rewardValue: relic114
+    rewardValue: relic107
     rewardCount: 1
   - id: 85
     gachaType: 2
     gachaId: 1012
     rate: 1
     rewardType: 3
-    rewardValue: relic115
+    rewardValue: relic109
     rewardCount: 1
   - id: 86
     gachaType: 2
     gachaId: 1012
     rate: 1
     rewardType: 3
-    rewardValue: relic116
+    rewardValue: relic112
     rewardCount: 1
   - id: 87
     gachaType: 2
     gachaId: 1012
     rate: 1
     rewardType: 3
-    rewardValue: relic117
+    rewardValue: relic114
     rewardCount: 1
   - id: 88
     gachaType: 2
     gachaId: 1012
     rate: 1
     rewardType: 3
-    rewardValue: relic118
+    rewardValue: relic115
     rewardCount: 1
   - id: 89
     gachaType: 2
     gachaId: 1012
     rate: 1
     rewardType: 3
-    rewardValue: relic121
+    rewardValue: relic116
     rewardCount: 1
   - id: 90
     gachaType: 2
     gachaId: 1012
     rate: 1
     rewardType: 3
-    rewardValue: relic122
+    rewardValue: relic117
     rewardCount: 1
   - id: 91
     gachaType: 2
-    gachaId: 1012
-    rate: 1
-    rewardType: 3
-    rewardValue: relic123
+    gachaId: 1013
+    rate: 1200
+    rewardType: 2
+    rewardValue: Card_Shovel
     rewardCount: 1
   - id: 92
     gachaType: 2
     gachaId: 1013
     rate: 1200
     rewardType: 2
-    rewardValue: Card_Shovel
+    rewardValue: Card_Rake
     rewardCount: 1
   - id: 93
     gachaType: 2
     gachaId: 1013
     rate: 1200
     rewardType: 2
-    rewardValue: Card_Rake
+    rewardValue: Card_GoldenShovel
     rewardCount: 1
   - id: 94
     gachaType: 2
     gachaId: 1013
     rate: 1200
     rewardType: 2
-    rewardValue: Card_GoldenShovel
+    rewardValue: Card_Axe
     rewardCount: 1
   - id: 95
     gachaType: 2
     gachaId: 1013
-    rate: 1200
+    rate: 300
     rewardType: 2
-    rewardValue: Card_Axe
+    rewardValue: Card_CrossChisel
     rewardCount: 1
   - id: 96
     gachaType: 2
     gachaId: 1013
-    rate: 343
+    rate: 300
     rewardType: 2
-    rewardValue: Card_CrossChisel
+    rewardValue: Card_Pickaxe
     rewardCount: 1
   - id: 97
     gachaType: 2
     gachaId: 1013
-    rate: 343
+    rate: 300
     rewardType: 2
-    rewardValue: Card_Pickaxe
+    rewardValue: Card_Slingshot
     rewardCount: 1
   - id: 98
     gachaType: 2
     gachaId: 1013
-    rate: 343
+    rate: 300
     rewardType: 2
-    rewardValue: Card_Slingshot
+    rewardValue: Card_CornerCrushingHammer
     rewardCount: 1
   - id: 99
     gachaType: 2
     gachaId: 1013
-    rate: 343
+    rate: 300
     rewardType: 2
-    rewardValue: Card_CornerCrushingHammer
+    rewardValue: Card_ConcentratedCrossDrill
     rewardCount: 1
   - id: 100
     gachaType: 2
     gachaId: 1013
-    rate: 343
+    rate: 300
     rewardType: 2
-    rewardValue: Card_ConcentratedCrossDrill
+    rewardValue: Card_GoldenAxe
     rewardCount: 1
   - id: 101
     gachaType: 2
     gachaId: 1013
-    rate: 343
+    rate: 300
     rewardType: 2
-    rewardValue: Card_GoldenAxe
+    rewardValue: Card_LargeScissors
     rewardCount: 1
   - id: 102
     gachaType: 2
     gachaId: 1013
-    rate: 342
+    rate: 267
     rewardType: 2
-    rewardValue: Card_LargeScissors
+    rewardValue: Card_Dummy_200
     rewardCount: 1
   - id: 103
     gachaType: 2
     gachaId: 1013
-    rate: 800
+    rate: 267
     rewardType: 2
-    rewardValue: Card_RiftStartumAnalysis
+    rewardValue: Card_Dummy_100
     rewardCount: 1
   - id: 104
     gachaType: 2
     gachaId: 1013
-    rate: 300
+    rate: 266
     rewardType: 2
-    rewardValue: Card_Shovel_Enhanced
+    rewardValue: Card_Dummy_300
     rewardCount: 1
   - id: 105
     gachaType: 2
     gachaId: 1013
-    rate: 300
+    rate: 800
     rewardType: 2
-    rewardValue: Card_Rake_Enhanced
+    rewardValue: Card_Dummy_400
     rewardCount: 1
   - id: 106
     gachaType: 2
     gachaId: 1013
     rate: 300
     rewardType: 2
-    rewardValue: Card_GoldenShovel_Enhanced
+    rewardValue: Card_Shovel_Enhanced
     rewardCount: 1
   - id: 107
     gachaType: 2
     gachaId: 1013
     rate: 300
     rewardType: 2
-    rewardValue: Card_Axe_Enhanced
+    rewardValue: Card_Rake_Enhanced
     rewardCount: 1
   - id: 108
     gachaType: 2
     gachaId: 1013
-    rate: 86
+    rate: 300
     rewardType: 2
-    rewardValue: Card_CrossChisel_Enhanced
+    rewardValue: Card_GoldenShovel_Enhanced
     rewardCount: 1
   - id: 109
     gachaType: 2
     gachaId: 1013
-    rate: 86
+    rate: 300
     rewardType: 2
-    rewardValue: Card_Pickaxe_Enhanced
+    rewardValue: Card_Axe_Enhanced
     rewardCount: 1
   - id: 110
     gachaType: 2
     gachaId: 1013
-    rate: 86
+    rate: 75
     rewardType: 2
-    rewardValue: Card_Slingshot_Enhanced
+    rewardValue: Card_CrossChisel_Enhanced
     rewardCount: 1
   - id: 111
     gachaType: 2
     gachaId: 1013
-    rate: 86
+    rate: 75
     rewardType: 2
-    rewardValue: Card_CornerCrushingHammer_Enhanced
+    rewardValue: Card_Pickaxe_Enhanced
     rewardCount: 1
   - id: 112
     gachaType: 2
     gachaId: 1013
-    rate: 86
+    rate: 75
     rewardType: 2
-    rewardValue: Card_ConcentratedCrossDrill_Enhanced
+    rewardValue: Card_Slingshot_Enhanced
     rewardCount: 1
   - id: 113
     gachaType: 2
     gachaId: 1013
-    rate: 85
+    rate: 75
     rewardType: 2
-    rewardValue: Card_GoldenAxe_Enhanced
+    rewardValue: Card_CornerCrushingHammer_Enhanced
     rewardCount: 1
   - id: 114
     gachaType: 2
     gachaId: 1013
-    rate: 85
+    rate: 75
     rewardType: 2
-    rewardValue: Card_LargeScissors_Enhanced
+    rewardValue: Card_ConcentratedCrossDrill_Enhanced
     rewardCount: 1
   - id: 115
     gachaType: 2
     gachaId: 1013
-    rate: 200
+    rate: 75
     rewardType: 2
-    rewardValue: Card_RiftStartumAnalysis_Enhanced
+    rewardValue: Card_GoldenAxe_Enhanced
     rewardCount: 1
   - id: 116
+    gachaType: 2
+    gachaId: 1013
+    rate: 75
+    rewardType: 2
+    rewardValue: Card_LargeScissors_Enhanced
+    rewardCount: 1
+  - id: 117
+    gachaType: 2
+    gachaId: 1013
+    rate: 75
+    rewardType: 2
+    rewardValue: Card_Dummy_201
+    rewardCount: 1
+  - id: 118
+    gachaType: 2
+    gachaId: 1013
+    rate: 66
+    rewardType: 2
+    rewardValue: Card_Dummy_101
+    rewardCount: 1
+  - id: 119
+    gachaType: 2
+    gachaId: 1013
+    rate: 67
+    rewardType: 2
+    rewardValue: Card_Dummy_301
+    rewardCount: 1
+  - id: 120
+    gachaType: 2
+    gachaId: 1013
+    rate: 67
+    rewardType: 2
+    rewardValue: Card_Dummy_401
+    rewardCount: 1
+  - id: 121
     gachaType: 3
     gachaId: 1101
     rate: 1500
     rewardType: 2
     rewardValue: Card_Shovel
     rewardCount: 1
-  - id: 117
+  - id: 122
     gachaType: 3
     gachaId: 1101
     rate: 1500
     rewardType: 2
     rewardValue: Card_Rake
     rewardCount: 1
-  - id: 118
+  - id: 123
     gachaType: 3
     gachaId: 1101
     rate: 1500
     rewardType: 2
     rewardValue: Card_GoldenShovel
     rewardCount: 1
-  - id: 119
+  - id: 124
     gachaType: 3
     gachaId: 1101
     rate: 1500
     rewardType: 2
     rewardValue: Card_Axe
     rewardCount: 1
-  - id: 120
-    gachaType: 3
-    gachaId: 1101
-    rate: 429
-    rewardType: 2
-    rewardValue: Card_CrossChisel
-    rewardCount: 1
-  - id: 121
-    gachaType: 3
-    gachaId: 1101
-    rate: 429
-    rewardType: 2
-    rewardValue: Card_Pickaxe
-    rewardCount: 1
-  - id: 122
-    gachaType: 3
-    gachaId: 1101
-    rate: 429
-    rewardType: 2
-    rewardValue: Card_Slingshot
-    rewardCount: 1
-  - id: 123
-    gachaType: 3
-    gachaId: 1101
-    rate: 429
-    rewardType: 2
-    rewardValue: Card_CornerCrushingHammer
-    rewardCount: 1
-  - id: 124
-    gachaType: 3
-    gachaId: 1101
-    rate: 428
-    rewardType: 2
-    rewardValue: Card_ConcentratedCrossDrill
-    rewardCount: 1
   - id: 125
     gachaType: 3
     gachaId: 1101
-    rate: 428
+    rate: 375
     rewardType: 2
-    rewardValue: Card_GoldenAxe
+    rewardValue: Card_CrossChisel
     rewardCount: 1
   - id: 126
     gachaType: 3
     gachaId: 1101
-    rate: 428
+    rate: 375
     rewardType: 2
-    rewardValue: Card_LargeScissors
+    rewardValue: Card_Pickaxe
     rewardCount: 1
   - id: 127
     gachaType: 3
     gachaId: 1101
-    rate: 1000
-    rewardType: 2
-    rewardValue: Card_RiftStartumAnalysis
-    rewardCount: 1
-  - id: 128
-    gachaType: 4
-    gachaId: 10101
-    rate: 1000
-    rewardType: 2
-    rewardValue: Card_CrossChisel
-    rewardCount: 1
-  - id: 129
-    gachaType: 4
-    gachaId: 10101
-    rate: 1000
-    rewardType: 2
-    rewardValue: Card_Pickaxe
-    rewardCount: 1
-  - id: 130
-    gachaType: 4
-    gachaId: 10101
-    rate: 1000
+    rate: 375
     rewardType: 2
     rewardValue: Card_Slingshot
     rewardCount: 1
-  - id: 131
-    gachaType: 4
-    gachaId: 10101
-    rate: 1000
+  - id: 128
+    gachaType: 3
+    gachaId: 1101
+    rate: 375
     rewardType: 2
     rewardValue: Card_CornerCrushingHammer
     rewardCount: 1
-  - id: 132
-    gachaType: 4
-    gachaId: 10101
-    rate: 1000
+  - id: 129
+    gachaType: 3
+    gachaId: 1101
+    rate: 375
     rewardType: 2
     rewardValue: Card_ConcentratedCrossDrill
     rewardCount: 1
-  - id: 133
-    gachaType: 4
-    gachaId: 10101
-    rate: 1000
+  - id: 130
+    gachaType: 3
+    gachaId: 1101
+    rate: 375
     rewardType: 2
     rewardValue: Card_GoldenAxe
     rewardCount: 1
-  - id: 134
-    gachaType: 4
-    gachaId: 10101
-    rate: 1000
+  - id: 131
+    gachaType: 3
+    gachaId: 1101
+    rate: 375
     rewardType: 2
     rewardValue: Card_LargeScissors
     rewardCount: 1
-  - id: 135
-    gachaType: 4
-    gachaId: 10101
-    rate: 3000
+  - id: 132
+    gachaType: 3
+    gachaId: 1101
+    rate: 375
     rewardType: 2
-    rewardValue: Card_RiftStartumAnalysis
+    rewardValue: Card_Dummy_200
+    rewardCount: 1
+  - id: 133
+    gachaType: 3
+    gachaId: 1101
+    rate: 333
+    rewardType: 2
+    rewardValue: Card_Dummy_100
+    rewardCount: 1
+  - id: 134
+    gachaType: 3
+    gachaId: 1101
+    rate: 334
+    rewardType: 2
+    rewardValue: Card_Dummy_300
+    rewardCount: 1
+  - id: 135
+    gachaType: 3
+    gachaId: 1101
+    rate: 333
+    rewardType: 2
+    rewardValue: Card_Dummy_400
     rewardCount: 1
   - id: 136
     gachaType: 4
-    gachaId: 10201
-    rate: 1000
+    gachaId: 10101
+    rate: 875
     rewardType: 2
-    rewardValue: Card_CrossChisel_Enhanced
+    rewardValue: Card_CrossChisel
     rewardCount: 1
   - id: 137
     gachaType: 4
-    gachaId: 10201
-    rate: 1000
+    gachaId: 10101
+    rate: 875
     rewardType: 2
-    rewardValue: Card_Pickaxe_Enhanced
+    rewardValue: Card_Pickaxe
     rewardCount: 1
   - id: 138
     gachaType: 4
-    gachaId: 10201
-    rate: 1000
+    gachaId: 10101
+    rate: 875
     rewardType: 2
-    rewardValue: Card_Slingshot_Enhanced
+    rewardValue: Card_Slingshot
     rewardCount: 1
   - id: 139
     gachaType: 4
-    gachaId: 10201
-    rate: 1000
+    gachaId: 10101
+    rate: 875
     rewardType: 2
-    rewardValue: Card_CornerCrushingHammer_Enhanced
+    rewardValue: Card_CornerCrushingHammer
     rewardCount: 1
   - id: 140
     gachaType: 4
-    gachaId: 10201
-    rate: 1000
+    gachaId: 10101
+    rate: 875
     rewardType: 2
-    rewardValue: Card_ConcentratedCrossDrill_Enhanced
+    rewardValue: Card_ConcentratedCrossDrill
     rewardCount: 1
   - id: 141
     gachaType: 4
-    gachaId: 10201
-    rate: 1000
+    gachaId: 10101
+    rate: 875
     rewardType: 2
-    rewardValue: Card_GoldenAxe_Enhanced
+    rewardValue: Card_GoldenAxe
     rewardCount: 1
   - id: 142
     gachaType: 4
-    gachaId: 10201
-    rate: 1000
+    gachaId: 10101
+    rate: 875
     rewardType: 2
-    rewardValue: Card_LargeScissors_Enhanced
+    rewardValue: Card_LargeScissors
     rewardCount: 1
   - id: 143
     gachaType: 4
-    gachaId: 10201
-    rate: 3000
+    gachaId: 10101
+    rate: 875
     rewardType: 2
-    rewardValue: Card_RiftStartumAnalysis_Enhanced
+    rewardValue: Card_Dummy_200
     rewardCount: 1
   - id: 144
+    gachaType: 4
+    gachaId: 10101
+    rate: 1000
+    rewardType: 2
+    rewardValue: Card_Dummy_100
+    rewardCount: 1
+  - id: 145
+    gachaType: 4
+    gachaId: 10101
+    rate: 1000
+    rewardType: 2
+    rewardValue: Card_Dummy_300
+    rewardCount: 1
+  - id: 146
+    gachaType: 4
+    gachaId: 10101
+    rate: 1000
+    rewardType: 2
+    rewardValue: Card_Dummy_400
+    rewardCount: 1
+  - id: 147
+    gachaType: 4
+    gachaId: 10201
+    rate: 875
+    rewardType: 2
+    rewardValue: Card_CrossChisel_Enhanced
+    rewardCount: 1
+  - id: 148
+    gachaType: 4
+    gachaId: 10201
+    rate: 875
+    rewardType: 2
+    rewardValue: Card_Pickaxe_Enhanced
+    rewardCount: 1
+  - id: 149
+    gachaType: 4
+    gachaId: 10201
+    rate: 875
+    rewardType: 2
+    rewardValue: Card_Slingshot_Enhanced
+    rewardCount: 1
+  - id: 150
+    gachaType: 4
+    gachaId: 10201
+    rate: 875
+    rewardType: 2
+    rewardValue: Card_CornerCrushingHammer_Enhanced
+    rewardCount: 1
+  - id: 151
+    gachaType: 4
+    gachaId: 10201
+    rate: 875
+    rewardType: 2
+    rewardValue: Card_ConcentratedCrossDrill_Enhanced
+    rewardCount: 1
+  - id: 152
+    gachaType: 4
+    gachaId: 10201
+    rate: 875
+    rewardType: 2
+    rewardValue: Card_GoldenAxe_Enhanced
+    rewardCount: 1
+  - id: 153
+    gachaType: 4
+    gachaId: 10201
+    rate: 875
+    rewardType: 2
+    rewardValue: Card_LargeScissors_Enhanced
+    rewardCount: 1
+  - id: 154
+    gachaType: 4
+    gachaId: 10201
+    rate: 875
+    rewardType: 2
+    rewardValue: Card_Dummy_201
+    rewardCount: 1
+  - id: 155
+    gachaType: 4
+    gachaId: 10201
+    rate: 1000
+    rewardType: 2
+    rewardValue: Card_Dummy_101
+    rewardCount: 1
+  - id: 156
+    gachaType: 4
+    gachaId: 10201
+    rate: 1000
+    rewardType: 2
+    rewardValue: Card_Dummy_301
+    rewardCount: 1
+  - id: 157
+    gachaType: 4
+    gachaId: 10201
+    rate: 1000
+    rewardType: 2
+    rewardValue: Card_Dummy_401
+    rewardCount: 1
+  - id: 158
     gachaType: 4
     gachaId: 10301
     rate: 500
     rewardType: 2
     rewardValue: Card_CrossChisel_Enhanced
     rewardCount: 1
-  - id: 145
+  - id: 159
     gachaType: 4
     gachaId: 10301
     rate: 500
     rewardType: 2
     rewardValue: Card_Pickaxe_Enhanced
     rewardCount: 1
-  - id: 146
+  - id: 160
     gachaType: 4
     gachaId: 10301
     rate: 500
     rewardType: 2
     rewardValue: Card_Slingshot_Enhanced
     rewardCount: 1
-  - id: 147
+  - id: 161
     gachaType: 4
     gachaId: 10301
     rate: 500
     rewardType: 2
     rewardValue: Card_CornerCrushingHammer_Enhanced
     rewardCount: 1
-  - id: 148
+  - id: 162
     gachaType: 4
     gachaId: 10301
     rate: 500
     rewardType: 2
     rewardValue: Card_ConcentratedCrossDrill_Enhanced
     rewardCount: 1
-  - id: 149
+  - id: 163
     gachaType: 4
     gachaId: 10301
     rate: 500
     rewardType: 2
     rewardValue: Card_GoldenAxe_Enhanced
     rewardCount: 1
-  - id: 150
+  - id: 164
     gachaType: 4
     gachaId: 10301
     rate: 500
     rewardType: 2
     rewardValue: Card_LargeScissors_Enhanced
     rewardCount: 1
-  - id: 151
-    gachaType: 4
-    gachaId: 10301
-    rate: 6500
-    rewardType: 2
-    rewardValue: Card_RiftStartumAnalysis_Enhanced
-    rewardCount: 1
-  - id: 152
-    gachaType: 4
-    gachaId: 10302
-    rate: 1
-    rewardType: 3
-    rewardValue: relic101
-    rewardCount: 1
-  - id: 153
-    gachaType: 4
-    gachaId: 10302
-    rate: 1
-    rewardType: 3
-    rewardValue: relic102
-    rewardCount: 1
-  - id: 154
-    gachaType: 4
-    gachaId: 10302
-    rate: 1
-    rewardType: 3
-    rewardValue: relic103
-    rewardCount: 1
-  - id: 155
-    gachaType: 4
-    gachaId: 10302
-    rate: 1
-    rewardType: 3
-    rewardValue: relic104
-    rewardCount: 1
-  - id: 156
-    gachaType: 4
-    gachaId: 10302
-    rate: 1
-    rewardType: 3
-    rewardValue: relic105
-    rewardCount: 1
-  - id: 157
-    gachaType: 4
-    gachaId: 10302
-    rate: 1
-    rewardType: 3
-    rewardValue: relic106
-    rewardCount: 1
-  - id: 158
-    gachaType: 4
-    gachaId: 10302
-    rate: 1
-    rewardType: 3
-    rewardValue: relic107
-    rewardCount: 1
-  - id: 159
-    gachaType: 4
-    gachaId: 10302
-    rate: 1
-    rewardType: 3
-    rewardValue: relic109
-    rewardCount: 1
-  - id: 160
-    gachaType: 4
-    gachaId: 10302
-    rate: 1
-    rewardType: 3
-    rewardValue: relic110
-    rewardCount: 1
-  - id: 161
-    gachaType: 4
-    gachaId: 10302
-    rate: 1
-    rewardType: 3
-    rewardValue: relic111
-    rewardCount: 1
-  - id: 162
-    gachaType: 4
-    gachaId: 10302
-    rate: 1
-    rewardType: 3
-    rewardValue: relic112
-    rewardCount: 1
-  - id: 163
-    gachaType: 4
-    gachaId: 10302
-    rate: 1
-    rewardType: 3
-    rewardValue: relic114
-    rewardCount: 1
-  - id: 164
-    gachaType: 4
-    gachaId: 10302
-    rate: 1
-    rewardType: 3
-    rewardValue: relic115
-    rewardCount: 1
   - id: 165
     gachaType: 4
-    gachaId: 10302
-    rate: 1
-    rewardType: 3
-    rewardValue: relic116
+    gachaId: 10301
+    rate: 500
+    rewardType: 2
+    rewardValue: Card_Dummy_201
     rewardCount: 1
   - id: 166
     gachaType: 4
-    gachaId: 10302
-    rate: 1
-    rewardType: 3
-    rewardValue: relic117
+    gachaId: 10301
+    rate: 2000
+    rewardType: 2
+    rewardValue: Card_Dummy_101
     rewardCount: 1
   - id: 167
     gachaType: 4
-    gachaId: 10302
-    rate: 1
-    rewardType: 3
-    rewardValue: relic118
+    gachaId: 10301
+    rate: 2000
+    rewardType: 2
+    rewardValue: Card_Dummy_301
     rewardCount: 1
   - id: 168
     gachaType: 4
-    gachaId: 10302
-    rate: 1
-    rewardType: 3
-    rewardValue: relic121
+    gachaId: 10301
+    rate: 2000
+    rewardType: 2
+    rewardValue: Card_Dummy_401
     rewardCount: 1
   - id: 169
     gachaType: 4
     gachaId: 10302
     rate: 1
     rewardType: 3
-    rewardValue: relic122
+    rewardValue: relic101
     rewardCount: 1
   - id: 170
     gachaType: 4
     gachaId: 10302
     rate: 1
     rewardType: 3
-    rewardValue: relic123
+    rewardValue: relic102
+    rewardCount: 1
+  - id: 171
+    gachaType: 4
+    gachaId: 10302
+    rate: 1
+    rewardType: 3
+    rewardValue: relic107
+    rewardCount: 1
+  - id: 172
+    gachaType: 4
+    gachaId: 10302
+    rate: 1
+    rewardType: 3
+    rewardValue: relic109
+    rewardCount: 1
+  - id: 173
+    gachaType: 4
+    gachaId: 10302
+    rate: 1
+    rewardType: 3
+    rewardValue: relic112
+    rewardCount: 1
+  - id: 174
+    gachaType: 4
+    gachaId: 10302
+    rate: 1
+    rewardType: 3
+    rewardValue: relic114
+    rewardCount: 1
+  - id: 175
+    gachaType: 4
+    gachaId: 10302
+    rate: 1
+    rewardType: 3
+    rewardValue: relic115
+    rewardCount: 1
+  - id: 176
+    gachaType: 4
+    gachaId: 10302
+    rate: 1
+    rewardType: 3
+    rewardValue: relic116
+    rewardCount: 1
+  - id: 177
+    gachaType: 4
+    gachaId: 10302
+    rate: 1
+    rewardType: 3
+    rewardValue: relic117
     rewardCount: 1

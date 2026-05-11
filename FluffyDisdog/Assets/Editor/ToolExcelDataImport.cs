@@ -93,7 +93,7 @@ namespace Editor
                             string data19 = rows[j][18].ToString();
                             
                             int id = int.Parse(data1);
-                            if(id > 134) continue;
+                            if (id > 142) continue;           //팀장 수정
                             string key = data2;
                             string localNKey = data3;
                             string localDKey = data4;
