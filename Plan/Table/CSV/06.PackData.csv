@@ -1,0 +1,4 @@
+Pack_Id,Name_ID,Gatch_Key,Card_Show_Count,Card_Pick_Count,Pack_Resource
+tra00,tra00_name,100,3,1,0
+tra01,tra01_name,101,3,1,Store_ToolPack_Reg.png
+tra02,tra02_name,102,3,1,Store_ToolPack_Bronze.png

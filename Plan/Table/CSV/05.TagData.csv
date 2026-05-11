@@ -1,0 +1,11 @@
+ID,Bit,Name_Key,Des_Key,Tag_Image,Value_1,Value_2,Value_3,Value_4,Value_5,Value_6,Value_7,Value_8,Value_9,Value_10
+1,1,Tag_Name_1,Tag_Des_1,Tag_Weapon.png,0,0,0,0,0,0,0,0,0,0
+2,2,Tag_Name_2,Tag_Des_2,0,0,0,0,0,0,0,0,0,0,0
+3,4,Tag_Name_3,Tag_Des_3,Tag_Flame.png,0,0,0,0,0,0,0,0,0,0
+4,8,Tag_Name_4,Tag_Des_4,Tag_Ice.png,0,0,0,0,0,0,0,0,0,0
+5,16,Tag_Name_5,Tag_Des_5,Tag_Electric.png,0,0,0,0,0,0,0,0,0,0
+6,32,Tag_Name_6,Tag_Des_6,Tag_Tool.png,500,7000,0,0,0,0,0,0,0,0
+7,64,Tag_Name_7,Tag_Des_7,0,1,0,0,0,0,0,0,0,0,0
+8,128,Tag_Name_8,Tag_Des_8,Tag_Consumable.png,0,0,0,0,0,0,0,0,0,0
+9,256,Tag_Name_9,Tag_Des_9,Tag_Mana.png,0,0,0,0,0,0,0,0,0,0
+10,512,Tag_Name_10,Tag_Des_10,Tag_Magic.png,0,0,0,0,0,0,0,0,0,0

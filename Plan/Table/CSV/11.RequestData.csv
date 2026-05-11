@@ -1,0 +1,4 @@
+Id,Req_grade,Cost,Max_Invest,Success_rate,Success_rate_per_visit,Success_rate_invest,Jackpot_rate,Jackpot_rate_invest,Fail_box_id,Success_box_id
+1,1,5,3,10000,1000,1000,0,0,0,101
+2,2,15,3,10000,1000,1000,0,0,0,102
+3,3,30,3,10000,1000,1000,0,0,0,103
