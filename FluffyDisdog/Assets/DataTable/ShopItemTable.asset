@@ -278,3 +278,43 @@ MonoBehaviour:
     itemId: tra02
     costMin: 15
     costMax: 25
+  - id: 54
+    itemType: 1
+    itemId: Card_Dummy_100
+    costMin: 15
+    costMax: 20
+  - id: 55
+    itemType: 1
+    itemId: Card_Dummy_101
+    costMin: 20
+    costMax: 25
+  - id: 56
+    itemType: 1
+    itemId: Card_Dummy_200
+    costMin: 8
+    costMax: 12
+  - id: 57
+    itemType: 1
+    itemId: Card_Dummy_201
+    costMin: 13
+    costMax: 17
+  - id: 58
+    itemType: 1
+    itemId: Card_Dummy_300
+    costMin: 15
+    costMax: 20
+  - id: 59
+    itemType: 1
+    itemId: Card_Dummy_301
+    costMin: 20
+    costMax: 25
+  - id: 60
+    itemType: 1
+    itemId: Card_Dummy_400
+    costMin: 15
+    costMax: 20
+  - id: 61
+    itemType: 1
+    itemId: Card_Dummy_401
+    costMin: 20
+    costMax: 25
