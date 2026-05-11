@@ -51,3 +51,36 @@
 - 보상 획득창: 접기/펼치기 버튼, Select all 버튼, 선택 수량 표기
 - 이벤트창: 게임 도중 등장, 접기 버튼 포함
 - 불안정 시스템: 방해 타일 타격 시 불안정 게이지 +1, 10 달성 시 게임 오버
+
+■ 의뢰 시스템 전체 구현 현황 (작성일: 2026-05-10)
+
+[이번 빌드 구현 완료]
+- 의뢰 성공 처리: 항상 성공 (100%) 처리
+- 플랜별 비용 차별화: Normal 5G / VIP 15G / VVIP 30G
+- 플랜별 보상 차별화: Success_box_id 참조
+- 보상 화면: UICardPackResultPopup 재사용
+
+[추후 구현 예정]
+- 실패 분기 및 화면
+- 대성공 분기 및 화면
+- 방문당 성공률 누적 로직
+- 투자 시 성공률 증가 로직
+- 대성공 가중치 보상 (RequestWeightData 활용)
+- TradersCompanion 유물 연동
+
+[테이블별 구현 현황]
+- 06_PackData: 완료
+- 07_GachaData: 완료 (의뢰 보상용 Gacha_Id 10101/10201/10301 추가 필요)
+- 08_ShopItemData: 완료
+- 09_ShopData: 완료
+- 10_MapData: 진행 중 (2번 맵 이름 미확정 스테이지)
+- 11_RequestData: 구현 필요
+- 12_RequestWeightData: 이번 빌드 스킵
+- 13_BoxData: 구현 필요
+- 14_BoxItemData: 구현 필요
+
+[수정 대상 파일 - 우선순위 높음]
+- RequestTable.cs: RequestData / BoxData / BoxItemData 구조 작성
+- ExcelManager.cs: RequestData / BoxData / BoxItemData 로드 추가
+- RequestSystem.cs: 성공률 테이블 참조, 보상 box_id 기반으로 변경
+- UIStoreView.cs: 의뢰 비용 deg*5 → RequestData.Cost 참조로 수정

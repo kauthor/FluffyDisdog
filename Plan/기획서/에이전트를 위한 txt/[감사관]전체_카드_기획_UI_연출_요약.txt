@@ -78,10 +78,57 @@
   - 불안정 룬: 최솟값 상향으로 난이도 증가
   - 무너지는 발판: 불안정 초기화 불가
 
-■ 의뢰 시스템 상세
+■ 의뢰 시스템 상세 (기획)
 - 상점 입장 시 의뢰 가능 (슬롯 1개 고정)
 - 등급: 일반(5G) / 희귀(15G) / 유니크(30G)
 - 투자: 동일 금액 추가 지불 → 성공/대성공 확률 상승
 - 보상(실패): 등급 카드 1장 / 랜덤 유물 / 랜덤 소모품 / 카드 제거·강화 중 1택
 - 보상(성공): 랜덤 카드팩 / 태그 관련 유물 / 카드 제거·강화 중 1택
 - 보상(대성공): 태그 관련 카드팩 + 태그 관련 유물 + 카드 제거·강화 전부 지급
+
+■ 의뢰 시스템 구현 명세 (작성일: 2026-05-10 / 빌드: 부분 구현)
+
+[이번 빌드 구현 범위]
+- 의뢰 성공 처리: 항상 성공 (100%) 처리
+- 플랜별 비용 차별화: Normal 5G / VIP 15G / VVIP 30G
+- 플랜별 보상 차별화: Success_box_id 참조
+- 보상 화면: UICardPackResultPopup 재사용
+
+[추후 구현 예정]
+- 실패 분기 및 화면 (Fail_box_id 참조)
+- 대성공 분기 및 화면
+- 방문당 성공률 누적 로직
+- 투자 시 성공률 증가 로직
+- 대성공 가중치 보상 (RequestWeightData 활용)
+- TradersCompanion 유물 연동
+
+[구현 흐름]
+1. 의뢰 시작: 플레이어가 등급 선택 → RequestData.Cost 참조 → 골드 차감
+2. 보상 수령: RequestData.Success_box_id → BoxData.Pick_Count 확인 (0 = 전부 지급)
+             → BoxItemData 아이템 순회 → Reward_type 6(가챠) → GachaData 랜덤 추출
+             → UICardPackResultPopup 표시
+
+[테이블 구현 현황]
+- 06_PackData: 완료
+- 07_GachaData: 완료 (의뢰 보상용 Gacha_Id 10101/10201/10301 추가 필요)
+- 08_ShopItemData: 완료
+- 09_ShopData: 완료
+- 10_MapData: 진행 중 (2번 맵 이름 미확정 스테이지)
+- 11_RequestData: 구현 필요 (RequestTable.cs 작성, ExcelManager 로드 추가)
+- 12_RequestWeightData: 이번 빌드 스킵 (대성공 미구현, 데이터만 준비)
+- 13_BoxData: 구현 필요 (테이블 로드 및 참조 로직)
+- 14_BoxItemData: 구현 필요 (보상 지급 로직, Reward_type 6 연결)
+
+[수정 대상 파일 - 우선순위 높음]
+- RequestTable.cs: RequestData / BoxData / BoxItemData 구조 작성
+- ExcelManager.cs: RequestData / BoxData / BoxItemData 로드 추가
+- RequestSystem.cs: 성공률 테이블 참조, 보상 box_id 기반으로 변경
+- UIStoreView.cs: 의뢰 비용 deg*5 → RequestData.Cost 참조로 수정
+
+[Reward_Type 인덱스 정의 - GachaData/BoxItemData 공통]
+- 1: 골드 (Reward_Value = 골드량)
+- 2: 카드 (Reward_Value = Card_Key, 02.CardData 참조)
+- 3: 유물 (Reward_Value = Key, 03.RelicData 참조)
+- 4: 팩 (Reward_Value = Pack_Id, 06.PackData 참조)
+- 5: 예약 (오입력 방지용 공백)
+- 6: 가챠 (Reward_Value = Gacha_Id, 07.GachaData 참조)

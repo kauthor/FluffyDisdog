@@ -54,3 +54,30 @@
 - 성공 확률: 기본 50%, 매 상점 방문 +10%, 투자 시 +10%
 - 대성공 확률: 성공 시 별도 체크, 기본 30%, 투자 시 +10%
 - 투자 횟수: 최대 3회
+
+■ 의뢰 시스템 수치 구조 (작성일: 2026-05-10)
+
+[현재 구현된 수치]
+- 의뢰 비용: Normal 5G / VIP 15G / VVIP 30G (RequestData.Cost 참조)
+- 이번 빌드: 항상 성공 처리 (Success_rate = 10000)
+
+[추후 구현 예정 수치]
+- 성공 확률: 기본 50%, 매 상점 방문 +10%, 투자 시 +10%
+- 대성공 확률: 성공 시 별도 체크, 기본 30%, 투자 시 +10%
+- 투자 횟수: 최대 3회
+
+[보상 구조]
+- BoxData.Pick_Count = 0 → 전부 지급 (전체 획득 인덱스 타입)
+- BoxItemData.Reward_Count = 0 → 수량 미지정 (전부 지급)
+
+[Reward_Type 인덱스 정의 - GachaData/BoxItemData 공통]
+- 1: 골드 (Reward_Value = 골드량)
+- 2: 카드 (Reward_Value = Card_Key, 02.CardData 참조)
+- 3: 유물 (Reward_Value = Key, 03.RelicData 참조)
+- 4: 팩 (Reward_Value = Pack_Id, 06.PackData 참조)
+- 5: 예약 (오입력 방지용 공백)
+- 6: 가챠 (Reward_Value = Gacha_Id, 07.GachaData 참조)
+
+[밸런스 검토 필요 항목]
+- 의뢰 보상용 Gacha_Id (10101/10201/10301) 수치 미입력 상태 → 추가 필요
+- 12_RequestWeightData: 대성공 가중치 보상 수치 미확정 → 추후 결정 필요
