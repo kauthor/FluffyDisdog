@@ -370,7 +370,7 @@ MonoBehaviour:
       tiles in the white attack range diagonal to the yellow tile with 50% chance.
   - key: Card_ConcentratedCrossDrill_Des
     kor: "<#fbc531> \u25A0</color> 100% \uD30C\uAD34 <br><#efefe9> \u25A0 \u2196\u2197\u2199\u2198</color>
-      33% \uD30C\uAD34<br><#efefe9> \u25A0 \u2190\u2191\u2193\u2192</color> 66% \uD30C\uAD34"
+      66% \uD30C\uAD34<br><#efefe9> \u25A0 \u2190\u2191\u2193\u2192</color> 33% \uD30C\uAD34"
     eng: Destroys tiles in the yellow attack range with 100% chance.\\nDestroys tiles
       in the white attack range diagonal to the yellow tile with 66% chance.\\nDestroys
       tiles in the white attack range adjacent to the yellow tile with 33% chance.\\n(Tool)
