@@ -345,11 +345,11 @@ namespace FluffyDisdog
         {
             if ((int)currentState >= (int)NodeState.Digged)
                 return false;
-            
+            TileGameManager.I.GameLog.AttackTile();
             if (rate >= 100 || (rate >0 && _substateSystem.Is(NodeSubstate.Crack)))
             {
                 Executer?.Execute();
-                TileGameManager.I.GameLog.AttackTile();
+                
                 PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.TileDigged, new TileDiggedParam()
                 {
                     target = this
@@ -362,7 +362,7 @@ namespace FluffyDisdog
             int rand = Random.Range(0, 100);
             if (rand <= rate && rate > 0)
             {
-                TileGameManager.I.GameLog.AttackTile();
+                
                 Executer?.Execute();
                 PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.TileDigged, new TileDiggedParam()
                 {

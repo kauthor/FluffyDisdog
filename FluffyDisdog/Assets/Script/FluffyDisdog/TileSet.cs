@@ -223,6 +223,9 @@ namespace FluffyDisdog
             if (normalTotal <= 0)
                 normalTotal = 1;
             
+            SoundManager.I.PlayBgm(SoundDesc.InGame1Bgm);
+            SoundManager.I.PlayEnv(SoundDesc.Env1);
+            
             UpdateValidNodeCount();
         }
 
@@ -449,15 +452,13 @@ namespace FluffyDisdog
             {
                 targetNode = clicked
             });
-            
-            TileGameManager.I.GameLog.AttackTile();
 
             var data = ExcelManager.I.GetToolData(currentType);
             int startCoordCol = coord.Item2 - data.CenterColumn;
             int startCoordRow = coord.Item1 - data.CenterRow;
 
             float preEndParamOut = param.output;
-            
+            bool crackSubOn = false;
             int nodeCracked = 0;
             for (int i = 0; i < data.cellHeight; i++)
             {
@@ -503,9 +504,13 @@ namespace FluffyDisdog
                         }
                     }
 
-                    var tileParam = new CardExecuteParam(currentNode, preEndParamOut); 
+                    var tileParam = new CardExecuteParam(currentNode, preEndParamOut);
+                    bool current = currentNode.SubstateSystem.Is(NodeSubstate.Crack);
                     if(ex != null) ex.ExecuteTileEffect(tileParam);
                     preEndParamOut = param.output;
+                    bool after = currentNode.SubstateSystem.Is(NodeSubstate.Crack);
+                    if (!current && after)
+                        crackSubOn = true;
                     
                     if (currentNode.Coord.Item1 == coord.Item1 || currentNode.Coord.Item2 == coord.Item2)
                     {
@@ -533,10 +538,22 @@ namespace FluffyDisdog
             float ret = param.output;
             
             if(nodeCracked > 0)
+            {
                 PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.EndCrack, new OnEndCrackParam()
                 {
                     digged = nodeCracked,
                 });
+                SoundManager.I.PlaySfxRandom(new SoundDesc[2]
+                {
+                    SoundDesc.TileDestroy1Sfx, SoundDesc.TileDestroy2Sfx
+                });
+            }
+            else if(crackSubOn)
+                SoundManager.I.PlaySFX(SoundDesc.TileCrackSfx);
+            else
+            {
+                SoundManager.I.PlaySFX(SoundDesc.TileFailSfx);
+            }
             
             //todo : 여기에 OnEndCrackParam 으로 점수배율 책정 후 덧셈.
             

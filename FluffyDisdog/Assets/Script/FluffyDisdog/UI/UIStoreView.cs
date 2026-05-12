@@ -87,6 +87,9 @@ namespace FluffyDisdog.UI
             
             SyncGold();
             
+            SoundManager.I.PlayBgm(SoundDesc.StoreBgm);
+            SoundManager.I.StopEnv();
+            
             btnShowDeck.onClick.RemoveAllListeners();
             btnShowDeck.onClick.AddListener(() =>
             {

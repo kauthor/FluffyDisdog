@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Script.FluffyDisdog.Managers;
 using UnityEngine;
 
 namespace FluffyDisdog.UI
@@ -55,6 +56,8 @@ namespace FluffyDisdog.UI
                 popupList.Add(newPop);
                 newPop.gameObject.SetActive(false);
                 newPop.transform.SetParent(transform);
+                if(SoundManager.ExistInstance())
+                    SoundManager.I.PlaySFX(SoundDesc.PopupOpenSfx);
                 return newPop;
             }
 

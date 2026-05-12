@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using FluffyDisdog.Manager;
+using Script.FluffyDisdog.Managers;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using UnityEngine;
@@ -108,6 +109,7 @@ namespace FluffyDisdog.UI
 
         private void Init(int gold)
         {
+            SoundManager.I.PlaySFX(SoundDesc.StageClearSfx);
             casher.SyncGold(AccountManager.I.Gold);
             startCasherGold = AccountManager.I.Gold;
             gainGold = gold;
@@ -133,6 +135,7 @@ namespace FluffyDisdog.UI
 
             float temp = 0;
             float coinTemp = 0;
+            float soundTemp = 0;
             while (temp < time)
             {
                 casher.SyncGold(startGold + (int)((float)gainGold* temp/time));
@@ -163,9 +166,16 @@ namespace FluffyDisdog.UI
                         
                     };
                     
+                    
                     currentcoins.Add(newCoin);
                     seqs.Add(seq1);
                     seqs.Add(seq2);
+                }
+                soundTemp += Time.fixedDeltaTime;
+                if (soundTemp > 0.15f)
+                {
+                    SoundManager.I.PlaySFX(SoundDesc.CoinSfx,true);
+                    soundTemp = 0;
                 }
             }
             
