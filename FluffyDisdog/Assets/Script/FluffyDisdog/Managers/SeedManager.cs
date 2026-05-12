@@ -48,9 +48,10 @@ namespace Script.FluffyDisdog.Managers
             if(baseSeed == null || stage <=1)
                 InitGame();
 
+            currentStage=stage;
             currentStageSeed = baseSeed.Next();
             stageGroup = new StageSeedGroup(currentStageSeed);
-            return currentStage;
+            return GetMinor();
         }
 
 
