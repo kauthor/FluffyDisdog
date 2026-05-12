@@ -171,34 +171,49 @@ jobs:
 
               return None, None
 
-          def call_gemini(content, content_type, filename):
-              try:
-                  if content_type == "image":
-                      response = client.models.generate_content(
-                          model="gemini-3-flash-preview",
-                          contents=[
-                              types.Part.from_bytes(
-                                  data=base64.b64decode(content),
-                                  mime_type="image/png"
-                              ),
-                              f"이 이미지는 게임 기획 문서입니다. 파일명: {filename}\n"
-                              f"이미지 내용을 분석하고 에이전트용 참고 문서로 정리해주세요.\n"
-                              f"상태 표시: 확정 / 검토 중 / 보류"
-                          ]
-                      )
-                  else:
-                      prompt = PROMPT_TEMPLATE.format(
-                          content=content[:50000],
-                          filename=filename
-                      )
-                      response = client.models.generate_content(
-                          model="gemini-3-flash-preview",
-                          contents=prompt
-                      )
-                  return response.text
-              except Exception as e:
-                  print(f"Gemini API 호출 실패: {e}")
-                  return None
+          def call_gemini(content, content_type, filename, max_retries=3, retry_delay=30):
+              import time
+              for attempt in range(max_retries):
+                  try:
+                      if content_type == "image":
+                          response = client.models.generate_content(
+                              model="gemini-3-flash-preview",
+                              contents=[
+                                  types.Part.from_bytes(
+                                      data=base64.b64decode(content),
+                                      mime_type="image/png"
+                                  ),
+                                  f"이 이미지는 게임 기획 문서입니다. 파일명: {filename}\n"
+                                  f"이미지 내용을 분석하고 에이전트용 참고 문서로 정리해주세요.\n"
+                                  f"상태 표시: 확정 / 검토 중 / 보류"
+                              ]
+                          )
+                      else:
+                          prompt = PROMPT_TEMPLATE.format(
+                              content=content[:50000],
+                              filename=filename
+                          )
+                          response = client.models.generate_content(
+                              model="gemini-3-flash-preview",
+                              contents=prompt
+                          )
+                      return response.text
+                  except Exception as e:
+                      error_str = str(e)
+                      if attempt < max_retries - 1:
+                          if "503" in error_str or "UNAVAILABLE" in error_str:
+                              wait = retry_delay * (attempt + 1)
+                              print(f"서버 과부하 - {wait}초 후 재시도 ({attempt + 1}/{max_retries}): {filename}")
+                          elif "429" in error_str or "RESOURCE_EXHAUSTED" in error_str:
+                              wait = retry_delay * (attempt + 2)
+                              print(f"요청 한도 초과 - {wait}초 후 재시도 ({attempt + 1}/{max_retries}): {filename}")
+                          else:
+                              print(f"Gemini API 호출 실패 ({attempt + 1}/{max_retries}): {e}")
+                              wait = 10
+                          time.sleep(wait)
+                      else:
+                          print(f"Gemini API 최종 실패 ({max_retries}회 시도): {e}")
+                          return None
 
           # 파일 필터링 및 처리
           processed = 0
