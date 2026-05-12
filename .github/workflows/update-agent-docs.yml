@@ -27,6 +27,7 @@ jobs:
       - name: Gemini API로 에이전트 문서 생성
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
         run: |
           python << 'EOF'
           import os
@@ -40,13 +41,29 @@ jobs:
           # Gemini API 설정
           client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 
-          # git diff로 변경된 파일 목록 가져오기
-          result = subprocess.run(
-              ["git", "diff", "--name-only", "-z", "HEAD~1", "HEAD"],
-              capture_output=True
-          )
-          raw_files = result.stdout.decode('utf-8', errors='replace').split('\x00')
-          changed_files = [f.strip() for f in raw_files if f.strip()]
+          # 전체갱신 모드 확인
+          commit_message = os.environ.get("COMMIT_MESSAGE", "")
+          full_refresh = "[전체갱신]" in commit_message
+          print(f"전체갱신 모드: {full_refresh}")
+          print(f"커밋 메시지: {commit_message}")
+
+          if full_refresh:
+              # 전체갱신: Plan/기획서/ 폴더의 모든 파일 스캔
+              print("전체갱신 모드 — Plan/기획서/ 폴더 전체 스캔")
+              plan_dir = Path("Plan/기획서")
+              all_files = []
+              for f in plan_dir.rglob("*"):
+                  if f.is_file():
+                      all_files.append(str(f))
+              changed_files = all_files
+          else:
+              # 일반 모드: 변경된 파일만 처리
+              result = subprocess.run(
+                  ["git", "diff", "--name-only", "-z", "HEAD~1", "HEAD"],
+                  capture_output=True
+              )
+              raw_files = result.stdout.decode('utf-8', errors='replace').split('\x00')
+              changed_files = [f.strip() for f in raw_files if f.strip()]
 
           print(f"전체 변경 파일 수: {len(changed_files)}")
           for f in changed_files:
@@ -188,8 +205,10 @@ jobs:
           for file_path in changed_files:
               path = Path(file_path)
 
-              if not any(file_path.startswith(prefix) for prefix in INCLUDE_PREFIXES):
-                  continue
+              # 전체갱신 모드가 아닐 때만 Plan/ 경로 필터링
+              if not full_refresh:
+                  if not any(file_path.startswith(prefix) for prefix in INCLUDE_PREFIXES):
+                      continue
 
               if any(ex in file_path for ex in EXCLUDE_PATHS):
                   print(f"제외: {file_path}")
@@ -226,6 +245,7 @@ jobs:
               with open(output_path, 'w', encoding='utf-8') as f:
                   f.write(f"[자동 생성] 원본: {path.name}\n")
                   f.write(f"생성일: {now}\n")
+                  f.write(f"모드: {'전체갱신' if full_refresh else '변경분 업데이트'}\n")
                   f.write("=" * 40 + "\n\n")
                   f.write(result)
 
