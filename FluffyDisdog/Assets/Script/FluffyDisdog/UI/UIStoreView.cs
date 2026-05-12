@@ -317,11 +317,11 @@ namespace FluffyDisdog.UI
             
             
             List<int> usedRelic=new List<int>();
-            var curRelic = TileGameManager.I.RelicSystem.currentRelicDatas;
+            var curRelic = TileGameManager.I.RelicSystem.RelicList;
             if(curRelic != null)
-                for (int i = 0; i < curRelic.Length; i++)
+                for (int i = 0; i < curRelic.Count; i++)
                 {
-                    usedRelic.Add((int)curRelic[i].relicName);
+                    usedRelic.Add((int)curRelic[i]);
                 }
             
             var pack1 = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(1).gachaId);
