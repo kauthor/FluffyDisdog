@@ -435,12 +435,12 @@ MonoBehaviour:
   - soundTypeEnum: 1
     audioClip: {fileID: 8300000, guid: ee7b2ed46f8cb6e49ac10e77aa9c0fa6, type: 3}
     desc: 1
-    volume: 1
+    volume: 0.5
     pitch: 1
   - soundTypeEnum: 1
     audioClip: {fileID: 8300000, guid: ab6e3d04ccf45c94eb53e996ac2c3fb1, type: 3}
     desc: 3
-    volume: 1
+    volume: 0.5
     pitch: 1
   - soundTypeEnum: 0
     audioClip: {fileID: 0}
