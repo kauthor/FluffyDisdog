@@ -908,7 +908,7 @@ MonoBehaviour:
       each stage.
   - key: relic109_Des
     kor: "1x1 \uB2E8\uC77C \uD0C0\uC77C \uD30C\uAD34 \uCE74\uB4DC\uB85C \uD0C0\uC77C\uC744
-      \uD30C\uAD34\uD560 \uB54C, 3\uBC30\uC218\uC758 \uC810\uC218\uB97C \uD68D\uB4DD\uD55C\uB2E4."
+      \uD30C\uAD34\uD560 \uB54C, +200 \uC810\uC218\uB97C \uCD94\uAC00 \uD68D\uB4DD\uD55C\uB2E4."
     eng: When destroying a tile with a 1x1 single-tile destruction card, gain 3x
       the score.
   - key: relic110_Des
