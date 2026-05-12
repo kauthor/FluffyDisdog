@@ -24,35 +24,14 @@ jobs:
         run: |
           pip install google-generativeai python-docx openpyxl python-pptx pillow pdfplumber pandas
 
-      - name: 변경된 파일 감지
-        id: detect
-        run: |
-          # 이전 커밋과 현재 커밋 사이의 변경 파일 목록 추출
-          CHANGED=$(git diff --name-only HEAD~1 HEAD 2>/dev/null || git diff --name-only HEAD 2>/dev/null)
-          echo "변경된 파일 목록:"
-          echo "$CHANGED"
-          
-          # 기획서, Table 관련 파일 변경 여부 확인
-          RELEVANT=$(echo "$CHANGED" | grep -E "^Plan/" | grep -v "에이전트를 위한 txt" | grep -v "이슈 리포트" || true)
-          
-          echo "관련 파일:"
-          echo "$RELEVANT"
-          
-          if [ -n "$RELEVANT" ]; then
-            echo "has_changes=true" >> $GITHUB_OUTPUT
-            echo "$RELEVANT" > /tmp/changed_files.txt
-          else
-            echo "has_changes=false" >> $GITHUB_OUTPUT
-          fi
-
       - name: Gemini API로 에이전트 문서 생성
-        if: steps.detect.outputs.has_changes == 'true'
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           python << 'EOF'
           import os
           import base64
+          import subprocess
           import google.generativeai as genai
           from pathlib import Path
           from datetime import datetime
@@ -61,11 +40,16 @@ jobs:
           genai.configure(api_key=os.environ["GEMINI_API_KEY"])
           model = genai.GenerativeModel("gemini-1.5-flash")
 
-          # 변경된 파일 목록 읽기
-          with open("/tmp/changed_files.txt", "r") as f:
-              changed_files = [line.strip() for line in f.readlines() if line.strip()]
+          # git diff로 변경된 파일 목록 가져오기 (Python으로 처리)
+          result = subprocess.run(
+              ["git", "diff", "--name-only", "-z", "HEAD~1", "HEAD"],
+              capture_output=True
+          )
+          # null 문자로 분리 (한글 경로 안전하게 처리)
+          raw_files = result.stdout.decode('utf-8', errors='replace').split('\x00')
+          changed_files = [f.strip() for f in raw_files if f.strip()]
 
-          print(f"처리할 파일 수: {len(changed_files)}")
+          print(f"전체 변경 파일 수: {len(changed_files)}")
           for f in changed_files:
               print(f"  - {f}")
 
@@ -76,6 +60,11 @@ jobs:
               "마법사.pptx"
           ]
 
+          # 처리할 경로 (Plan 폴더 하위)
+          INCLUDE_PREFIXES = [
+              "Plan/"
+          ]
+
           # 지원 파일 형식
           SUPPORTED_EXTENSIONS = [
               '.txt', '.md', '.docx', '.pptx',
@@ -83,7 +72,7 @@ jobs:
               '.csv', '.xlsx'
           ]
 
-          # 출력 폴더 (Artifacts용 임시 폴더)
+          # 출력 폴더
           output_dir = Path("agent-docs-output")
           output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -188,18 +177,26 @@ jobs:
                   print(f"Gemini API 호출 실패: {e}")
                   return None
 
+          # 파일 필터링 및 처리
           processed = 0
           for file_path in changed_files:
               path = Path(file_path)
 
-              if any(ex in str(path) for ex in EXCLUDE_PATHS):
+              # Plan 폴더 하위만 처리
+              if not any(file_path.startswith(prefix) for prefix in INCLUDE_PREFIXES):
+                  continue
+
+              # 제외 경로 확인
+              if any(ex in file_path for ex in EXCLUDE_PATHS):
                   print(f"제외: {file_path}")
                   continue
 
+              # 지원 형식 확인
               if path.suffix.lower() not in SUPPORTED_EXTENSIONS:
                   print(f"미지원 형식 스킵: {file_path}")
                   continue
 
+              # 파일 존재 확인
               if not path.exists():
                   print(f"파일 없음: {file_path}")
                   continue
@@ -234,10 +231,16 @@ jobs:
               processed += 1
 
           print(f"\n총 {processed}개 파일 처리 완료")
+
+          # 처리된 파일이 없으면 표시
+          if processed == 0:
+              print("처리할 관련 파일 없음 - Artifacts 생성 스킵")
+              # 빈 파일 생성으로 Artifacts 단계 오류 방지
+              with open(output_dir / "no_changes.txt", 'w') as f:
+                  f.write("변경된 기획 파일 없음\n")
           EOF
 
       - name: 생성된 문서 Artifacts로 저장
-        if: steps.detect.outputs.has_changes == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: 에이전트-문서-${{ github.run_number }}
