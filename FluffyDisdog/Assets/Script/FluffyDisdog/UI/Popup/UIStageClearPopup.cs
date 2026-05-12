@@ -181,6 +181,10 @@ namespace FluffyDisdog.UI
             
             casher.SyncGold(goalGold);
             txtGainedGold.SetText("0 G");
+            
+            
+            yield return new WaitForSeconds(2.0f);
+            
             currentPhase = Phase.Phase4;
         }
 
