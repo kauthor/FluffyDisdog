@@ -16,8 +16,6 @@ jobs:
     steps:
       - name: 레포지토리 체크아웃
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Python 설정
         uses: actions/setup-python@v5
@@ -70,8 +68,8 @@ jobs:
               '.csv', '.xlsx'
           ]
 
-          # 에이전트용 txt 저장 폴더
-          output_dir = Path("Plan/기획서/에이전트를 위한 txt")
+          # 출력 폴더 (Artifacts용 임시 폴더)
+          output_dir = Path("agent-docs-output")
           output_dir.mkdir(parents=True, exist_ok=True)
 
           # 프롬프트 템플릿
@@ -223,10 +221,10 @@ jobs:
           print(f"\n총 {processed}개 파일 처리 완료")
           EOF
 
-      - name: 생성된 파일 커밋 및 푸시
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Actions"
-          git add "Plan/기획서/에이전트를 위한 txt/"
-          git diff --staged --quiet || git commit -m "자동 업데이트: 에이전트용 문서 갱신 [skip ci]"
-          git push
+      - name: 생성된 문서 Artifacts로 저장
+        if: steps.changed-files.outputs.any_changed == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: 에이전트-문서-${{ github.run_number }}
+          path: agent-docs-output/
+          retention-days: 7
