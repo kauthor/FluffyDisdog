@@ -158,7 +158,7 @@ jobs:
               try:
                   if content_type == "image":
                       response = client.models.generate_content(
-                          model="gemini-1.5-flash-8b",
+                          model="gemini-2.5-flash-lite-preview-06-17",
                           contents=[
                               types.Part.from_bytes(
                                   data=base64.b64decode(content),
@@ -175,7 +175,7 @@ jobs:
                           filename=filename
                       )
                       response = client.models.generate_content(
-                          model="gemini-1.5-flash-8b",
+                          model="gemini-2.5-flash-lite-preview-06-17",
                           contents=prompt
                       )
                   return response.text
