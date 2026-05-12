@@ -22,7 +22,7 @@ jobs:
 
       - name: 필요 패키지 설치
         run: |
-          pip install google-generativeai python-docx openpyxl python-pptx pillow pdfplumber pandas
+          pip install google-genai python-docx openpyxl python-pptx pillow pdfplumber pandas
 
       - name: Gemini API로 에이전트 문서 생성
         env:
@@ -32,20 +32,19 @@ jobs:
           import os
           import base64
           import subprocess
-          import google.generativeai as genai
+          from google import genai
+          from google.genai import types
           from pathlib import Path
           from datetime import datetime
 
           # Gemini API 설정
-          genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-          model = genai.GenerativeModel("gemini-1.5-flash")
+          client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 
-          # git diff로 변경된 파일 목록 가져오기 (Python으로 처리)
+          # git diff로 변경된 파일 목록 가져오기
           result = subprocess.run(
               ["git", "diff", "--name-only", "-z", "HEAD~1", "HEAD"],
               capture_output=True
           )
-          # null 문자로 분리 (한글 경로 안전하게 처리)
           raw_files = result.stdout.decode('utf-8', errors='replace').split('\x00')
           changed_files = [f.strip() for f in raw_files if f.strip()]
 
@@ -60,10 +59,8 @@ jobs:
               "마법사.pptx"
           ]
 
-          # 처리할 경로 (Plan 폴더 하위)
-          INCLUDE_PREFIXES = [
-              "Plan/"
-          ]
+          # 처리할 경로
+          INCLUDE_PREFIXES = ["Plan/"]
 
           # 지원 파일 형식
           SUPPORTED_EXTENSIONS = [
@@ -160,18 +157,27 @@ jobs:
           def call_gemini(content, content_type, filename):
               try:
                   if content_type == "image":
-                      response = model.generate_content([
-                          f"이 이미지는 게임 기획 문서입니다. 파일명: {filename}\n"
-                          f"이미지 내용을 분석하고 에이전트용 참고 문서로 정리해주세요.\n"
-                          f"상태 표시: 확정 / 검토 중 / 보류",
-                          {"mime_type": "image/png", "data": content}
-                      ])
+                      response = client.models.generate_content(
+                          model="gemini-2.0-flash",
+                          contents=[
+                              types.Part.from_bytes(
+                                  data=base64.b64decode(content),
+                                  mime_type="image/png"
+                              ),
+                              f"이 이미지는 게임 기획 문서입니다. 파일명: {filename}\n"
+                              f"이미지 내용을 분석하고 에이전트용 참고 문서로 정리해주세요.\n"
+                              f"상태 표시: 확정 / 검토 중 / 보류"
+                          ]
+                      )
                   else:
                       prompt = PROMPT_TEMPLATE.format(
                           content=content[:50000],
                           filename=filename
                       )
-                      response = model.generate_content(prompt)
+                      response = client.models.generate_content(
+                          model="gemini-2.0-flash",
+                          contents=prompt
+                      )
                   return response.text
               except Exception as e:
                   print(f"Gemini API 호출 실패: {e}")
@@ -182,21 +188,17 @@ jobs:
           for file_path in changed_files:
               path = Path(file_path)
 
-              # Plan 폴더 하위만 처리
               if not any(file_path.startswith(prefix) for prefix in INCLUDE_PREFIXES):
                   continue
 
-              # 제외 경로 확인
               if any(ex in file_path for ex in EXCLUDE_PATHS):
                   print(f"제외: {file_path}")
                   continue
 
-              # 지원 형식 확인
               if path.suffix.lower() not in SUPPORTED_EXTENSIONS:
                   print(f"미지원 형식 스킵: {file_path}")
                   continue
 
-              # 파일 존재 확인
               if not path.exists():
                   print(f"파일 없음: {file_path}")
                   continue
@@ -232,10 +234,8 @@ jobs:
 
           print(f"\n총 {processed}개 파일 처리 완료")
 
-          # 처리된 파일이 없으면 표시
           if processed == 0:
-              print("처리할 관련 파일 없음 - Artifacts 생성 스킵")
-              # 빈 파일 생성으로 Artifacts 단계 오류 방지
+              print("처리할 관련 파일 없음")
               with open(output_dir / "no_changes.txt", 'w') as f:
                   f.write("변경된 기획 파일 없음\n")
           EOF
