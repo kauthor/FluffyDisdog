@@ -4,10 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'Plan/기획서/**'
-      - 'Plan/Table/CSV/**'
-      - 'Plan/Table/*.xlsx'
 
 jobs:
   update-agent-docs:
@@ -16,6 +12,8 @@ jobs:
     steps:
       - name: 레포지토리 체크아웃
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
 
       - name: Python 설정
         uses: actions/setup-python@v5
@@ -26,17 +24,29 @@ jobs:
         run: |
           pip install google-generativeai python-docx openpyxl python-pptx pillow pdfplumber pandas
 
-      - name: 변경된 파일 확인
-        id: changed-files
-        uses: tj-actions/changed-files@v44
-        with:
-          files: |
-            Plan/기획서/**
-            Plan/Table/CSV/**
-            Plan/Table/*.xlsx
+      - name: 변경된 파일 감지
+        id: detect
+        run: |
+          # 이전 커밋과 현재 커밋 사이의 변경 파일 목록 추출
+          CHANGED=$(git diff --name-only HEAD~1 HEAD 2>/dev/null || git diff --name-only HEAD 2>/dev/null)
+          echo "변경된 파일 목록:"
+          echo "$CHANGED"
+          
+          # 기획서, Table 관련 파일 변경 여부 확인
+          RELEVANT=$(echo "$CHANGED" | grep -E "^Plan/" | grep -v "에이전트를 위한 txt" | grep -v "이슈 리포트" || true)
+          
+          echo "관련 파일:"
+          echo "$RELEVANT"
+          
+          if [ -n "$RELEVANT" ]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "$RELEVANT" > /tmp/changed_files.txt
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          fi
 
       - name: Gemini API로 에이전트 문서 생성
-        if: steps.changed-files.outputs.any_changed == 'true'
+        if: steps.detect.outputs.has_changes == 'true'
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
@@ -51,8 +61,13 @@ jobs:
           genai.configure(api_key=os.environ["GEMINI_API_KEY"])
           model = genai.GenerativeModel("gemini-1.5-flash")
 
-          # 변경된 파일 목록
-          changed_files = """${{ steps.changed-files.outputs.all_changed_files }}""".split()
+          # 변경된 파일 목록 읽기
+          with open("/tmp/changed_files.txt", "r") as f:
+              changed_files = [line.strip() for line in f.readlines() if line.strip()]
+
+          print(f"처리할 파일 수: {len(changed_files)}")
+          for f in changed_files:
+              print(f"  - {f}")
 
           # 제외할 경로
           EXCLUDE_PATHS = [
@@ -186,7 +201,7 @@ jobs:
                   continue
 
               if not path.exists():
-                  print(f"파일 없음 (삭제된 파일): {file_path}")
+                  print(f"파일 없음: {file_path}")
                   continue
 
               print(f"처리 중: {file_path}")
@@ -222,7 +237,7 @@ jobs:
           EOF
 
       - name: 생성된 문서 Artifacts로 저장
-        if: steps.changed-files.outputs.any_changed == 'true'
+        if: steps.detect.outputs.has_changes == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: 에이전트-문서-${{ github.run_number }}
