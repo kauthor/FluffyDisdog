@@ -69,6 +69,9 @@ namespace FluffyDisdog.UI
         
         [FoldoutGroup("Request")] [SerializeField]
         private Text requestDayFlow;
+        
+        [FoldoutGroup("Request")] [SerializeField]
+        private GameObject requestAddDisableBlur;
 
         private int requestAddPrice;
 
@@ -234,7 +237,7 @@ namespace FluffyDisdog.UI
                 requestAddPrice = ExcelManager.I.GetRequestData(TileGameManager.I.RequestSystem.ReqDegree).cost;
                 txtRequestAddPrice.text = $"Pay More {requestAddPrice} G";
                 txtRequestAddPrice.gameObject.SetActive(true);
-                btnRequestAdd.gameObject.SetActive(TileGameManager.I.RequestSystem.ReqRewardLevelAdd<3);
+                requestAddDisableBlur.gameObject.SetActive(TileGameManager.I.RequestSystem.ReqRewardLevelAdd>=3);
             }
             else
             {

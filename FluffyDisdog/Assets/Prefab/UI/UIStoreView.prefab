@@ -987,6 +987,7 @@ MonoBehaviour:
   - {fileID: 5577866908005156934}
   - {fileID: 7026575077201190269}
   requestDayFlow: {fileID: 6122285558282605346}
+  requestAddDisableBlur: {fileID: 1520016622884140176}
   txtRequestAddPrice: {fileID: 2706035073978955056}
   goldCasher: {fileID: 4133507586884539939}
   btnOption: {fileID: 1146850022427423525}
