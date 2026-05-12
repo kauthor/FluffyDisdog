@@ -31,8 +31,10 @@ jobs:
         run: |
           python << 'EOF'
           import os
+          import sys
           import base64
           import subprocess
+          import time
           from google import genai
           from google.genai import types
           from pathlib import Path
@@ -41,11 +43,24 @@ jobs:
           # Gemini API 설정
           client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 
-          # 전체갱신 모드 확인
+          # 커밋 메시지 확인
           commit_message = os.environ.get("COMMIT_MESSAGE", "")
           full_refresh = "[전체갱신]" in commit_message
-          print(f"전체갱신 모드: {full_refresh}")
+          partial_refresh = "[정리]" in commit_message
           print(f"커밋 메시지: {commit_message}")
+          print(f"전체갱신 모드: {full_refresh}")
+          print(f"변경분 정리 모드: {partial_refresh}")
+
+          # 태그가 없으면 종료
+          if not full_refresh and not partial_refresh:
+              print("태그 없음 — Gemini API 호출 스킵")
+              print("사용법: 커밋 메시지에 [정리] 또는 [전체갱신] 추가")
+              output_dir = Path("agent-docs-output")
+              output_dir.mkdir(parents=True, exist_ok=True)
+              with open(output_dir / "skipped.txt", 'w') as f:
+                  f.write(f"API 호출 스킵\n커밋: {commit_message}\n")
+                  f.write("사용법: 커밋 메시지에 [정리] 또는 [전체갱신] 추가\n")
+              sys.exit(0)
 
           if full_refresh:
               # 전체갱신: Plan/기획서/ 폴더의 모든 파일 스캔
@@ -57,7 +72,8 @@ jobs:
                       all_files.append(str(f))
               changed_files = all_files
           else:
-              # 일반 모드: 변경된 파일만 처리
+              # 변경분 정리 모드: 변경된 파일만 처리
+              print("변경분 정리 모드 — 변경된 파일만 처리")
               result = subprocess.run(
                   ["git", "diff", "--name-only", "-z", "HEAD~1", "HEAD"],
                   capture_output=True
@@ -65,7 +81,7 @@ jobs:
               raw_files = result.stdout.decode('utf-8', errors='replace').split('\x00')
               changed_files = [f.strip() for f in raw_files if f.strip()]
 
-          print(f"전체 변경 파일 수: {len(changed_files)}")
+          print(f"전체 파일 수: {len(changed_files)}")
           for f in changed_files:
               print(f"  - {f}")
 
@@ -172,7 +188,6 @@ jobs:
               return None, None
 
           def call_gemini(content, content_type, filename, max_retries=3, retry_delay=30):
-              import time
               for attempt in range(max_retries):
                   try:
                       if content_type == "image":
@@ -208,8 +223,8 @@ jobs:
                               wait = retry_delay * (attempt + 2)
                               print(f"요청 한도 초과 - {wait}초 후 재시도 ({attempt + 1}/{max_retries}): {filename}")
                           else:
-                              print(f"Gemini API 호출 실패 ({attempt + 1}/{max_retries}): {e}")
                               wait = 10
+                              print(f"Gemini API 호출 실패 ({attempt + 1}/{max_retries}): {e}")
                           time.sleep(wait)
                       else:
                           print(f"Gemini API 최종 실패 ({max_retries}회 시도): {e}")
@@ -220,7 +235,6 @@ jobs:
           for file_path in changed_files:
               path = Path(file_path)
 
-              # 전체갱신 모드가 아닐 때만 Plan/ 경로 필터링
               if not full_refresh:
                   if not any(file_path.startswith(prefix) for prefix in INCLUDE_PREFIXES):
                       continue
@@ -260,12 +274,17 @@ jobs:
               with open(output_path, 'w', encoding='utf-8') as f:
                   f.write(f"[자동 생성] 원본: {path.name}\n")
                   f.write(f"생성일: {now}\n")
-                  f.write(f"모드: {'전체갱신' if full_refresh else '변경분 업데이트'}\n")
+                  f.write(f"모드: {'전체갱신' if full_refresh else '변경분 정리'}\n")
                   f.write("=" * 40 + "\n\n")
                   f.write(result)
 
               print(f"생성 완료: {output_path}")
               processed += 1
+
+              # 파일 간 대기 (API 한도 보호)
+              if processed % 5 == 0:
+                  print("API 한도 보호 — 10초 대기")
+                  time.sleep(10)
 
           print(f"\n총 {processed}개 파일 처리 완료")
 
