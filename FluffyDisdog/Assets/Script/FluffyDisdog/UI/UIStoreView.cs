@@ -280,6 +280,8 @@ namespace FluffyDisdog.UI
         {
             TileGameManager.I.RequestSystem.StartRequest(TileGameManager.I.currentLevel,deg);
             var cost = ExcelManager.I.GetRequestData(deg).cost;
+            if (AccountManager.I.Gold < cost)
+                return;
             AccountManager.I.GoldConsume(cost);
             pnlRequestStartAccept.gameObject.SetActive(true);
             
