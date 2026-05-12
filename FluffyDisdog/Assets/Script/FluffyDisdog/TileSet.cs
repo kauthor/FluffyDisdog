@@ -488,7 +488,7 @@ namespace FluffyDisdog
                     {
                         if (data.GetInteractable(j, i))
                         {
-                            if (currentNode.TryDigThisBlock(data, data.GetRatioValue(j, i) + (int)(addedRate*100.0f)))
+                            if (currentNode.TryDigThisBlock(data, data.GetRatioValue(j, i) /*+ (int)(addedRate*100.0f)*/))
                             {
                                 nodeCracked++;
                             }
