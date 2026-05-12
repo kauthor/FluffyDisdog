@@ -115,26 +115,26 @@ namespace FluffyDisdog.UI
             string relic1Key = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(4).gachaId).rewardValue;
             RelicName relic1Name = relic1Key
                 .StringToRelicName();
-            while (usedRelic.Contains((int)relic1Name) && usedRelic.Count <19 )
+            while (usedRelic.Contains((int)relic1Name) && usedRelic.Count <9 )
             {
                 relic1Key = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(4).gachaId).rewardValue;
                 relic1Name = relic1Key
                     .StringToRelicName();
             }
 
-            bool disableRelic1 = usedRelic.Count >= 19;
+            bool disableRelic1 = usedRelic.Count >= 9;
             usedRelic.Add((int)relic1Name);
             
             string relic2Key = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(5).gachaId).rewardValue;
             RelicName relic2Name = relic2Key
                 .StringToRelicName();
-            while (usedRelic.Contains((int)relic2Name) && usedRelic.Count <19 )
+            while (usedRelic.Contains((int)relic2Name) && usedRelic.Count <9 )
             {
                 relic2Key = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(5).gachaId).rewardValue;
                 relic2Name = relic2Key
                     .StringToRelicName();
             }
-            bool disableRelic2 = usedRelic.Count >= 19;
+            bool disableRelic2 = usedRelic.Count >= 9;
             
             /*foreach (var p in packs)
             {
@@ -332,26 +332,26 @@ namespace FluffyDisdog.UI
             string relic1Key = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(4).gachaId).rewardValue;
             RelicName relic1Name = relic1Key
                 .StringToRelicName();
-            while (usedRelic.Contains((int)relic1Name) && usedRelic.Count <19 )
+            while (usedRelic.Contains((int)relic1Name) && usedRelic.Count <9 )
             {
                 relic1Key = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(4).gachaId).rewardValue;
                 relic1Name = relic1Key
                     .StringToRelicName();
             }
 
-            bool disableRelic1 = usedRelic.Count >= 19;
+            bool disableRelic1 = usedRelic.Count >= 9;
             usedRelic.Add((int)relic1Name);
             
             string relic2Key = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(5).gachaId).rewardValue;
             RelicName relic2Name = relic2Key
                 .StringToRelicName();
-            while (usedRelic.Contains((int)relic2Name) && usedRelic.Count <19 )
+            while (usedRelic.Contains((int)relic2Name) && usedRelic.Count <9 )
             {
                 relic2Key = ExcelManager.I.ExecuteGacha(ExcelManager.I.GetShopData(5).gachaId).rewardValue;
                 relic2Name = relic2Key
                     .StringToRelicName();
             }
-            bool disableRelic2 = usedRelic.Count >= 19;
+            bool disableRelic2 = usedRelic.Count >= 9;
             
             /*foreach (var p in packs)
             {
@@ -454,7 +454,7 @@ namespace FluffyDisdog.UI
         protected override void Dispose()
         {
             base.Dispose();
-            SoundManager.I.StopBgm();
+            //SoundManager.I.StopBgm();
         }
     }
 }
