@@ -434,7 +434,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1520016622884140176}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -991,6 +991,7 @@ MonoBehaviour:
   txtRequestAddPrice: {fileID: 2706035073978955056}
   goldCasher: {fileID: 4133507586884539939}
   btnOption: {fileID: 1146850022427423525}
+  disableCOlor: {r: 0.34901962, g: 0.32941177, b: 0.30980393, a: 1}
 --- !u!1 &2796150049130079753
 GameObject:
   m_ObjectHideFlags: 0
@@ -4254,7 +4255,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.003921569, g: 0.003921569, b: 0.003921569, a: 0.69803923}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:

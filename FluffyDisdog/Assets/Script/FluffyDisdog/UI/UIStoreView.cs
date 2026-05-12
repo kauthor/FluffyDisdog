@@ -81,6 +81,8 @@ namespace FluffyDisdog.UI
 
         [SerializeField] private Button btnOption;
 
+
+        [SerializeField] private Color disableCOlor;
         private int limit1Cost = 10;
         private int limit2Cost = 10;
 
@@ -237,7 +239,8 @@ namespace FluffyDisdog.UI
                 requestAddPrice = ExcelManager.I.GetRequestData(TileGameManager.I.RequestSystem.ReqDegree).cost;
                 txtRequestAddPrice.text = $"Pay More {requestAddPrice} G";
                 txtRequestAddPrice.gameObject.SetActive(true);
-                requestAddDisableBlur.gameObject.SetActive(TileGameManager.I.RequestSystem.ReqRewardLevelAdd>=3);
+                btnRequestAdd.interactable = TileGameManager.I.RequestSystem.ReqRewardLevelAdd<3;
+                txtRequestAddPrice.color = TileGameManager.I.RequestSystem.ReqRewardLevelAdd<3 ? Color.white : disableCOlor;
             }
             else
             {
