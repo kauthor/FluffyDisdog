@@ -450,6 +450,11 @@ namespace FluffyDisdog.UI
             slot.AfterBuy();
             SyncGold();
         }
-        
+
+        protected override void Dispose()
+        {
+            base.Dispose();
+            SoundManager.I.StopBgm();
+        }
     }
 }

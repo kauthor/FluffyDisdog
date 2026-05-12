@@ -283,6 +283,7 @@ namespace FluffyDisdog.UI
         protected override void Dispose()
         {
             base.Dispose();
+            SoundManager.I.StopBgm();
             foreach (var re in currentRelic)
             {
                 re.ReturnToPool();
