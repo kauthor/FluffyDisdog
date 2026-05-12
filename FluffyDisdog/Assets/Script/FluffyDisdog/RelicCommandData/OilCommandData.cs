@@ -15,11 +15,12 @@ namespace FluffyDisdog.RelicCommandData
         override public void InitCommandData(RelicData data)
         {
             base.InitCommandData(data);
-            PlayerManager.I.TurnEventSystem.AddEvent(TurnEvent.TileDigged, ExecuteCommand, this);
+            PlayerManager.I.TurnEventSystem.AddEvent(TurnEvent.ToolCalculateStart, ExecuteCommand, this);
             PlayerManager.I.TurnEventSystem.AddEvent(TurnEvent.TurnEnd, TurnEnd, this);
         }
         protected override void OnExecuteCommand (TurnEventOptionParam param)
         {
+            if(!hasAdd)
             if (rawData != null && rawData.Values.Length > 0)
             {
                 PlayerManager.I.RuntimeStat.AddScoreAdd((int)rawData.Values[0]);
