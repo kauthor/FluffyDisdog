@@ -751,27 +751,52 @@ PrefabInstance:
     - target: {fileID: 4893587050868545362, guid: 5b5f4c18d136b0b45b9ac26843529429,
         type: 3}
       propertyPath: startRelicNames.Array.size
-      value: 3
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4893587050868545362, guid: 5b5f4c18d136b0b45b9ac26843529429,
         type: 3}
       propertyPath: startRelicNames.Array.data[0]
-      value: 103
+      value: 101
       objectReference: {fileID: 0}
     - target: {fileID: 4893587050868545362, guid: 5b5f4c18d136b0b45b9ac26843529429,
         type: 3}
       propertyPath: startRelicNames.Array.data[1]
-      value: 106
+      value: 102
       objectReference: {fileID: 0}
     - target: {fileID: 4893587050868545362, guid: 5b5f4c18d136b0b45b9ac26843529429,
         type: 3}
       propertyPath: startRelicNames.Array.data[2]
-      value: 105
+      value: 107
       objectReference: {fileID: 0}
     - target: {fileID: 4893587050868545362, guid: 5b5f4c18d136b0b45b9ac26843529429,
         type: 3}
       propertyPath: startRelicNames.Array.data[3]
-      value: 105
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 4893587050868545362, guid: 5b5f4c18d136b0b45b9ac26843529429,
+        type: 3}
+      propertyPath: startRelicNames.Array.data[4]
+      value: 114
+      objectReference: {fileID: 0}
+    - target: {fileID: 4893587050868545362, guid: 5b5f4c18d136b0b45b9ac26843529429,
+        type: 3}
+      propertyPath: startRelicNames.Array.data[5]
+      value: 117
+      objectReference: {fileID: 0}
+    - target: {fileID: 4893587050868545362, guid: 5b5f4c18d136b0b45b9ac26843529429,
+        type: 3}
+      propertyPath: startRelicNames.Array.data[6]
+      value: 116
+      objectReference: {fileID: 0}
+    - target: {fileID: 4893587050868545362, guid: 5b5f4c18d136b0b45b9ac26843529429,
+        type: 3}
+      propertyPath: startRelicNames.Array.data[7]
+      value: 109
+      objectReference: {fileID: 0}
+    - target: {fileID: 4893587050868545362, guid: 5b5f4c18d136b0b45b9ac26843529429,
+        type: 3}
+      propertyPath: startRelicNames.Array.data[8]
+      value: 115
       objectReference: {fileID: 0}
     - target: {fileID: 5060260008809637602, guid: 5b5f4c18d136b0b45b9ac26843529429,
         type: 3}
