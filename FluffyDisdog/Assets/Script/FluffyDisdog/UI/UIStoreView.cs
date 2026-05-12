@@ -288,6 +288,8 @@ namespace FluffyDisdog.UI
 
         private void RequestAdd()
         {
+            if (AccountManager.I.Gold < requestAddPrice)
+                return;
             TileGameManager.I.RequestSystem.RewardLevelAdd();
             AccountManager.I.GoldConsume(requestAddPrice);
             pnlRequestAddComplete.gameObject.SetActive(true);
