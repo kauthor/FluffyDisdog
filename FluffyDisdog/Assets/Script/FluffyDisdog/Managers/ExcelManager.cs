@@ -316,7 +316,7 @@ namespace Script.FluffyDisdog.Managers
         {
             if (gacheInGameDataDic.TryGetValue(gachaId, out var gacha))
             {
-                int gachaPoint = Random.Range(0, gacha.rateSum);
+                int gachaPoint = Random.Range(0, gacha.rateSum+1);
                 int result = 0;
 
                 for (int i = 0; i < gacha.rateArray.Length; i++)
