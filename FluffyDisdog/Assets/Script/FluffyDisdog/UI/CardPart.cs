@@ -44,7 +44,7 @@ namespace FluffyDisdog.UI
             btnClickArea.onClick.RemoveAllListeners();
             btnClickArea.onClick.AddListener(() =>
             {
-                SoundManager.I.PlaySfxRandom(new SoundDesc[2] { SoundDesc.CardSfx1 , SoundDesc.CardSfx2 });
+                SoundManager.I.PlaySFX(SoundDesc.CardSfx1);
                 if (!isSelected)
                 {
                     Select(true);

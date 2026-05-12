@@ -156,7 +156,7 @@ namespace Script.FluffyDisdog.Managers
             //일단은 타일을 클릭하면 드로우 하게 하자
             TileGameManager.I.BindTileClickedHandler(OnDigged);
             onCardUse = null;
-            handMax = maxHandCard + (PlayerManager.I.TurnEventSystem.HasRelicCommand(RelicName.ExpandedBackpack) ? 1:0);
+            handMax = maxHandCard + (TileGameManager.I.RelicSystem.RelicList.Contains(RelicName.ExpandedBackpack) ? 1:0);
             SetHand();
             graveyard = new List<CardInGame>();
         }

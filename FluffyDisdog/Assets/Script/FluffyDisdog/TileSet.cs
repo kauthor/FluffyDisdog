@@ -565,6 +565,9 @@ namespace FluffyDisdog
             mouseEffectedNode.Clear();
 
             OnNodeClickedCB?.Invoke();
+            
+            PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.TurnEnd);
+            PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.TurnStart);
             _eventSystem?.FireEvent(TurnEvent.TurnEnd);
             _eventSystem?.FireEvent(TurnEvent.TurnStart);
             
