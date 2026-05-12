@@ -11,15 +11,29 @@ namespace FluffyDisdog.RelicCommandData
     {
         public override RelicName relicType => RelicName.Oil;
 
+        private bool hasAdd = false;
         override public void InitCommandData(RelicData data)
         {
             base.InitCommandData(data);
             PlayerManager.I.TurnEventSystem.AddEvent(TurnEvent.TileDigged, ExecuteCommand, this);
+            PlayerManager.I.TurnEventSystem.AddEvent(TurnEvent.TurnEnd, TurnEnd, this);
         }
         protected override void OnExecuteCommand (TurnEventOptionParam param)
         {
-            if(rawData!=null && rawData.Values.Length >0)
-               TileGameManager.I.AddScore((int)rawData.Values[0]);
+            if (rawData != null && rawData.Values.Length > 0)
+            {
+                PlayerManager.I.RuntimeStat.AddScoreAdd((int)rawData.Values[0]);
+                hasAdd = true;
+            }
+        }
+
+        private void TurnEnd(TurnEventOptionParam param)
+        {
+            if (hasAdd)
+            {
+                PlayerManager.I.RuntimeStat.AddScoreAdd(-(int)rawData.Values[0]);
+                hasAdd = false;
+            }
         }
     }
 }

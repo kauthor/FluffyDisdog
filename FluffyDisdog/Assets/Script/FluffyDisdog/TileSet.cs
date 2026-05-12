@@ -298,6 +298,7 @@ namespace FluffyDisdog
             nodeConditions[num] = -1;
             var score = (int)(100 * PlayerManager.I.RuntimeStat.ScoreMultiplier);
 
+            score += PlayerManager.I.RuntimeStat.ScoreAdd;
             DamageFontPart parameter=null;
 
             if (fontPool.Count > 0)

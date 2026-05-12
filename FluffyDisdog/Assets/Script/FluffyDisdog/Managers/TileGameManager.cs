@@ -98,8 +98,6 @@ namespace FluffyDisdog
             currentLevel = level;
             
             //임의로 최대레벨 설정
-            if (currentLevel > 8)
-                currentLevel = 1;
             await _tileSet.InitGame(currentLevel);
             
             

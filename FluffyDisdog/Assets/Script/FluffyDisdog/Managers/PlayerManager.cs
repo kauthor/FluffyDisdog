@@ -9,18 +9,23 @@ namespace Script.FluffyDisdog.Managers
     {
         private float scoreMultiplier;
         private float tileSuccessRateAdd;
+        private int scoreAdd;
         
         public float ScoreMultiplier => scoreMultiplier;
+        public int ScoreAdd => scoreAdd;
         public float TileSuccessRateAdd => tileSuccessRateAdd;
 
         public RuntimeStat(float scoreMultiplier, float tileSuccessRateAdd)
         {
             this.scoreMultiplier = 1+scoreMultiplier;
             this.tileSuccessRateAdd = tileSuccessRateAdd;
+            scoreAdd = 0;
         }
         
         public void AddScoreMulti(float value)=> scoreMultiplier+=value;
         public void AddTileSuccessRate(float value)=> tileSuccessRateAdd+=value;
+        
+        public void AddScoreAdd(int value)=> scoreAdd+=value;
     }
     
     
