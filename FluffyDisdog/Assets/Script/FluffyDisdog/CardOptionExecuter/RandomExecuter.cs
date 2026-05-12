@@ -1,4 +1,6 @@
 ﻿using System;
+using FluffyDisdog.RelicCommandData;
+using Script.FluffyDisdog.Managers;
 using Random = UnityEngine.Random;
 
 namespace FluffyDisdog.CardOptionExecuter
@@ -12,6 +14,15 @@ namespace FluffyDisdog.CardOptionExecuter
                 int.Parse( rawData.Desc);
             if (amount > TileGameManager.I.TileSet.ValidNodeCount)
                 amount = TileGameManager.I.TileSet.ValidNodeCount;
+
+            float addedRate = 0;
+            var calParam = new ToolCalculateStart()
+            {
+                
+            };
+            PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.ToolCalculateStart, calParam);
+                    
+            addedRate+= calParam.addRate;
             for (int i = 0; i < amount; i++)
             {
                 if (Random.Range(0, 10000) < rawData.Values[0])
