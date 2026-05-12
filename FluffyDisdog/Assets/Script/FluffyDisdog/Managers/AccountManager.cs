@@ -9,10 +9,10 @@
         protected override void Awake()
         {
             base.Awake();
-            gold = 1000; //임시
+            gold = 30; //임시
         }
         
-        public void ResetGoldOnGameStart() => gold = 1000;
+        public void ResetGoldOnGameStart() => gold = 30;
 
         public bool GoldConsume(int amount)
         {
