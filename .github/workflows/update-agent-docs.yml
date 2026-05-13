@@ -1,0 +1,302 @@
+name: 에이전트 문서 자동 업데이트
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-agent-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 레포지토리 체크아웃
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Python 설정
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 필요 패키지 설치
+        run: |
+          pip install google-genai python-docx openpyxl python-pptx pillow pdfplumber pandas
+
+      - name: Gemini API로 에이전트 문서 생성
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+        run: |
+          python << 'EOF'
+          import os
+          import sys
+          import base64
+          import subprocess
+          import time
+          from google import genai
+          from google.genai import types
+          from pathlib import Path
+          from datetime import datetime
+
+          # Gemini API 설정
+          client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+
+          # 커밋 메시지 확인
+          commit_message = os.environ.get("COMMIT_MESSAGE", "")
+          full_refresh = "[전체갱신]" in commit_message
+          partial_refresh = "[정리]" in commit_message
+          print(f"커밋 메시지: {commit_message}")
+          print(f"전체갱신 모드: {full_refresh}")
+          print(f"변경분 정리 모드: {partial_refresh}")
+
+          # 태그가 없으면 종료
+          if not full_refresh and not partial_refresh:
+              print("태그 없음 — Gemini API 호출 스킵")
+              print("사용법: 커밋 메시지에 [정리] 또는 [전체갱신] 추가")
+              output_dir = Path("agent-docs-output")
+              output_dir.mkdir(parents=True, exist_ok=True)
+              with open(output_dir / "skipped.txt", 'w') as f:
+                  f.write(f"API 호출 스킵\n커밋: {commit_message}\n")
+                  f.write("사용법: 커밋 메시지에 [정리] 또는 [전체갱신] 추가\n")
+              sys.exit(0)
+
+          if full_refresh:
+              # 전체갱신: Plan/기획서/ 폴더의 모든 파일 스캔
+              print("전체갱신 모드 — Plan/기획서/ 폴더 전체 스캔")
+              plan_dir = Path("Plan/기획서")
+              all_files = []
+              for f in plan_dir.rglob("*"):
+                  if f.is_file():
+                      all_files.append(str(f))
+              changed_files = all_files
+          else:
+              # 변경분 정리 모드: 변경된 파일만 처리
+              print("변경분 정리 모드 — 변경된 파일만 처리")
+              result = subprocess.run(
+                  ["git", "diff", "--name-only", "-z", "HEAD~1", "HEAD"],
+                  capture_output=True
+              )
+              raw_files = result.stdout.decode('utf-8', errors='replace').split('\x00')
+              changed_files = [f.strip() for f in raw_files if f.strip()]
+
+          print(f"전체 파일 수: {len(changed_files)}")
+          for f in changed_files:
+              print(f"  - {f}")
+
+          # 제외할 경로
+          EXCLUDE_PATHS = [
+              "에이전트를 위한 txt",
+              "이슈 리포트",
+              "마법사.pptx"
+          ]
+
+          # 처리할 경로
+          INCLUDE_PREFIXES = ["Plan/"]
+
+          # 지원 파일 형식
+          SUPPORTED_EXTENSIONS = [
+              '.txt', '.md', '.docx', '.pptx',
+              '.pdf', '.png', '.jpg', '.jpeg',
+              '.csv', '.xlsx'
+          ]
+
+          # 출력 폴더
+          output_dir = Path("agent-docs-output")
+          output_dir.mkdir(parents=True, exist_ok=True)
+
+          # 프롬프트 템플릿
+          PROMPT_TEMPLATE = """
+          당신은 게임 기획 문서를 AI 에이전트가 이해하기 쉬운 형태로 정리하는 전문가입니다.
+          아래 게임 기획 문서를 읽고 에이전트용 참고 문서로 정리해주세요.
+
+          정리 규칙:
+          1. 확정된 규칙과 미확정 항목을 명확히 구분
+          2. 확정 / 검토 중 / 보류 형식으로 상태 표시
+          3. 에이전트가 판단 기준으로 사용할 수 있도록 명확하게 작성
+          4. 다른 시스템과의 연관 관계 명시
+          5. 불필요한 개발 메모나 초안 내용은 제외
+          6. 데이터 테이블의 경우 컬럼 의미와 주요 값을 설명
+
+          게임 기본 정보:
+          - 장르: 타일 파괴 + 덱빌딩 로그라이크 (엔드리스 지향)
+          - 핵심 구조: 8x8 타일 보드를 카드로 파괴하여 목표 점수 달성
+          - 현재 플레이어블: 모험가 1종 (추가 캐릭터 확장 예정)
+
+          문서 내용:
+          {content}
+
+          위 내용을 에이전트용 참고 문서로 정리해주세요.
+          파일명: {filename}
+          """
+
+          def read_file(path):
+              suffix = path.suffix.lower()
+
+              if suffix in ['.txt', '.md']:
+                  with open(path, 'r', encoding='utf-8', errors='ignore') as f:
+                      return f.read(), "text"
+
+              elif suffix == '.docx':
+                  from docx import Document
+                  doc = Document(path)
+                  content = '\n'.join([para.text for para in doc.paragraphs])
+                  return content, "text"
+
+              elif suffix == '.pptx':
+                  from pptx import Presentation
+                  prs = Presentation(path)
+                  content = []
+                  for i, slide in enumerate(prs.slides):
+                      content.append(f"[슬라이드 {i+1}]")
+                      for shape in slide.shapes:
+                          if hasattr(shape, "text") and shape.text.strip():
+                              content.append(shape.text.strip())
+                  return '\n'.join(content), "text"
+
+              elif suffix == '.pdf':
+                  import pdfplumber
+                  content = []
+                  with pdfplumber.open(path) as pdf:
+                      for page in pdf.pages:
+                          text = page.extract_text()
+                          if text:
+                              content.append(text)
+                  return '\n'.join(content), "text"
+
+              elif suffix in ['.png', '.jpg', '.jpeg']:
+                  with open(path, 'rb') as f:
+                      image_data = base64.b64encode(f.read()).decode('utf-8')
+                  return image_data, "image"
+
+              elif suffix == '.csv':
+                  import pandas as pd
+                  df = pd.read_csv(path, encoding='utf-8', errors='ignore')
+                  return df.to_string(), "text"
+
+              elif suffix == '.xlsx':
+                  import pandas as pd
+                  xl = pd.ExcelFile(path)
+                  content = []
+                  for sheet in xl.sheet_names:
+                      df = pd.read_excel(path, sheet_name=sheet)
+                      content.append(f"[시트: {sheet}]")
+                      content.append(df.to_string())
+                  return '\n'.join(content), "text"
+
+              return None, None
+
+          def call_gemini(content, content_type, filename, max_retries=3, retry_delay=30):
+              for attempt in range(max_retries):
+                  try:
+                      if content_type == "image":
+                          response = client.models.generate_content(
+                              model="gemini-3-flash-preview",
+                              contents=[
+                                  types.Part.from_bytes(
+                                      data=base64.b64decode(content),
+                                      mime_type="image/png"
+                                  ),
+                                  f"이 이미지는 게임 기획 문서입니다. 파일명: {filename}\n"
+                                  f"이미지 내용을 분석하고 에이전트용 참고 문서로 정리해주세요.\n"
+                                  f"상태 표시: 확정 / 검토 중 / 보류"
+                              ]
+                          )
+                      else:
+                          prompt = PROMPT_TEMPLATE.format(
+                              content=content[:50000],
+                              filename=filename
+                          )
+                          response = client.models.generate_content(
+                              model="gemini-3-flash-preview",
+                              contents=prompt
+                          )
+                      return response.text
+                  except Exception as e:
+                      error_str = str(e)
+                      if attempt < max_retries - 1:
+                          if "503" in error_str or "UNAVAILABLE" in error_str:
+                              wait = retry_delay * (attempt + 1)
+                              print(f"서버 과부하 - {wait}초 후 재시도 ({attempt + 1}/{max_retries}): {filename}")
+                          elif "429" in error_str or "RESOURCE_EXHAUSTED" in error_str:
+                              wait = retry_delay * (attempt + 2)
+                              print(f"요청 한도 초과 - {wait}초 후 재시도 ({attempt + 1}/{max_retries}): {filename}")
+                          else:
+                              wait = 10
+                              print(f"Gemini API 호출 실패 ({attempt + 1}/{max_retries}): {e}")
+                          time.sleep(wait)
+                      else:
+                          print(f"Gemini API 최종 실패 ({max_retries}회 시도): {e}")
+                          return None
+
+          # 파일 필터링 및 처리
+          processed = 0
+          for file_path in changed_files:
+              path = Path(file_path)
+
+              if not full_refresh:
+                  if not any(file_path.startswith(prefix) for prefix in INCLUDE_PREFIXES):
+                      continue
+
+              if any(ex in file_path for ex in EXCLUDE_PATHS):
+                  print(f"제외: {file_path}")
+                  continue
+
+              if path.suffix.lower() not in SUPPORTED_EXTENSIONS:
+                  print(f"미지원 형식 스킵: {file_path}")
+                  continue
+
+              if not path.exists():
+                  print(f"파일 없음: {file_path}")
+                  continue
+
+              print(f"처리 중: {file_path}")
+
+              try:
+                  content, content_type = read_file(path)
+              except Exception as e:
+                  print(f"파일 읽기 실패 {file_path}: {e}")
+                  continue
+
+              if not content:
+                  print(f"내용 없음 스킵: {file_path}")
+                  continue
+
+              result = call_gemini(content, content_type, path.name)
+              if not result:
+                  continue
+
+              now = datetime.now().strftime("%Y-%m-%d %H:%M")
+              output_filename = f"[에이전트]{path.stem}.txt"
+              output_path = output_dir / output_filename
+
+              with open(output_path, 'w', encoding='utf-8') as f:
+                  f.write(f"[자동 생성] 원본: {path.name}\n")
+                  f.write(f"생성일: {now}\n")
+                  f.write(f"모드: {'전체갱신' if full_refresh else '변경분 정리'}\n")
+                  f.write("=" * 40 + "\n\n")
+                  f.write(result)
+
+              print(f"생성 완료: {output_path}")
+              processed += 1
+
+              # 파일 간 대기 (API 한도 보호)
+              if processed % 5 == 0:
+                  print("API 한도 보호 — 10초 대기")
+                  time.sleep(10)
+
+          print(f"\n총 {processed}개 파일 처리 완료")
+
+          if processed == 0:
+              print("처리할 관련 파일 없음")
+              with open(output_dir / "no_changes.txt", 'w') as f:
+                  f.write("변경된 기획 파일 없음\n")
+          EOF
+
+      - name: 생성된 문서 Artifacts로 저장
+        uses: actions/upload-artifact@v4
+        with:
+          name: 에이전트-문서-${{ github.run_number }}
+          path: agent-docs-output/
+          retention-days: 7
