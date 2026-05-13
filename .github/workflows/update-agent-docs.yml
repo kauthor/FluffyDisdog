@@ -63,25 +63,11 @@ jobs:
               sys.exit(0)
 
           if full_refresh:
-              # 전체갱신: Plan/기획서/ + Plan/Table/CSV/ + Plan/Table/*.xlsx 전체 스캔
-              print("전체갱신 모드 — Plan 폴더 전체 스캔")
+              # 전체갱신: Plan/기획서/ 폴더만 스캔 (CSV/xlsm은 GitHub 동기화로 직접 참조)
+              print("전체갱신 모드 — Plan/기획서/ 폴더 전체 스캔")
               all_files = []
-              # 기획서 폴더
               for f in Path("Plan/기획서").rglob("*"):
                   if f.is_file():
-                      all_files.append(str(f))
-              # CSV 폴더
-              csv_dir = Path("Plan/Table/CSV")
-              if csv_dir.exists():
-                  for f in csv_dir.rglob("*"):
-                      if f.is_file():
-                          all_files.append(str(f))
-              # Table xlsx/xlsm 파일
-              table_dir = Path("Plan/Table")
-              if table_dir.exists():
-                  for f in table_dir.glob("*.xlsx"):
-                      all_files.append(str(f))
-                  for f in table_dir.glob("*.xlsm"):
                       all_files.append(str(f))
               changed_files = all_files
           else:
@@ -102,7 +88,8 @@ jobs:
           EXCLUDE_PATHS = [
               "에이전트를 위한 txt",
               "이슈 리포트",
-              "마법사.pptx"
+              "마법사.pptx",
+              "마법사 카드 제거 전 버전"
           ]
 
           # 처리할 경로
@@ -111,8 +98,7 @@ jobs:
           # 지원 파일 형식
           SUPPORTED_EXTENSIONS = [
               '.txt', '.md', '.docx', '.pptx',
-              '.pdf', '.png', '.jpg', '.jpeg',
-              '.csv', '.xlsx', '.xlsm'
+              '.pdf', '.png', '.jpg', '.jpeg'
           ]
 
           # 출력 폴더
@@ -185,7 +171,10 @@ jobs:
 
               elif suffix == '.csv':
                   import pandas as pd
-                  df = pd.read_csv(path, encoding='utf-8', errors='ignore')
+                  try:
+                      df = pd.read_csv(path, encoding='utf-8')
+                  except UnicodeDecodeError:
+                      df = pd.read_csv(path, encoding='cp949')
                   return df.to_string(), "text"
 
               elif suffix in ['.xlsx', '.xlsm']:
