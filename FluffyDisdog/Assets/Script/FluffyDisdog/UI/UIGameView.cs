@@ -179,6 +179,7 @@ namespace FluffyDisdog.UI
         {
             int i = 0;
             CancellationTokenSource token = new CancellationTokenSource();
+            SoundManager.I.PlaySFX(SoundDesc.CardSfx2);
             foreach (var card in currentCard)
             {
                 card.transform.position = //new Vector3(cardSpace * i, 0, 0);
@@ -193,7 +194,6 @@ namespace FluffyDisdog.UI
                         card.Flip(true);
                         card.transform.DOScaleX(1, 0.25f);
                     });
-                SoundManager.I.PlaySFX(SoundDesc.CardSfx2);
                 await Task.Delay(83, token.Token);
 
                 
