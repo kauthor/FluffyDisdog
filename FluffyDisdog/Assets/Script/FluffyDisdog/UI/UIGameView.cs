@@ -193,6 +193,7 @@ namespace FluffyDisdog.UI
                         card.Flip(true);
                         card.transform.DOScaleX(1, 0.25f);
                     });
+                SoundManager.I.PlaySFX(SoundDesc.CardSfx2);
                 await Task.Delay(83, token.Token);
 
                 

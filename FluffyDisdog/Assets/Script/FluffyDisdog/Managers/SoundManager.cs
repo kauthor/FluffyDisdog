@@ -147,7 +147,7 @@ namespace Script.FluffyDisdog.Managers
                 && dic.TryGetValue(soundEnum, out var soundGroup))
             {
                 currentSfxQueue.volume = soundGroup.volume;
-                currentSfxQueue.pitch = randomPitch? Random.Range(0.8f,1.2f): soundGroup.pitch;
+                currentSfxQueue.pitch = randomPitch? Random.Range(0.9f,1.0f): soundGroup.pitch;
                 currentSfxQueue.PlayOneShot(soundGroup.audioClip);
             }
         }
