@@ -63,12 +63,25 @@ jobs:
               sys.exit(0)
 
           if full_refresh:
-              # 전체갱신: Plan/기획서/ 폴더의 모든 파일 스캔
-              print("전체갱신 모드 — Plan/기획서/ 폴더 전체 스캔")
-              plan_dir = Path("Plan/기획서")
+              # 전체갱신: Plan/기획서/ + Plan/Table/CSV/ + Plan/Table/*.xlsx 전체 스캔
+              print("전체갱신 모드 — Plan 폴더 전체 스캔")
               all_files = []
-              for f in plan_dir.rglob("*"):
+              # 기획서 폴더
+              for f in Path("Plan/기획서").rglob("*"):
                   if f.is_file():
+                      all_files.append(str(f))
+              # CSV 폴더
+              csv_dir = Path("Plan/Table/CSV")
+              if csv_dir.exists():
+                  for f in csv_dir.rglob("*"):
+                      if f.is_file():
+                          all_files.append(str(f))
+              # Table xlsx/xlsm 파일
+              table_dir = Path("Plan/Table")
+              if table_dir.exists():
+                  for f in table_dir.glob("*.xlsx"):
+                      all_files.append(str(f))
+                  for f in table_dir.glob("*.xlsm"):
                       all_files.append(str(f))
               changed_files = all_files
           else:
@@ -99,7 +112,7 @@ jobs:
           SUPPORTED_EXTENSIONS = [
               '.txt', '.md', '.docx', '.pptx',
               '.pdf', '.png', '.jpg', '.jpeg',
-              '.csv', '.xlsx'
+              '.csv', '.xlsx', '.xlsm'
           ]
 
           # 출력 폴더
@@ -175,7 +188,7 @@ jobs:
                   df = pd.read_csv(path, encoding='utf-8', errors='ignore')
                   return df.to_string(), "text"
 
-              elif suffix == '.xlsx':
+              elif suffix in ['.xlsx', '.xlsm']:
                   import pandas as pd
                   xl = pd.ExcelFile(path)
                   content = []
