@@ -426,9 +426,10 @@ namespace FluffyDisdog.UI
             if (cost > AccountManager.I.Gold)
                 return;
 
-            AccountManager.I.GoldConsume(cost);
-            SyncGold();
+            //AccountManager.I.GoldConsume(cost);
+            
             UICardPackResultPopup.OpenPopup(gachaType, cost);
+            SyncGold();
             slot.AfterBuy();
         }
         
