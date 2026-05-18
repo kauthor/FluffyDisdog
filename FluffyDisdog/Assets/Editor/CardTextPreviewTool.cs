@@ -35,7 +35,7 @@ public class CardTextPreviewTool : EditorWindow
     // 설명: 하단 시작점 57% (y=63~115 / 120)
     private const float NAME_Y_RATIO = 0.025f;  // 이름 Y 시작
     private const float NAME_H_RATIO = 0.140f;  // 이름 높이
-    private const float DESC_Y_RATIO = 0.500f;  // 설명 Y 시작
+    private const float DESC_Y_RATIO = 0.530f;  // 설명 Y 시작
     private const float DESC_H_RATIO = 0.430f;  // 설명 높이 (잘림 방지로 약간 늘림)
     private const float TEXT_X_PAD   = 0.080f;  // 좌우 패딩 비율 (안쪽으로 더 당김)
 
