@@ -37,7 +37,8 @@ public class CardTextPreviewTool : EditorWindow
     private const float NAME_H_RATIO = 0.140f;  // 이름 높이
     private const float DESC_Y_RATIO = 0.530f;  // 설명 Y 시작
     private const float DESC_H_RATIO = 0.430f;  // 설명 높이 (잘림 방지로 약간 늘림)
-    private const float TEXT_X_PAD   = 0.080f;  // 좌우 패딩 비율 (안쪽으로 더 당김)
+    private const float NAME_X_PAD   = 0.095f;  // 이름 좌우 패딩 비율
+    private const float DESC_X_PAD   = 0.095f;  // 설명 좌우 패딩 비율
 
     // 텍스트 색상
     private static readonly Color COL_NAME_TEXT = new Color(0.98f, 0.98f, 1.00f);
@@ -459,16 +460,16 @@ public class CardTextPreviewTool : EditorWindow
         }
 
         // ② 이름 텍스트 오버레이
-        float nameX = cx + pw * TEXT_X_PAD;
+        float nameX = cx + pw * NAME_X_PAD;
         float nameY = cy + ph * NAME_Y_RATIO;
-        float nameW = pw * (1f - TEXT_X_PAD * 2f);
+        float nameW = pw * (1f - NAME_X_PAD * 2f);
         float nameH = ph * NAME_H_RATIO;
         GUI.Label(new Rect(nameX, nameY, nameW, nameH), name, cardNameStyle);
 
         // ③ 설명 텍스트 오버레이 (TMP 색상 태그 파싱 적용)
-        float descX = cx + pw * TEXT_X_PAD;
+        float descX = cx + pw * DESC_X_PAD;
         float descY = cy + ph * DESC_Y_RATIO;
-        float descW = pw * (1f - TEXT_X_PAD * 2f);
+        float descW = pw * (1f - DESC_X_PAD * 2f);
         float descH = ph * DESC_H_RATIO;
 
         var segments = ParseTmpSegments(GetCardDesc(card));
@@ -683,94 +684,104 @@ public class CardTextPreviewTool : EditorWindow
         return result;
     }
 
-    // TMP 세그먼트를 카드 설명 영역에 렌더링
+    // ★ 특수기호 너비 등록 (새 기호 추가 시 여기에만 추가)
+    private static readonly Dictionary<char, float> SPECIAL_CHAR_WIDTHS = new Dictionary<char, float>
+    {
+        { '■', 11.5f },
+        { '↖', 11.5f },
+        { '↗', 11.5f },
+        { '↙', 11.5f },
+        { '↘', 11.5f },
+        { '←', 11.5f },
+        { '↑', 11.5f },
+        { '↓', 11.5f },
+        { '→', 11.5f },
+    };
+
+    private float GetCharWidth(char c, GUIStyle baseStyle)
+    {
+        if (c >= 0xAC00 && c <= 0xD7A3) return 13f;  // 한글 음절
+        if (c >= 0x3130 && c <= 0x318F) return 13f;  // 한글 자모
+        if (c >= 0x0020 && c <= 0x007E) return 7.3f; // 영문/숫자/기본기호(공백 포함)
+        if (SPECIAL_CHAR_WIDTHS.TryGetValue(c, out float w)) return w;
+        return 13f; // 등록 안 된 특수기호 기본값
+    }
+
+    // TMP 세그먼트를 카드 설명 영역에 렌더링 (글자 단위 자동 줄바꿈)
     private void DrawTmpSegments(List<TextSegment> segments, Rect area, GUIStyle baseStyle)
     {
         if (segments == null || segments.Count == 0) return;
 
-        float lineH  = baseStyle.fontSize * 1.6f;
+        float lineH = baseStyle.fontSize * 1.6f;
 
-        // 실제 글자 너비를 CalcSize로 측정 (고정값 대신)
-        var measureStyle = new GUIStyle(baseStyle) { wordWrap = false };
-        float sampleW = measureStyle.CalcSize(new GUIContent("M")).x;
-        float charW   = sampleW > 0 ? sampleW : 7f;
-        int maxChars  = Mathf.Max(1, Mathf.FloorToInt(area.width / charW));
+        // Step 1: 글자 단위로 줄 분리 (CalcSize 기반 정확한 너비 측정)
+        var   lineList = new List<List<(char, Color)>>();
+        var   curLine  = new List<(char, Color)>();
+        float curW     = 0f;
 
-        // Step 1: (char, color) 평탄화
-        var flatChars  = new List<char>();
-        var flatColors = new List<Color>();
         foreach (var seg in segments)
-            foreach (char c in seg.text)
-            { flatChars.Add(c); flatColors.Add(seg.color); }
-
-        // Step 2: 줄 단위로 분리 (실제 너비 기반 자동 줄바꿈)
-        var lines   = new List<List<(char, Color)>>();
-        var curLine = new List<(char, Color)>();
-        float curLineW = 0f;
-
-        for (int idx = 0; idx < flatChars.Count; idx++)
         {
-            char  ch  = flatChars[idx];
-            Color col = flatColors[idx];
-
-            if (ch == '\n')
+            string[] parts = seg.text.Split('\n');
+            for (int pi = 0; pi < parts.Length; pi++)
             {
-                lines.Add(new List<(char, Color)>(curLine));
-                curLine.Clear();
-                curLineW = 0f;
-            }
-            else
-            {
-                // 글자 너비 측정
-                float cw = measureStyle.CalcSize(new GUIContent(ch.ToString())).x;
-                if (curLineW + cw > area.width && curLine.Count > 0)
+                if (pi > 0)
                 {
-                    lines.Add(new List<(char, Color)>(curLine));
+                    lineList.Add(new List<(char, Color)>(curLine));
                     curLine.Clear();
-                    curLineW = 0f;
+                    curW = 0f;
                 }
-                curLine.Add((ch, col));
-                curLineW += cw;
+                foreach (char c in parts[pi])
+                {
+                    float cw = GetCharWidth(c, baseStyle);
+                    if (curW + cw > area.width && curLine.Count > 0)
+                    {
+                        lineList.Add(new List<(char, Color)>(curLine));
+                        curLine.Clear();
+                        curW = 0f;
+                    }
+                    curLine.Add((c, seg.color));
+                    curW += cw;
+                }
             }
         }
         if (curLine.Count > 0)
-            lines.Add(new List<(char, Color)>(curLine));
+            lineList.Add(new List<(char, Color)>(curLine));
 
-        // Step 3: 줄별 렌더링 (토큰별 실제 너비 측정)
-        float y = area.y;
-        foreach (var line in lines)
+        // Step 2: 줄별 렌더링
+        GUI.BeginClip(new Rect(area.x, area.y, area.width, area.height));
+        float y = 0f;
+        foreach (var line in lineList)
         {
-            float x = area.x;
+            float x = 0f;
             int   i = 0;
-
             while (i < line.Count)
             {
                 Color groupCol = line[i].Item2;
                 int   j        = i;
-                while (j < line.Count && line[j].Item2 == groupCol)
-                    j++;
+                while (j < line.Count && line[j].Item2 == groupCol) j++;
 
                 var sb = new System.Text.StringBuilder();
-                for (int k = i; k < j; k++)
-                    sb.Append(line[k].Item1);
+                for (int k = i; k < j; k++) sb.Append(line[k].Item1);
                 string token = sb.ToString();
 
                 var style = new GUIStyle(baseStyle)
                 {
                     wordWrap = false,
-                    clipping = TextClipping.Overflow,
+                    clipping = TextClipping.Clip,
                     normal   = { textColor = groupCol }
                 };
 
-                // 실제 렌더링 너비 측정
-                Vector2 size = style.CalcSize(new GUIContent(token));
-                GUI.Label(new Rect(x, y, size.x + 2f, lineH), token, style);
-                x += size.x;
+                // 토큰 너비 = 글자별 너비 합산
+                float w = 0f;
+                foreach (char c in token) w += GetCharWidth(c, baseStyle);
+
+                GUI.Label(new Rect(x, y, w + 2f, lineH), token, style);
+                x += w;
                 i  = j;
             }
-
             y += lineH;
         }
+        GUI.EndClip();
     }
 
     private string ProcessText(string text)
