@@ -9,6 +9,7 @@
 using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 public class CardTextPreviewTool : EditorWindow
@@ -682,72 +683,93 @@ public class CardTextPreviewTool : EditorWindow
         return result;
     }
 
-    // TMP 세그먼트를 카드 설명 영역에 줄 단위로 렌더링
+    // TMP 세그먼트를 카드 설명 영역에 렌더링
     private void DrawTmpSegments(List<TextSegment> segments, Rect area, GUIStyle baseStyle)
     {
         if (segments == null || segments.Count == 0) return;
 
-        // 글자별 색상 리스트 생성
-        var chars  = new List<char>();
-        var colors = new List<Color>();
+        float lineH  = baseStyle.fontSize * 1.6f;
+
+        // 실제 글자 너비를 CalcSize로 측정 (고정값 대신)
+        var measureStyle = new GUIStyle(baseStyle) { wordWrap = false };
+        float sampleW = measureStyle.CalcSize(new GUIContent("M")).x;
+        float charW   = sampleW > 0 ? sampleW : 7f;
+        int maxChars  = Mathf.Max(1, Mathf.FloorToInt(area.width / charW));
+
+        // Step 1: (char, color) 평탄화
+        var flatChars  = new List<char>();
+        var flatColors = new List<Color>();
         foreach (var seg in segments)
-        {
             foreach (char c in seg.text)
+            { flatChars.Add(c); flatColors.Add(seg.color); }
+
+        // Step 2: 줄 단위로 분리 (실제 너비 기반 자동 줄바꿈)
+        var lines   = new List<List<(char, Color)>>();
+        var curLine = new List<(char, Color)>();
+        float curLineW = 0f;
+
+        for (int idx = 0; idx < flatChars.Count; idx++)
+        {
+            char  ch  = flatChars[idx];
+            Color col = flatColors[idx];
+
+            if (ch == '\n')
             {
-                chars.Add(c);
-                colors.Add(seg.color);
+                lines.Add(new List<(char, Color)>(curLine));
+                curLine.Clear();
+                curLineW = 0f;
+            }
+            else
+            {
+                // 글자 너비 측정
+                float cw = measureStyle.CalcSize(new GUIContent(ch.ToString())).x;
+                if (curLineW + cw > area.width && curLine.Count > 0)
+                {
+                    lines.Add(new List<(char, Color)>(curLine));
+                    curLine.Clear();
+                    curLineW = 0f;
+                }
+                curLine.Add((ch, col));
+                curLineW += cw;
             }
         }
+        if (curLine.Count > 0)
+            lines.Add(new List<(char, Color)>(curLine));
 
-        float lineH    = baseStyle.fontSize * 1.6f;
-        float charW    = 7f;  // Galmuri11 픽셀 폰트 한 글자 약 7px (영문 기준)
-        int   maxChars = Mathf.Max(1, Mathf.FloorToInt(area.width / charW));
-
-        float curX         = area.x;
-        float curY         = area.y;
-        int   lineCharCount = 0;
-        int   bufStart     = 0;
-        Color curCol       = colors.Count > 0 ? colors[0] : COL_DESC_TEXT;
-
-        // 버퍼 flush
-        for (int i = 0; i <= chars.Count; i++)
+        // Step 3: 줄별 렌더링 (토큰별 실제 너비 측정)
+        float y = area.y;
+        foreach (var line in lines)
         {
-            bool isEnd     = (i == chars.Count);
-            bool isNewline = !isEnd && chars[i] == '\n';
-            bool colorChange = !isEnd && !isNewline && colors[i] != curCol;
-            bool autoWrap  = !isEnd && !isNewline && lineCharCount >= maxChars;
+            float x = area.x;
+            int   i = 0;
 
-            if (isEnd || isNewline || colorChange || autoWrap)
+            while (i < line.Count)
             {
-                // 현재 버퍼 출력
-                if (i > bufStart)
-                {
-                    string token = new string(chars.GetRange(bufStart, i - bufStart).ToArray());
-                    var    s     = new GUIStyle(baseStyle)
-                    {
-                        wordWrap  = false,
-                        clipping  = TextClipping.Overflow, // 잘림 방지
-                        normal    = { textColor = curCol }
-                    };
-                    float w = token.Length * charW;
-                    GUI.Label(new Rect(curX, curY, w + 4f, lineH * 2f), token, s);
-                    curX += w;
-                }
-                bufStart = i + (isNewline ? 1 : 0);
+                Color groupCol = line[i].Item2;
+                int   j        = i;
+                while (j < line.Count && line[j].Item2 == groupCol)
+                    j++;
 
-                if (autoWrap || isNewline)
-                {
-                    curX = area.x;
-                    curY += lineH;
-                    lineCharCount = 0;
-                    if (isNewline) { bufStart = i + 1; continue; }
-                }
+                var sb = new System.Text.StringBuilder();
+                for (int k = i; k < j; k++)
+                    sb.Append(line[k].Item1);
+                string token = sb.ToString();
 
-                if (!isEnd && !isNewline)
-                    curCol = colors[i];
+                var style = new GUIStyle(baseStyle)
+                {
+                    wordWrap = false,
+                    clipping = TextClipping.Overflow,
+                    normal   = { textColor = groupCol }
+                };
+
+                // 실제 렌더링 너비 측정
+                Vector2 size = style.CalcSize(new GUIContent(token));
+                GUI.Label(new Rect(x, y, size.x + 2f, lineH), token, style);
+                x += size.x;
+                i  = j;
             }
 
-            if (!isEnd && !isNewline) lineCharCount++;
+            y += lineH;
         }
     }
 
