@@ -30,6 +30,18 @@ namespace FluffyDisdog
         
     }
 
+    public class TileEmulatorOptionParam : TurnEventOptionParam
+    {
+        public ToolType toolType;
+        public float addToolRate=0;
+        public Tuple<int,int> clickedCoord;
+        public Tuple<int,int> targetCoord;
+        public float addedScoreMulti=0;
+        public int addedScoreAbs=0;
+        public TerrainNode target;
+        public TerrainNode clicked;
+    }
+
     public class TurnEventHandler
     {
         private event Action<TurnEventOptionParam> _delegates;

@@ -15,20 +15,21 @@ namespace FluffyDisdog.CardOptionExecuter
             if (amount > TileGameManager.I.TileSet.ValidNodeCount)
                 amount = TileGameManager.I.TileSet.ValidNodeCount;
 
-            float addedRate = 0;
-            var calParam = new ToolCalculateStart()
+            //float addedRate = 0;
+            var calParam = new TileEmulatorOptionParam()
             {
                 
             };
             PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.ToolCalculateStart, calParam);
                     
-            addedRate+= calParam.addRate;
+            //addedRate+= calParam.addRate;
             for (int i = 0; i < amount; i++)
             {
                 if (Random.Range(0, 10000) < rawData.Values[0])
                 {
                     var tile = TileGameManager.I.TileSet.GetRandomNode(_=>_.ValidNode()&&!_.isObstacle);
                     tile.TryDigBlockForce();
+                    TileGameManager.I.TileSet.ShowAndGainScore(calParam, tile);
                 }
                 
             }

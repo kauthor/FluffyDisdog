@@ -350,11 +350,6 @@ namespace FluffyDisdog
             {
                 Executer?.Execute();
                 
-                PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.TileDigged, new TileDiggedParam()
-                {
-                    target = this
-                });
-                
                 return true;
             }
 
@@ -364,10 +359,6 @@ namespace FluffyDisdog
             {
                 
                 Executer?.Execute();
-                PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.TileDigged, new TileDiggedParam()
-                {
-                    target = this
-                });
                 return true;
             }
             else
@@ -397,9 +388,9 @@ namespace FluffyDisdog
             //if (_substateSystem.Is(NodeSubstate.Crack))
             {
                 Executer?.Execute();
-                PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.TileDigged, new TileDiggedParam()
+                PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.TileDigged, new TileEmulatorOptionParam()
                 {
-                    target = this
+                    target = this,
                 });
                 
                 return;

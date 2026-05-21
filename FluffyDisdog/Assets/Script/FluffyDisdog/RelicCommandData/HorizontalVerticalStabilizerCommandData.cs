@@ -4,14 +4,6 @@ using Script.FluffyDisdog.Managers;
 
 namespace FluffyDisdog.RelicCommandData
 {
-    public class CrackPointMeasureParam:TurnEventOptionParam
-    {
-        //public bool horizon;
-        //public bool vertical;
-        public Tuple<int,int> clicked;
-        public Tuple<int,int> target;
-        public float addedRate;
-    }
     public class HorizontalVerticalStabilizerCommandData:RelicCommandData
     {
         public override RelicName relicType => RelicName.HorizontalVerticalStabilizer;
@@ -19,11 +11,11 @@ namespace FluffyDisdog.RelicCommandData
         protected override void OnExecuteCommand(TurnEventOptionParam param)
         {
             base.OnExecuteCommand(param);
-            if (param is CrackPointMeasureParam horver)
+            if (param is TileEmulatorOptionParam horver)
             {
-                if(horver.clicked.Item1 == horver.target.Item1
-                   || horver.clicked.Item2 == horver.target.Item2)
-                horver.addedRate = rawData.Values[0];
+                if(horver.clickedCoord.Item1 == horver.targetCoord.Item1
+                   || horver.clickedCoord.Item2 == horver.targetCoord.Item2)
+                horver.addToolRate = rawData.Values[0];
             }
         }
 

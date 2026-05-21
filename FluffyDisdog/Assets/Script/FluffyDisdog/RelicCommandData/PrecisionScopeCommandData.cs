@@ -11,15 +11,15 @@ namespace FluffyDisdog.RelicCommandData
         protected override void OnExecuteCommand(TurnEventOptionParam param)
         {
             base.OnExecuteCommand(param);
-            if (param is CrackPointMeasureParam cparam)
+            if (param is TileEmulatorOptionParam cparam)
             {
-                var xdist = cparam.clicked.Item1 - cparam.target.Item1;
+                var xdist = cparam.clickedCoord.Item1 - cparam.targetCoord.Item1;
                 xdist = Mathf.Abs(xdist);
                 
-                var ydist = cparam.clicked.Item2 - cparam.target.Item2;
+                var ydist = cparam.clickedCoord.Item2 - cparam.targetCoord.Item2;
                 ydist = Mathf.Abs(ydist);
                 
-                cparam.addedRate += (xdist + ydist) * rawData.Values[0];
+                cparam.addToolRate += (xdist + ydist) * rawData.Values[0];
             }
         }
 

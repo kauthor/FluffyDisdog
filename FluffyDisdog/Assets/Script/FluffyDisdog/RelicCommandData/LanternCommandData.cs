@@ -17,7 +17,7 @@ namespace FluffyDisdog.RelicCommandData
         protected override void OnExecuteCommand(TurnEventOptionParam param)
         {
             base.OnExecuteCommand(param);
-            if (param is TileDiggedParam t)
+            if (param is TileEmulatorOptionParam t)
             {
                 if (t.target.SubstateSystem.Is(NodeSubstate.Dark))
                 {

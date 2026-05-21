@@ -296,9 +296,18 @@ namespace FluffyDisdog
             var coord = node.Coord;
             var num =coord.Item1 + row * coord.Item2;
             nodeConditions[num] = -1;
-            var score = (int)(100 * PlayerManager.I.RuntimeStat.ScoreMultiplier);
+            
+            var hit = GameObject.Instantiate(hitPrefab, damageParent);
+            hit.transform.position = node.transform.position;
+            
+            TileGameManager.I.GameLog.DestroyTile();
+        }
 
-            score += PlayerManager.I.RuntimeStat.ScoreAdd;
+        public void ShowAndGainScore(TileEmulatorOptionParam param, TerrainNode target)
+        {
+            var score = (int)(100 * (PlayerManager.I.RuntimeStat.ScoreMultiplier + param.addedScoreMulti));
+
+            score += PlayerManager.I.RuntimeStat.ScoreAdd + param.addedScoreAbs;
             DamageFontPart parameter=null;
 
             if (fontPool.Count > 0)
@@ -312,18 +321,14 @@ namespace FluffyDisdog
                 parameter = GameObject.Instantiate(fontPartPrefab, damageParent);
             }
             
-            var hit = GameObject.Instantiate(hitPrefab, damageParent);
-            hit.transform.position = node.transform.position;
-            
             parameter.gameObject.SetActive(true);
-            parameter.Show(score, node.transform, _ =>
+            parameter.Show(score, target.transform, _ =>
             {
                 _.gameObject.SetActive(false);
                 fontPool.Push(_);
             }).Forget();
             
             TileGameManager.I.AddScore(score);
-            TileGameManager.I.GameLog.DestroyTile();
         }
 
         private List<TerrainNode> mouseEffectedNode;
@@ -432,10 +437,12 @@ namespace FluffyDisdog
         
         private void OnNodeClicked(Tuple<int, int> coord)
         {
+            //내가 다 헷갈릴 수 있으니... 일단 주석을 단다.
             var currentType = TileGameManager.I.CurrentTool;
             if (currentType == ToolType.None)
                 return;
 
+            //우선 여기서 연출을 실행시킨다. 이건... 서순이 바뀌어도 무방하다.
             shakeAnim?.Play();
             var clicked = nodes[coord.Item1 + row * coord.Item2];
             if (!clicked.ValidNode())
@@ -472,17 +479,24 @@ namespace FluffyDisdog
                     if(currentW < 0 || currentW >= currentLevelSet.Row)
                         continue;
                     
-                    float addedRate = PlayerManager.I.RuntimeStat.TileSuccessRateAdd;
-                    
-                    var calParam = new ToolCalculateStart()
-                    {
-                        toolType = currentType,
-                    };
-                    PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.ToolCalculateStart, calParam);
-                    
-                    addedRate+= calParam.addRate;
+                    //float addedRate = PlayerManager.I.RuntimeStat.TileSuccessRateAdd;
                     
                     var currentNode = nodes[currentW + row * currentH];
+
+                    var calParam = new TileEmulatorOptionParam()
+                    {
+                        toolType = currentType,
+                        clicked = clicked,
+                        target = currentNode,
+                        clickedCoord = clicked.Coord,
+                        targetCoord = currentNode.Coord,
+                    };
+                        
+                    PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.ToolCalculateStart, calParam);
+                    
+                    //addedRate+= calParam.addRate;
+                    
+                    PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.DistanceDesire, calParam);
                     
                     //여기서 활성화여부 체크
                     if (currentNode.ValidNode())
@@ -492,13 +506,13 @@ namespace FluffyDisdog
                             if (currentNode.TryDigThisBlock(data, data.GetRatioValue(j, i) /*+ (int)(addedRate*100.0f)*/))
                             {
                                 nodeCracked++;
+                                PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.TileDigged, calParam);
+                                
+                                ShowAndGainScore(calParam, currentNode);
                             }
                             else
                             {
-                                PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.DigFail, new DigFailParam()
-                                {
-                                    target = currentNode,
-                                });
+                                PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.DigFail, calParam);
                                 var hitfail = GameObject.Instantiate(hitfailPrefab, damageParent);
                                 hitfail.transform.position = currentNode.transform.position;
                             }
@@ -513,17 +527,6 @@ namespace FluffyDisdog
                     if (!current && after)
                         crackSubOn = true;
                     
-                    if (currentNode.Coord.Item1 == coord.Item1 || currentNode.Coord.Item2 == coord.Item2)
-                    {
-                        var hparam = new CrackPointMeasureParam()
-                        {
-                            clicked = coord,
-                            target = currentNode.Coord
-                        };
-                        PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.DistanceDesire, hparam);
-                        
-                        addedRate += hparam.addedRate;
-                    }
                     //여기서 도구 파괴여부 체크.
                     
                     
@@ -555,8 +558,6 @@ namespace FluffyDisdog
             {
                 SoundManager.I.PlaySFX(SoundDesc.TileFailSfx);
             }
-            
-            //todo : 여기에 OnEndCrackParam 으로 점수배율 책정 후 덧셈.
             
             
             

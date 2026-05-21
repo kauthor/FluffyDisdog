@@ -10,11 +10,11 @@ namespace FluffyDisdog.RelicCommandData
         protected override void OnExecuteCommand(TurnEventOptionParam param)
         {
             base.OnExecuteCommand(param);
-            if (param is TileDiggedParam tile)
+            if (param is TileEmulatorOptionParam tile)
             {
                 if (tile.target.SubstateSystem.Is(NodeSubstate.Crack))
                 {
-                    TileGameManager.I.AddScore((int)rawData.Values[0]);
+                    tile.addedScoreAbs += (int)rawData.Values[0];
                 }
             }
         }
