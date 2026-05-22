@@ -6,6 +6,7 @@ namespace Script.FluffyDisdog.TileClass
     {
         public override void Execute()
         {
+            var type = TileGameManager.I.CurrentTool;
             
         }
     }

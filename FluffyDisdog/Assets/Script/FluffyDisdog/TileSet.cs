@@ -467,7 +467,9 @@ namespace FluffyDisdog
 
             float preEndParamOut = param.output;
             bool crackSubOn = false;
+            int nodeSubstateCracked = 0;
             int nodeCracked = 0;
+            List<TerrainNode> emulateFailed = new List<TerrainNode>();
             for (int i = 0; i < data.cellHeight; i++)
             {
                 int currentH = i + startCoordCol;
@@ -482,6 +484,7 @@ namespace FluffyDisdog
                     //float addedRate = PlayerManager.I.RuntimeStat.TileSuccessRateAdd;
                     
                     var currentNode = nodes[currentW + row * currentH];
+                    
 
                     var calParam = new TileEmulatorOptionParam()
                     {
@@ -503,15 +506,19 @@ namespace FluffyDisdog
                     {
                         if (data.GetInteractable(j, i))
                         {
+                            if(ex != null)
+                                ex.ExecuteWhenTileTryInteract(new CardExecuteParam(currentNode,0));
                             if (currentNode.TryDigThisBlock(data, data.GetRatioValue(j, i) /*+ (int)(addedRate*100.0f)*/))
                             {
                                 nodeCracked++;
                                 PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.TileDigged, calParam);
-                                
+                                if(ex != null)
+                                    ex.ExecuteWhenTileSuccess(new CardExecuteParam(currentNode,0));
                                 ShowAndGainScore(calParam, currentNode);
                             }
                             else
                             {
+                                emulateFailed.Add(currentNode);
                                 PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.DigFail, calParam);
                                 var hitfail = GameObject.Instantiate(hitfailPrefab, damageParent);
                                 hitfail.transform.position = currentNode.transform.position;
@@ -525,7 +532,10 @@ namespace FluffyDisdog
                     preEndParamOut = param.output;
                     bool after = currentNode.SubstateSystem.Is(NodeSubstate.Crack);
                     if (!current && after)
+                    {
+                        nodeCracked++;
                         crackSubOn = true;
+                    }
                     
                     //여기서 도구 파괴여부 체크.
                     
@@ -535,7 +545,7 @@ namespace FluffyDisdog
             }
             
             var afterScore = TileGameManager.I.CurrentScore.Value;
-            var endParam = new CardExecuteParam(clicked, preEndParamOut);
+            var endParam = new AfterEmulateParam(clicked, emulateFailed,nodeCracked);
             
             if(ex != null) ex.PostEffect(endParam);
             
@@ -605,6 +615,133 @@ namespace FluffyDisdog
         {
            var eff=  GameObject.Instantiate(hitfailPrefab, damageParent);
            eff.transform.position = node.transform.position;
+        }
+
+
+        public List<TerrainNode> GetAllNodesByDirection(int direction, TerrainNode target)
+        {
+            var ret = new List<TerrainNode>();
+            switch (direction)
+            {
+                case 1:
+                    for (int i = 0; i < initialRow; i++)
+                    {
+                        ret.Add(nodes[target.Coord.Item2*initialRow + i]);
+                    }
+                    break;
+                case 2:
+                    for (int i = 0; i < initialColume; i++)
+                    {
+                        ret.Add(nodes[target.Coord.Item1 + initialRow*i]);
+                    }
+
+                    break;
+                case 3:
+                    for (int i = 0; i < initialRow; i++)
+                    {
+                        ret.Add(nodes[target.Coord.Item2*initialRow + i]);
+                    }
+                    for (int i = 0; i < initialColume; i++)
+                    {
+                        ret.Add(nodes[target.Coord.Item1 + initialRow*i]);
+                    }
+
+                    break;
+                case 4:
+                    for (int i = target.Coord.Item2 * initialRow + target.Coord.Item1;
+                         i >= 0 && i < nodes.Length;
+                         i -= (initialRow - 1))
+                    {
+                        ret.Add(nodes[i]);
+                    }
+                    for (int i = target.Coord.Item2 * initialRow + target.Coord.Item1;
+                         i >= 0 && i < nodes.Length;
+                         i += (initialRow - 1))
+                    {
+                        ret.Add(nodes[i]);
+                    }
+
+                    break;
+                case 5:
+                    for (int i = target.Coord.Item2 * initialRow + target.Coord.Item1;
+                         i >= 0 && i < nodes.Length;
+                         i -= (initialRow + 1))
+                    {
+                        ret.Add(nodes[i]);
+                    }
+                    for (int i = target.Coord.Item2 * initialRow + target.Coord.Item1;
+                         i >= 0 && i < nodes.Length;
+                         i += (initialRow + 1))
+                    {
+                        ret.Add(nodes[i]);
+                    }
+
+                    break;
+                case 6:
+                    for (int i = target.Coord.Item2 * initialRow + target.Coord.Item1;
+                         i >= 0 && i < nodes.Length;
+                         i -= (initialRow - 1))
+                    {
+                        ret.Add(nodes[i]);
+                    }
+                    for (int i = target.Coord.Item2 * initialRow + target.Coord.Item1;
+                         i >= 0 && i < nodes.Length;
+                         i += (initialRow - 1))
+                    {
+                        ret.Add(nodes[i]);
+                    }
+                    for (int i = target.Coord.Item2 * initialRow + target.Coord.Item1;
+                         i >= 0 && i < nodes.Length;
+                         i -= (initialRow + 1))
+                    {
+                        ret.Add(nodes[i]);
+                    }
+                    for (int i = target.Coord.Item2 * initialRow + target.Coord.Item1;
+                         i >= 0 && i < nodes.Length;
+                         i += (initialRow + 1))
+                    {
+                        ret.Add(nodes[i]);
+                    }
+
+                    break;
+                case 7:
+                    for (int i = target.Coord.Item2 * initialRow + target.Coord.Item1;
+                         i >= 0 && i < nodes.Length;
+                         i -= (initialRow - 1))
+                    {
+                        ret.Add(nodes[i]);
+                    }
+                    for (int i = target.Coord.Item2 * initialRow + target.Coord.Item1;
+                         i >= 0 && i < nodes.Length;
+                         i += (initialRow - 1))
+                    {
+                        ret.Add(nodes[i]);
+                    }
+                    for (int i = target.Coord.Item2 * initialRow + target.Coord.Item1;
+                         i >= 0 && i < nodes.Length;
+                         i -= (initialRow + 1))
+                    {
+                        ret.Add(nodes[i]);
+                    }
+                    for (int i = target.Coord.Item2 * initialRow + target.Coord.Item1;
+                         i >= 0 && i < nodes.Length;
+                         i += (initialRow + 1))
+                    {
+                        ret.Add(nodes[i]);
+                    }
+                    for (int i = 0; i < initialRow; i++)
+                    {
+                        ret.Add(nodes[target.Coord.Item2*initialRow + i]);
+                    }
+                    for (int i = 0; i < initialColume; i++)
+                    {
+                        ret.Add(nodes[target.Coord.Item1 + initialRow*i]);
+                    }
+
+                    break;
+                    
+            }
+            return ret;
         }
     }
 }

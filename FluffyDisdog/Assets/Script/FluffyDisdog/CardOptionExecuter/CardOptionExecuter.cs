@@ -20,6 +20,11 @@ namespace FluffyDisdog.CardOptionExecuter
             this.target = target;
             this.input = input;
         }
+
+        protected CardExecuteParam()
+        {
+            
+        }
     }
     
     
@@ -68,6 +73,16 @@ namespace FluffyDisdog.CardOptionExecuter
             OnExecuteTileEffect(param);
         }
 
+        public void ExecuteWhenTileSuccess(CardExecuteParam param)
+        {
+            OnSuccess(param);
+        }
+
+        public void ExecuteWhenTileTryInteract(CardExecuteParam param)
+        {
+            OnTryInteract(param);
+        }
+
         public void PostEffect(CardExecuteParam param)
         {
             OnPostEffect(param);
@@ -84,6 +99,16 @@ namespace FluffyDisdog.CardOptionExecuter
         }
 
         protected virtual void OnPostEffect(CardExecuteParam param)
+        {
+            
+        }
+
+        protected virtual void OnSuccess(CardExecuteParam param)
+        {
+            
+        }
+
+        protected virtual void OnTryInteract(CardExecuteParam param)
         {
             
         }

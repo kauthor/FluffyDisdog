@@ -69,7 +69,7 @@ namespace FluffyDisdog.Data
             upgradeKey = upKey;
             rarityKey = rarity;
             carBit = bit;
-            cardTagBit = cardDexId;
+            cardTagBit = tagBit;
             manaCost = mana;
             addedOptionIds = addOpId1;
             cardDescId = cardDexId;
