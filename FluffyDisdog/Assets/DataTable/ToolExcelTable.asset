@@ -23,7 +23,7 @@ MonoBehaviour:
     upgradeKey: Card_Shovel_Enhanced
     rarityKey: 1
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 32
     manaCost: 0
     addedOptionIds: 000000000000000000000000
     cardDescId: 0
@@ -40,7 +40,7 @@ MonoBehaviour:
     upgradeKey: Card_Rake_Enhanced
     rarityKey: 1
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 32
     manaCost: 0
     addedOptionIds: 000000000000000000000000
     cardDescId: 0
@@ -57,7 +57,7 @@ MonoBehaviour:
     upgradeKey: Card_Shovel
     rarityKey: 1
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 32
     manaCost: 0
     addedOptionIds: 000000000000000000000000
     cardDescId: 0
@@ -74,9 +74,9 @@ MonoBehaviour:
     upgradeKey: Card_Rake
     rarityKey: 1
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 32
     manaCost: 0
-    addedOptionIds: 7b0000000000000000000000
+    addedOptionIds: 000000000000000000000000
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_102
@@ -91,9 +91,9 @@ MonoBehaviour:
     upgradeKey: Card_GoldenShovel_Enhanced
     rarityKey: 1
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 96
     manaCost: 0
-    addedOptionIds: 7b0000007c00000000000000
+    addedOptionIds: 000000000000000000000000
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_101
@@ -108,9 +108,9 @@ MonoBehaviour:
     upgradeKey: Card_GoldenShovel
     rarityKey: 1
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 96
     manaCost: 0
-    addedOptionIds: 7b0000007c00000000000000
+    addedOptionIds: 000000000000000000000000
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_101
@@ -125,7 +125,7 @@ MonoBehaviour:
     upgradeKey: Card_Axe_Enhanced
     rarityKey: 1
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 32
     manaCost: 0
     addedOptionIds: 000000000000000000000000
     cardDescId: 0
@@ -142,7 +142,7 @@ MonoBehaviour:
     upgradeKey: Card_Axe
     rarityKey: 1
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 32
     manaCost: 0
     addedOptionIds: 000000000000000000000000
     cardDescId: 0
@@ -159,7 +159,7 @@ MonoBehaviour:
     upgradeKey: Card_Cross Chisel_Enhanced
     rarityKey: 2
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 32
     manaCost: 0
     addedOptionIds: 000000000000000000000000
     cardDescId: 0
@@ -176,7 +176,7 @@ MonoBehaviour:
     upgradeKey: Card_Cross Chisel
     rarityKey: 2
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 32
     manaCost: 0
     addedOptionIds: 000000000000000000000000
     cardDescId: 0
@@ -193,7 +193,7 @@ MonoBehaviour:
     upgradeKey: Card_Pickaxe_Enhanced
     rarityKey: 2
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 32
     manaCost: 0
     addedOptionIds: 000000000000000000000000
     cardDescId: 0
@@ -210,7 +210,7 @@ MonoBehaviour:
     upgradeKey: Card_Pickaxe
     rarityKey: 2
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 32
     manaCost: 0
     addedOptionIds: 000000000000000000000000
     cardDescId: 0
@@ -227,7 +227,7 @@ MonoBehaviour:
     upgradeKey: Card_Slingshot_Enhanced
     rarityKey: 2
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 32
     manaCost: 0
     addedOptionIds: 650000000000000000000000
     cardDescId: 0
@@ -244,7 +244,7 @@ MonoBehaviour:
     upgradeKey: Card_Slingshot
     rarityKey: 2
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 32
     manaCost: 0
     addedOptionIds: 660000000000000000000000
     cardDescId: 0
@@ -261,7 +261,7 @@ MonoBehaviour:
     upgradeKey: Card_CornerCrushingHammer_Enhanced
     rarityKey: 2
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 32
     manaCost: 0
     addedOptionIds: 000000000000000000000000
     cardDescId: 0
@@ -278,7 +278,7 @@ MonoBehaviour:
     upgradeKey: Card_CornerCrushingHammer
     rarityKey: 2
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 32
     manaCost: 0
     addedOptionIds: 000000000000000000000000
     cardDescId: 0
@@ -295,7 +295,7 @@ MonoBehaviour:
     upgradeKey: Card_ConcentratedCrossDrill_Enhanced
     rarityKey: 2
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 32
     manaCost: 0
     addedOptionIds: 000000000000000000000000
     cardDescId: 0
@@ -312,7 +312,7 @@ MonoBehaviour:
     upgradeKey: Card_ConcentratedCrossDrill
     rarityKey: 2
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 32
     manaCost: 0
     addedOptionIds: 000000000000000000000000
     cardDescId: 0
@@ -329,9 +329,9 @@ MonoBehaviour:
     upgradeKey: Card_GoldenAxe_Enhanced
     rarityKey: 2
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 96
     manaCost: 0
-    addedOptionIds: 7c0000000000000000000000
+    addedOptionIds: 000000000000000000000000
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_107
@@ -346,9 +346,9 @@ MonoBehaviour:
     upgradeKey: Card_GoldenAxe
     rarityKey: 2
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 96
     manaCost: 0
-    addedOptionIds: 7c0000000000000000000000
+    addedOptionIds: 000000000000000000000000
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_107
@@ -363,7 +363,7 @@ MonoBehaviour:
     upgradeKey: Card_Large Scissors_Enhanced
     rarityKey: 2
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 32
     manaCost: 0
     addedOptionIds: 000000000000000000000000
     cardDescId: 0
@@ -380,7 +380,7 @@ MonoBehaviour:
     upgradeKey: Card_Large Scissors
     rarityKey: 2
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 32
     manaCost: 0
     addedOptionIds: 000000000000000000000000
     cardDescId: 0
@@ -397,9 +397,9 @@ MonoBehaviour:
     upgradeKey: 0
     rarityKey: 1
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 128
     manaCost: 0
-    addedOptionIds: 670000000000000000000000
+    addedOptionIds: 700000000000000000000000
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_101
@@ -414,9 +414,9 @@ MonoBehaviour:
     upgradeKey: 0
     rarityKey: 2
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 128
     manaCost: 0
-    addedOptionIds: 670000000000000000000000
+    addedOptionIds: 700000000000000000000000
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_124
@@ -431,9 +431,9 @@ MonoBehaviour:
     upgradeKey: 0
     rarityKey: 3
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 128
     manaCost: 0
-    addedOptionIds: 670000000000000000000000
+    addedOptionIds: 700000000000000000000000
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_125
@@ -499,9 +499,9 @@ MonoBehaviour:
     upgradeKey: Card_Adventurer'sTorch_Enhanced
     rarityKey: 3
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 32
     manaCost: 0
-    addedOptionIds: 68000000690000006a000000
+    addedOptionIds: 000000000000000000000000
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_124
@@ -516,9 +516,9 @@ MonoBehaviour:
     upgradeKey: Card_Adventurer'sTorch
     rarityKey: 3
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 32
     manaCost: 0
-    addedOptionIds: 680000006b0000006a000000
+    addedOptionIds: 000000000000000000000000
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_124
@@ -533,9 +533,9 @@ MonoBehaviour:
     upgradeKey: Card_HammerOfMemory_Enhanced
     rarityKey: 3
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 32
     manaCost: 0
-    addedOptionIds: 6c0000000000000000000000
+    addedOptionIds: 000000000000000000000000
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_101
@@ -550,9 +550,9 @@ MonoBehaviour:
     upgradeKey: Card_HammerOfMemory
     rarityKey: 3
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 32
     manaCost: 0
-    addedOptionIds: 6d0000000000000000000000
+    addedOptionIds: 000000000000000000000000
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_101
@@ -567,9 +567,9 @@ MonoBehaviour:
     upgradeKey: Card_RiftStartumAnalysis_Enhanced
     rarityKey: 3
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 32
     manaCost: 0
-    addedOptionIds: 6e0000006f00000070000000
+    addedOptionIds: 000000000000000000000000
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_133
@@ -584,9 +584,9 @@ MonoBehaviour:
     upgradeKey: Card_RiftStartumAnalysis
     rarityKey: 3
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 32
     manaCost: 0
-    addedOptionIds: 710000007200000073000000
+    addedOptionIds: 000000000000000000000000
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Effect_133
@@ -601,7 +601,7 @@ MonoBehaviour:
     upgradeKey: Card_Dummy_101
     rarityKey: 3
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 32
     manaCost: 0
     addedOptionIds: 000000000000000000000000
     cardDescId: 0
@@ -618,7 +618,7 @@ MonoBehaviour:
     upgradeKey: Card_Dummy_100
     rarityKey: 3
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 32
     manaCost: 0
     addedOptionIds: 000000000000000000000000
     cardDescId: 0
@@ -635,7 +635,7 @@ MonoBehaviour:
     upgradeKey: Card_Dummy_201
     rarityKey: 2
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 32
     manaCost: 0
     addedOptionIds: 000000000000000000000000
     cardDescId: 0
@@ -652,7 +652,7 @@ MonoBehaviour:
     upgradeKey: Card_Dummy_200
     rarityKey: 2
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 32
     manaCost: 0
     addedOptionIds: 000000000000000000000000
     cardDescId: 0
@@ -669,7 +669,7 @@ MonoBehaviour:
     upgradeKey: Card_Dummy_301
     rarityKey: 3
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 32
     manaCost: 0
     addedOptionIds: 000000000000000000000000
     cardDescId: 0
@@ -686,7 +686,7 @@ MonoBehaviour:
     upgradeKey: Card_Dummy_300
     rarityKey: 3
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 32
     manaCost: 0
     addedOptionIds: 000000000000000000000000
     cardDescId: 0
@@ -703,7 +703,7 @@ MonoBehaviour:
     upgradeKey: Card_Dummy_401
     rarityKey: 3
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 32
     manaCost: 0
     addedOptionIds: 000000000000000000000000
     cardDescId: 0
@@ -720,10 +720,146 @@ MonoBehaviour:
     upgradeKey: Card_Dummy_400
     rarityKey: 3
     carBit: 1
-    cardTagBit: 0
+    cardTagBit: 32
     manaCost: 0
     addedOptionIds: 000000000000000000000000
     cardDescId: 0
     sortId: 0
     cardGridId: Card_Dummy_Effect_401
     cardImgId: Card_Dummy_Illust_401
+  - cardKeyNew: 42
+    cardKeyString: Card_Add_Test_1
+    cardNameKeyLocal: Card_Add_Test_1_Name
+    cardDescKeyLocal: Card_Add_Test_1_Name_Des
+    cardTypeId: 1
+    charaTypeId: 3
+    upgradeTypeId: 1
+    upgradeKey: Card_Add_Test_2
+    rarityKey: 1
+    carBit: 1
+    cardTagBit: 957
+    manaCost: 0
+    addedOptionIds: 670000000000000000000000
+    cardDescId: 0
+    sortId: 0
+    cardGridId: Card_Effect_101
+    cardImgId: Card_Illust_101
+  - cardKeyNew: 43
+    cardKeyString: Card_Add_Test_2
+    cardNameKeyLocal: Card_Add_Test_2_Name
+    cardDescKeyLocal: Card_Add_Test_2_Name_Des
+    cardTypeId: 1
+    charaTypeId: 3
+    upgradeTypeId: 2
+    upgradeKey: Card_Add_Test_1
+    rarityKey: 1
+    carBit: 1
+    cardTagBit: 32
+    manaCost: 0
+    addedOptionIds: 680000000000000000000000
+    cardDescId: 0
+    sortId: 0
+    cardGridId: Card_Effect_101
+    cardImgId: Card_Illust_101
+  - cardKeyNew: 44
+    cardKeyString: Card_Add_Test_3
+    cardNameKeyLocal: Card_Add_Test_3_Name
+    cardDescKeyLocal: Card_Add_Test_3_Name_Des
+    cardTypeId: 1
+    charaTypeId: 3
+    upgradeTypeId: 1
+    upgradeKey: Card_Add_Test_4
+    rarityKey: 1
+    carBit: 1
+    cardTagBit: 32
+    manaCost: 0
+    addedOptionIds: 6a0000000000000000000000
+    cardDescId: 0
+    sortId: 0
+    cardGridId: Card_Effect_101
+    cardImgId: Card_Illust_101
+  - cardKeyNew: 45
+    cardKeyString: Card_Add_Test_4
+    cardNameKeyLocal: Card_Add_Test_4_Name
+    cardDescKeyLocal: Card_Add_Test_4_Name_Des
+    cardTypeId: 1
+    charaTypeId: 3
+    upgradeTypeId: 2
+    upgradeKey: Card_Add_Test_3
+    rarityKey: 1
+    carBit: 1
+    cardTagBit: 32
+    manaCost: 0
+    addedOptionIds: 6f0000006b00000000000000
+    cardDescId: 0
+    sortId: 0
+    cardGridId: Card_Effect_101
+    cardImgId: Card_Illust_101
+  - cardKeyNew: 46
+    cardKeyString: Card_Add_Test_5
+    cardNameKeyLocal: Card_Add_Test_5_Name
+    cardDescKeyLocal: Card_Add_Test_5_Name_Des
+    cardTypeId: 1
+    charaTypeId: 3
+    upgradeTypeId: 1
+    upgradeKey: Card_Add_Test_6
+    rarityKey: 1
+    carBit: 1
+    cardTagBit: 32
+    manaCost: 0
+    addedOptionIds: 6c0000000000000000000000
+    cardDescId: 0
+    sortId: 0
+    cardGridId: Card_Effect_101
+    cardImgId: Card_Illust_101
+  - cardKeyNew: 47
+    cardKeyString: Card_Add_Test_6
+    cardNameKeyLocal: Card_Add_Test_6_Name
+    cardDescKeyLocal: Card_Add_Test_6_Name_Des
+    cardTypeId: 1
+    charaTypeId: 3
+    upgradeTypeId: 2
+    upgradeKey: Card_Add_Test_5
+    rarityKey: 1
+    carBit: 1
+    cardTagBit: 32
+    manaCost: 0
+    addedOptionIds: 6d0000000000000000000000
+    cardDescId: 0
+    sortId: 0
+    cardGridId: Card_Effect_101
+    cardImgId: Card_Illust_101
+  - cardKeyNew: 48
+    cardKeyString: Card_Add_Test_7
+    cardNameKeyLocal: Card_Add_Test_7_Name
+    cardDescKeyLocal: Card_Add_Test_7_Name_Des
+    cardTypeId: 1
+    charaTypeId: 3
+    upgradeTypeId: 1
+    upgradeKey: Card_Add_Test_8
+    rarityKey: 1
+    carBit: 1
+    cardTagBit: 32
+    manaCost: 0
+    addedOptionIds: 6e0000000000000000000000
+    cardDescId: 0
+    sortId: 0
+    cardGridId: Card_Effect_101
+    cardImgId: Card_Illust_101
+  - cardKeyNew: 49
+    cardKeyString: Card_Add_Test_8
+    cardNameKeyLocal: Card_Add_Test_8_Name
+    cardDescKeyLocal: Card_Add_Test_8_Name_Des
+    cardTypeId: 1
+    charaTypeId: 3
+    upgradeTypeId: 2
+    upgradeKey: Card_Add_Test_7
+    rarityKey: 1
+    carBit: 1
+    cardTagBit: 32
+    manaCost: 0
+    addedOptionIds: 700000000000000000000000
+    cardDescId: 0
+    sortId: 0
+    cardGridId: Card_Effect_101
+    cardImgId: Card_Illust_101

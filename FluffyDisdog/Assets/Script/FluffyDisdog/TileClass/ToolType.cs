@@ -45,6 +45,14 @@ public enum ToolType
     Card_Dummy_301 = 39 ,
     Card_Dummy_400 = 40 ,
     Card_Dummy_401 = 41 ,
-    MAX = 42,
+    Card_Add_Test_1 = 42 ,
+    Card_Add_Test_2 = 43 ,
+    Card_Add_Test_3 = 44 ,
+    Card_Add_Test_4 = 45 ,
+    Card_Add_Test_5 = 46 ,
+    Card_Add_Test_6 = 47 ,
+    Card_Add_Test_7 = 48 ,
+    Card_Add_Test_8 = 49 ,
+    MAX = 50,
 }
 }
