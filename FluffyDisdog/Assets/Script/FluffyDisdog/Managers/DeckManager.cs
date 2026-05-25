@@ -103,6 +103,14 @@ namespace Script.FluffyDisdog.Managers
 
         private event Action<int> onCardUse;
 
+        private event Action<int> onCardDraw;
+
+        public void BindOnCardDraw(Action<int> cardCb)
+        {
+            onCardDraw -= cardCb;
+            onCardDraw += cardCb;
+        }
+
         private int handMax;
 
         private int usedId = 0;
@@ -258,6 +266,7 @@ namespace Script.FluffyDisdog.Managers
 
         private int currentSelected = 0;
         private int currentDigged = 0;
+        public int CurrentRemainCard => hand.Count - currentDigged;
         public void SelectTool(int id)
         {
             currentSelected = id;
@@ -321,23 +330,34 @@ namespace Script.FluffyDisdog.Managers
                 trueDeck.Remove(card);
         }
 
-        /*private void Draw()
+        public CardInGame Draw(bool needCondition=false, Func<CardInGame, bool> drawCondition=null)
         {
-            if (deck == null || deck.Count <= 0)
-            {
-                currentType = ToolType.None;
-                var gameEnd = TileGameManager.I.EndStage();
-                
-                UIStageResultPopup.OpenPopup(gameEnd);
-                
-                return;
-            }
+            if (deckExceptHand.Count <= 0)
+                return null;
             
-            currentType = deck.Pop();
-            onCardDraw?.Invoke(currentType);
-            if(TileGameManager.ExistInstance())
-                TileGameManager.I.PrepareTool(currentType);
-        }*/
+            if (needCondition)
+            {
+                var newCard = deckExceptHand.FirstOrDefault(_=> drawCondition?.Invoke(_) == true);
+                if (newCard != null && newCard.ToolType > ToolType.None)
+                {
+                    hand.Add(newCard);
+                    deckExceptHand.Remove(newCard);
+                    onCardDraw?.Invoke(hand.Count);
+                    
+                    return newCard;
+                }
+
+                return null;
+            }
+            else
+            {
+                var newCard = deckExceptHand[0];
+                hand.Add(newCard);
+                deckExceptHand.Remove(newCard);
+                onCardDraw?.Invoke(hand.Count);
+                return newCard;
+            }
+        }
 
         public List<CardInGame> GetDeckList() => trueDeck;
         public List<CardInGame> GetDeckExceptHand() => deckExceptHand;

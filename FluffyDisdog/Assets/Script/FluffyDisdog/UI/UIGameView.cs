@@ -168,6 +168,7 @@ namespace FluffyDisdog.UI
             TileGameManager.I.OnGameEnd += OnGameEnd;
             
             pnlGrave.gameObject.SetActive(false);
+            DeckManager.I.BindOnCardDraw(DrawCardSingle);
         }
 
         private void SyncRelic()
@@ -206,8 +207,51 @@ namespace FluffyDisdog.UI
             //txtCurrentTool.text = DeckManager.I.Hand[0].ToolType.ToString();
         }
 
+        private bool blockCardTouch = false;
+
+        public void DrawCardSingle(int number)
+        {
+            
+            
+            var current = GameObject.Instantiate(cardPrefab, cardArea);
+            cardPool.Add(current);
+            
+            current.Init(number, DeckManager.I.Hand[number].ToolType, OnCardClicked, OnCardClickCancel, DeckManager.I.Hand[number].ExcelData);
+            current.InitHandler(OnCardHovered, CardSort);
+            current.transform.position = //new Vector3(cardSpace * i, 0, 0);
+                deckPosition.transform.position;
+            currentCard.Add(current);
+            current.gameObject.SetActive(false);
+            
+            DrawCardAnimation(current);
+        }
+
+        private async void DrawCardAnimation(CardPart current)
+        {
+            blockCardTouch = true;
+            CancellationTokenSource token = new CancellationTokenSource();
+            
+            current.transform.position = //new Vector3(cardSpace * i, 0, 0);
+                deckPosition.transform.position;
+            current.gameObject.SetActive(true);
+            var target = cardArea.transform.position + new Vector3(cardSpace * (DeckManager.I.CurrentRemainCard), -250, 0);
+            current.transform.SetAsLastSibling();
+            current.transform.DOMove(target, 0.5f);
+            current.transform.DOScaleX(0, 0.125f)
+                .OnComplete(() =>
+                {
+                    current.Flip(true);
+                    current.transform.DOScaleX(1, 0.25f);
+                    blockCardTouch = false;
+                });
+            await Task.Delay(83, token.Token);
+            
+        }
+        
         private void OnCardClicked(int id, ToolType type)
         {
+            if (blockCardTouch)
+                return;
             txtCurrentTool.gameObject.SetActive(true);
             txtCurrentTool.text = type.ToString();
             currentSelected = id;
@@ -222,6 +266,8 @@ namespace FluffyDisdog.UI
 
         private void OnCardClickCancel()
         {
+            if (blockCardTouch)
+                return;
             txtCurrentTool.gameObject.SetActive(false);
             currentSelected = -1;
             TileGameManager.I.PrepareTool(ToolType.None,-1);
@@ -247,6 +293,8 @@ namespace FluffyDisdog.UI
 
         private void OnCardHovered(int id=0)
         {
+            if (blockCardTouch)
+                return;
             int trId = 0;
             for(int i=0; i< currentCard.Count; i ++)
             {
