@@ -58,6 +58,7 @@ namespace Script.FluffyDisdog.Managers
                 if (((int)tag & 128) != 0)
                 {
                     DeckManager.I.RemoveCard(this);
+                    Debug.Log("소모성 태그 카드 소진.");
                 }
                 else if (((int)tag & 32) != 0)
                 {
@@ -71,12 +72,17 @@ namespace Script.FluffyDisdog.Managers
                     if (currentRatio >= rand)
                     {
                         DeckManager.I.RemoveCard(this);
+                        Debug.Log($"카드 {cardUsedCount}회째 사용. 확률에 의해 파괴");
                     }
+                    else
+                        Debug.Log($"카드 {cardUsedCount}회째 사용.");
                 }
                 else if (((int)tag & 64) != 0)
                 {
                     var tagdata = ExcelManager.I.GetTagData(7);
                     AccountManager.I.AddGold(tagdata.values[0]);
+                    
+                    Debug.Log("골드 획득 태그 발동.");
                 }
             }
             //todo : 여기서 카드 사용 판정내자
