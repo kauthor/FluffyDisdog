@@ -14,38 +14,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rawDatas:
   - id: 101
-    desc: 1
+    cardAddType: 1
     values: 05000000e40c000000000000
   - id: 102
-    desc: 1
+    cardAddType: 1
     values: 070000008813000000000000
   - id: 103
-    desc: 4
+    cardAddType: 4
     values: 010000000000000000000000
   - id: 104
-    desc: 5
+    cardAddType: 5
     values: 010000000100000000000000
   - id: 105
-    desc: 6
+    cardAddType: 6
     values: 020000001027000000000000
   - id: 106
-    desc: 7
+    cardAddType: 7
     values: 020000001027000000000000
   - id: 107
-    desc: 8
+    cardAddType: 8
     values: 020000001027000000000000
   - id: 108
-    desc: 10
+    cardAddType: 10
     values: 030000000000000000000000
   - id: 109
-    desc: 11
+    cardAddType: 11
     values: 010000000700000001000000
   - id: 110
-    desc: 12
+    cardAddType: 12
     values: 010000000100000000000000
   - id: 111
-    desc: 13
+    cardAddType: 13
     values: 010000000000000000000000
   - id: 112
-    desc: 2
+    cardAddType: 2
     values: 102700000000000000000000

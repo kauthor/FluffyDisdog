@@ -10,8 +10,7 @@ namespace FluffyDisdog.CardOptionExecuter
         protected override void OnPreEffect(CardExecuteParam param)
         {
             base.OnPreEffect(param);
-            int amount = //rawData.Values[0];
-                int.Parse( rawData.Desc);
+            int amount = rawData.Values[0];
             if (amount > TileGameManager.I.TileSet.ValidNodeCount)
                 amount = TileGameManager.I.TileSet.ValidNodeCount;
 
