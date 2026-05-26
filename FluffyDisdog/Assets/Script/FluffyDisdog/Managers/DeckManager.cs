@@ -63,10 +63,20 @@ namespace Script.FluffyDisdog.Managers
                 {
                     var seed = SeedManager.I.GetMinor();
                     var rand = seed % 10000;
-                    if (rand  <  Mathf.Min(cardUsedCount,14)*500)
+
+                    var tagdata = ExcelManager.I.GetTagData(6);
+                    
+                    var currentRatio = Mathf.Min(tagdata.values[1], cardUsedCount * tagdata.values[0]);
+
+                    if (currentRatio >= rand)
                     {
                         DeckManager.I.RemoveCard(this);
                     }
+                }
+                else if (((int)tag & 64) != 0)
+                {
+                    var tagdata = ExcelManager.I.GetTagData(7);
+                    AccountManager.I.AddGold(tagdata.values[0]);
                 }
             }
             //todo : 여기서 카드 사용 판정내자
@@ -290,6 +300,7 @@ namespace Script.FluffyDisdog.Managers
                 PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.ToolConsumed, new TurnEventOptionParam());
                 cardUseState[currentSelected] = true;
                 graveyard.Add(hand[currentSelected]);
+                hand[currentSelected].OnCardUsed();
                 TileGameManager.I.PrepareTool(ToolType.None,-1);
                 currentType = ToolType.None;
             }

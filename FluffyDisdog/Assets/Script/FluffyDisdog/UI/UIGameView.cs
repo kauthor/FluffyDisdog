@@ -93,6 +93,15 @@ namespace FluffyDisdog.UI
             }
         }
 
+        private void SyncGoldCallback(int gold)
+        {
+            for (int i = 0; i < goldText.Length; i++)
+            {
+                goldText[i].SetBinary(gold%10);
+                gold = gold/10;
+            }
+        }
+
         public override void Init(UIViewParam param)
         {
             base.Init(param);
@@ -169,6 +178,9 @@ namespace FluffyDisdog.UI
             
             pnlGrave.gameObject.SetActive(false);
             DeckManager.I.BindOnCardDraw(DrawCardSingle);
+
+            AccountManager.I.onGoldChanged -= SyncGoldCallback;
+            AccountManager.I.onGoldChanged += SyncGoldCallback;
         }
 
         private void SyncRelic()
@@ -339,6 +351,7 @@ namespace FluffyDisdog.UI
                 relicPool.Enqueue(re);
             }
             currentRelic.Clear();
+            AccountManager.I.onGoldChanged -= SyncGoldCallback;
         }
 
         private void OnGameEnd(bool clear = false)
