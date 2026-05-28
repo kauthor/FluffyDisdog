@@ -22,7 +22,8 @@ namespace FluffyDisdog
         DistanceDesire, //클릭 위치와의 거리에 의한 확률계산시
         Draw,             //드로우
         ToolCalculateStart, //도구별 타일 계산 시작
-        DigFail            //타일 파괴 실패시
+        DigFail,            //타일 파괴 실패시
+        ToolDestroyed //도구 파괴시
     }
 
     public class TurnEventOptionParam

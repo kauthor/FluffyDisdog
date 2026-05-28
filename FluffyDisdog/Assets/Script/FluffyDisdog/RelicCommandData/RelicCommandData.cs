@@ -34,7 +34,7 @@ namespace FluffyDisdog.RelicCommandData
                 { RelicName.AfterimageTracker, () => new AfterimageTrackerCommandData() },
                 { RelicName.AfterimageEngraving, () => new AfterimageEngravingCommandData() },
                 { RelicName.PrecisionScope, () => new PrecisionScopeCommandData() },
-                { RelicName.HorizontalVerticalStabilizer, () => new HorizontalVerticalStabilizerCommandData() },
+                { RelicName.HorizontalStabilizer, () => new HorizontalStabilizerCommandData() },
             };
 
         public abstract RelicName relicType { get; }

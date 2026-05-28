@@ -59,6 +59,9 @@ namespace FluffyDisdog
         private IntReactiveFluffyProperty currentScore;
         public IntReactiveFluffyProperty CurrentScore => currentScore;
 
+        private int additionalGold = 0;
+        public int AdditionalGold => additionalGold;
+
         private bool isGameRunning
         {
             get;
@@ -140,6 +143,7 @@ namespace FluffyDisdog
         private void InitLevel(LevelData before, int newLevel)
         {
             //일단 임시 데이터로 만든다.
+            additionalGold = 0;
             if(before == null)
                 _levelData = new LevelData(800 , 8);
             else _levelData = new LevelData(
@@ -198,9 +202,11 @@ namespace FluffyDisdog
             else
             {
                 EndScore();
-                UIStageClearPopup.OpenPopup(currentScore.Value/100);
+                UIStageClearPopup.OpenPopup(currentScore.Value/100 + additionalGold);
             }
         }
+        
+        public void GainAdditionalGold(int add) => additionalGold += add;
     }
 }
 

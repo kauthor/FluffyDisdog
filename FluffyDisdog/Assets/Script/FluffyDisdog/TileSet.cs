@@ -470,6 +470,8 @@ namespace FluffyDisdog
             int nodeSubstateCracked = 0;
             int nodeCracked = 0;
             List<TerrainNode> emulateFailed = new List<TerrainNode>();
+            Dictionary<TerrainNode, TileEmulatorOptionParam> emulateCache =
+                new Dictionary<TerrainNode, TileEmulatorOptionParam>();
             for (int i = 0; i < data.cellHeight; i++)
             {
                 int currentH = i + startCoordCol;
@@ -508,13 +510,15 @@ namespace FluffyDisdog
                         {
                             if(ex != null)
                                 ex.ExecuteWhenTileTryInteract(new CardExecuteParam(currentNode,0));
-                            if (currentNode.TryDigThisBlock(data, data.GetRatioValue(j, i) /*+ (int)(addedRate*100.0f)*/))
+                            if (currentNode.TryDigThisBlock(data, data.GetRatioValue(j, i) + (int)calParam.addToolRate /*+ (int)(addedRate*100.0f)*/))
                             {
                                 nodeCracked++;
                                 PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.TileDigged, calParam);
                                 if(ex != null)
                                     ex.ExecuteWhenTileSuccess(new CardExecuteParam(currentNode,0));
-                                ShowAndGainScore(calParam, currentNode);
+                                //ShowAndGainScore(calParam, currentNode);
+                                emulateCache.Add(currentNode,calParam);
+                                //0528 이거... 점수 계산 및 데미지폰트 표시 시점을 뒤로 미룬다.
                             }
                             else
                             {
@@ -536,11 +540,6 @@ namespace FluffyDisdog
                         nodeCracked++;
                         crackSubOn = true;
                     }
-                    
-                    //여기서 도구 파괴여부 체크.
-                    
-                    
-                    
                 }
             }
             
@@ -553,10 +552,17 @@ namespace FluffyDisdog
             
             if(nodeCracked > 0)
             {
-                PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.EndCrack, new OnEndCrackParam()
+                var endCrackParam = new OnEndCrackParam()
                 {
                     digged = nodeCracked,
-                });
+                };
+                PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.EndCrack, endCrackParam);
+
+                foreach (var pair in emulateCache)
+                {
+                    pair.Value.addedScoreMulti += endCrackParam.addedScoreRate;
+                    ShowAndGainScore(pair.Value, pair.Key);
+                }
                 SoundManager.I.PlaySfxRandom(new SoundDesc[2]
                 {
                     SoundDesc.TileDestroy1Sfx, SoundDesc.TileDestroy2Sfx

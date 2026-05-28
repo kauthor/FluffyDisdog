@@ -29,7 +29,8 @@ namespace FluffyDisdog.Data.RelicData
         AfterimageTracker=119,
         AfterimageEngraving=120,
         PrecisionScope=121,
-        HorizontalVerticalStabilizer=122
+        HorizontalStabilizer=122,
+        VerticalStabilizer=123,
     }
 
     public static class RelicNameExtension

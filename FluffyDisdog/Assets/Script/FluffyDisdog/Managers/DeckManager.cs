@@ -57,6 +57,7 @@ namespace Script.FluffyDisdog.Managers
                 var tag = excelData.ToolTag;
                 if (((int)tag & 128) != 0)
                 {
+                    PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.ToolDestroyed);
                     DeckManager.I.RemoveCard(this);
                     Debug.Log("소모성 태그 카드 소진.");
                 }
@@ -71,6 +72,7 @@ namespace Script.FluffyDisdog.Managers
 
                     if (currentRatio >= rand)
                     {
+                        PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.ToolDestroyed);
                         DeckManager.I.RemoveCard(this);
                         Debug.Log($"카드 {cardUsedCount}회째 사용. 확률에 의해 파괴");
                     }

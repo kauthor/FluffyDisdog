@@ -1,5 +1,6 @@
 using FluffyDisdog.Data.RelicData;
 using Script.FluffyDisdog.Managers;
+using UnityEngine;
 
 namespace FluffyDisdog.RelicCommandData
 {
@@ -12,7 +13,9 @@ namespace FluffyDisdog.RelicCommandData
             base.OnExecuteCommand(param);
             if (param is TileEmulatorOptionParam dig)
             {
-                dig.target.SubstateSystem.SetState(NodeSubstate.Crack);
+                var rand = Random.Range(0, 10000);
+                if(rand < rawData.Values[0])
+                   dig.target.SubstateSystem.SetState(NodeSubstate.Crack);
             }
         }
 

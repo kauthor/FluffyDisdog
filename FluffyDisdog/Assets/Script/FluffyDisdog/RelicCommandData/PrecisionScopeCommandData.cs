@@ -19,7 +19,11 @@ namespace FluffyDisdog.RelicCommandData
                 var ydist = cparam.clickedCoord.Item2 - cparam.targetCoord.Item2;
                 ydist = Mathf.Abs(ydist);
                 
-                cparam.addToolRate += (xdist + ydist) * rawData.Values[0];
+                int dist = ydist + xdist;
+                if (dist > 0 && dist <= rawData.Values.Length)
+                {
+                    cparam.addToolRate += rawData.Values[dist - 1] / 10000.0f;
+                }
             }
         }
 
