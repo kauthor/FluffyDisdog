@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Script.FluffyDisdog.Managers;
 using UnityEngine;
 
 namespace FluffyDisdog.CardOptionExecuter
@@ -21,13 +22,21 @@ namespace FluffyDisdog.CardOptionExecuter
             base.OnPostEffect(param);
             if (param is AfterEmulateParam emul)
             {
+                var calParam = new TileEmulatorOptionParam()
+                {
+                
+                };
+                PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.ToolCalculateStart, calParam);
                 if (rawData.Values[0] <= emul.successed)
                 {
                     Debug.Log($"10번 옵션 성공. 타격 성공 타일 : {emul.successed} 성공 필요량 {rawData.Values[0]}");
                     foreach (TerrainNode n in emul.EmulateFailed)
                     {
-                        if(n.ValidNode() && !n.isObstacle)
+                        if (n.ValidNode() && !n.isObstacle)
+                        {
                             n.TryDigBlockForce();
+                            TileGameManager.I.TileSet.ShowAndGainScore(calParam, n);
+                        }
                     }
                 }
             }

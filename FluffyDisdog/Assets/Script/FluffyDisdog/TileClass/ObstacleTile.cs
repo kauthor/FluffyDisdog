@@ -12,7 +12,7 @@ namespace Script.FluffyDisdog.TileClass
         {
             var type = TileGameManager.I.CurrentTool;
             var data = ExcelManager.I.GetToolCardOpData(type);
-            if (data.CardAddType == 13 && data.Values[0] == 1)
+            if (data!=null && data.CardAddType == 13 && data.Values[0] == 1)
             {
                 parentTileSet.TryAddExecutedNode(node);
                 node.EnableNode(false);
@@ -29,7 +29,7 @@ namespace Script.FluffyDisdog.TileClass
         {
             var type = TileGameManager.I.CurrentTool;
             var data = ExcelManager.I.GetToolCardOpData(type);
-            if (data.CardAddType == 13 && data.Values[0] == 2)
+            if (data!=null && data.CardAddType == 13 && data.Values[0] == 2)
             {
                 parentTileSet.TryAddExecutedNode(node);
                 node.EnableNode(false);
@@ -46,7 +46,7 @@ namespace Script.FluffyDisdog.TileClass
         {
             var type = TileGameManager.I.CurrentTool;
             var data = ExcelManager.I.GetToolCardOpData(type);
-            if (data.CardAddType == 13 && data.Values[0] == 3)
+            if (data!=null && data.CardAddType == 13 && data.Values[0] == 3)
             {
                 parentTileSet.TryAddExecutedNode(node);
                 node.EnableNode(false);
@@ -66,7 +66,7 @@ namespace Script.FluffyDisdog.TileClass
         {
             var type = TileGameManager.I.CurrentTool;
             var data = ExcelManager.I.GetToolCardOpData(type);
-            if (data.CardAddType == 13 && data.Values[0] == 4)
+            if (data!=null && data.CardAddType == 13 && data.Values[0] == 4)
             {
                 parentTileSet.TryAddExecutedNode(node);
                 node.EnableNode(false);
@@ -84,7 +84,7 @@ namespace Script.FluffyDisdog.TileClass
         {
             var type = TileGameManager.I.CurrentTool;
             var data = ExcelManager.I.GetToolCardOpData(type);
-            if (data.CardAddType == 13 && data.Values[0] == 5)
+            if (data!=null && data.CardAddType == 13 && data.Values[0] == 5)
             {
                 parentTileSet.TryAddExecutedNode(node);
                 node.EnableNode(false);

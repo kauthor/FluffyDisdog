@@ -25,9 +25,9 @@ namespace FluffyDisdog.CardOptionExecuter
             //addedRate+= calParam.addRate;
             for (int i = 0; i < amount; i++)
             {
-                if (Random.Range(0, 10000) < rawData.Values[0])
+                if (Random.Range(0, 10000) < rawData.Values[1])
                 {
-                    Debug.Log($"1번 옵션 성공. 성공률 {rawData.Values[0]}");
+                    Debug.Log($"1번 옵션 성공. 성공률 {rawData.Values[1]}");
                     var tile = TileGameManager.I.TileSet.GetRandomNode(_=>_.ValidNode()&&!_.isObstacle);
                     tile.TryDigBlockForce();
                     TileGameManager.I.TileSet.ShowAndGainScore(calParam, tile);

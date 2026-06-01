@@ -346,7 +346,7 @@ namespace FluffyDisdog
             if ((int)currentState >= (int)NodeState.Digged)
                 return false;
             TileGameManager.I.GameLog.AttackTile();
-            if (rate >= 100 || (rate >0 && _substateSystem.Is(NodeSubstate.Crack)))
+            if (rate >= 100 || ( _substateSystem.Is(NodeSubstate.Crack)))
             {
                 Executer?.Execute();
                 
@@ -355,29 +355,14 @@ namespace FluffyDisdog
 
 
             int rand = Random.Range(0, 100);
+            
             if (rand <= rate && rate > 0)
             {
-                
                 Executer?.Execute();
                 return true;
             }
-            else
-            {
-                //todo : 카드 옵션 모듈 개편되면...
-                /*switch (data.option)
-                {
-                    case ToolAdditionalOption.ChangeCrackWhenFail:
-                        _substateSystem.SetState(NodeSubstate.Crack);
-                        break;
-                    case ToolAdditionalOption.ChangeFlagueWhenFail:
-                        _substateSystem.SetState(NodeSubstate.Infest);
-                        break;
-                }
-                return false;*/
-                return false;
-            }
 
-            //여기에서 게임 매니저에 점수 호출
+            return false;
         }
 
         public void TryDigBlockForce()
@@ -415,6 +400,13 @@ namespace FluffyDisdog
                         break;
                 }
             }*/
+        }
+
+        public void ExecuteNodeForce()
+        {
+            if ((int)currentState >= (int)NodeState.Digged)
+                return;
+            Executer?.Execute();
         }
         
 

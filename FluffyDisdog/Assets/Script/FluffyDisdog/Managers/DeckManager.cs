@@ -121,7 +121,7 @@ namespace Script.FluffyDisdog.Managers
 
         private event Action<int> onCardUse;
 
-        private event Action<int> onCardDraw;
+        private event Action<int>onCardDraw;
 
         public void BindOnCardDraw(Action<int> cardCb)
         {
@@ -177,6 +177,9 @@ namespace Script.FluffyDisdog.Managers
             }
 
             var rand = new Random();
+#if UNITY_EDITOR
+            if (!debugMod)
+#endif
             trueDeck = trueDeck.OrderBy(_ => rand.Next()).ToList();
 
             //일단은 타일을 클릭하면 드로우 하게 하자

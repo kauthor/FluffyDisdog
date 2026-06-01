@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using FluffyDisdog.Data;
 using Script.FluffyDisdog.Managers;
 using Sirenix.OdinInspector;
@@ -39,6 +40,8 @@ namespace FluffyDisdog.UI
         private bool isSelected = false;
         public bool IsSelected => isSelected;
 
+        private bool onDrawing = true;
+
         private void Awake()
         {
             btnClickArea.onClick.RemoveAllListeners();
@@ -75,6 +78,7 @@ namespace FluffyDisdog.UI
             onClickCanceledCb = onCancelCb;
             Select(false);
             Flip(false);
+            onDrawing = true;
 
             if (data != null)
             {
@@ -123,6 +127,9 @@ namespace FluffyDisdog.UI
             imgBackward?.gameObject.SetActive(!front);
             tagAndIconArea?.SetActive(front);
         }
+
+        public bool OnDrawing() => onDrawing;
+        public void CompleteDraw() => onDrawing = false;
 
         public void Select(bool sel)
         {

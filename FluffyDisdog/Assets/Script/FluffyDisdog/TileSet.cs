@@ -456,10 +456,11 @@ namespace FluffyDisdog
             
             //이것도 추후 타일처럼 디자인패턴화 시키자...
             var beforeScore = TileGameManager.I.CurrentScore.Value;
-            PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.TileClicked, new TileClickedParam()
+            var tileClickPreEmulate = new TileClickedParam()
             {
                 targetNode = clicked
-            });
+            };
+            PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.TileClicked, tileClickPreEmulate);
 
             var data = ExcelManager.I.GetToolData(currentType);
             int startCoordCol = coord.Item2 - data.CenterColumn;
@@ -472,6 +473,11 @@ namespace FluffyDisdog
             List<TerrainNode> emulateFailed = new List<TerrainNode>();
             Dictionary<TerrainNode, TileEmulatorOptionParam> emulateCache =
                 new Dictionary<TerrainNode, TileEmulatorOptionParam>();
+            if (tileClickPreEmulate.executedNodes != null && tileClickPreEmulate.executedNodes.Count > 0)
+            {
+                nodeCracked += tileClickPreEmulate.executedNodes.Count;
+            }
+            
             for (int i = 0; i < data.cellHeight; i++)
             {
                 int currentH = i + startCoordCol;
@@ -512,7 +518,8 @@ namespace FluffyDisdog
                                 ex.ExecuteWhenTileTryInteract(new CardExecuteParam(currentNode,0));
                             if (currentNode.TryDigThisBlock(data, data.GetRatioValue(j, i) + (int)calParam.addToolRate /*+ (int)(addedRate*100.0f)*/))
                             {
-                                nodeCracked++;
+                                if(!currentNode.ValidNode())
+                                    nodeCracked++;
                                 PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.TileDigged, calParam);
                                 if(ex != null)
                                     ex.ExecuteWhenTileSuccess(new CardExecuteParam(currentNode,0));
@@ -527,19 +534,21 @@ namespace FluffyDisdog
                                 var hitfail = GameObject.Instantiate(hitfailPrefab, damageParent);
                                 hitfail.transform.position = currentNode.transform.position;
                             }
+                            
+                            var tileParam = new CardExecuteParam(currentNode, preEndParamOut);
+                            bool current = currentNode.SubstateSystem.Is(NodeSubstate.Crack);
+                            if(ex != null) ex.ExecuteTileEffect(tileParam);
+                            preEndParamOut = param.output;
+                            bool after = currentNode.SubstateSystem.Is(NodeSubstate.Crack);
+                            if (!current && after)
+                            {
+                                nodeCracked++;
+                                crackSubOn = true;
+                            }
                         }
                     }
 
-                    var tileParam = new CardExecuteParam(currentNode, preEndParamOut);
-                    bool current = currentNode.SubstateSystem.Is(NodeSubstate.Crack);
-                    if(ex != null) ex.ExecuteTileEffect(tileParam);
-                    preEndParamOut = param.output;
-                    bool after = currentNode.SubstateSystem.Is(NodeSubstate.Crack);
-                    if (!current && after)
-                    {
-                        nodeCracked++;
-                        crackSubOn = true;
-                    }
+                    
                 }
             }
             
@@ -561,7 +570,8 @@ namespace FluffyDisdog
                 foreach (var pair in emulateCache)
                 {
                     pair.Value.addedScoreMulti += endCrackParam.addedScoreRate;
-                    ShowAndGainScore(pair.Value, pair.Key);
+                    if(!pair.Key.ValidNode())
+                       ShowAndGainScore(pair.Value, pair.Key);
                 }
                 SoundManager.I.PlaySfxRandom(new SoundDesc[2]
                 {
