@@ -20,6 +20,7 @@ namespace FluffyDisdog.UI
         GameOver=10,
         ScoreBoard=11,
         StageClear=12,
+        UpgradeSelect=13,
     }
 
     public class PopupManager:CustomSingleton<PopupManager>

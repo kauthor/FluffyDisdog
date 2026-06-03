@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using ExcelDataReader;
 using FluffyDisdog;
 using FluffyDisdog.Data;
@@ -100,7 +101,7 @@ namespace Editor
                             int cardType = int.Parse(data5);
                             int charType= int.Parse(data6);
                             int upType= int.Parse(data7);
-                            string upKey= data8;
+                            ToolType upKey= (ToolType)Enum.Parse(typeof(ToolType), data8);
                             int rarity= int.Parse(data9);
                             int bit= int.Parse(data10);
                             int tagBit= int.Parse(data11);
