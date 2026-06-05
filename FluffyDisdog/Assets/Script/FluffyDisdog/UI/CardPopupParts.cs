@@ -173,7 +173,8 @@ namespace FluffyDisdog.UI
             }
             hoverArea.SetActive(false);
             imgSelected.SetActive(false);
-            pnlUpgradeDismiss.gameObject.SetActive(false);
+            if(pnlUpgradeDismiss!=null)
+               pnlUpgradeDismiss?.gameObject.SetActive(false);
         }
 
 
