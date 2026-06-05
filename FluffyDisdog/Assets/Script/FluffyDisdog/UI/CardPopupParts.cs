@@ -1,4 +1,5 @@
 ﻿using System;
+using FluffyDisdog.Data;
 using Script.FluffyDisdog.Managers;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
@@ -30,6 +31,8 @@ namespace FluffyDisdog.UI
         [SerializeField] private Image[] tagIcons;
         [SerializeField] private GameObject[] tags;
         [SerializeField] private GameObject soldOut;
+
+        [SerializeField] private GameObject pnlUpgradeDismiss;
 
         [FoldoutGroup("Selectable")] [SerializeField]
         private GameObject hoverArea;
@@ -104,6 +107,8 @@ namespace FluffyDisdog.UI
             soldOut.SetActive(false);
         }
 
+        private ToolExcelData rawData;
+
         public void Init(ToolType type, int amount, bool showTag=true)
         {
             selected = false;
@@ -117,6 +122,7 @@ namespace FluffyDisdog.UI
             soldOut.SetActive(false);
 
             var data = ExcelManager.I.GetToolExcelData(type);
+            rawData = data;
             var localDesc = ExcelManager.I.GetLocalizeData(data.CardDescKeyLocal);
             var localName = ExcelManager.I.GetLocalizeData(data.CardNameKeyLocal);
             txtType.text = localName.kor;
@@ -167,6 +173,28 @@ namespace FluffyDisdog.UI
             }
             hoverArea.SetActive(false);
             imgSelected.SetActive(false);
+            if(pnlUpgradeDismiss!=null)
+               pnlUpgradeDismiss?.gameObject.SetActive(false);
+        }
+
+
+        public void InitAsUpgradeHandler()
+        {
+            if (rawData != null)
+            {
+                rawData = ExcelManager.I.GetToolExcelData(_toolType);
+            }
+
+            if (rawData != null && rawData.UpgradeTypeId != 1)
+            {
+                btnClickArea.interactable = false;
+                pnlUpgradeDismiss.gameObject.SetActive(true);
+            }
+            else
+            {
+                btnClickArea.interactable = true;
+                pnlUpgradeDismiss.gameObject.SetActive(false);
+            }
         }
 
         public void InitAsSelectable(Func<bool> indicator)

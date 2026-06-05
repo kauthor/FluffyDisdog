@@ -101,7 +101,7 @@ namespace FluffyDisdog.UI
                 UIDeckListPopup.OpenPopup();
             });
             
-            requestDayFlow.text = ($"DAY - {TileGameManager.I.RequestSystem.ReqRewardLevelAdd+1}");
+            requestDayFlow.text = ($"DAY - {TileGameManager.I.RequestSystem.DayFlow}");
 
             List<int> usedRelic=new List<int>();
             var curRelic = TileGameManager.I.RelicSystem.currentRelicDatas;
@@ -233,7 +233,7 @@ namespace FluffyDisdog.UI
 
                 for (int i = 0; i < requestCheckImg.Length; i++)
                 {
-                    requestCheckImg[i].SetActive(i <= TileGameManager.I.RequestSystem.ReqRewardLevelAdd);
+                    requestCheckImg[i].SetActive(i < TileGameManager.I.RequestSystem.ReqRewardLevelAdd);
                 }
 
                 requestAddPrice = ExcelManager.I.GetRequestData(TileGameManager.I.RequestSystem.ReqDegree).cost;

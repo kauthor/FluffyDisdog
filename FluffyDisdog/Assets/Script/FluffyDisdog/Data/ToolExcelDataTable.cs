@@ -17,7 +17,7 @@ namespace FluffyDisdog.Data
         [SerializeField] private int cardTypeId;
         [SerializeField] private int charaTypeId;
         [SerializeField] private int upgradeTypeId;
-        [SerializeField] private string upgradeKey;
+        [SerializeField] private ToolType upgradeKey;
         [SerializeField] private int rarityKey;
         [SerializeField] private int carBit;
         [SerializeField] private int cardTagBit;
@@ -35,7 +35,7 @@ namespace FluffyDisdog.Data
         public int CardTypeId => cardTypeId;
         public int CharaTypeId => charaTypeId;
         public int UpgradeTypeId => upgradeTypeId;
-        public string UpgradeKey => upgradeKey;
+        public ToolType UpgradeKey => upgradeKey;
         public int RarityKey => rarityKey;
         public int CarBit => carBit;
         public ToolTag ToolTag => (ToolTag)cardTagBit;
@@ -56,7 +56,7 @@ namespace FluffyDisdog.Data
             this.optionValue = val;*/
         }
 
-        public ToolExcelData(int id,string key,string localNKey,string localDKey,int cardType,int charType, int upType, string upKey, int rarity, int bit, int tagBit, int mana, int[] addOpId1,
+        public ToolExcelData(int id,string key,string localNKey,string localDKey,int cardType,int charType, int upType, ToolType upKey, int rarity, int bit, int tagBit, int mana, int[] addOpId1,
             int cardDexId, int sort, string gridId, string imgId)
         {
             this.cardKeyNew = (ToolType)(id - 101);

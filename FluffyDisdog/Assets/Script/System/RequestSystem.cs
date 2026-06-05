@@ -18,6 +18,8 @@ namespace FluffyDisdog
         public bool IsReqRunning => isReqRunning;
         public int ReqRewardLevelAdd => reqRewardLevelAdd;
         public int ReqDegree => reqDegree;
+        
+        public int DayFlow => TileGameManager.I.currentLevel - reqStartLevel;
 
         private int defaultSuccessRate=40;
         public int DefaultSuccessRate => defaultSuccessRate;
@@ -58,8 +60,26 @@ namespace FluffyDisdog
                 add = (int)data.Values[0];
             }
 
+            var reqData = ExcelManager.I.GetRequestData(reqDegree);
             var box = ExcelManager.I.GetRequestData(reqDegree).successBoxId;
-            var boxData = ExcelManager.I.GetBoxItemData(box);
+            var failBox = ExcelManager.I.GetRequestData(reqDegree).failBoxId;
+            if (failBox == 0)
+                failBox = box;  //데이터 없을 때를 위한 예외처리
+            var superBox = ExcelManager.I.GetRequestData(reqDegree).successBoxId; //잭팟이... 없다?
+            
+            
+            var successRate = reqData.successRate + reqData.successRateInvest * reqRewardLevelAdd + 
+                              reqData.successRatePerVisit * DayFlow;
+            
+            var jackpotRate = reqData.jackpotRate +
+                              reqData.jackpotRateInvest * DayFlow;
+            
+            bool success = Random.Range(0,10000) < successRate;
+            bool jackPot = Random.Range(0, 10000) < jackpotRate;
+
+            var boxData = success == false
+                ? ExcelManager.I.GetBoxItemData(failBox)
+                : (jackPot ? ExcelManager.I.GetBoxItemData(superBox) : ExcelManager.I.GetBoxItemData(box));
 
             bool opengacha = false;
             foreach (var item in boxData)
@@ -73,6 +93,8 @@ namespace FluffyDisdog
                         if (!opengacha)
                         {
                             opengacha = true;
+                            
+                            
                             UICardPackResultPopup.OpenPopup(item.rewardValue,0);
                         }
 
@@ -82,7 +104,7 @@ namespace FluffyDisdog
 
             reqRewardLevelAdd = 0;
             reqDegree = 0;
-            
+            reqStartLevel = 0;
             
             return false;
         }
