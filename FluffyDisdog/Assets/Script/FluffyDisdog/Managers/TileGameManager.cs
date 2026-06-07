@@ -50,6 +50,9 @@ namespace FluffyDisdog
         public TileSet TileSet => _tileSet;
         private RequestSystem _requestSystem;
         public RequestSystem RequestSystem => _requestSystem;
+        
+        private ScoreBoardSystem _scoreBoardSystem;
+        public ScoreBoardSystem ScoreBoardSystem => _scoreBoardSystem;
 
         private ToolType currentTool = ToolType.None;
         private int currentId = 0;
@@ -94,6 +97,7 @@ namespace FluffyDisdog
             await UniTask.WaitUntil(() => GameManager.I.Initialized);
             PlayerManager.I.Init();
             relicSystem.InitStageRelic();
+            _scoreBoardSystem.Init(relicSystem);
             scoreEmulator=new TileScoreEmulator();
             OnGameEnd = null;
             
@@ -118,6 +122,8 @@ namespace FluffyDisdog
         {
             _requestSystem = new RequestSystem();
             _requestSystem.Init();
+            
+            _scoreBoardSystem=new ScoreBoardSystem();
             AccountManager.I.ResetGoldOnGameStart();
 
             relicSystem = new RelicSystem(PlayerManager.I);
