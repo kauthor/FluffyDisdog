@@ -29,16 +29,24 @@ namespace FluffyDisdog
         [SerializeField] private int testSeed=-1;
         [SerializeField] private Transform damageParent;
         [SerializeField] private Animation shakeAnim;
+        
+        [SerializeField] private GameObject treasurePrefab;
+        
+        [SerializeField] private Transform treasureParent;
+        private Stack<GameObject> treasurePool = new Stack<GameObject>();
+        private Stack<GameObject> currentTreasure = new Stack<GameObject>();
         private TerrainNode[] nodes => currentLevelSet.Nodes;
         private int row => currentLevelSet.Row;
 
         private int currentLevel = 0;
         private TileLevel currentLevelSet;
+        public TileLevel CurrentLevelSet => currentLevelSet;
         private event Action OnNodeClickedCB;
 
         private int validNodeCount = 0;
         public int ValidNodeCount => validNodeCount;
 
+        private TreasureSystem _treasureSystem;
         /// <summary>
         /// -1 : 꺼진 일반타일.
         /// 0 : 켜진 일반타일
@@ -69,6 +77,7 @@ namespace FluffyDisdog
             //nodes = nodesParent.GetComponentsInChildren<TerrainNode>();
             
             fontPool = new Stack<DamageFontPart>();
+            _treasureSystem = new TreasureSystem();
         }
 
         public async UniTask InitGame(int level =1)
@@ -106,6 +115,57 @@ namespace FluffyDisdog
                     tileArray[j + i * initialRow] = newtile;
                 }
             }
+            
+            //todo : 보물을 생성한다. 일단은... 4개까지 나올 떄 최적화 된 방식으로다가....
+            
+            _treasureSystem.ClearAndInit();
+            int hiddenSuccess = 0;
+            bool[] quadInit=new bool[4] {false,false,false,false};
+
+            if (currentTreasure.Count > 0)
+            {
+                for (; currentTreasure.Count > 0;)
+                {
+                    var current = currentTreasure.Pop();
+                    treasurePool.Push(current);
+                }
+            }
+
+            int trMax = 0;
+            List<int> treasureCoord=new List<int>();
+            while (hiddenSuccess < trMax)
+            {
+                int quadDiv = Random.Range(0, 4); 
+                if(quadInit[quadDiv]) continue;
+
+                hiddenSuccess++;
+                quadInit[quadDiv]=true;
+                
+                int xCoord = rand.Next(0, 10000) % ( (initialRow-3) /2) + (quadDiv%2==0? 0: (initialRow /2));
+                int yCoord = rand.Next(0, 10000) % ( (initialColume-3) /2) + (quadDiv/2==0? 0: (initialColume /2));
+                _treasureSystem.TryGenerateTreasure(3,2,1, xCoord,yCoord,this);
+                for (int j = 0; j < 2; j++)
+                {
+                    for (int i = 0; i < 3; i++)
+                    {
+                        treasureCoord.Add((j+yCoord)*row + i + xCoord);
+                    }
+                }
+
+                GameObject newTr;
+                if (treasurePool.Count > 0)
+                {
+                    newTr = treasurePool.Pop();
+                }
+                else
+                {
+                    newTr = GameObject.Instantiate(treasurePrefab,treasureParent.transform);
+                }
+                currentTreasure.Push(newTr);
+                newTr.transform.localPosition = new Vector3(-86.7f + (xCoord+1.5f)*25, 86.5f - (yCoord+1)*25, 0);
+            }
+            
+            
 
             int[] obsTargets = new int[obstacleAmount];
             for (int i = 0; i < obsTargets.Length; i++)
@@ -122,7 +182,7 @@ namespace FluffyDisdog
             while (obsSuccess < obstacleAmount)
             {
                 int nextRand = rand.Next(0, 10000) % (initialRow * initialColume);
-                if(obsTargets.Contains(nextRand))
+                if(obsTargets.Contains(nextRand) || treasureCoord.Contains(nextRand))
                     continue;
 
                 obsTargets[obsSuccess++] = nextRand;
@@ -269,6 +329,20 @@ namespace FluffyDisdog
             }
         }
 
+        /// <summary>
+        /// -1 : 꺼진 일반타일.
+        /// 0 : 켜진 일반타일
+        /// 1~5 : 장애물타일
+        /// 6~10 : 보물타일
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        public int GetNodeCondition(int x, int y)
+        {
+            return nodeConditions[row*y +x];
+        }
+
         public void SwapAllTiles()
         {
             var len = nodeConditions.Length;
@@ -302,6 +376,7 @@ namespace FluffyDisdog
             
             TileGameManager.I.GameLog.DestroyTile();
         }
+        
 
         public void ShowAndGainScore(TileEmulatorOptionParam param, TerrainNode target)
         {
