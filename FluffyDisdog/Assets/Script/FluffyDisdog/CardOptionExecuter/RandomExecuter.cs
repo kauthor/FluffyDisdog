@@ -18,7 +18,11 @@ namespace FluffyDisdog.CardOptionExecuter
             //float addedRate = 0;
             var calParam = new TileEmulatorOptionParam()
             {
-                
+                toolType = ToolType.None,
+                clicked = param.target,
+                target = param.target,
+                clickedCoord = param.target.Coord,
+                targetCoord = param.target.Coord,
             };
             PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.ToolCalculateStart, calParam);
                     

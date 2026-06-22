@@ -390,7 +390,11 @@ namespace FluffyDisdog
                 Executer?.Execute();
                 PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.TileDigged, new TileEmulatorOptionParam()
                 {
+                    toolType = ToolType.None,
+                    clicked = this,
                     target = this,
+                    clickedCoord = this.Coord,
+                    targetCoord = this.Coord,
                 });
                 
                 return;
