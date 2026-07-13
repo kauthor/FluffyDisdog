@@ -77,6 +77,8 @@ namespace FluffyDisdog.UI
         
         private CardSelectType _selectType=CardSelectType.NONE;
 
+        private Action<bool> onHoveredGlobal;
+
         private void Awake()
         {
             btnClickArea.onClick.RemoveAllListeners();
@@ -207,6 +209,8 @@ namespace FluffyDisdog.UI
         {
             OnCLicked = cb;
         }
+        
+        public void BindHoverHandler(Action<bool> cb) => onHoveredGlobal = cb;
 
         public void Unselect()
         {
@@ -226,11 +230,13 @@ namespace FluffyDisdog.UI
                 txtSelectTMP?.SetColor(selectable() ? selectableColor : unselectableColor);
                 txtSelectTMP?.SetOutlineColor(selectable() ? selectableOutlineColor : unselectableOutlineColor);
             }
+            onHoveredGlobal?.Invoke(true);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
             hoverArea.SetActive(false);
+            onHoveredGlobal?.Invoke(false);
         }
     }
 }

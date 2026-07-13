@@ -677,6 +677,7 @@ MonoBehaviour:
   - {fileID: 4461059747023596564}
   - {fileID: 6942247954597562759}
   - {fileID: 2019636905381773911}
+  btnScoreBoardOpen: {fileID: 8981022519075433335}
   deckPosition: {fileID: 7901547223335146630}
   btnDeckList: {fileID: 4954024430695890546}
   btnShowGrave: {fileID: 1026471910446212111}

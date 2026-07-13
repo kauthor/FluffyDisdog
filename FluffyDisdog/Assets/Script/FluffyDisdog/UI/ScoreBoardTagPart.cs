@@ -40,7 +40,7 @@ namespace FluffyDisdog.UI
             var multi = TileGameManager.I.ScoreEmulator.GetTagMulti(tag);
             txtMulti.text = Math.Round(multi, 3).ToString();
             txtBaseScore.text = "100";
-            onBookmarkClicked = onBookmarkClicked;
+            OnBookmarkClicked = onBookmarkClicked;
             bool on = PlayerManager.I.TagBookmark.Contains(tag);
             SetBookmark(on);
         }

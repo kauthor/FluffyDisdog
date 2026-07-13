@@ -27,6 +27,7 @@ namespace FluffyDisdog.UI
         [SerializeField] private int cardSpace = 70;
         
         [SerializeField] private BinaryGoldPrefab[] goldText;
+        [SerializeField] private Button btnScoreBoardOpen;
         public override UIType type => UIType.InGame;
 
         private List<CardPart> cardPool;
@@ -79,6 +80,12 @@ namespace FluffyDisdog.UI
             {
                 relicScrollView.content.anchoredPosition = relicScrollView.content.anchoredPosition
                                                            + new Vector2(40, 0);
+            });
+            
+            btnScoreBoardOpen.onClick.RemoveAllListeners();
+            btnScoreBoardOpen.onClick.AddListener(() =>
+            {
+                UIScoreBoardPopup.OpenPopup();
             });
         }
 

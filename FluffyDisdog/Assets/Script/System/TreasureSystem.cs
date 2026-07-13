@@ -29,6 +29,8 @@ namespace FluffyDisdog
 
         public void OnDiscovered()
         {
+            if (activated)
+                return;
             int condition = 0;
             for (int j = 0; j < column; j++)
             {
@@ -43,6 +45,8 @@ namespace FluffyDisdog
             if (condition >= amountToUnbox)
             {
                 //todo : 여기에다가 팝업 등장을... 넣자.
+                SoundManager.I.PlaySFX(SoundDesc.CoinSfx);
+                activated = true;
             }
         }
     }

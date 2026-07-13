@@ -131,7 +131,7 @@ namespace FluffyDisdog
                 }
             }
 
-            int trMax = 0;
+            int trMax = 1;
             List<int> treasureCoord=new List<int>();
             while (hiddenSuccess < trMax)
             {
@@ -143,7 +143,7 @@ namespace FluffyDisdog
                 
                 int xCoord = rand.Next(0, 10000) % ( (initialRow-3) /2) + (quadDiv%2==0? 0: (initialRow /2));
                 int yCoord = rand.Next(0, 10000) % ( (initialColume-3) /2) + (quadDiv/2==0? 0: (initialColume /2));
-                _treasureSystem.TryGenerateTreasure(3,2,1, xCoord,yCoord,this);
+                _treasureSystem.TryGenerateTreasure(2,3,1, xCoord,yCoord,this);
                 for (int j = 0; j < 2; j++)
                 {
                     for (int i = 0; i < 3; i++)
@@ -162,7 +162,7 @@ namespace FluffyDisdog
                     newTr = GameObject.Instantiate(treasurePrefab,treasureParent.transform);
                 }
                 currentTreasure.Push(newTr);
-                newTr.transform.localPosition = new Vector3(-86.7f + (xCoord+1.5f)*25, 86.5f - (yCoord+1)*25, 0);
+                newTr.transform.localPosition = new Vector3(-86.7f + (xCoord+0.5f)*25, 86.5f - (yCoord+1)*25, 0);
             }
             
             

@@ -55,7 +55,8 @@ namespace FluffyDisdog.UI
             
             foreach (var tilePart in tileParts)
                 tilePart.Init(Sort);
-            
+            tagArea.gameObject.SetActive(true);
+            tileArea.gameObject.SetActive(false);
         }
         
         
