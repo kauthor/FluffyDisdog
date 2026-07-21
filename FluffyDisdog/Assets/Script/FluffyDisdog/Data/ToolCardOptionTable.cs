@@ -8,17 +8,20 @@ namespace FluffyDisdog.Data
     public class ToolCardOpData
     {
         [SerializeField] private int id;
-        [SerializeField] private string desc;
+        //[SerializeField] private string desc;
+        [SerializeField] private int cardAddType;
         [SerializeField] private int[] values;
 
         public int Id => id;
-        public string Desc => desc;
+        //public string Desc => desc;
+        public int CardAddType => cardAddType;
         public int[] Values => values;
 
-        public ToolCardOpData(int id, string desc, int[] values)
+        public ToolCardOpData(int id, int add, int[] values)
         {
             this.id = id;
-            this.desc = desc;
+            //this.desc = desc;
+            this.cardAddType = add;
             this.values = values;
         }
     }

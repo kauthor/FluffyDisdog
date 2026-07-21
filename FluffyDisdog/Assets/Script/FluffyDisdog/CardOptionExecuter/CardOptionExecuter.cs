@@ -36,17 +36,40 @@ namespace FluffyDisdog.CardOptionExecuter
         public static CardOptionExecuter MakeCardAddOptionExecuter(ToolCardOpData data)
         {
             CardOptionExecuter ret;
-            switch (data.Id)
+            switch (data.CardAddType)
             {
-                case 101:
-                case 102:
+                case 1:
                     ret = new RandomExecuter();
                     break;
-                case 103:
+                case 2:
                     ret = new CrackExecuter();
                     break;
-                case 104:
+                case 3:
                     ret = new DarkLitExecuter();
+                    break;
+                case 4:
+                    ret = new TreasureInteractExecuter();
+                    break;
+                case 5:
+                    ret = new ObstacleInteractExecuter();
+                    break;
+                case 6:
+                    ret = new CrackCrushExecuter();
+                    break;
+                case 7:
+                    ret = new TreasureCrushExecuter();
+                    break;
+                case 8:
+                    ret = new ObstacleCrushExecuter();
+                    break;
+                case 10:
+                    ret = new CrushAllInteractedExecuter();
+                    break;
+                case 11:
+                    ret = new DrawGoldCardExecuter();
+                    break;
+                case 12:
+                    ret = new LineClearExecuter();
                     break;
                 default:
                     ret = new CardOptionExecuter();

@@ -100,6 +100,15 @@ namespace FluffyDisdog.UI
             }
         }
 
+        private void SyncGoldCallback(int gold)
+        {
+            for (int i = 0; i < goldText.Length; i++)
+            {
+                goldText[i].SetBinary(gold%10);
+                gold = gold/10;
+            }
+        }
+
         public override void Init(UIViewParam param)
         {
             base.Init(param);
@@ -176,6 +185,9 @@ namespace FluffyDisdog.UI
             
             pnlGrave.gameObject.SetActive(false);
             DeckManager.I.BindOnCardDraw(DrawCardSingle);
+
+            AccountManager.I.onGoldChanged -= SyncGoldCallback;
+            AccountManager.I.onGoldChanged += SyncGoldCallback;
         }
 
         private void SyncRelic()
@@ -204,7 +216,7 @@ namespace FluffyDisdog.UI
                     });
                 await Task.Delay(83, token.Token);
 
-                
+                card.CompleteDraw();
                 i++;
             }
             currentSelected = -1;
@@ -223,7 +235,7 @@ namespace FluffyDisdog.UI
             var current = GameObject.Instantiate(cardPrefab, cardArea);
             cardPool.Add(current);
             
-            current.Init(number, DeckManager.I.Hand[number].ToolType, OnCardClicked, OnCardClickCancel, DeckManager.I.Hand[number].ExcelData);
+            current.Init(number-1, DeckManager.I.Hand[number-1].ToolType, OnCardClicked, OnCardClickCancel, DeckManager.I.Hand[number-1].ExcelData);
             current.InitHandler(OnCardHovered, CardSort);
             current.transform.position = //new Vector3(cardSpace * i, 0, 0);
                 deckPosition.transform.position;
@@ -241,7 +253,7 @@ namespace FluffyDisdog.UI
             current.transform.position = //new Vector3(cardSpace * i, 0, 0);
                 deckPosition.transform.position;
             current.gameObject.SetActive(true);
-            var target = cardArea.transform.position + new Vector3(cardSpace * (DeckManager.I.CurrentRemainCard), -250, 0);
+            var target = cardArea.transform.position + new Vector3(cardSpace * (DeckManager.I.CurrentRemainCard-2), -250, 0);
             current.transform.SetAsLastSibling();
             current.transform.DOMove(target, 0.5f);
             current.transform.DOScaleX(0, 0.125f)
@@ -252,7 +264,7 @@ namespace FluffyDisdog.UI
                     blockCardTouch = false;
                 });
             await Task.Delay(83, token.Token);
-            
+            current.CompleteDraw();
         }
         
         private void OnCardClicked(int id, ToolType type)
@@ -322,6 +334,8 @@ namespace FluffyDisdog.UI
             {
                 if(!currentCard[i].gameObject.activeSelf)
                     continue;
+                if(currentCard[i].OnDrawing())
+                    continue;
                 currentCard[i].transform.SetSiblingIndex(trId);
                 
                 currentCard[i].transform.localPosition = 
@@ -346,6 +360,7 @@ namespace FluffyDisdog.UI
                 relicPool.Enqueue(re);
             }
             currentRelic.Clear();
+            AccountManager.I.onGoldChanged -= SyncGoldCallback;
         }
 
         private void OnGameEnd(bool clear = false)

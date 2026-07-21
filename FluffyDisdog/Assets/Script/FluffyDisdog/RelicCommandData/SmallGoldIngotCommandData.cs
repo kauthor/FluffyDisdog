@@ -1,5 +1,6 @@
 ﻿using FluffyDisdog.Data.RelicData;
 using Script.FluffyDisdog.Managers;
+using UnityEngine;
 
 namespace FluffyDisdog.RelicCommandData
 {
@@ -16,7 +17,10 @@ namespace FluffyDisdog.RelicCommandData
         protected override void OnExecuteCommand(TurnEventOptionParam param)
         {
             base.OnExecuteCommand(param);
-            //TileGameManager.I.AddScore((int)(AccountManager.I.Gold * rawData.Values[0]));
+            var currentGold = Mathf.Min(rawData.Values[2], AccountManager.I.Gold);
+            
+            var mult = ((int)currentGold )/ (int)rawData.Values[0];
+            TileGameManager.I.AddScore(mult*(int)rawData.Values[1]);
         }
     }
 }

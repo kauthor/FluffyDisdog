@@ -1393,3 +1393,56 @@ MonoBehaviour:
     kor: "<#efefe9> \u25A0</color> 99% \uD30C\uAD34<br><#49e3da> \u25A0</color> 75%
       \uD30C\uAD34 <br><#fbc531> \u25A0</color> 1% \uD30C\uAD34"
     eng: Dummy_Text
+  - key: Card_Add_Test_1_Name
+    kor: "\uB354\uBBF8 \uCE74\uB4DC 1"
+    eng: Dummy_Text
+  - key: Card_Add_Test_2_Name
+    kor: "\uB354\uBBF8 \uCE74\uB4DC 2"
+    eng: Dummy_Text
+  - key: Card_Add_Test_3_Name
+    kor: "\uB354\uBBF8 \uCE74\uB4DC 3"
+    eng: Dummy_Text
+  - key: Card_Add_Test_4_Name
+    kor: "\uB354\uBBF8 \uCE74\uB4DC 4"
+    eng: Dummy_Text
+  - key: Card_Add_Test_5_Name
+    kor: "\uB354\uBBF8 \uCE74\uB4DC 5"
+    eng: Dummy_Text
+  - key: Card_Add_Test_6_Name
+    kor: "\uB354\uBBF8 \uCE74\uB4DC 6"
+    eng: Dummy_Text
+  - key: Card_Add_Test_7_Name
+    kor: "\uB354\uBBF8 \uCE74\uB4DC 7"
+    eng: Dummy_Text
+  - key: Card_Add_Test_8_Name
+    kor: "\uB354\uBBF8 \uCE74\uB4DC 8"
+    eng: Dummy_Text
+  - key: Card_Add_Test_1_Name_Des
+    kor: "\uB3C4\uC6C0 \uD0C0\uC77C \uD0C0\uACA9\uC2DC 1\uACE8\uB4DC"
+    eng: Dummy_Text
+  - key: Card_Add_Test_2_Name_Des
+    kor: "\uBC29\uD574 \uD0C0\uC77C \uD0C0\uACA9\uC2DC 1\uACE8\uB4DC"
+    eng: Dummy_Text
+  - key: Card_Add_Test_3_Name_Des
+    kor: "\uB3C4\uC6C0 \uD0C0\uC77C \uD30C\uAD34\uC2DC 2\uACE8\uB4DC"
+    eng: Dummy_Text
+  - key: Card_Add_Test_4_Name_Des
+    kor: "\uBC29\uD574 \uD0C0\uC77C \uD30C\uAD34\uC2DC 2\uACE8\uB4DC<br>\uBC29\uD574\uD0C0\uC77C
+      \uD0C0\uACA9 \uAC00\uB2A5"
+    eng: Dummy_Text
+  - key: Card_Add_Test_5_Name_Des
+    kor: "\uD0C0\uC77C 3\uAC1C \uD30C\uAD34\uC2DC \uD0C0\uACA9\uB41C \uBAA8\uB4E0
+      \uD0C0\uC77C \uD30C\uAD34"
+    eng: Dummy_Text
+  - key: Card_Add_Test_6_Name_Des
+    kor: "\uD0C0\uC77C 1\uAC1C \uD30C\uAD34\uC2DC \uD669\uAE08 \uD0DC\uADF8 \uCE74\uB4DC
+      \uB4DC\uB85C\uC6B0"
+    eng: Dummy_Text
+  - key: Card_Add_Test_7_Name_Des
+    kor: "\uD0C0\uC77C 1\uAC1C \uD30C\uAD34\uC2DC \uAC00\uB85C\uBC29\uD5A5 \uC77C\uBC18\uD0C0\uC77C
+      \uC804\uCCB4 \uD30C\uAD34"
+    eng: Dummy_Text
+  - key: Card_Add_Test_8_Name_Des
+    kor: "\uD0C0\uACA9\uD55C \uD0C0\uC77C \uC911 \uD30C\uAD34\uB418\uC9C0 \uC54A\uC740
+      \uBAA8\uB4E0 \uD0C0\uC77C \uADE0\uC5F4"
+    eng: Dummy_Text

@@ -1,10 +1,14 @@
-﻿namespace FluffyDisdog
+﻿using System;
+
+namespace FluffyDisdog
 {
     public class AccountManager : CustomSingleton<AccountManager>
     {
         private int gold;
 
         public int Gold => gold;
+        
+        public event Action<int> onGoldChanged;
 
         protected override void Awake()
         {
@@ -19,12 +23,14 @@
             if (amount > gold)
                 return false;
             gold -= amount;
+            onGoldChanged?.Invoke(gold);
             return true;
         }
 
         public void AddGold(int amount)
         {
             gold += amount;
+            onGoldChanged?.Invoke(gold);
         }
         
     }

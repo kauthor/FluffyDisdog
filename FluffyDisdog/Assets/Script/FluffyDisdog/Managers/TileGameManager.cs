@@ -50,6 +50,9 @@ namespace FluffyDisdog
         public TileSet TileSet => _tileSet;
         private RequestSystem _requestSystem;
         public RequestSystem RequestSystem => _requestSystem;
+        
+        private ScoreBoardSystem _scoreBoardSystem;
+        public ScoreBoardSystem ScoreBoardSystem => _scoreBoardSystem;
 
         private ToolType currentTool = ToolType.None;
         private int currentId = 0;
@@ -58,6 +61,9 @@ namespace FluffyDisdog
         public LevelData LevelData => _levelData;
         private IntReactiveFluffyProperty currentScore;
         public IntReactiveFluffyProperty CurrentScore => currentScore;
+
+        private int additionalGold = 0;
+        public int AdditionalGold => additionalGold;
 
         private bool isGameRunning
         {
@@ -91,6 +97,7 @@ namespace FluffyDisdog
             await UniTask.WaitUntil(() => GameManager.I.Initialized);
             PlayerManager.I.Init();
             relicSystem.InitStageRelic();
+            _scoreBoardSystem.Init(relicSystem);
             scoreEmulator=new TileScoreEmulator();
             OnGameEnd = null;
             
@@ -115,6 +122,8 @@ namespace FluffyDisdog
         {
             _requestSystem = new RequestSystem();
             _requestSystem.Init();
+            
+            _scoreBoardSystem=new ScoreBoardSystem();
             AccountManager.I.ResetGoldOnGameStart();
 
             relicSystem = new RelicSystem(PlayerManager.I);
@@ -140,6 +149,7 @@ namespace FluffyDisdog
         private void InitLevel(LevelData before, int newLevel)
         {
             //일단 임시 데이터로 만든다.
+            additionalGold = 0;
             if(before == null)
                 _levelData = new LevelData(800 , 8);
             else _levelData = new LevelData(
@@ -198,9 +208,11 @@ namespace FluffyDisdog
             else
             {
                 EndScore();
-                UIStageClearPopup.OpenPopup(currentScore.Value/100);
+                UIStageClearPopup.OpenPopup(currentScore.Value/100 + additionalGold);
             }
         }
+        
+        public void GainAdditionalGold(int add) => additionalGold += add;
     }
 }
 

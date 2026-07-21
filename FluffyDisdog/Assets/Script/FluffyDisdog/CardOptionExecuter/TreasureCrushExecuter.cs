@@ -12,6 +12,7 @@ namespace FluffyDisdog.CardOptionExecuter
                 return;
             if (param.target.isTreasure)
             {
+                Debug.Log($"7번 옵션 성공. 성공률 {rawData.Values[0]}");
                 AccountManager.I.AddGold(rawData.Values[0]);
             }
         }

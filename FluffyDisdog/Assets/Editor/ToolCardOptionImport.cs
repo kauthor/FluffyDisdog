@@ -59,7 +59,7 @@ namespace Editor
                             string data5 = rows[j][4].ToString();
                             
                             int id = int.Parse(data1);
-                            string desc = data2;
+                            int desc = int.Parse(data2);
                             int[] val = new int[3]
                             {
                                 int.Parse(data3),int.Parse(data4),int.Parse(data5)

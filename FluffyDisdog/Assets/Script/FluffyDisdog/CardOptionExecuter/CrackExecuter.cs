@@ -8,8 +8,11 @@ namespace FluffyDisdog.CardOptionExecuter
         {
             base.OnExecuteTileEffect(param);
             var rate = Random.Range(0, 10000);
-            if(rate <= rawData.Values[0])
-               param.target.SubstateSystem.SetState(NodeSubstate.Crack);
+            if (rate <= rawData.Values[0])
+            {
+                param.target.SubstateSystem.SetState(NodeSubstate.Crack);
+                Debug.Log($"2번 옵션 성공. 성공률 {rawData.Values[0]}");
+            }
             TileGameManager.I.TileSet.HitFail(param.target);
         }
     }

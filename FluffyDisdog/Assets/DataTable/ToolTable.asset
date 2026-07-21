@@ -265,3 +265,51 @@ MonoBehaviour:
     ratio: 64000000
     interact: 00
     Center: 0
+  - type: 42
+    cellWidth: 1
+    cellHeight: 1
+    ratio: 00000000
+    interact: 01
+    Center: 0
+  - type: 43
+    cellWidth: 1
+    cellHeight: 1
+    ratio: 00000000
+    interact: 01
+    Center: 0
+  - type: 44
+    cellWidth: 1
+    cellHeight: 1
+    ratio: 64000000
+    interact: 01
+    Center: 0
+  - type: 45
+    cellWidth: 1
+    cellHeight: 1
+    ratio: 64000000
+    interact: 01
+    Center: 0
+  - type: 46
+    cellWidth: 5
+    cellHeight: 5
+    ratio: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000006400000064000000640000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    interact: 01010101010101010101010101010101010101010101010101
+    Center: 12
+  - type: 47
+    cellWidth: 1
+    cellHeight: 1
+    ratio: 64000000
+    interact: 01
+    Center: 0
+  - type: 48
+    cellWidth: 1
+    cellHeight: 1
+    ratio: 64000000
+    interact: 01
+    Center: 0
+  - type: 49
+    cellWidth: 3
+    cellHeight: 3
+    ratio: 000000000000000000000000000000000000000000000000000000000000000000000000
+    interact: 010001000100010001
+    Center: 4

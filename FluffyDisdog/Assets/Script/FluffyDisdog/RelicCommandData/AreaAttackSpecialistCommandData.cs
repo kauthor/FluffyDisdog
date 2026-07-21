@@ -26,7 +26,7 @@ namespace FluffyDisdog.RelicCommandData
             {
                 if (eparam.digged >= rawData.Values[0])
                 {
-                    eparam.addedScoreRate += rawData.Values[1];
+                    eparam.addedScoreRate += rawData.Values[1] -1;
                 }
             }
         }

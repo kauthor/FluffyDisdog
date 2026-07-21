@@ -1,0 +1,56 @@
+카드 에드 테스트 결과
+
+    1.	랜덤 일반 타일 타격 (구현 확인 필요)
+    파괴 적용 안됨
+
+    2.	타격 지점 균열 부여 (구현 확인 필요)
+    범위가 아닌 타격점에 균열 부여
+    타격판정이 있어도 타일이 부서지지 않음
+
+    4.	도움 타일 타격 시 골드 획득 (정상 작동)
+    골드 획득 확인
+
+    5.	방해 타일 타격 시 골드 획득 (정상 작동)
+    골드 획득 확인
+
+    6.	균열 타일 파괴 시 골드 획득 (구현 확인 필요)
+    골드 획득 확인
+    방해 타일을 타격 시 점수가 들어오는 버그가 있음
+
+    7.	도움 타일 파괴 시 골드 획득 (구현 확인 필요)
+    방해 타일을 타격 시 점수가 들어오는 버그가 있음
+    골드 획득 확인
+
+    8.	방해 타일 파괴 시 골드 획득 (확인 불가)
+    13번으로 인하여 파괴처리가 안됨 확인불가.
+
+    10.	타일 (value_1) 파괴 시 타격된 모든 타일 파괴 (구현 확인 필요)
+    전체 파괴 확인
+    단, 타격되지 않은(파괴된) 타일에 점수가 안들어옴
+
+    11.	타일 n(value_1) 파괴 시 특정 태그(value_2) 카드 m(value_3)장 드로우 (구현 확인 필요)
+    타일 파괴시 태그 카드를 못 불러옴 unity log 첨부
+ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+System.Collections.Generic.List`1[T].get_Item (System.Int32 index) (at <34c8028f8a3946349d8f0d77e409a1ae>:0)
+FluffyDisdog.UI.UIGameView.DrawCardSingle (System.Int32 number) (at Assets/Script/FluffyDisdog/UI/UIGameView.cs:231)
+Script.FluffyDisdog.Managers.DeckManager.Draw (System.Boolean needCondition, System.Func`2[T,TResult] drawCondition) (at Assets/Script/FluffyDisdog/Managers/DeckManager.cs:362)
+FluffyDisdog.CardOptionExecuter.DrawGoldCardExecuter.OnPostEffect (FluffyDisdog.CardOptionExecuter.CardExecuteParam param) (at Assets/Script/FluffyDisdog/CardOptionExecuter/DrawGoldCardExecuter.cs:19)
+FluffyDisdog.CardOptionExecuter.CardOptionExecuter.PostEffect (FluffyDisdog.CardOptionExecuter.CardExecuteParam param) (at Assets/Script/FluffyDisdog/CardOptionExecuter/CardOptionExecuter.cs:111)
+FluffyDisdog.TileSet.OnNodeClicked (System.Tuple`2[T1,T2] coord) (at Assets/Script/FluffyDisdog/TileSet.cs:550)
+FluffyDisdog.TerrainNode.OnClick () (at Assets/Script/FluffyDisdog/TerrainNode.cs:327)
+UnityEngine.Events.InvokableCall.Invoke () (at <bc88c87c01184d1499d92d3b79a10ce6>:0)
+UnityEngine.Events.UnityEvent.Invoke () (at <bc88c87c01184d1499d92d3b79a10ce6>:0)
+UnityEngine.UI.Button.Press () (at Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Button.cs:70)
+UnityEngine.UI.Button.OnPointerClick (UnityEngine.EventSystems.PointerEventData eventData) (at Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Button.cs:114)
+UnityEngine.EventSystems.ExecuteEvents.Execute (UnityEngine.EventSystems.IPointerClickHandler handler, UnityEngine.EventSystems.BaseEventData eventData) (at Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/ExecuteEvents.cs:57)
+UnityEngine.EventSystems.ExecuteEvents.Execute[T] (UnityEngine.GameObject target, UnityEngine.EventSystems.BaseEventData eventData, UnityEngine.EventSystems.ExecuteEvents+EventFunction`1[T1] functor) (at Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/ExecuteEvents.cs:272)
+UnityEngine.EventSystems.EventSystem:Update() (at Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:514)
+    
+    12.	타일 n(value_1) 파괴 시 특정 방향(value_2) 일반 타일 전체 파괴 (구현 확인 필요)
+    전체 파괴 확인
+    단, 타격되지 않은(파괴된) 타일에 점수가 안들어옴
+    피격범위(타격 %가 있는)로 방해 타일 타격 시 방해 타일(혼돈)이 작동하지 않음
+    
+    13.	특정 방해 타일 타격 가능 (구현 확인 필요)
+    점수 획득 확인, 그러나 타일이 파괴되지 않음

@@ -57,16 +57,34 @@ namespace Script.FluffyDisdog.Managers
                 var tag = excelData.ToolTag;
                 if (((int)tag & 128) != 0)
                 {
+                    PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.ToolDestroyed);
                     DeckManager.I.RemoveCard(this);
+                    Debug.Log("소모성 태그 카드 소진.");
                 }
                 else if (((int)tag & 32) != 0)
                 {
                     var seed = SeedManager.I.GetMinor();
                     var rand = seed % 10000;
-                    if (rand  <  Mathf.Min(cardUsedCount,14)*500)
+
+                    var tagdata = ExcelManager.I.GetTagData(6);
+                    
+                    var currentRatio = Mathf.Min(tagdata.values[1], cardUsedCount * tagdata.values[0]);
+
+                    if (currentRatio >= rand)
                     {
+                        PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.ToolDestroyed);
                         DeckManager.I.RemoveCard(this);
+                        Debug.Log($"카드 {cardUsedCount}회째 사용. 확률에 의해 파괴");
                     }
+                    else
+                        Debug.Log($"카드 {cardUsedCount}회째 사용.");
+                }
+                else if (((int)tag & 64) != 0)
+                {
+                    var tagdata = ExcelManager.I.GetTagData(7);
+                    AccountManager.I.AddGold(tagdata.values[0]);
+                    
+                    Debug.Log("골드 획득 태그 발동.");
                 }
             }
             //todo : 여기서 카드 사용 판정내자
@@ -103,7 +121,7 @@ namespace Script.FluffyDisdog.Managers
 
         private event Action<int> onCardUse;
 
-        private event Action<int> onCardDraw;
+        private event Action<int>onCardDraw;
 
         public void BindOnCardDraw(Action<int> cardCb)
         {
@@ -159,6 +177,9 @@ namespace Script.FluffyDisdog.Managers
             }
 
             var rand = new Random();
+#if UNITY_EDITOR
+            if (!debugMod)
+#endif
             trueDeck = trueDeck.OrderBy(_ => rand.Next()).ToList();
 
             //일단은 타일을 클릭하면 드로우 하게 하자
@@ -290,6 +311,7 @@ namespace Script.FluffyDisdog.Managers
                 PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.ToolConsumed, new TurnEventOptionParam());
                 cardUseState[currentSelected] = true;
                 graveyard.Add(hand[currentSelected]);
+                hand[currentSelected].OnCardUsed();
                 TileGameManager.I.PrepareTool(ToolType.None,-1);
                 currentType = ToolType.None;
             }
