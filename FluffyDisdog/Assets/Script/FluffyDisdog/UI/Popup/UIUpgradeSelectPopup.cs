@@ -19,6 +19,9 @@ namespace FluffyDisdog.UI
 
         [FoldoutGroup("Upgrade Desire")]
         [SerializeField] private GameObject pnlUpgrade;
+        
+        [FoldoutGroup("Upgrade Desire")]
+        [SerializeField] private GameObject pnlSelect;
 
         [FoldoutGroup("Upgrade Desire")] [SerializeField]
         private CardPopupParts before;
@@ -78,6 +81,8 @@ namespace FluffyDisdog.UI
 
             foreach (var pair in deck)
             {
+                if(pair.ExcelData.UpgradeTypeId <2 )
+                    continue;
                 var newSlot = GameObject.Instantiate(cardPrefab, cardParent);
                 newSlot.transform.localScale = Vector3.one / 2.0f;
                 newSlot.Init(pair.ToolType, 0);
@@ -86,6 +91,8 @@ namespace FluffyDisdog.UI
             }
 
             onResult = cb;
+
+            pnlUpgrade.gameObject.SetActive(false);
         }
         
         
@@ -97,6 +104,9 @@ namespace FluffyDisdog.UI
             var beforeData = ExcelManager.I.GetToolExcelData(tool);
             var afterData = ExcelManager.I.GetToolExcelData((ToolType)(beforeData.UpgradeKey));
             after.Init(afterData.CardKey,0);
+            
+            pnlSelect.gameObject.SetActive(true);
+            pnlSelect.gameObject.SetActive(false);
         }
     }
 }

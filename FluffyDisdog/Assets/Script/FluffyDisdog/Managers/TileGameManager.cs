@@ -177,6 +177,10 @@ namespace FluffyDisdog
 
         public void SubscribeCurrentScore(Action<int> cb)
             => currentScore?.Subscribe(cb);
+        
+        
+        public void MultiplyScore(float value)
+        => currentScore.ChangeValue( (int)(currentScore.Value * value));
 
 
         public void EndScore()
