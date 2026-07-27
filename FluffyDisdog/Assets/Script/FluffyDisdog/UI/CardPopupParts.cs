@@ -174,6 +174,8 @@ namespace FluffyDisdog.UI
             _selectType = CardSelectType.Selectable;
             selectable = indicator;
         }
+        private Action<bool> onHoveredGlobal;
+        public void BindHoverHandler(Action<bool> cb) => onHoveredGlobal = cb;
 
         public void BindHandler(Action<ToolType, CardPopupParts> cb)
         {
@@ -198,11 +200,13 @@ namespace FluffyDisdog.UI
                 txtSelectTMP?.SetColor(selectable() ? selectableColor : unselectableColor);
                 txtSelectTMP?.SetOutlineColor(selectable() ? selectableOutlineColor : unselectableOutlineColor);
             }
+            onHoveredGlobal?.Invoke(true);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
             hoverArea.SetActive(false);
+            onHoveredGlobal?.Invoke(false);
         }
     }
 }

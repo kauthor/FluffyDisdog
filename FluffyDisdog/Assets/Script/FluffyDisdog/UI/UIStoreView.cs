@@ -73,6 +73,9 @@ namespace FluffyDisdog.UI
         [FoldoutGroup("Request")] [SerializeField]
         private GameObject requestAddDisableBlur;
 
+        
+        [SerializeField] private GameObject imgStoreKeeperStand;
+        [SerializeField] private GameObject imgStoreKeeperPressed;
         private int requestAddPrice;
 
         [SerializeField]private Text txtRequestAddPrice;
@@ -213,12 +216,22 @@ namespace FluffyDisdog.UI
             specialCardSlot[0].Init(limit1Tool, 0);
             specialCardSlot[0].BindHandler(OnBuySpecialCard);
             specialCardSlot[0].gameObject.SetActive(true);
+            specialCardSlot[0].BindHoverHandler(_ =>
+            {
+                imgStoreKeeperPressed.gameObject.SetActive(_);
+                imgStoreKeeperStand.gameObject.SetActive(!_);
+            });
             limit1Cost = ExcelManager.I.GetShopCost(limit1.rewardValue);
             txtSpecialPrice[0].SetText($"{limit1Cost} G");
             
             specialCardSlot[1].Init(limit2Tool, 0);
             specialCardSlot[1].BindHandler(OnBuySpecialCard);
             specialCardSlot[1].gameObject.SetActive(true);
+            specialCardSlot[1].BindHoverHandler(_ =>
+            {
+                imgStoreKeeperPressed.gameObject.SetActive(_);
+                imgStoreKeeperStand.gameObject.SetActive(!_);
+            });
             limit2Cost = ExcelManager.I.GetShopCost(limit2.rewardValue);
             txtSpecialPrice[1].SetText($"{limit2Cost} G");
             
