@@ -24,12 +24,12 @@ namespace Script.FluffyDisdog.Managers
         private int cardUsedCount = 0;
         public int CardUsedCount => cardUsedCount;
         
-        private CardOptionExecuter executer;
-        public CardOptionExecuter Executor => executer;
+        private CardOptionExecuter[] executer;
+        public CardOptionExecuter[] Executor => executer;
         private int deckId;
         public int DeckId => deckId;
 
-        private ToolCardOpData rawOpData;
+        private ToolCardOpData[] rawOpData;
         private ToolExcelData excelData;
         public ToolExcelData ExcelData => excelData;
 
@@ -41,7 +41,13 @@ namespace Script.FluffyDisdog.Managers
             if (cardData != null)
             {
                 rawOpData = cardData;
-                executer = CardOptionExecuter.MakeCardAddOptionExecuter(cardData);
+                var list = new List<CardOptionExecuter>();
+                for (int i = 0; i < cardData.Length; i++)
+                {
+                    if(cardData[i] != null)
+                       list.Add( CardOptionExecuter.MakeCardAddOptionExecuter(cardData[i]));
+                }
+                executer = list.ToArray();
             }
             //executer.InitCommandData();
             this.deckId = deckId;
@@ -190,7 +196,7 @@ namespace Script.FluffyDisdog.Managers
             graveyard = new List<CardInGame>();
         }
 
-        public void PreEffect(CardExecuteParam param)
+        /*public void PreEffect(CardExecuteParam param)
         {
             if(currentCard!=null)
                 currentCard.Executor.PreEffect(param);
@@ -206,7 +212,7 @@ namespace Script.FluffyDisdog.Managers
         {
             if(currentCard!=null)
                 currentCard.Executor.PostEffect(param);
-        }
+        }*/
 
         public void TryAddDeck(ToolType tool)
         {
