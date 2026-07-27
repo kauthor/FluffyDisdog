@@ -126,7 +126,7 @@ namespace FluffyDisdog
                     continue;
 
                 obsTargets[obsSuccess++] = nextRand;
-                tileArray[nextRand].RuntimePropertyInit(NodeType.Obstacle, (ObstacleType)rand.Next(0,5), TreasureType.None);
+                tileArray[nextRand].RuntimePropertyInit(NodeType.Obstacle, (ObstacleType) (rand.Next(0,2)==0?2:4), TreasureType.None);
             }
             
             int treSuccess = 0;
