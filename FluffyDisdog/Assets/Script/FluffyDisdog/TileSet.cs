@@ -186,7 +186,7 @@ namespace FluffyDisdog
                     continue;
 
                 obsTargets[obsSuccess++] = nextRand;
-                tileArray[nextRand].RuntimePropertyInit(NodeType.Obstacle, (ObstacleType)rand.Next(0,5), TreasureType.None);
+                tileArray[nextRand].RuntimePropertyInit(NodeType.Obstacle, (ObstacleType) (rand.Next(0,2)==0?2:4), TreasureType.None);
             }
             
             int treSuccess = 0;
@@ -527,7 +527,7 @@ namespace FluffyDisdog
             var ex = DeckManager.I.CurrentCard.Executor;
             
             if(ex != null)
-               ex.PreEffect(param);
+               ex.ForEach(_=>_.PreEffect(param));
             
             //이것도 추후 타일처럼 디자인패턴화 시키자...
             var beforeScore = TileGameManager.I.CurrentScore.Value;
@@ -590,14 +590,14 @@ namespace FluffyDisdog
                         if (data.GetInteractable(j, i))
                         {
                             if(ex != null)
-                                ex.ExecuteWhenTileTryInteract(new CardExecuteParam(currentNode,0));
+                                ex.ForEach(_=>_.ExecuteWhenTileTryInteract(new CardExecuteParam(currentNode,0)));
                             if (currentNode.TryDigThisBlock(data, data.GetRatioValue(j, i) + (int)calParam.addToolRate /*+ (int)(addedRate*100.0f)*/))
                             {
                                 if(!currentNode.ValidNode())
                                     nodeCracked++;
                                 PlayerManager.I.TurnEventSystem.FireEvent(TurnEvent.TileDigged, calParam);
                                 if(ex != null)
-                                    ex.ExecuteWhenTileSuccess(new CardExecuteParam(currentNode,0));
+                                    ex.ForEach(_=>_.ExecuteWhenTileSuccess(new CardExecuteParam(currentNode,0)));
                                 //ShowAndGainScore(calParam, currentNode);
                                 emulateCache.Add(currentNode,calParam);
                                 //0528 이거... 점수 계산 및 데미지폰트 표시 시점을 뒤로 미룬다.
@@ -612,7 +612,7 @@ namespace FluffyDisdog
                             
                             var tileParam = new CardExecuteParam(currentNode, preEndParamOut);
                             bool current = currentNode.SubstateSystem.Is(NodeSubstate.Crack);
-                            if(ex != null) ex.ExecuteTileEffect(tileParam);
+                            if(ex != null) ex.ForEach(_=>_.ExecuteTileEffect(tileParam));
                             preEndParamOut = param.output;
                             bool after = currentNode.SubstateSystem.Is(NodeSubstate.Crack);
                             if (!current && after)
@@ -630,7 +630,7 @@ namespace FluffyDisdog
             var afterScore = TileGameManager.I.CurrentScore.Value;
             var endParam = new AfterEmulateParam(clicked, emulateFailed,nodeCracked);
             
-            if(ex != null) ex.PostEffect(endParam);
+            if(ex != null) ex.ForEach(_=>_.PostEffect(endParam));
             
             float ret = param.output;
             

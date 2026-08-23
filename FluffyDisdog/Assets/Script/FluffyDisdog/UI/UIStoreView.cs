@@ -36,9 +36,6 @@ namespace FluffyDisdog.UI
 
         [SerializeField] private int storeValueEditor=20;
 
-        [SerializeField] private GameObject imgStoreKeeperStand;
-        [SerializeField] private GameObject imgStoreKeeperPressed;
-
         private int currentAccountGold;
 
         private ToolType currentStoreSelected;
@@ -76,6 +73,9 @@ namespace FluffyDisdog.UI
         [FoldoutGroup("Request")] [SerializeField]
         private GameObject requestAddDisableBlur;
 
+        
+        [SerializeField] private GameObject imgStoreKeeperStand;
+        [SerializeField] private GameObject imgStoreKeeperPressed;
         private int requestAddPrice;
 
         [SerializeField]private Text txtRequestAddPrice;
@@ -104,7 +104,7 @@ namespace FluffyDisdog.UI
                 UIDeckListPopup.OpenPopup();
             });
             
-            requestDayFlow.text = ($"DAY - {TileGameManager.I.RequestSystem.DayFlow}");
+            requestDayFlow.text = ($"DAY - {TileGameManager.I.RequestSystem.ReqRewardLevelAdd+1}");
 
             List<int> usedRelic=new List<int>();
             var curRelic = TileGameManager.I.RelicSystem.currentRelicDatas;
@@ -218,9 +218,13 @@ namespace FluffyDisdog.UI
             specialCardSlot[0].gameObject.SetActive(true);
             specialCardSlot[0].BindHoverHandler(_ =>
             {
-                imgStoreKeeperPressed.gameObject.SetActive(_);
-                imgStoreKeeperStand.gameObject.SetActive(!_);
-            });
+                if (_)
+                {
+                    imgStoreKeeperPressed.gameObject.SetActive(_);
+                    imgStoreKeeperStand.gameObject.SetActive(!_);
+                }
+            }
+                );
             limit1Cost = ExcelManager.I.GetShopCost(limit1.rewardValue);
             txtSpecialPrice[0].SetText($"{limit1Cost} G");
             
@@ -229,8 +233,11 @@ namespace FluffyDisdog.UI
             specialCardSlot[1].gameObject.SetActive(true);
             specialCardSlot[1].BindHoverHandler(_ =>
             {
-                imgStoreKeeperPressed.gameObject.SetActive(_);
-                imgStoreKeeperStand.gameObject.SetActive(!_);
+                if (_)
+                {
+                    imgStoreKeeperPressed.gameObject.SetActive(_);
+                    imgStoreKeeperStand.gameObject.SetActive(!_);
+                }
             });
             limit2Cost = ExcelManager.I.GetShopCost(limit2.rewardValue);
             txtSpecialPrice[1].SetText($"{limit2Cost} G");
@@ -246,7 +253,7 @@ namespace FluffyDisdog.UI
 
                 for (int i = 0; i < requestCheckImg.Length; i++)
                 {
-                    requestCheckImg[i].SetActive(i < TileGameManager.I.RequestSystem.ReqRewardLevelAdd);
+                    requestCheckImg[i].SetActive(i <= TileGameManager.I.RequestSystem.ReqRewardLevelAdd);
                 }
 
                 requestAddPrice = ExcelManager.I.GetRequestData(TileGameManager.I.RequestSystem.ReqDegree).cost;
@@ -293,9 +300,6 @@ namespace FluffyDisdog.UI
             {
                 UIOptionPopup.OpenPopup();
             });
-            
-            imgStoreKeeperStand.gameObject.SetActive(true);
-            imgStoreKeeperPressed.gameObject.SetActive(false);
         }
 
         private void StartRequest(int deg)

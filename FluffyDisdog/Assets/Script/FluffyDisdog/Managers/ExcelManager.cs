@@ -244,12 +244,18 @@ namespace Script.FluffyDisdog.Managers
             }
         }
 
-        public ToolCardOpData GetToolCardOpData(ToolType t)
+        public ToolCardOpData[] GetToolCardOpData(ToolType t)
         {
             var data = GetToolExcelData(t);
-            if(data.AddedOptionIds[0] > 99)
-               return toolCardOpDataDic[data.AddedOptionIds[0]];
-            return null;
+            var ret = new ToolCardOpData[data.AddedOptionIds.Length];
+            int temp = 0;
+            foreach (var id in data.AddedOptionIds)
+            {
+                if(id >99)
+                    ret[temp] = toolCardOpDataDic[id];
+                temp++;
+            }
+            return ret;
         }
 
         public TagData GetTagData(int id)

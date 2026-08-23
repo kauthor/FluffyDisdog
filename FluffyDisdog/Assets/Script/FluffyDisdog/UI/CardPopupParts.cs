@@ -204,6 +204,8 @@ namespace FluffyDisdog.UI
             _selectType = CardSelectType.Selectable;
             selectable = indicator;
         }
+        private Action<bool> onHoveredGlobal;
+        public void BindHoverHandler(Action<bool> cb) => onHoveredGlobal = cb;
 
         public void BindHandler(Action<ToolType, CardPopupParts> cb)
         {

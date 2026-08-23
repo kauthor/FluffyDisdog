@@ -1,10 +1,9 @@
-﻿using FluffyDisdog.Data;
-using FluffyDisdog.Data.RelicData;
+﻿using FluffyDisdog.Data.RelicData;
 using Script.FluffyDisdog.Managers;
 
 namespace FluffyDisdog.RelicCommandData
 {
-    public class AdvancedHandleCommandData:RelicCommandData, IScoreAffectable
+    public class AdvancedHandleCommandData:RelicCommandData
     {
         public override RelicName relicType => RelicName.AdvancedHandle;
 
@@ -19,11 +18,6 @@ namespace FluffyDisdog.RelicCommandData
             base.OnExecuteCommand(param);
             PlayerManager.I.RuntimeStat.AddScoreMulti(rawData.Values[0]-1);
         }
-
-        public NodeScoreType scoreType => NodeScoreType.NONE;
-        public ToolTag toolType => ToolTag.Sixth;
-        public float scoreMulti => 0;
-        public float toolMulti => rawData.Values[0] - 1;
     }
     
 }

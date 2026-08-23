@@ -12,7 +12,16 @@ namespace Script.FluffyDisdog.TileClass
         {
             var type = TileGameManager.I.CurrentTool;
             var data = ExcelManager.I.GetToolCardOpData(type);
-            if (data!=null && data.CardAddType == 13 && data.Values[0] == 1)
+            bool exist = false;
+            if (data != null)
+            {
+                foreach (var d in data)
+                {
+                    if(d!=null && d.CardAddType == 13)
+                        exist = true;
+                }
+            }
+            if (exist /*&& data.Values[0] == 5*/)
             {
                 parentTileSet.TryAddExecutedNode(node);
                 node.EnableNode(false);
@@ -29,7 +38,16 @@ namespace Script.FluffyDisdog.TileClass
         {
             var type = TileGameManager.I.CurrentTool;
             var data = ExcelManager.I.GetToolCardOpData(type);
-            if (data!=null && data.CardAddType == 13 && data.Values[0] == 2)
+            bool exist = false;
+            if (data != null)
+            {
+                foreach (var d in data)
+                {
+                    if(d!=null && d.CardAddType == 13)
+                        exist = true;
+                }
+            }
+            if (exist /*&& data.Values[0] == 5*/)
             {
                 parentTileSet.TryAddExecutedNode(node);
                 node.EnableNode(false);
@@ -40,13 +58,22 @@ namespace Script.FluffyDisdog.TileClass
             }
         }
     }
-    public class ObstacleType3:NodeExecuter
+    public class ObstacleType3:NodeExecuter,IEventAffectable
     {
         public override void Execute()
         {
             var type = TileGameManager.I.CurrentTool;
             var data = ExcelManager.I.GetToolCardOpData(type);
-            if (data!=null && data.CardAddType == 13 && data.Values[0] == 3)
+            bool exist = false;
+            if (data != null)
+            {
+                foreach (var d in data)
+                {
+                    if(d!=null && d.CardAddType == 13)
+                        exist = true;
+                }
+            }
+            if (exist /*&& data.Values[0] == 5*/)
             {
                 parentTileSet.TryAddExecutedNode(node);
                 node.EnableNode(false);
@@ -54,10 +81,17 @@ namespace Script.FluffyDisdog.TileClass
             else
             {
                 //여기서 장애물로 기능
-                parentTileSet.SwapAllTiles();
+                PlayerManager.I.TurnEventSystem.AddEvent(TurnEvent.TurnEnd, TurnEnd,this);
+                
             }
             //parentTileSet.SwapNormalTiles();
             
+        }
+
+        private void TurnEnd(TurnEventOptionParam param)
+        {
+            parentTileSet.SwapAllTiles();
+            PlayerManager.I.TurnEventSystem.RemoveEvent(this);
         }
     }
     public class ObstacleType4:NodeExecuter
@@ -66,7 +100,16 @@ namespace Script.FluffyDisdog.TileClass
         {
             var type = TileGameManager.I.CurrentTool;
             var data = ExcelManager.I.GetToolCardOpData(type);
-            if (data!=null && data.CardAddType == 13 && data.Values[0] == 4)
+            bool exist = false;
+            if (data != null)
+            {
+                foreach (var d in data)
+                {
+                    if(d!=null && d.CardAddType == 13)
+                        exist = true;
+                }
+            }
+            if (exist /*&& data.Values[0] == 5*/)
             {
                 parentTileSet.TryAddExecutedNode(node);
                 node.EnableNode(false);
@@ -84,7 +127,16 @@ namespace Script.FluffyDisdog.TileClass
         {
             var type = TileGameManager.I.CurrentTool;
             var data = ExcelManager.I.GetToolCardOpData(type);
-            if (data!=null && data.CardAddType == 13 && data.Values[0] == 5)
+            bool exist = false;
+            if (data != null)
+            {
+                foreach (var d in data)
+                {
+                    if(d!=null && d.CardAddType == 13)
+                        exist = true;
+                }
+            }
+            if (exist /*&& data.Values[0] == 5*/)
             {
                 parentTileSet.TryAddExecutedNode(node);
                 node.EnableNode(false);
