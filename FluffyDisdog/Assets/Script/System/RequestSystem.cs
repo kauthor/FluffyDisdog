@@ -1,10 +1,31 @@
-﻿using FluffyDisdog.Data.RelicData;
+﻿using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using FluffyDisdog.Data;
+using FluffyDisdog.Data.RelicData;
 using FluffyDisdog.UI;
 using Script.FluffyDisdog.Managers;
 using UnityEngine;
 
 namespace FluffyDisdog
 {
+    public enum RequestRewardType
+    {
+        NONE=0,
+        Gold=1,
+        Card,
+        Relic,
+        Pack,
+        Weight,
+        Gacha,
+        RemoveOrUpgrade
+    }
+    public class RequestReward
+    {
+        public RequestRewardType Type;
+        public int value;
+        public int count;
+    }
     public class RequestSystem
     {
         private int reqStartLevel;
@@ -65,7 +86,7 @@ namespace FluffyDisdog
             var failBox = ExcelManager.I.GetRequestData(reqDegree).failBoxId;
             if (failBox == 0)
                 failBox = box;  //데이터 없을 때를 위한 예외처리
-            var superBox = ExcelManager.I.GetRequestData(reqDegree).successBoxId; //잭팟이... 없다?
+            var superBox = ExcelManager.I.GetRequestData(reqDegree).jackpotBoxId; //잭팟이... 없다?
             
             
             var successRate = reqData.successRate + reqData.successRateInvest * reqRewardLevelAdd + 
@@ -73,16 +94,23 @@ namespace FluffyDisdog
             
             var jackpotRate = reqData.jackpotRate +
                               reqData.jackpotRateInvest * DayFlow;
-            
-            bool success = Random.Range(0,10000) < successRate;
-            bool jackPot = Random.Range(0, 10000) < jackpotRate;
 
-            var boxData = success == false
+
+            int gacha = Random.Range(0, 10000);
+            bool success = gacha < successRate+jackpotRate;
+            bool jackPot = gacha < jackpotRate;
+
+            var boxItemData = success == false
                 ? ExcelManager.I.GetBoxItemData(failBox)
                 : (jackPot ? ExcelManager.I.GetBoxItemData(superBox) : ExcelManager.I.GetBoxItemData(box));
+            
+            var boxData = success == false
+                ? ExcelManager.I.GetBoxData(failBox)
+                : (jackPot ? ExcelManager.I.GetBoxData(superBox) : ExcelManager.I.GetBoxData(box));
 
             bool opengacha = false;
-            foreach (var item in boxData)
+            
+            /*foreach (var item in boxItemData)
             {
                 switch (item.rewardType)
                 {
@@ -100,13 +128,53 @@ namespace FluffyDisdog
 
                         break;
                 }
-            }
+            }*/
+
+            int boxPickValue = boxData.pickCount;
+            
+            ExecuteReward(boxItemData, boxPickValue);
 
             reqRewardLevelAdd = 0;
             reqDegree = 0;
             reqStartLevel = 0;
             
             return false;
+        }
+
+
+        private void ExecuteReward(BoxItemData[] data, int count)
+        {
+            var dataList = new List<RequestReward>();
+            if (count == 0)
+            {
+                foreach (var item in data)
+                {
+                    RequestReward reward = new RequestReward();
+                    reward.Type = (RequestRewardType)item.rewardType;
+                    reward.value = item.rewardValue;
+                    reward.count = item.rewardCount;
+                    dataList.Add(reward);
+                }
+            }
+            else
+            {
+                var rand = data.OrderBy(x => Random.Range(0, 100));
+                int temp = 0;
+                foreach (var item in rand)
+                {
+                    RequestReward reward = new RequestReward();
+                    reward.Type = (RequestRewardType)item.rewardType;
+                    reward.value = item.rewardValue;
+                    reward.count = item.rewardCount;
+                    dataList.Add(reward);
+                    temp++;
+                    if(temp >= count)
+                        break;
+                }
+            }
+            
+            //todo::DataList 로 신규  UI구성
+            
         }
     }
 }

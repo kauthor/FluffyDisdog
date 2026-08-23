@@ -18,6 +18,7 @@ namespace FluffyDisdog.Data
         public int jackpotRateInvest;
         public int failBoxId;
         public int successBoxId;
+        public int jackpotBoxId;
     }
     public class RequestTable:ScriptableObject
     {
