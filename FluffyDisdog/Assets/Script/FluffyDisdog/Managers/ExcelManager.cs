@@ -41,6 +41,7 @@ namespace Script.FluffyDisdog.Managers
         private RequestTable _requestTable;
         private BoxTable _boxTable;
         private BoxItemTable _boxItemTable;
+        private RequestWeightTable _requestWeightTable;
         
         private Dictionary<string, PackData> packDataDic;
         private Dictionary<string, ShopItemData> shopItemDataDic;
@@ -49,6 +50,7 @@ namespace Script.FluffyDisdog.Managers
         private Dictionary<int, RequestData> requestDataDic;
         private Dictionary<int, BoxData> boxDataDic;
         private List<BoxItemData> boxItemDataDic;
+        public Dictionary<int, Dictionary<string,RequestWeightData>> requestWeightDataDic;
         
         private bool initialized=false;
         public bool Initialized => initialized;
@@ -203,6 +205,16 @@ namespace Script.FluffyDisdog.Managers
             await boxItemHandle;
             Addressables.Release(boxItemHandle);
             
+            AsyncOperationHandle weightHandle =
+                Addressables.LoadAssetAsync<RequestWeightTable>("RequestWeightTable");
+            weightHandle.Completed += op =>
+            {
+                var res = op.Result as RequestWeightTable;
+                _requestWeightTable = res;
+            };
+            await weightHandle;
+            Addressables.Release(weightHandle);
+            
             toolDataDic = _toolTable.TryCache();
             relicDataDic = _relicDataTable.TryCache();
             toolExcelDataDic = _toolExcelDatas.TryCache();
@@ -219,6 +231,8 @@ namespace Script.FluffyDisdog.Managers
             requestDataDic = _requestTable.TryCache();
             boxDataDic = _boxTable.TryCache();
             boxItemDataDic = _boxItemTable.TryCache();
+            
+            requestWeightDataDic = _requestWeightTable.TryCache();
             
             initialized=true;
         }
@@ -339,6 +353,11 @@ namespace Script.FluffyDisdog.Managers
                 return ret;
             }
             return null;
+        }
+
+        public Dictionary<string, RequestWeightData> GetRequestWeightData(int key)
+        {
+            return requestWeightDataDic[key];
         }
     }
 }

@@ -150,6 +150,12 @@ namespace FluffyDisdog
                 foreach (var item in data)
                 {
                     RequestReward reward = new RequestReward();
+                    if (item.rewardType == 5)
+                    {
+                        var groupId = item.rewardValue;
+                        var pool = ExcelManager.I.GetRequestWeightData(groupId);
+                        
+                    }
                     reward.Type = (RequestRewardType)item.rewardType;
                     reward.value = item.rewardValue;
                     reward.count = item.rewardCount;
