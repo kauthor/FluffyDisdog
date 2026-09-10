@@ -154,12 +154,40 @@ namespace FluffyDisdog
                     {
                         var groupId = item.rewardValue;
                         var pool = ExcelManager.I.GetRequestWeightData(groupId);
-                        
+                        var gachaPool = new Dictionary<int, int>();
+                        int max = 0;
+                        foreach (var card in DeckManager.I.GetDeckList())
+                        {
+                            if (pool.TryGetValue(card.ToolType.ToString(), out var value))
+                            {
+                                if(gachaPool.ContainsKey(value.gachaId))
+                                    gachaPool[value.gachaId] += value.rate;
+                                else
+                                {
+                                    gachaPool.Add(value.gachaId, value.rate);
+                                }
+                                max += value.rate;
+                            }
+                        }
+                        var rand = Random.Range(0, max);
+                        foreach (var pair in gachaPool)
+                        {
+                            rand -= pair.Value;
+                            if (rand < 0)
+                            {
+                                reward.Type = RequestRewardType.Gacha;
+                                reward.value = pair.Key;
+                                dataList.Add(reward);
+                            }
+                        }
                     }
-                    reward.Type = (RequestRewardType)item.rewardType;
-                    reward.value = item.rewardValue;
-                    reward.count = item.rewardCount;
-                    dataList.Add(reward);
+                    else
+                    {
+                        reward.Type = (RequestRewardType)item.rewardType;
+                        reward.value = item.rewardValue;
+                        reward.count = item.rewardCount;
+                        dataList.Add(reward);
+                    }
                 }
             }
             else
@@ -169,10 +197,44 @@ namespace FluffyDisdog
                 foreach (var item in rand)
                 {
                     RequestReward reward = new RequestReward();
-                    reward.Type = (RequestRewardType)item.rewardType;
-                    reward.value = item.rewardValue;
-                    reward.count = item.rewardCount;
-                    dataList.Add(reward);
+                    if (item.rewardType == 5)
+                    {
+                        var groupId = item.rewardValue;
+                        var pool = ExcelManager.I.GetRequestWeightData(groupId);
+                        var gachaPool = new Dictionary<int, int>();
+                        int max = 0;
+                        foreach (var card in DeckManager.I.GetDeckList())
+                        {
+                            if (pool.TryGetValue(card.ToolType.ToString(), out var value))
+                            {
+                                if(gachaPool.ContainsKey(value.gachaId))
+                                    gachaPool[value.gachaId] += value.rate;
+                                else
+                                {
+                                    gachaPool.Add(value.gachaId, value.rate);
+                                }
+                                max += value.rate;
+                            }
+                        }
+                        var r = Random.Range(0, max);
+                        foreach (var pair in gachaPool)
+                        {
+                            r -= pair.Value;
+                            if (r < 0)
+                            {
+                                reward.Type = RequestRewardType.Gacha;
+                                reward.value = pair.Key;
+                                dataList.Add(reward);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        reward.Type = (RequestRewardType)item.rewardType;
+                        reward.value = item.rewardValue;
+                        reward.count = item.rewardCount;
+                        dataList.Add(reward);
+                    }
                     temp++;
                     if(temp >= count)
                         break;
@@ -180,7 +242,7 @@ namespace FluffyDisdog
             }
             
             //todo::DataList 로 신규  UI구성
-            
+            UiRequestResultPopup.OpenPopup(dataList);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using FluffyDisdog.Data.RelicData;
+using FluffyDisdog.UI.Part;
 using Script.FluffyDisdog.Managers;
 using Sirenix.OdinInspector;
 using TMPro;
@@ -9,7 +10,7 @@ using UnityEngine.UI;
 
 namespace FluffyDisdog.UI
 {
-    public class RelicSlotTreasure:MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
+    public class RelicSlotTreasure:MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,ISelectableUiPart
     {
         [SerializeField] private Image relicImage;
         [SerializeField] private Button btnRelicBuy;
@@ -121,6 +122,7 @@ namespace FluffyDisdog.UI
         {
             hoverArea.SetActive(false);
         }
-        
+
+        public SelectableUiType Type => SelectableUiType.Relic;
     }
 }

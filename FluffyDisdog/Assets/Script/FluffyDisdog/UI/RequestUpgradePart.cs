@@ -1,22 +1,16 @@
 ﻿using System;
-using FluffyDisdog.Data.RelicData;
 using FluffyDisdog.UI.Part;
-using Script.FluffyDisdog.Managers;
 using Sirenix.OdinInspector;
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace FluffyDisdog.UI
 {
-    public class GoldSlotTreasure:MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,ISelectableUiPart
+    public class RequestUpgradePart:MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,ISelectableUiPart
     {
-        [SerializeField] private Button btnSelect;
-
-        [SerializeField] private TextMeshProUGUI txtAmount;
         
+        [SerializeField] private Button btnSelect;
         [FoldoutGroup("Selectable")] [SerializeField]
         private GameObject hoverArea;
 
@@ -44,52 +38,34 @@ namespace FluffyDisdog.UI
         [FoldoutGroup("Color Field")] [SerializeField]
         private Color unselectableOutlineColor;
 
-        private event Action<int, GoldSlotTreasure> onCardPackOpen;
         private Func<bool> selectable;
-        
-        private bool selected = false;
-        public bool Selected => selected;
 
+        private Action<RequestUpgradePart> OnCLicked;
+        
+        private bool selected=false;
+        public bool Selected => selected;
+        
+        private Action<bool> onHoveredGlobal;
         private void Start()
         {
             btnSelect.onClick.RemoveAllListeners();
-            btnSelect.onClick.AddListener(TryClickRelic);
-        }
-
-        private int Amount;
-
-        public void Init(int cost, Action<int,GoldSlotTreasure> onCardPackOpen)
-        {
-            this.Amount = cost;
-            this.onCardPackOpen -= onCardPackOpen;
-            this.onCardPackOpen += onCardPackOpen;
-            selected = false;
-            
-            txtAmount.SetText($"{cost} G");
+            btnSelect.onClick.AddListener(OnClick);
         }
         
-        public void InitAsSelectable(Func<bool> indicator)
+       
+
+        public void Init(Func<bool> indicator, Action<bool> hoveredGlobal, Action<RequestUpgradePart> cb)
         {
-            //_selectType = CardSelectType.Selectable;
+            selected=false;
             selectable = indicator;
+            onHoveredGlobal=hoveredGlobal;
+            OnCLicked = cb;
         }
         
-        
-        private void TryClickRelic()
-        {
-            if (selected || selectable())
-            {
-                selected = !selected;
-                txtSelect.gameObject.SetActive(!selected);
-                txtCancel.gameObject.SetActive(selected);
-                imgSelected.gameObject.SetActive(selected);
-                        
-            }
-            onCardPackOpen?.Invoke(Amount,this);
-        }
         
         public void OnPointerEnter(PointerEventData eventData)
         {
+            
             hoverArea.SetActive(true);
             txtSelect.gameObject.SetActive(!selected);
             txtCancel.gameObject.SetActive(selected);
@@ -97,13 +73,35 @@ namespace FluffyDisdog.UI
             txtSelectTMP?.SetColor(selectable() ? selectableColor : unselectableColor);
             txtSelectTMP?.SetOutlineColor(selectable() ? selectableOutlineColor : unselectableOutlineColor);
             
+            onHoveredGlobal?.Invoke(true);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
             hoverArea.SetActive(false);
+            onHoveredGlobal?.Invoke(false);
         }
 
-        public SelectableUiType Type => SelectableUiType.Gold;
+        private void OnClick()
+        {
+            
+            if (selected || selectable())
+            {
+                selected = !selected;
+                txtSelect.gameObject.SetActive(!selected);
+                txtCancel.gameObject.SetActive(selected);
+                imgSelected.gameObject.SetActive(selected);
+                    
+            }
+            
+            OnCLicked?.Invoke(this);
+            if (selectable != null)
+            {
+                txtSelectTMP?.SetColor(selectable() ? selectableColor : unselectableColor);
+                txtSelectTMP?.SetOutlineColor(selectable() ? selectableOutlineColor : unselectableOutlineColor);
+            }
+        }
+
+        public SelectableUiType Type => SelectableUiType.Upgrade;
     }
 }

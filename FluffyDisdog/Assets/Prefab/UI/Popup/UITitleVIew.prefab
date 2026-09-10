@@ -86,7 +86,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &7412753550161642171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 268965127033237670}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1815a90799148219df9631aaa93477e, type: 3}
+  m_Script: {fileID: 11500000, guid: 71468d016e1e4c4db1c94ff83fc55e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   btnClickArea: {fileID: 7315665319867625531}
@@ -784,15 +784,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3023168650927062449}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1815a90799148219df9631aaa93477e, type: 3}
+  m_Script: {fileID: 11500000, guid: 71468d016e1e4c4db1c94ff83fc55e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   btnClickArea: {fileID: 2736925857556673254}
   pnlNormalMask: {fileID: 634205249968686681}
   pnlDisableMask: {fileID: 7017543506627432124}
   jams:
-  - {fileID: 677041233786307863}
   - {fileID: 8921689172741450330}
+  - {fileID: 677041233786307863}
 --- !u!1 &3849425709130351992
 GameObject:
   m_ObjectHideFlags: 0
@@ -1260,7 +1260,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4575557605830724935}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1815a90799148219df9631aaa93477e, type: 3}
+  m_Script: {fileID: 11500000, guid: 71468d016e1e4c4db1c94ff83fc55e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   btnClickArea: {fileID: 1966025148711985503}
@@ -1739,15 +1739,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 6837279164670818208}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1815a90799148219df9631aaa93477e, type: 3}
+  m_Script: {fileID: 11500000, guid: 71468d016e1e4c4db1c94ff83fc55e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   btnClickArea: {fileID: 2164086927747203167}
   pnlNormalMask: {fileID: 4696214372363079355}
   pnlDisableMask: {fileID: 7100797274681393385}
   jams:
-  - {fileID: 6313966438485061167}
-  - {fileID: 4844748963355873369}
+  - {fileID: 4420871242638096824}
+  - {fileID: 7930223947426140507}
 --- !u!1 &7017543506627432124
 GameObject:
   m_ObjectHideFlags: 0

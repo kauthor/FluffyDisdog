@@ -1,5 +1,6 @@
 ﻿using System;
 using FluffyDisdog.Data;
+using FluffyDisdog.UI.Part;
 using Script.FluffyDisdog.Managers;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
@@ -15,7 +16,7 @@ namespace FluffyDisdog.UI
         NONE=0,
         Selectable=1
     }
-    public class CardPopupParts:MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
+    public class CardPopupParts:MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,ISelectableUiPart
     {
         [SerializeField] private Text txtType;
         [SerializeField] private Text txtShadow;
@@ -240,5 +241,7 @@ namespace FluffyDisdog.UI
             hoverArea.SetActive(false);
             onHoveredGlobal?.Invoke(false);
         }
+
+        public SelectableUiType Type => SelectableUiType.Card;
     }
 }
