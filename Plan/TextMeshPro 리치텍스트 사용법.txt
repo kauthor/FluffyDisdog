@@ -1,0 +1,20 @@
+https://mentum.tistory.com/411  관련 티스토리
+https://docs.unity3d.com/Packages/com.unity.textmeshpro@4.0/manual/Sprites.html  스프라이트 에셋 메뉴얼
+https://docs.unity3d.com/Packages/com.unity.textmeshpro@4.0/manual/RichTextSprite.html  리치 텍스트 메뉴얼
+
+스프라이트 세트를 multiply로 임포트한다.
+임포트된 스프라이트를 우클릭하여 오른쪽 클릭 -> TextMeshPro -> SpriteAsset 순으로 선택해서, 스프라이트 에셋을 만든다.
+스프라이트 에셋을 Resource 하위의 폴더에 적절히 옮긴 뒤, 
+Project Setting 의 Text Mesh Pro -> Settings -> Default Sprite Asset 에서 세팅 변경
+ - Default Sprite Asset 은 스프라이트 묶음을 명시하지 않았을 때, 기본 호출되는 스프라이트 에셋 (굳이 밑의 Path에 지정한 경로에 없어도 됨)
+ - Path 는 스프라이트 묶음을 리치 텍스트에서 명시했을 때, 참조하는 경로 (즉, 어지간하면 여기서 지정한 이 폴더는 3번에서 지정한 폴더일 것)
+
+5. 사용법
+  - Default Sprite Asset 선에서 호출한다면, <sprite=0> 처럼 인덱스 번호로 호출하거나, <sprite name="스프라이트이름"> 처럼 이름으로 호출
+  - Path 하위의 다른 스프라이트 에셋을 쓰고 싶다면, <sprite="에셋이름" index=0> 혹은 <sprite="에셋이름" name="스프라이트이름"> 처럼 스프라이트 에셋 이름을 선언해야함.
+
+6. 스프라이트의 텍스트에서의 위치가 마음에 안들 경우, 스프라이트 에셋에서 Sprite Glyph Table -> 해당 스프라이트의 Glyph Metrix를 수정하거나,
+    Sprite Glyph Table -> Global Offset 으로 광역 오프셋을 준다. (각 변수가 무엇을 의미하는지는 스프라이트 에셋 메뉴얼을 참조하면 됨)
+
+
+7. 그 외에 폰트색상 등의 기능 역시 기본적으로 리치 텍스트로 제공하므로, 리치 텍스트 메뉴얼을 참고하면 좋겠다.
