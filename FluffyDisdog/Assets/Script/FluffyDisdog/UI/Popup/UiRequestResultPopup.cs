@@ -47,8 +47,69 @@ namespace FluffyDisdog.UI
             btnNext.onClick.RemoveAllListeners();
             btnNext.onClick.AddListener(() =>
             {
-                
-                Close();
+                bool upgrade = false;
+                bool pack = false;
+                int packId=0;
+                foreach (var s in currentSelected)
+                {
+                    switch (s.Type)
+                    {
+                        case SelectableUiType.Card:
+                            if (s is CardPopupParts p)
+                            {
+                                DeckManager.I.TryAddDeck(p.ToolType);
+                            }
+
+                            break;
+                        case SelectableUiType.Gold:
+                            if (s is GoldSlotTreasure t)
+                            {
+                                AccountManager.I.AddGold(t.Amount);
+                            }
+
+                            break;
+                        case SelectableUiType.Upgrade:
+                            upgrade = true;
+                            break;
+                        case SelectableUiType.Relic:
+                            if (s is RelicSlotTreasure r)
+                            {
+                                TileGameManager.I.RelicSystem.GainRelic(r.RelicType);
+                            }
+
+                            break;
+                        case SelectableUiType.Pack:
+                            pack = true;
+                            if (s is UIRequestPackPart q)
+                            {
+                                packId = q.GachaType;
+                            }
+                            break;
+                    }
+                }
+
+                if (upgrade)
+                {
+                    if (pack)
+                    {
+                        UICardPackResultPopup.OpenPopup(packId, 0, () =>
+                        {
+                            UIUpgradeSelectPopup.OpenPopup(_=>Close());
+                        });
+                    }
+                    else
+                    {
+                        UIUpgradeSelectPopup.OpenPopup(_=>Close());
+                    }
+                }
+                else
+                {
+                    if (pack)
+                    {
+                        UICardPackResultPopup.OpenPopup(packId, 0, Close);
+                    }
+                }
+                //Close();
             });
         }
         

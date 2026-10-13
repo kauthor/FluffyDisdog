@@ -32,13 +32,15 @@ namespace FluffyDisdog.UI
         private int selectLimit = 1;
         
         private List<int> selectedCards = new List<int>();
+
+        private Action onCloseCb;
         
-        public static PopupMonoBehavior OpenPopup(int gachaType, int cost)
+        public static PopupMonoBehavior OpenPopup(int gachaType, int cost, Action onClose=null)
         {
             var pop = PopupManager.I.GetPopup(PopupType.CardPackResult);
             if (pop is UICardPackResultPopup pack)
             {
-                pack.Init(gachaType, cost);
+                pack.Init(gachaType, cost, onClose);
                 pack.gameObject.SetActive(true);
                 //return pop;
             }
@@ -74,10 +76,11 @@ namespace FluffyDisdog.UI
             });
         }
 
-        private void Init(int gachaType, int cost)
+        private void Init(int gachaType, int cost, Action onClose=null)
         {
             var result = CutPack(gachaType);
             selectLimit = 1;
+            onCloseCb = onClose;
             if (result != null && result.Length > 0)
             {
                 AccountManager.I.GoldConsume(cost);
@@ -142,6 +145,11 @@ namespace FluffyDisdog.UI
         {
             nextLine.SetActive(hover);
         }
-        
+
+        protected override void OnCloseClick()
+        {
+            base.OnCloseClick();
+            onCloseCb?.Invoke();
+        }
     }
 }

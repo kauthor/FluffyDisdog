@@ -56,11 +56,12 @@ namespace FluffyDisdog.UI
             btnSelect.onClick.AddListener(TryClickRelic);
         }
 
-        private int Amount;
+        private int amount;
+        public int Amount => amount;
 
         public void Init(int cost, Action<int,GoldSlotTreasure> onCardPackOpen)
         {
-            this.Amount = cost;
+            this.amount = cost;
             this.onCardPackOpen -= onCardPackOpen;
             this.onCardPackOpen += onCardPackOpen;
             selected = false;
@@ -85,7 +86,7 @@ namespace FluffyDisdog.UI
                 imgSelected.gameObject.SetActive(selected);
                         
             }
-            onCardPackOpen?.Invoke(Amount,this);
+            onCardPackOpen?.Invoke(amount,this);
         }
         
         public void OnPointerEnter(PointerEventData eventData)
@@ -96,7 +97,6 @@ namespace FluffyDisdog.UI
             
             txtSelectTMP?.SetColor(selectable() ? selectableColor : unselectableColor);
             txtSelectTMP?.SetOutlineColor(selectable() ? selectableOutlineColor : unselectableOutlineColor);
-            
         }
 
         public void OnPointerExit(PointerEventData eventData)

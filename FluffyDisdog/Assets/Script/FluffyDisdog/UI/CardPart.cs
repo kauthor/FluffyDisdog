@@ -10,7 +10,7 @@ using UnityEngine.UI;
 
 namespace FluffyDisdog.UI
 {
-    public class CardPart:MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    public class CardPart:MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,IPointerMoveHandler
     {
         [SerializeField] private Text txtType;
         [SerializeField] private Text txtNameShadow;
@@ -86,7 +86,8 @@ namespace FluffyDisdog.UI
                 var localName = ExcelManager.I.GetLocalizeData(data.CardNameKeyLocal);
                 txtType.text = localName.kor;
                 txtNameShadow.text = localName.kor;
-                txtDesc.SetText(localDesc.kor);
+                string link = "<link=\"gold\"><sprite=1></link>";
+                txtDesc.SetText(localDesc.kor + link);
             }
             
 
@@ -194,6 +195,18 @@ namespace FluffyDisdog.UI
         {
             onHoverCb = onHover;
             onExitCb = onExit;
+        }
+
+        public void OnPointerMove(PointerEventData eventData)
+        {
+            int linkIndex = TMP_TextUtilities.FindIntersectingLink(txtDesc, eventData.position, null);
+
+            if (linkIndex != -1)
+            {
+                TMP_LinkInfo linkInfo = txtDesc.textInfo.linkInfo[linkIndex];
+                string linkID = linkInfo.GetLinkID();
+                Debug.Log(linkID);
+            }
         }
     }
 }

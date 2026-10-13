@@ -61,6 +61,7 @@ namespace FluffyDisdog.UI
 
         private int cost;
         private RelicName relicType;
+        public RelicName RelicType => relicType;
 
         public void Init(RelicName relicN, Action<RelicName,RelicSlotTreasure> onCardPackOpen)
         {
